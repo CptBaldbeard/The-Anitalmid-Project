@@ -10,7 +10,7 @@ updated: 2026-07-26
 
 ## Status Summary
 
-- **Total claims extracted:** 46
+- **Total claims extracted:** 50
 - **Birkman claims:** 17 (anitalmid-birkman-1 through anitalmid-birkman-17)
 - **Career history claims:** 10 (anitalmid-career-1 through anitalmid-career-10)
 - **Role-fit synthesis claims:** 6 (anitalmid-fit-1 through anitalmid-fit-6)
@@ -18,11 +18,11 @@ updated: 2026-07-26
 - **Education claims:** 1 (anitalmid-edu-1: BS Public Relations)
 - **Strength claims:** 1 (anitalmid-strength-1: Learning Agility, Open-Source, Collaboration)
 - **Framework inference claims:** 7 (anitalmid-mbti-1, anitalmid-enneagram-1 [SUPERSEDED], anitalmid-enneagram-2 [CORRECTED], anitalmid-disc-1, anitalmid-ocean-1, anitalmid-holland-1, anitalmid-triangulation-1)
-- **Parachute claims:** 3 (anitalmid-parachute-1, anitalmid-parachute-2, anitalmid-parachute-3)
-- **Edges added:** Yes (all claims include intra-domain edges)
+- **Parachute claims:** 7 (anitalmid-parachute-1 through anitalmid-parachute-7)
+- **Edges added:** Yes (all claims include intra-domain edges; Parachute session 2 added cross-domain edges to Birkman, Enneagram, and existing Parachute claims)
 - **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain; Parachute → Role-fit chain)
 - **Frameworks integrated:** 7 (Birkman + MBTI + Enneagram + DISC + Big Five + Holland Codes + Parachute)
-- **Last session:** 2026-07-27 — What Color Is Your Parachute? integration (3 claims, 2 reference notes, frameworks #7)
+- **Last session:** 2026-07-27 — What Color Is Your Parachute? full-text verification (4 new claims from Chapters 3, 5, 12; Parachute claims: 3 → 7)
 
 ## Remaining Work
 
@@ -59,6 +59,24 @@ updated: 2026-07-26
 - Written to `Capstone - Career Aptitude Synthesis.md` (18KB, 7 sections)
 
 ## Session Log
+
+### 2026-07-27 — Session 8 (Parachute Full-Text Verification)
+- Downloaded and extracted the complete 2012 edition of *What Color Is Your Parachute?* (epub, 14 MB, ~350 pages)
+- Full-text extraction confirmed all 14 chapters + Appendices A-D
+- Existing integration validated — Wikipedia/LLM summaries were accurate for Chapters 7, 12, 13
+- 4 new OSKG claims created from chapters NOT covered by summaries:
+  - `anitalmid-parachute-4`: Five-Part Survival Framework (HIGH confidence) — Bolles' structural architecture of Attitudes → Techniques → Job-Creation → Self-Inventory → Teaching parallels the Anitalmid OSKG pipeline
+  - `anitalmid-parachute-5`: Employer Preference Inversion (HIGH confidence) — Chapters 5's core thesis: during hard times, employers revert to THEIR preferred hiring channels while job-hunters keep using THEIR preferred channels, creating structural mismatch
+  - `anitalmid-parachute-6`: Three Survival Attitudes (MEDIUM confidence) — Tenacity (always have ≥2 alternatives), Adaptability (identity beyond job-title), and Deliberate Optimism (learning during unemployment); mapped to Dan's Birkman/Enneagram architecture
+  - `anitalmid-parachute-7`: Career Testing Warnings (HIGH confidence) — Bolles' 6 explicit testing cautions serve as a quality standard for the project; the Anitalmid 7-framework approach passes all 6
+- Updated `Parachute/What Color Is Your Parachute Framework.md` — added Five-Part Framework section, chapter coverage table, updated sources, corrected ISBN
+- Updated `Capstone - Career Aptitude Synthesis.md` — added Part 9 (Full-Text Verification), updated claims count to 50, edges to 210
+- **KEY INSIGHTS:**
+  1. The employer preference inversion is the "Rosetta Stone" for the Parachute methodology — it explains WHY networking works and job boards don't
+  2. The five-part framework structurally parallels the OSKG pipeline — independent methodological convergence
+  3. Bolles' testing warnings validate the project's 7-framework triangulation approach from a 40-year career counseling authority
+  4. Full-text verification did NOT change any settled convergences — it added execution strategy (HOW), not career direction (WHAT)
+- Total claims: 46 → 50. Parachute claims: 3 → 7. Evidence layers unchanged (6). Book coverage: summary-based → full-text verified.
 
 ### 2026-07-27 — Session 7 (Parachute Integration — What Color Is Your Parachute?)
 - Sourced Richard Nelson Bolles' *What Color Is Your Parachute?* (1970, revised annually through 2022, 10M+ copies)

@@ -2,8 +2,8 @@
 title: "What Color Is Your Parachute? — Framework Reference"
 created: 2026-07-27
 author: "Richard Nelson Bolles (1970, revised annually through 2022)"
-source: "Book: What Color Is Your Parachute? (Ten Speed Press)"
-isbn: "978-0-89815-844-1"
+source: "Book: What Color Is Your Parachute?, 2012 edition (epub) — verified by full-text extraction"
+isbn: "978-1-60774-076-6 (eISBN), 978-0-89815-844-1 (print)"
 copies_sold: "10+ million worldwide"
 languages: 22
 tags:
@@ -64,6 +64,34 @@ FIND the right work?"
 5. **The job market is a market of YOU.** You are the product. The Flower
    Exercise is your product specification sheet. The informational interview
    is your market research. The job offer is your sale.
+
+6. **Job-hunting during hard times requires SURVIVAL skills, not just search**
+   The book's subtitle is "A Practical Manual for Job-Hunters and
+   Career-Changers" — it treats job-hunting as a calibrated response to
+   economic conditions, not a one-size-fits-all process.
+
+7. **Mission is inherently spiritual.** Bolles explicitly grounds the concept
+   of Vocation/Calling in religious tradition, arguing that career satisfaction
+   requires alignment with a transcendent purpose, not just personal enthusiasm.
+   This is particularly relevant for Dan's Enneagram Type 4 (meaning-driven
+   core motivation).
+
+## The Five-Part Survival Framework
+
+Bolles structures the book around a five-part framework (not merely a list
+of chapters) that treats job-hunting as a survival skill:
+
+| Part | Section | Key Insight |
+|---|---|---|
+| **I. Attitudes** (Ch.3-4) | Three survival attitudes + dealing with handicaps | Emotional foundation BEFORE techniques. Bolles' 40-year finding: attitude predicts outcomes more reliably than technique quality. |
+| **II. Job-Finding** (Ch.5-9) | Best/worst search methods, resumes, networking, interviewing, salary negotiation | The employer preference inversion — during hard times employers revert to THEIR preferred channels (internal, referrals, proof). |
+| **III. Job-Creation** (Ch.10-12) | Starting a business, inventiveness, choosing a new career | Sometimes the job doesn't exist yet and must be created. Franchises, entrepreneurship, and career pivots. |
+| **IV. Self-Inventory** (Ch.13) | The Flower Exercise — WHAT/WHERE/HOW | The centerpiece. 7 petals, 7 stories, Skills Grid taxonomy. Takes weeks to complete properly. |
+| **V. Each One Teach One** (Ch.14 + Appendices) | Teaching others + finding your mission | The best way to learn job-hunting is to teach someone else. Appendices on Mission, Depression, and Coaching. |
+
+The Anitalmid OSKG pipeline unconsciously mirrors this architecture:
+Claims extraction (IV) → Structural analysis (II) → Role profiles (III) →
+Capstone synthesis (V).
 
 ## The Flower Exercise — Seven Petals
 
@@ -256,13 +284,44 @@ yourself" (assessment) and "finding the right work" (execution).
 
 ## Sources
 
-- Bolles, Richard Nelson. *What Color Is Your Parachute?* Ten Speed Press,
-  revised annually 1975-2022.
-- Wikipedia: "What Color Is Your Parachute?" (retrieved 2026-07-27)
+**Primary (verified):**
+- Bolles, Richard Nelson. *What Color Is Your Parachute? 2012: A Practical
+  Manual for Job-Hunters and Career-Changers.* 40th Anniversary Edition.
+  Ten Speed Press / Crown Publishing, 2012. eISBN 978-1-60774-076-6.
+  **Full-text extracted and verified: 2026-07-27** (from epub, 14 MB, ~350 pages).
+
+- Wikipedia: "What Color Is Your Parachute?" (retrieved 2026-07-27,
+  initial integration — limited to summary-level data; full book
+  extraction on 2026-07-27 added chapters 1-14 + appendices A-D)
+
 - Bolles' official site: JobHuntersBible.com (archived)
-- Four Minute Books summary (Niklas Göke, 2017/2022)
-- The book's integration of Holland Codes and MBTI is original to Bolles'
-  synthesis of career counseling research (1970-2017 editions).
+
+- Four Minute Books summary (Niklas Göke, 2017/2022 — used in initial
+  integration; superseded by full-text extraction for chapters 3-6,
+  10-12, and appendices A-D)
+
+## Chapter Coverage (post full-text extraction)
+
+| Chapter | Topic | Coverage Source | OSKG Claims |
+|---|---|---|---|
+| 1 | How to Find Hope | Full book | parachute-6 |
+| 2 | Survival Skills | Full book | parachute-4 |
+| 3 | Three Attitudes | Full book (NEW) | parachute-6 |
+| 4 | Dealing with Handicaps | Full book (NEW) | — |
+| 5 | Best/Worst Ways to Job-Hunt | Full book (NEW) | parachute-5 |
+| 6 | Do I Really Need a Resume? | Full book (NEW) | — |
+| 7 | Networking & Social Media | Full book | parachute-3 |
+| 8 | Sixteen Tips About Interviewing | Full book | — |
+| 9 | Six Secrets of Salary Negotiation | Full book | — |
+| 10 | Starting Your Own Business | Full book (NEW) | — |
+| 11 | Being Inventive Is Key to Survival | Full book | — |
+| 12 | How to Choose a New Career | Full book (NEW) | parachute-7 |
+| 13 | The Flower Exercise | Full book | parachute-1, parachute-2 |
+| 14 | Teaching Survival Job-Hunting | Full book | — |
+| App A | Finding Your Mission in Life | Full book (NEW) | — |
+| App B | Guide to Unemployment Depression | Full book | — |
+| App C | Choosing a Career Coach | Full book | — |
+| App D | Sampler List of Coaches | Full book | — |
 
 ## Related Notes
 

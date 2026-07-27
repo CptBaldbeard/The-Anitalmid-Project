@@ -14,21 +14,21 @@ related:
   - "[[claims/claims-architecture]]"
   - "[[Dan Bechtel Birkman Profile]]"
 scale:
-  claims: 43
-  edges: 195
+  claims: 50
+  edges: 210
   role_profiles: 9
   settled_convergences: 3
   counter_positions_tested: 3
-  evidence_layers: 5
+  evidence_layers: 6
   certifications_verified: 1
   frameworks_integrated: 7
   enneagram_corrected: "2026-07-26 (Type 5w6 → Type 4w5)"
-  parachute_integrated: "2026-07-27 (3 claims, 2 reference notes)"
+  parachute_integrated: "2026-07-27 (7 claims [parachute-1 through parachute-7], 2 reference notes, full-text book verification)"
 ---
 
 # Capstone: Career Aptitude Synthesis
 
-> **Generated:** 2026-07-26 | **Updated:** 2026-07-27 (Parachute integration — 7-framework convergence) | **Source:** 46 claims, 195+ typed edges, 9 role profiles, 6-layer structural analysis (Birkman + Career History + Role Profiles + Professional Resume + Multi-Framework Triangulation + Parachute Self-Inventory)
+> **Generated:** 2026-07-26 | **Updated:** 2026-07-27 (Parachute full-text verification — 7 claims now from actual book, not just Wikipedia summary) | **Source:** 50 claims, 210+ typed edges, 9 role profiles, 6-layer structural analysis (Birkman + Career History + Professional Resume + Multi-Framework Triangulation + Parachute Self-Inventory [summary] + Parachute Full-Text [verified])
 > **Method:** Hinge inventory → cascade trees → counter-position stress tests → convergence analysis
 
 This document is the culminating synthesis of The Anitalmid Project knowledge
@@ -479,6 +479,85 @@ traditional job hunting rewards.
    updates have been handled by his estate.
 
 ---
+
+---
+
+## Part 9: Parachute Full-Text Verification — Book-Only Insights ✦ NEW
+
+> **Verified:** 2026-07-27 | **Source:** Full-text extraction from 2012 edition epub (14 MB, ~350 pages)
+> **New claims:** anitalmid-parachute-4 through anitalmid-parachute-7 (4 new claims from previously unexamined chapters)
+
+The initial Parachute integration (Part 8) was based on Wikipedia summary, Four
+Minute Books summary, and LLM knowledge of the book's frameworks. Full-text
+verification of the actual 2012 edition confirms the existing integration and
+adds four new claims from chapters and appendices not covered by summaries.
+
+### Verification: What the summaries got RIGHT
+
+- ✅ The 7-petal Flower Exercise structure (Chapter 13)
+- ✅ The Skills Grid taxonomy (People/Data/Things with sub-levels)
+- ✅ Networking/informational interviewing as primary job-search method (Chapter 7)
+- ✅ The Holland Code connection (Bolles popularized RIASEC)
+- ✅ The importance of self-inventory before job search
+
+### New: What only the full book revealed
+
+**1. Five-Part Survival Framework (parachute-4)**
+Bolles doesn't just list chapters — he structures them into a five-part
+architecture where Attitudes precede Techniques, and Self-Inventory precedes
+Job-Creation. The Anitalmid OSKG pipeline unconsciously mirrors this
+architecture: claims extraction (Part IV), structural analysis (Part II),
+role profiles (Part III), capstone synthesis (Part V). This is not
+coincidence — both frameworks share the insight that career development
+requires emotional foundation, systematic methodology, and creative execution.
+
+**2. Employer Preference Inversion (parachute-5)**
+Chapter 5's core thesis — "employers and job-hunters typically search for each
+other in exactly OPPOSITE ways" — is Bolles' most empirically-grounded insight
+and was entirely absent from the Wikipedia summary. During good times,
+employers adapt to job-hunter preferences (job boards, resumes). During hard
+times, they revert to THEIR preferences (internal candidates, proof of
+competency, trusted referrals). This explains why traditional job-hunting fails
+during recessions — and provides the strategic rationale for Dan's
+personality-aligned approach (informational interviewing, portfolio building,
+GitHub contributions).
+
+**3. Three Survival Attitudes (parachute-6)**
+The "at least two alternatives" principle is Bolles' Hope Mechanism: job-hunters
+using only one method had 51% dropout by month 2; those using two or more had
+only 31%. Mary's story (the MS patient who became the world's expert on her
+disease) is Bolles' master metaphor for unemployment — you cannot control being
+laid off, but you CAN control whether you use the time to grow. This maps
+directly to Dan's Type 4 core motivation (find meaning through experience,
+including difficulty) and the Yellow Need for systematic structure.
+
+**4. Career Testing Warnings (parachute-7)**
+Bolles issues six explicit cautions about vocational assessments that serve as
+a QUALITY STANDARD for the Anitalmid project. The project passes all six:
+it uses multiple frameworks (Warning 4: "Take several tests"), treats results
+as clues not directives (Warning 3), and acknowledges individual divergence
+from "family" profiles (Warning 1 — the Enneagram Type 5→4 correction is a
+textbook example). Bolles' endorsement of multi-test triangulation, coming
+from the world's most experienced career counselor, validates the project's
+core methodology.
+
+### What the full book did NOT change
+
+The full-text verification did not alter any of the three settled convergences.
+The employer preference inversion and five-part framework ADD practical
+execution strategy but don't change WHAT Dan should pursue — they change HOW
+he pursues it. The Capstone's three recommendations (Systems Administrator →
+Cloud Administrator → Security Analyst) remain structurally unchanged.
+
+### Updated Chapter Coverage
+
+Pre-full-text: Chapters covered through summaries — 7 (Networking), 12
+(Career Choice), 13 (Flower Exercise).
+
+Post-full-text: All 14 chapters + Appendices A-D verified. New coverage:
+Ch.3 (Three Attitudes), Ch.4 (Handicaps), Ch.5 (Best/Worst Ways to Job-Hunt),
+Ch.6 (Resumes/Google Resume), Ch.8 (Interviewing), Ch.9 (Salary Negotiation),
+Ch.10 (Starting a Business), App.A (Finding Your Mission in Life).
 
 ## Summary
 

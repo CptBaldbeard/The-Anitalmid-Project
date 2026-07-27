@@ -13,7 +13,7 @@ tags:
   - assessment-results
 claims_status: "extracted"
 claims_extracted_date: 2026-07-26
-claims_count: 46
+claims_count: 50
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
 capstone: "[[Capstone - Career Aptitude Synthesis]]"
