@@ -1,0 +1,27 @@
+# Obsidian workspace files (personal state — do not track)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/hotkeys.json
+
+# Obsidian cache
+.obsidian/.obsidian-git-data
+.obsidian/cache
+
+# Trash / deleted files
+.trash/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Python cache (for any helper scripts)
+__pycache__/
+*.pyc
+*.pyo
