@@ -1,7 +1,7 @@
 ---
 title: "Cloud Administrator (Azure)"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Systems Administrator]]"
   - "[[DevOps Engineer]]"
@@ -161,12 +161,12 @@ Cloud adoption continues to accelerate: Gartner projects worldwide public cloud 
 
 ## Search Sources
 
-- Camufox Web Search: "Azure cloud administrator core skills responsibilities" (2026-07-26)
-- Camufox Web Search: "Azure Administrator AZ-104 certification path" (2026-07-26)
-- Camufox Web Search: "Cloud Administrator salary United States 2025" (2026-07-26)
-- Camufox Web Search: "Azure cloud administrator tools technologies" (2026-07-26)
-- Camufox Web Search: "Cloud Administrator career progression path" (2026-07-26)
-- Camufox Web Search: "day in the life Azure cloud administrator" (2026-07-26)
+- Camoufox Web Search: "Azure cloud administrator core skills responsibilities" (2026-07-26)
+- Camoufox Web Search: "Azure Administrator AZ-104 certification path" (2026-07-26)
+- Camoufox Web Search: "Cloud Administrator salary United States 2025" (2026-07-26)
+- Camoufox Web Search: "Azure cloud administrator tools technologies" (2026-07-26)
+- Camoufox Web Search: "Cloud Administrator career progression path" (2026-07-26)
+- Camoufox Web Search: "day in the life Azure cloud administrator" (2026-07-26)
 
 ## Related Vault Content
 

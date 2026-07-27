@@ -104,7 +104,7 @@ including architecture reference, progress tracker, and old placeholders).
 
 ## Phase 2: Role Profile Expansion
 
-**9 IT role profiles** created at `Role Profiles/` via delegated Camufox web
+**9 IT role profiles** created at `Role Profiles/` via delegated Camoufox web
 research (3 parallel subagents, 54 total searches):
 
 | Profile | Size | Birkman Colors | Dan's Strongest Fit |
@@ -351,5 +351,5 @@ The pipeline is complete but the graph can be extended:
   body, not through formal typed edges)
 - The counter-position tests are manually constructed — a future iteration
   could formalize them as claim-to-position edges in the graph itself
-- Salary data from Camufox searches may include hallucinated URLs — all
+- Salary data from Camoufox searches may include hallucinated URLs — all
   salary figures should be verified against primary sources (BLS, Glassdoor)

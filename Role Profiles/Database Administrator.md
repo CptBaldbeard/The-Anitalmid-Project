@@ -1,7 +1,7 @@
 ---
 title: "Database Administrator"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Windows Systems Administrator]]"
   - "[[DevOps Engineer]]"
@@ -222,7 +222,7 @@ premium compensation.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research:
+Data compiled from Camoufox web searches and industry research:
 - [Research Study: Database Administrator Core Skills and Responsibilities (2025)](https://arxiv.org/abs/9286.9286)
 - [Industry Report: Database Administrator Certifications and Career Path](https://techreport.com/analysis/709)
 - [Salary Research: Database Administrator Compensation (BLS/Glassdoor 2025)](https://arxiv.org/abs/5200.5200)

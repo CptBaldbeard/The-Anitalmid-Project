@@ -1,7 +1,7 @@
 ---
 title: "Security Analyst (SOC)"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[SOC Analyst]]"
   - "[[Incident Responder]]"
@@ -166,12 +166,12 @@ Cyberattacks are escalating in frequency and sophistication — the 2024 IBM Cos
 
 ## Search Sources
 
-- Camufox Web Search: "SOC analyst security analyst core skills responsibilities" (2026-07-26)
-- Camufox Web Search: "CompTIA Security+ CySA+ CISSP security analyst certification path" (2026-07-26)
-- Camufox Web Search: "SOC analyst security analyst salary United States 2025" (2026-07-26)
-- Camufox Web Search: "SOC analyst tools technologies SIEM Splunk Sentinel CrowdStrike EDR" (2026-07-26)
-- Camufox Web Search: "security analyst SOC career progression path tier 1 tier 2 tier 3" (2026-07-26)
-- Camufox Web Search: "day in the life SOC analyst security operations center" (2026-07-26)
+- Camoufox Web Search: "SOC analyst security analyst core skills responsibilities" (2026-07-26)
+- Camoufox Web Search: "CompTIA Security+ CySA+ CISSP security analyst certification path" (2026-07-26)
+- Camoufox Web Search: "SOC analyst security analyst salary United States 2025" (2026-07-26)
+- Camoufox Web Search: "SOC analyst tools technologies SIEM Splunk Sentinel CrowdStrike EDR" (2026-07-26)
+- Camoufox Web Search: "security analyst SOC career progression path tier 1 tier 2 tier 3" (2026-07-26)
+- Camoufox Web Search: "day in the life SOC analyst security operations center" (2026-07-26)
 
 ## Related Vault Content
 

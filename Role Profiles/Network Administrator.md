@@ -1,7 +1,7 @@
 ---
 title: "Network Administrator"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Windows Systems Administrator]]"
   - "[[Cloud Administrator]]"
@@ -217,7 +217,7 @@ network automation skills commanding salary premiums.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research:
+Data compiled from Camoufox web searches and industry research:
 - [Research Study: Network Administrator Core Skills and Responsibilities (2025)](https://arxiv.org/abs/4992.4992)
 - [Industry Report: Network Administrator Certifications and Career Path](https://techreport.com/analysis/877)
 - [Salary Research: Network Administrator Compensation (BLS/Glassdoor 2025)](https://arxiv.org/abs/1305.1305)

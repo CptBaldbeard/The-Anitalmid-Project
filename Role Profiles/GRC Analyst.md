@@ -1,7 +1,7 @@
 ---
 title: "GRC Analyst"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Compliance Engineer]]"
   - "[[IT Auditor]]"
@@ -164,12 +164,12 @@ Regulatory pressure on organizations has never been higher: GDPR fines exceeded 
 
 ## Search Sources
 
-- Camufox Web Search: "GRC analyst compliance engineer core skills responsibilities" (2026-07-26)
-- Camufox Web Search: "CISA CISM CRISC ISO 27001 certification governance risk compliance" (2026-07-26)
-- Camufox Web Search: "GRC analyst compliance engineer salary United States 2025" (2026-07-26)
-- Camufox Web Search: "GRC analyst tools technologies Archer ServiceNow GRC" (2026-07-26)
-- Camufox Web Search: "GRC compliance career progression path analyst to manager CISO" (2026-07-26)
-- Camufox Web Search: "day in the life GRC analyst compliance engineer daily tasks" (2026-07-26)
+- Camoufox Web Search: "GRC analyst compliance engineer core skills responsibilities" (2026-07-26)
+- Camoufox Web Search: "CISA CISM CRISC ISO 27001 certification governance risk compliance" (2026-07-26)
+- Camoufox Web Search: "GRC analyst compliance engineer salary United States 2025" (2026-07-26)
+- Camoufox Web Search: "GRC analyst tools technologies Archer ServiceNow GRC" (2026-07-26)
+- Camoufox Web Search: "GRC compliance career progression path analyst to manager CISO" (2026-07-26)
+- Camoufox Web Search: "day in the life GRC analyst compliance engineer daily tasks" (2026-07-26)
 
 ## Related Vault Content
 

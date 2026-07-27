@@ -23,7 +23,7 @@ updated: 2026-07-26
 
 # anitalmid-fit-1: Systems Administrator is the strongest primary career fit
 
-**Source:** [[Role Profiles/Windows Systems Administrator]] — Camufox + Industry Research
+**Source:** [[Role Profiles/Windows Systems Administrator]] — Camoufox + Industry Research
 
 ## The Claim
 

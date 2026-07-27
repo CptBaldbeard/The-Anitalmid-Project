@@ -60,7 +60,7 @@ connected to other claims through 136 typed edges: 46 Depends on, 65 Supports,
 7 Contradicts, 18 Challenged by.
 
 ### Phase 2: Role Profile Expansion
-9 IT role profiles were created via Camufox web research, each with structured
+9 IT role profiles were created via Camoufox web research, each with structured
 YAML frontmatter (skills, certifications, salary data, career progression,
 aptitude signals). These provide the target roles against which claims are
 evaluated.
@@ -267,7 +267,7 @@ experience. Modern network administration (SD-WAN, cloud networking, zero-trust)
 is a different discipline. The graph correctly identifies this as a secondary
 competency.
 
-**Salary data freshness:** Role profile salary data is sourced from Camufox
+**Salary data freshness:** Role profile salary data is sourced from Camoufox
 searches and may not reflect local market conditions. All ranges should be
 verified against current job postings in Dan's geographic area.
 

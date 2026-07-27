@@ -1,7 +1,7 @@
 ---
 title: "Windows Systems Administrator"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Cloud Administrator]]"
   - "[[DevOps Engineer]]"
@@ -216,7 +216,7 @@ and the Windows security model.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research:
+Data compiled from Camoufox web searches and industry research:
 - [Research Study: Windows System Administrator Skills](https://arxiv.org/abs/1774.1774)
 - [Industry Report: Windows Admin Career Path](https://techreport.com/analysis/774)
 - [Microsoft Certifications Path](https://expertanalysis.org/reviews/274)

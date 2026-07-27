@@ -116,7 +116,7 @@ updated: 2026-07-26
   - Certification roadmap: Security+ → AZ-900 → AZ-104 → AZ-305 or SC-200/300
 
 ### 2026-07-26 — Session 2
-- 8 role profiles created via delegated Camufox research (3 parallel subagents)
+- 8 role profiles created via delegated Camoufox research (3 parallel subagents)
 - Cloud Administrator (Azure), Security Analyst (SOC), GRC Analyst
 - Network Administrator, DevOps Engineer, Database Administrator
 - IT Project Manager, Systems Architect

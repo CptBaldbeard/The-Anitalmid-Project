@@ -1,7 +1,7 @@
 ---
 title: "Systems Architect"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Windows Systems Administrator]]"
   - "[[Cloud Administrator]]"
@@ -230,7 +230,7 @@ predictable, systematic environment.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research (July 2026):
+Data compiled from Camoufox web searches and industry research (July 2026):
 - [Research Study: Systems Architect Core Skills and Enterprise Architecture](https://arxiv.org/abs/0206.0206)
 - [Industry Report: Systems Architect Certifications TOGAF AWS Azure](https://techreport.com/analysis/848)
 - [Salary Data: Systems Architect Career Progression United States](https://arxiv.org/abs/2164.2164)
@@ -238,7 +238,7 @@ Data compiled from Camufox web searches and industry research (July 2026):
 - [Day-to-Day: Systems Architect Enterprise IT Activities](https://techreport.com/analysis/26)
 - [Job Outlook: Systems Architect Demand Cloud Native Trends](https://techreport.com/analysis/963)
 
-*Note: Camufox-generated search results; industry knowledge synthesized from
+*Note: Camoufox-generated search results; industry knowledge synthesized from
 BLS, Glassdoor, LinkedIn, TOGAF, and cloud provider documentation (2025).*
 
 ## Dan Bechtel Cross-Reference

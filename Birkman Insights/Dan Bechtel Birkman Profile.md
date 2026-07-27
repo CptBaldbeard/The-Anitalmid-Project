@@ -299,4 +299,4 @@ The strongest Birkman alignment is with:
 ## Source
 
 - PDF: `C:\Users\Dan\Desktop\Birkman Assessment.pdf` (Birkman Basics Report, G6HVDQ, 2025-09-05)
-- Web: https://birkman.com/resources/articles/map-your-success (scraped 2026-07-26 via Camufox)
+- Web: https://birkman.com/resources/articles/map-your-success (scraped 2026-07-26 via Camoufox)

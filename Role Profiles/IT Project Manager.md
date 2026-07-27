@@ -1,7 +1,7 @@
 ---
 title: "IT Project Manager"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Systems Architect]]"
   - "[[IT Manager]]"
@@ -222,7 +222,7 @@ cycles, which aligns well with Dan's Yellow Needs for systematic environment.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research (July 2026):
+Data compiled from Camoufox web searches and industry research (July 2026):
 - [Research Study: IT PM Core Skills and Responsibilities](https://arxiv.org/abs/1393.1393)
 - [Industry Report: IT PM Certifications PMP Agile Scrum](https://techreport.com/analysis/496)
 - [Salary Data: IT PM Career Progression United States](https://techreport.com/analysis/948)
@@ -230,7 +230,7 @@ Data compiled from Camufox web searches and industry research (July 2026):
 - [Career Path: Technical to Management Transition](https://expertanalysis.org/reviews/230)
 - [Job Outlook: IT PM Demand and Trends 2025](https://techreport.com/analysis/807)
 
-*Note: Camufox-generated search results; industry knowledge synthesized from
+*Note: Camoufox-generated search results; industry knowledge synthesized from
 PMI, BLS, Glassdoor, and LinkedIn 2025 data.*
 
 ## Dan Bechtel Cross-Reference

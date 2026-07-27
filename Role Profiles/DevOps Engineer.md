@@ -1,7 +1,7 @@
 ---
 title: "DevOps Engineer"
 created: 2026-07-26
-source: "Camufox Web Search + Industry Research"
+source: "Camoufox Web Search + Industry Research"
 related_roles:
   - "[[Windows Systems Administrator]]"
   - "[[Cloud Administrator]]"
@@ -223,7 +223,7 @@ modern software delivery.
 
 ## Search Sources
 
-Data compiled from Camufox web searches and industry research:
+Data compiled from Camoufox web searches and industry research:
 - [Research Study: DevOps Engineer Core Skills and Responsibilities (2025)](https://arxiv.org/abs/8761.8761)
 - [Industry Report: DevOps Engineer Certifications and Career Path](https://techreport.com/analysis/464)
 - [Salary Research: DevOps Engineer Compensation (BLS/Glassdoor 2025)](https://arxiv.org/abs/8002.8002)

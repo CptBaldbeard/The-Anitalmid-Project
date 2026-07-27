@@ -1,7 +1,7 @@
 ---
 title: "Birkman Method Overview"
 created: 2026-07-26
-source: "Birkman.com Map Your Success article + Birkman Assessment PDF + Camufox research"
+source: "Birkman.com Map Your Success article + Birkman Assessment PDF + Camoufox research"
 version: "2.0"
 tags:
   - birkman
@@ -27,7 +27,7 @@ motivations, and interests across multiple dimensions to predict career fit,
 team dynamics, and leadership effectiveness.
 
 > **Source**: Scraped from https://birkman.com/resources/articles/map-your-success
-> on 2026-07-26 via Camufox web research pipeline.
+> on 2026-07-26 via Camoufox web research pipeline.
 
 ## The Birkman Map
 
@@ -141,7 +141,7 @@ occupational databases to produce a ranked list of best-fit job families.
 ## References
 
 - [Birkman Map Your Success Article](https://birkman.com/resources/articles/map-your-success) — scraped 2026-07-26
-- [Birkman Method Research Study](https://arxiv.org/abs/0987.0987) — Camufox search
-- [Birkman Map Careers Job Fit](https://arxiv.org/abs/9382.9382) — Camufox search
-- [Birkman Components Interpretation](https://arxiv.org/abs/7287.7287) — Camufox search
-- [Birkman Symbols Explained](https://arxiv.org/abs/8595.8595) — Camufox search
+- [Birkman Method Research Study](https://arxiv.org/abs/0987.0987) — Camoufox search
+- [Birkman Map Careers Job Fit](https://arxiv.org/abs/9382.9382) — Camoufox search
+- [Birkman Components Interpretation](https://arxiv.org/abs/7287.7287) — Camoufox search
+- [Birkman Symbols Explained](https://arxiv.org/abs/8595.8595) — Camoufox search
