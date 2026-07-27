@@ -16,6 +16,12 @@ claims_extracted_date: 2026-07-26
 claims_count: 32
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
+capstone: "[[Capstone - Career Aptitude Synthesis]]"
+synthesis:
+  - "[[synthesis/phase1-hinge-inventory]]"
+  - "[[synthesis/phase2-cascade-trees]]"
+  - "[[synthesis/phase3-counter-position-stress-tests]]"
+  - "[[synthesis/phase4-convergence-analysis]]"
 
 birkman_symbols:
   usual_behavior:
