@@ -13,7 +13,7 @@ tags:
   - assessment-results
 claims_status: "extracted"
 claims_extracted_date: 2026-07-26
-claims_count: 32
+claims_count: 36
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
 capstone: "[[Capstone - Career Aptitude Synthesis]]"
@@ -227,6 +227,18 @@ The strongest Birkman alignment is with:
 - [[Career History/Technical_Writer]] — strong Literary interest + structured thinking match
 - [[Career History/Videographer]] — strong Artistic interest match
 
+## Education
+
+- **BS in Public Relations** — University of Idaho
+- Formal communications training amplifies Birkman Literary interest (92%) and written-word strength (Strength #4)
+- See [[Resume/Dan Bechtel Resume]] and [[Claims/claim-bs-public-relations-education]]
+
+## Certifications
+
+- **CompTIA Security+** — Industry-standard cybersecurity certification. Validates security operations work at City of Moscow (CJIS, incident response, MFA deployment, endpoint protection). See [[Claims/claim-comptia-security-plus-certification]]
+- **CJIS Awareness Training Level 4** — Criminal justice information security compliance (active)
+- **Amateur Radio Operator (KI7LCA)** — FCC-licensed
+
 ## Connected Vault Notes
 
 - [[Birkman Method Overview]] — Full methodology and framework
@@ -239,6 +251,11 @@ The strongest Birkman alignment is with:
 - [[Career History/Technology_Solutions_Partner]]
 - [[Career History/Technical_Writer]]
 - [[Role Profiles/Windows Systems Administrator]] — Example role profile
+- [[Resume/Dan Bechtel Resume]] — Full professional resume (extracted 2026-07-26)
+- [[Claims/claim-comptia-security-plus-certification]]
+- [[Claims/claim-bs-public-relations-education]]
+- [[Claims/claim-grc-saas-platform-documentation]]
+- [[Claims/claim-learning-agility-open-source-strengths]]
 
 ## Source
 

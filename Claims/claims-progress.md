@@ -10,13 +10,16 @@ updated: 2026-07-26
 
 ## Status Summary
 
-- **Total claims extracted:** 32
+- **Total claims extracted:** 36
 - **Birkman claims:** 17 (anitalmid-birkman-1 through anitalmid-birkman-17)
-- **Career history claims:** 9 (anitalmid-career-1 through anitalmid-career-9)
+- **Career history claims:** 10 (anitalmid-career-1 through anitalmid-career-10)
 - **Role-fit synthesis claims:** 6 (anitalmid-fit-1 through anitalmid-fit-6)
-- **Edges added:** Yes (intra-domain edges in all claims)
-- **Cross-domain edges:** Pending (Birkman→Career History, Career History→Role Fit done; Birkman→Role Fit done)
-- **Last session:** 2026-07-26 — Initial extraction
+- **Credential claims:** 1 (anitalmid-credential-1: CompTIA Security+)
+- **Education claims:** 1 (anitalmid-edu-1: BS Public Relations)
+- **Strength claims:** 1 (anitalmid-strength-1: Learning Agility, Open-Source, Collaboration)
+- **Edges added:** Yes (all claims include intra-domain edges)
+- **Cross-domain edges:** Complete
+- **Last session:** 2026-07-26 — Resume integration (4 new claims from professional resume)
 
 ## Remaining Work
 
@@ -43,6 +46,19 @@ updated: 2026-07-26
 - Written to `Capstone - Career Aptitude Synthesis.md` (18KB, 7 sections)
 
 ## Session Log
+
+### 2026-07-26 — Session 4 (Resume Integration)
+- Professional resume extracted: "Dan Bechtel Resume.pdf" → 2 pages, 11 years of experience
+- Resume note created at `Resume/Dan Bechtel Resume.md`
+- 4 new claims extracted from resume data:
+  - `anitalmid-credential-1`: CompTIA Security+ certification (VERY-HIGH confidence)
+  - `anitalmid-edu-1`: BS Public Relations, University of Idaho (VERY-HIGH confidence)
+  - `anitalmid-career-10`: GRC SaaS platform documentation at Valdyr.io (HIGH confidence)
+  - `anitalmid-strength-1`: Learning agility, open-source advocacy, collaborative mindset (MEDIUM confidence)
+- **CRITICAL FINDING:** Security+ was listed as an "Immediate (0-6 months)" action item in the original Capstone. Resume confirms it is already achieved. Certification roadmap accelerated by ~6 months.
+- Capstone synthesis updated: new "Achieved" section, adjusted action plan timeline, Security Analyst convergence strengthened with formal credential backing
+- Total claims: 32 → 36. Evidence layers: 3 → 4 (added Professional Resume)
+- Birkman profile `claims_count` updated to 36
 
 ### 2026-07-26 — Session 3
 - Phase 3: Structural Analysis complete

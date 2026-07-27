@@ -14,17 +14,18 @@ related:
   - "[[claims/claims-architecture]]"
   - "[[Dan Bechtel Birkman Profile]]"
 scale:
-  claims: 32
-  edges: 136
+  claims: 36
+  edges: 155
   role_profiles: 9
   settled_convergences: 3
   counter_positions_tested: 3
-  evidence_layers: 3
+  evidence_layers: 4
+  certifications_verified: 1
 ---
 
 # Capstone: Career Aptitude Synthesis
 
-> **Generated:** 2026-07-26 | **Source:** 32 claims, 136 typed edges, 9 role profiles, 3-layer structural analysis
+> **Generated:** 2026-07-26 | **Updated:** 2026-07-26 (resume integration) | **Source:** 36 claims, 155 typed edges, 9 role profiles, 4-layer structural analysis (Birkman + Career History + Role Profiles + Professional Resume)
 > **Method:** Hinge inventory → cascade trees → counter-position stress tests → convergence analysis
 
 This document is the culminating synthesis of The Anitalmid Project knowledge
@@ -131,20 +132,22 @@ approaches).
 
 ### ★ Alternative: Security Analyst
 
-**6 supporters (6 HIGH+)** | **Zero challenges** | **Confidence: high**
+**6 supporters (6 HIGH+) + 1 formal certification** | **Zero challenges** | **Confidence: high**
 
-A strong alternative leveraging existing security operations experience. Dan is
-already performing Tier 1/2 SOC functions: alert monitoring, incident
-investigation, first-level response, MFA deployment, endpoint protection, CJIS
-compliance.
+A strong alternative leveraging existing security operations experience now validated by CompTIA Security+ certification. Dan is already performing Tier 1/2 SOC functions: alert monitoring, incident investigation, first-level response, MFA deployment, endpoint protection, CJIS compliance — and now holds the industry-standard entry-level security certification.
 
 **What the graph shows:**
 - Investigating strength (birkman-9) is the core security analyst behavior.
   Scientific interest (92%) drives hypothesis-based threat hunting.
 - Security operations experience (career-1) provides the real-world evidence base.
+- **NEW: CompTIA Security+ (credential-1)** adds formal, verifiable certification
+  backing. The resume integration upgrades this convergence — what was previously
+  supported by work experience alone now has an industry-recognized credential.
 - This represents a SPECIALIZATION decision rather than a natural progression.
   The graph recommends building security competency within a sysadmin role and
-  evaluating specialization in 2-3 years.
+  evaluating specialization in 2-3 years. However, with Security+ achieved, the
+  security path is now more immediately accessible than the original analysis
+  indicated.
 
 ---
 
@@ -275,14 +278,22 @@ automation and delegation are the mitigants — not role change.
 The graph does not just report what is — it identifies what is needed to close
 the gap between current state and recommended trajectory.
 
+### ✅ Achieved: Resume-Verified Credentials
+
+| Credential | Status | Impact |
+|---|---|---|
+| **CompTIA Security+** | ✓ ACHIEVED | Validates the Security Analyst and Systems Administrator convergences with an industry-standard certification. Removes the first step from the certification roadmap entirely. |
+| **CJIS Awareness Training Level 4** | ✓ ACHIEVED | Active compliance credential for criminal justice information security. Directly supports current City of Moscow role. |
+| **BS Public Relations (University of Idaho)** | ✓ ACHIEVED | Formal communications training amplifies Birkman Literary interest (92%). Explains why Dan's technical documentation is effective for both technical and non-technical audiences. |
+
 ### Immediate (0-6 months): Formalize Current Role
 
 | Action | Rationale |
 |---|---|
-| **CompTIA Security+** | Dan is already performing security work. Formalize with the entry-level industry standard. Maps directly to CJIS and security monitoring experience. |
-| **Microsoft AZ-900 (Azure Fundamentals)** | Low-cost, low-effort cloud foundation. Validates cloud aptitude before committing to AZ-104. |
-| **Update resume title and description** | Current title "Information Systems Specialist" undersells the scope of work. Reframe as "Systems Administrator / Security Operations" with quantified achievements (200+ users, zero data loss DR, CJIS compliance). |
+| **Microsoft AZ-900 (Azure Fundamentals)** | Low-cost, low-effort cloud foundation. With Security+ already achieved, cloud certification becomes the immediate priority. Validates cloud aptitude before committing to AZ-104. |
+| **Update resume title and description** | Current title "Information Systems Specialist" undersells the scope of work. Reframe as "Systems Administrator / Security Operations" with quantified achievements (200+ users, zero data loss DR, CJIS compliance). Add Security+ credential prominently. |
 | **Salary market check** | Compare current compensation against mid-level sysadmin ranges ($65K-$90K) for the local market. The graph shows Dan is performing at this level — compensation should align. |
+| **Document open-source contributions** | Resume states open-source advocacy. Begin building a public portfolio (GitHub contributions, tool configurations, scripts) to convert this self-reported strength into verifiable evidence. |
 
 ### Near-Term (6-18 months): Build Cloud Competency
 
@@ -346,13 +357,10 @@ The graph reports three settled convergences:
 | Role | Supporters | Timing | Primary Action |
 |---|---|---|---|
 | **Systems Administrator** | 15 (14 HIGH+) | Now | Formalize current role |
-| **Cloud Administrator (Azure)** | 7 (6 HIGH+) | 2-4 years | AZ-104 certification |
-| **Security Analyst** | 6 (6 HIGH+) | Evaluate in 2-3 years | Build as secondary competency |
+| **Cloud Administrator (Azure)** | 7 (6 HIGH+) | 1-3 years | AZ-900 → AZ-104 certification |
+| **Security Analyst** | 6 (6 HIGH+) + Security+ | Evaluate now | Already credential-backed; build as secondary competency |
 
-The recommendation is clear, consistent, and structurally robust: **Dan should
-formalize his current systems administration and security operations work,
-pursue Azure cloud certification as the primary career progression, and evaluate
-security specialization as an alternative path in 2-3 years.**
+The recommendation is clear, consistent, and structurally robust — and the resume integration strengthens it: **Dan should formalize his current systems administration and security operations work, pursue Azure cloud certification as the primary career progression (accelerated now that Security+ is achieved), and consider security specialization as a viable alternative path backed by both work experience and formal certification.**
 
 The Blue/Yellow bridge archetype — creative innovation within systematic
 frameworks — is the graph's central signal. It points toward architecture,
