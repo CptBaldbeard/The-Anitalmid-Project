@@ -1,0 +1,1 @@
+These claims are directly related to each other but do not have to directly support each other. 
