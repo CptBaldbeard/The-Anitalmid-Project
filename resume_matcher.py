@@ -51,8 +51,11 @@ TARGET_PROFILE = {
         "dichotomies": {"I": True, "N": True, "T": True, "J": True}
     },
     "enneagram": {
-        "type": "5w6",
-        "instinct": "Self-Preservation"
+        "type": "4w5",
+        "core": "Type 4 (Individualist)",
+        "wing": "Type 5 (Investigator)",
+        "core_motivation": "Authenticity, creative self-expression, meaning",
+        "core_fear": "Being ordinary, insignificant, or misunderstood"
     },
     "disc": {
         "primary": "C",

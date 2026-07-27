@@ -38,7 +38,7 @@ from Dan's Birkman data to each framework.
 |---|---|---|
 | **Birkman** | Blue/Yellow bridge | [[claim-blue-yellow-bridge-archetype]] |
 | **MBTI** | INTJ (Architect), INTP secondary | [[claim-mbti-intj-inference]] |
-| **Enneagram** | Type 5w6, Self-Preservation instinct | [[claim-enneagram-5w6-inference]] |
+| **Enneagram** | Type 4w5 (Individualist/Investigator) ✦ CORRECTED | [[claim-enneagram-type-4-corrected]] |
 | **DISC** | High C / Medium S (CS Specialist) | [[claim-disc-cs-specialist-inference]] |
 | **Big Five** | O:Very High, C:Very High, E:Low, A:Med-Low, N:Med-Low | [[claim-big-five-ocean-inference]] |
 | **Holland** | IAR (Investigative-Artistic-Realistic) | [[claim-holland-code-iar-inference]] |

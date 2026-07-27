@@ -108,32 +108,40 @@ alternative should be retained as a secondary inference.
 
 ---
 
-## Crosswalk 2: Enneagram — Inferred Type
+## Crosswalk 2: Enneagram — CORRECTED Type (2026-07-26)
 
-### Inference: Type 5w6 (The Investigator with Loyalist Wing)
+### Assessment-Verified: Type 4 (The Individualist), inferred 4w5 wing
+
+> **CORRECTION (2026-07-26):** The previous inference of Type 5w6 was INCORRECT.
+> A direct Enneagram assessment (test_result_type_4.pdf, 15-page report) identifies
+> Dan as Type 4 (The Individualist). The Birkman signals that mapped to Type 5
+> (Scientific interest, Investigating strength, systematic thinking) are REAL but
+> indicate the Type 5 WING, not the core type. The corrected type is 4w5.
 
 | Enneagram Aspect | Birkman Evidence | Confidence |
 |---|---|---|
-| **Core Type 5 (Investigator)** | Scientific interest 92%; Investigating strength; Blue Interests (abstract thinking, theory); ambiguity handling; reflective efficiency; Blue Usual Behavior (insightful, thoughtful) | **High** |
-| **Wing 6 (Loyalist)** | Yellow Needs (security, consistency, clear rules); Structured thinking; Stress: rigid, rule-bound; Security operations experience (career-1) | **Medium-High** |
-| **Instinct: Self-Preservation (SP)** | Yellow Needs (organized approach, consistent environment); reflective efficiency; prefers time alone or small groups; Low Persuasive (32%) — avoids competitive visibility | **Medium** |
+| **Core Type 4 (Individualist)** | Blue Usual Behavior (reflective, creative, insightful); Artistic 94%; Musical 97%; Literary 92%; Written word, Visual appeal, Audio/music strengths; Blue Interests (creating new approaches, innovation) | **Very High** (assessment-verified) |
+| **Wing 5 (Investigator)** | Scientific 92%; Technical 82%; Investigating strength; Structured thinking; Ambiguity handling; Reflective efficiency | **Medium** (inferred from Birkman) |
+| **Instinct: Social or One-to-One** | One-on-one sensitivity; emotional intelligence; "everyone wins" collaborative; relationship depth signals from report | **Low-Medium** (not specified in report) |
 
-### Why Type 5 over alternatives
-- **Not Type 4 (Individualist)**: While Dan has strong Artistic/Musical interests
-  (94%/97%), his core drive is COMPETENCE (Type 5), not IDENTITY (Type 4). He
-  investigates and structures — he doesn't seek uniqueness for its own sake.
-- **Not Type 1 (Reformer)**: Yellow Needs map to Type 1's perfectionism, but
-  Type 1's moral righteousness doesn't fit Dan's reflective, creative profile.
-- **Not Type 9 (Peacemaker)**: Dan's "everyone wins" collaborative strength
-  suggests some Type 9 traits, but his core motivation is knowledge and
-  competence, not peace.
+### Why Birkman Mapped Incorrectly to Type 5
 
-### Type 5w6 Career Implications
-- Type 5: Drawn to roles requiring deep expertise, analysis, and intellectual
-  autonomy. Thrives when trusted to master complex systems.
-- Wing 6: Adds security-consciousness, systematic approach, and loyalty to
-  institutions/teams. Complements Type 5's tendency toward isolation with
-  collaborative grounding.
+Birkman measures WORK BEHAVIOR, not core motivation. Dan's Scientific interest
+(92%), Investigating strength, and Yellow systematic needs created a strong
+Type 5 behavioral signature. But the Enneagram measures WHY someone does what
+they do — core motivation. Dan's core motivation is AUTHENTICITY AND CREATIVE
+SELF-EXPRESSION (Type 4), not competence and knowledge (Type 5). He USES Type 5
+analytical behaviors in service of Type 4 creative/meaning goals.
+
+### The 4w5 Resolution
+
+- **Type 4 core (Blue)**: Drive for authenticity, creative expression, meaning,
+  emotional depth, individuality. Maps to Blue Usual Behavior + Blue Interests.
+- **Wing 5 (Yellow)**: Intellectual curiosity, analytical depth, systematic
+  thinking, technical competence. Maps to Yellow Needs + Scientific/Technical
+  interests + structured thinking.
+
+The Birkman Blue/Yellow bridge IS the 4w5 cognitive architecture.
 
 ---
 
@@ -231,18 +239,26 @@ This makes career matching more reliable and reduces false positives.
 
 ---
 
-## Triangulation Summary
+## Triangulation Summary (UPDATED 2026-07-26 with Enneagram Correction)
 
-All five frameworks converge on a consistent picture:
+All five frameworks converge on a consistent picture — now refined by the
+corrected Enneagram Type 4 finding:
 
 | Framework | Result | Core Signal |
 |---|---|---|
 | **Birkman** | Blue/Yellow bridge | Creative system-builder |
 | **MBTI** | INTJ (Ni-Te-Fi-Se) | Strategic architect |
-| **Enneagram** | Type 5w6 (Investigator/Loyalist) | Deeply knowledgeable, security-conscious |
+| **Enneagram** | Type 4w5 (Individualist/Investigator) ✦ CORRECTED | Creative authenticator with analytical depth |
 | **DISC** | High C + Medium S (CS Blend) | Systematic specialist |
 | **Big Five** | O-high C-high E-low A-med-low N-med-low | Creative systematizer |
 | **Holland** | IAR (Investigative-Artistic-Realistic) | Problem-solving creator-builder |
+
+**The correction strengthens the convergence.** The previous Type 5 inference
+was at odds with Dan's Artistic 94% and Musical 97% interests. Type 4w5 resolves
+this: the creative/emotional core (Type 4) drives the artistic interests, while
+the analytical wing (Type 5) drives the scientific/technical interests. The
+corrected Enneagram type aligns MORE closely with the Holland Code (IAR includes
+"Artistic") than Type 5 did.
 
 **The convergence is remarkable.** Five independent frameworks, none designed
 to align with Birkman, all point to the same fundamental pattern: a person who

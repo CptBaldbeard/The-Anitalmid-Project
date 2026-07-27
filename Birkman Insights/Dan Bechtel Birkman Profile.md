@@ -13,10 +13,11 @@ tags:
   - assessment-results
 claims_status: "extracted"
 claims_extracted_date: 2026-07-26
-claims_count: 42
+claims_count: 43
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
 capstone: "[[Capstone - Career Aptitude Synthesis]]"
+enneagram_type: "Type 4w5 (Individualist/Investigator) — corrected 2026-07-26 from Birkman-inferred Type 5w6"
 synthesis:
   - "[[synthesis/phase1-hinge-inventory]]"
   - "[[synthesis/phase2-cascade-trees]]"
@@ -226,7 +227,13 @@ additional psychometric frameworks used by Apt AI (tryapt.ai):
 | Framework | Dan's Inferred Profile | Confidence | Claim |
 |---|---|---|---|
 | **MBTI** | INTJ (Architect), INTP secondary | Medium | [[Claims/claim-mbti-intj-inference]] |
-| **Enneagram** | Type 5w6, Self-Preservation instinct | Medium | [[Claims/claim-enneagram-5w6-inference]] |
+| **Enneagram** | Type 4w5 (Individualist/Investigator) ✦ CORRECTED | Very High (assessment-verified) | [[Claims/claim-enneagram-type-4-corrected]] |
+
+**Correction note (2026-07-26):** The previous Birkman-based inference of Type 5w6
+was incorrect. A direct Enneagram assessment identifies Dan as Type 4. His
+analytical/systematic work behaviors (Scientific 92%, Investigating strength)
+reflect the Type 5 WING, not the core type. The Blue/Yellow bridge maps to
+Type 4w5: Blue = Type 4 creative/emotional core, Yellow = Type 5 analytical wing.
 | **DISC** | High-C / Medium-S (CS Specialist) | Medium | [[Claims/claim-disc-cs-specialist-inference]] |
 | **Big Five (OCEAN)** | O:Very High, C:Very High, E:Low, A:Med-Low, N:Med-Low | Medium | [[Claims/claim-big-five-ocean-inference]] |
 | **Holland Codes (RIASEC)** | IAR (Investigative-Artistic-Realistic) | Medium | [[Claims/claim-holland-code-iar-inference]] |
@@ -280,7 +287,8 @@ The strongest Birkman alignment is with:
 - [[Claims/claim-grc-saas-platform-documentation]]
 - [[Claims/claim-learning-agility-open-source-strengths]]
 - [[Claims/claim-mbti-intj-inference]]
-- [[Claims/claim-enneagram-5w6-inference]]
+- [[Claims/claim-enneagram-type-4-corrected]]
+- [[Enneagram Report/Dan Bechtel Type 4 Report]]
 - [[Claims/claim-disc-cs-specialist-inference]]
 - [[Claims/claim-big-five-ocean-inference]]
 - [[Claims/claim-holland-code-iar-inference]]

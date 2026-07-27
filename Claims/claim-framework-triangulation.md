@@ -7,9 +7,9 @@ tags:
   - source/framework-crosswalk
   - anitalmid
 claim_id: "anitalmid-triangulation-1"
-statement: "All five Apt AI frameworks (MBTI, Enneagram, DISC, Big Five, Holland Codes) independently converge on the same personality architecture as Birkman: creative system-builder (Blue/Yellow bridge = INTJ = 5w6 = CS = O-high/C-high/E-low = IAR)."
+statement: "All five Apt AI frameworks (MBTI, Enneagram, DISC, Big Five, Holland Codes) independently converge on the same personality architecture as Birkman: creative system-builder (Blue/Yellow bridge = INTJ = 4w5 = CS = O-high/C-high/E-low = IAR). CORRECTION 2026-07-26: Enneagram corrected from Type 5w6 to Type 4w5 based on direct assessment."
 confidence: "high"
-confidence_rationale: "Five independent frameworks all converge on the same pattern; 0 of 5 show contradictory results; triangulation across multiple psychometric models is stronger evidence than any single framework alone."
+confidence_rationale: "Five independent frameworks converge on the same pattern; the Enneagram correction from 5w6 to 4w5 STRENGTHENS the convergence by aligning with the artistic/creative dimension present in all other frameworks."
 claim_type: "framework-inference"
 source_note: "[[Frameworks/Birkman-to-Framework Crosswalk]]"
 created: 2026-07-26
@@ -19,6 +19,12 @@ updated: 2026-07-26
 # anitalmid-triangulation-1: Five-framework convergence validates Birkman career recommendations
 
 **Source:** [[Frameworks/Birkman-to-Framework Crosswalk]] — Triangulation Summary
+
+**UPDATED 2026-07-26:** Enneagram corrected from Type 5w6 to Type 4w5 based on
+direct Enneagram assessment (test_result_type_4.pdf). See [[claim-enneagram-type-4-corrected]].
+The correction STRENGTHENS convergence — Type 4 aligns with the Artistic/creative
+dimension present in all other frameworks and resolves the tension between Dan's
+Artistic 94%/Musical 97% interests and the previous Type 5 inference.
 
 ## The Claim
 

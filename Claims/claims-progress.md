@@ -10,18 +10,18 @@ updated: 2026-07-26
 
 ## Status Summary
 
-- **Total claims extracted:** 42
+- **Total claims extracted:** 43
 - **Birkman claims:** 17 (anitalmid-birkman-1 through anitalmid-birkman-17)
 - **Career history claims:** 10 (anitalmid-career-1 through anitalmid-career-10)
 - **Role-fit synthesis claims:** 6 (anitalmid-fit-1 through anitalmid-fit-6)
 - **Credential claims:** 1 (anitalmid-credential-1: CompTIA Security+)
 - **Education claims:** 1 (anitalmid-edu-1: BS Public Relations)
 - **Strength claims:** 1 (anitalmid-strength-1: Learning Agility, Open-Source, Collaboration)
-- **Framework inference claims:** 6 (anitalmid-mbti-1, anitalmid-enneagram-1, anitalmid-disc-1, anitalmid-ocean-1, anitalmid-holland-1, anitalmid-triangulation-1)
+- **Framework inference claims:** 7 (anitalmid-mbti-1, anitalmid-enneagram-1 [SUPERSEDED], anitalmid-enneagram-2 [CORRECTED], anitalmid-disc-1, anitalmid-ocean-1, anitalmid-holland-1, anitalmid-triangulation-1)
 - **Edges added:** Yes (all claims include intra-domain edges)
 - **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain)
 - **Frameworks integrated:** 6 (Birkman + MBTI + Enneagram + DISC + Big Five + Holland Codes)
-- **Last session:** 2026-07-26 — Framework integration (6 new framework inference claims + 6 reference notes)
+- **Last session:** 2026-07-26 — Enneagram Type 4 correction (assessment-verified, supersedes 5w6 inference)
 
 ## Remaining Work
 
@@ -58,6 +58,18 @@ updated: 2026-07-26
 - Written to `Capstone - Career Aptitude Synthesis.md` (18KB, 7 sections)
 
 ## Session Log
+
+### 2026-07-26 — Session 6 (Enneagram Type 4 Correction)
+- Direct Enneagram assessment reviewed: `test_result_type_4.pdf` (15 pages) identifies Dan as Type 4 (Individualist)
+- **CRITICAL CORRECTION:** Previous Birkman-inferred Type 5w6 was WRONG. Dan's core Enneagram type is Type 4 — driven by authenticity, creative self-expression, and meaning.
+- New claim created: `anitalmid-enneagram-2` (Type 4w5 — VERY HIGH confidence, assessment-verified)
+- Previous claim `anitalmid-enneagram-1` (Type 5w6) marked SUPERSEDED
+- **Why the error:** Birkman measures WORK BEHAVIOR, not core motivation. Dan USES Type 5 analytical skills (Wing 5) in service of Type 4 creative/meaning goals.
+- **Birkman Blue/Yellow bridge = Type 4w5**: Blue = Type 4 creative/emotional core; Yellow = Type 5 analytical wing
+- Enneagram Report source note created at `Enneagram Report/Dan Bechtel Type 4 Report.md`
+- Updated: Birkman-to-Framework Crosswalk, Frameworks Overview, Triangulation claim, Capstone synthesis, resume_matcher.py
+- **Career impact:** Strengthens Technical Writer, Science Communicator, UX Designer recommendations. Adds Type 4 meaning-alignment caveat to Security Analyst and GRC Analyst.
+- Total claims: 42 → 43
 
 ### 2026-07-26 — Session 5 (Framework Integration)
 - 6 framework reference notes created in `Frameworks/`:
