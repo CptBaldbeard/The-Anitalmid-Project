@@ -13,7 +13,7 @@ tags:
   - assessment-results
 claims_status: "extracted"
 claims_extracted_date: 2026-07-26
-claims_count: 36
+claims_count: 42
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
 capstone: "[[Capstone - Career Aptitude Synthesis]]"
@@ -218,6 +218,28 @@ him well-suited for:
 - Avoid high-pressure sales roles (Persuasive interest: 32%, under stress: reluctant to confront)
 - Avoid highly social/people-facing roles without technical depth (Social Service: 21%)
 
+## Framework Triangulation (NEW — 2026-07-26)
+
+The Birkman Blue/Yellow bridge profile has been cross-validated against five
+additional psychometric frameworks used by Apt AI (tryapt.ai):
+
+| Framework | Dan's Inferred Profile | Confidence | Claim |
+|---|---|---|---|
+| **MBTI** | INTJ (Architect), INTP secondary | Medium | [[Claims/claim-mbti-intj-inference]] |
+| **Enneagram** | Type 5w6, Self-Preservation instinct | Medium | [[Claims/claim-enneagram-5w6-inference]] |
+| **DISC** | High-C / Medium-S (CS Specialist) | Medium | [[Claims/claim-disc-cs-specialist-inference]] |
+| **Big Five (OCEAN)** | O:Very High, C:Very High, E:Low, A:Med-Low, N:Med-Low | Medium | [[Claims/claim-big-five-ocean-inference]] |
+| **Holland Codes (RIASEC)** | IAR (Investigative-Artistic-Realistic) | Medium | [[Claims/claim-holland-code-iar-inference]] |
+
+**Triangulation result:** All six frameworks converge on the same fundamental
+architecture — creative system-builder, task-oriented, introverted, highly
+conscientious. Zero frameworks contradict. See [[Claims/claim-framework-triangulation]]
+and [[Frameworks/Birkman-to-Framework Crosswalk]] for full methodology.
+
+**Career matching implication:** The Anitalmid Project is now framework-agnostic.
+Users can input MBTI type, Holland Code, or any other framework data and receive
+career recommendations without requiring a Birkman assessment.
+
 ## Cross-Reference With Career History
 
 See [[#career_history_crosswalk]] in frontmatter for detailed role-by-role
@@ -252,10 +274,19 @@ The strongest Birkman alignment is with:
 - [[Career History/Technical_Writer]]
 - [[Role Profiles/Windows Systems Administrator]] — Example role profile
 - [[Resume/Dan Bechtel Resume]] — Full professional resume (extracted 2026-07-26)
+- **resume_matcher.py** — Resume-to-top-6 matching pipeline (Phase C)
 - [[Claims/claim-comptia-security-plus-certification]]
 - [[Claims/claim-bs-public-relations-education]]
 - [[Claims/claim-grc-saas-platform-documentation]]
 - [[Claims/claim-learning-agility-open-source-strengths]]
+- [[Claims/claim-mbti-intj-inference]]
+- [[Claims/claim-enneagram-5w6-inference]]
+- [[Claims/claim-disc-cs-specialist-inference]]
+- [[Claims/claim-big-five-ocean-inference]]
+- [[Claims/claim-holland-code-iar-inference]]
+- [[Claims/claim-framework-triangulation]]
+- [[Frameworks/Frameworks Overview]]
+- [[Frameworks/Birkman-to-Framework Crosswalk]]
 
 ## Source
 

@@ -14,18 +14,19 @@ related:
   - "[[claims/claims-architecture]]"
   - "[[Dan Bechtel Birkman Profile]]"
 scale:
-  claims: 36
-  edges: 155
+  claims: 42
+  edges: 185
   role_profiles: 9
   settled_convergences: 3
   counter_positions_tested: 3
-  evidence_layers: 4
+  evidence_layers: 5
   certifications_verified: 1
+  frameworks_integrated: 6
 ---
 
 # Capstone: Career Aptitude Synthesis
 
-> **Generated:** 2026-07-26 | **Updated:** 2026-07-26 (resume integration) | **Source:** 36 claims, 155 typed edges, 9 role profiles, 4-layer structural analysis (Birkman + Career History + Role Profiles + Professional Resume)
+> **Generated:** 2026-07-26 | **Updated:** 2026-07-26 (framework integration) | **Source:** 42 claims, 185 typed edges, 9 role profiles, 5-layer structural analysis (Birkman + Career History + Role Profiles + Professional Resume + Multi-Framework Triangulation)
 > **Method:** Hinge inventory → cascade trees → counter-position stress tests → convergence analysis
 
 This document is the culminating synthesis of The Anitalmid Project knowledge
@@ -324,6 +325,24 @@ graph's architecture points toward.
 
 ## Part 7: What the Graph Does Not Say
 
+### Non-IT Career Expansion (NEW — 2026-07-26 Framework Integration)
+
+The six-framework profile was used to evaluate non-IT careers with compatible
+RIASEC codes. Key findings from [[synthesis/phase5-non-it-expansion]]:
+
+| Non-IT Role | Aptitude Strength | Barrier | Recommendation |
+|---|---|---|---|
+| **Technical Writer** | Very High (direct experience + Literary 92%) | None — already demonstrated | Strongest non-IT path |
+| **Science Communicator** | Very High (Scientific 92% + Literary 92% + Artistic 94%) | Domain knowledge gap (no science education) | High aptitude, high pivot cost |
+| **Instructional Designer** | High (Education #4 career area + Literary 92%) | Social Service 21% tension | Viable pivot |
+| **UX Designer** | High (Artistic 94% + Visual appeal) | Portfolio from scratch | Creative differentiator within IT |
+| **Data Analyst** | Moderate (Scientific 92% but Numerical 17%) | Quantitative skills gap | Best through security analytics bridge |
+
+The non-IT expansion reveals that Dan's strongest aptitude signals converge on
+science communication and technical writing MORE strongly than on any IT role.
+IT recommendations are experience-validated (he has done them); non-IT
+recommendations are aptitude-validated (he would be naturally good at them).
+
 The graph has limits. It reports structural evidence, not certainty. Areas the
 graph cannot address:
 
@@ -342,11 +361,12 @@ graph cannot address:
    small-team settings) provides directional guidance but not specific employer
    recommendations.
 
-4. **Non-IT careers.** The graph was built to evaluate IT career paths. The
-   Counter-Position stress tests show that creative/media and management tracks
-   are contraindicated, but the graph does not model non-IT technical careers
-   (e.g., technical sales engineering, IT-adjacent consulting) with sufficient
-   depth to make recommendations.
+4. **Non-IT careers.** The graph now models non-IT careers through the six-framework
+   profile and Holland Code O*NET matching (see Phase 5 Non-IT Expansion).
+   Five non-IT roles have been profiled. However, the graph has less evidence
+   depth for non-IT paths because the original claims were extracted for IT
+   career evaluation. Non-IT recommendations should carry LOWER confidence
+   than IT recommendations until validated by additional claims.
 
 ---
 
