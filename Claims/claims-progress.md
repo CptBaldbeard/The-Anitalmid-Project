@@ -10,7 +10,7 @@ updated: 2026-07-26
 
 ## Status Summary
 
-- **Total claims extracted:** 43
+- **Total claims extracted:** 46
 - **Birkman claims:** 17 (anitalmid-birkman-1 through anitalmid-birkman-17)
 - **Career history claims:** 10 (anitalmid-career-1 through anitalmid-career-10)
 - **Role-fit synthesis claims:** 6 (anitalmid-fit-1 through anitalmid-fit-6)
@@ -18,10 +18,11 @@ updated: 2026-07-26
 - **Education claims:** 1 (anitalmid-edu-1: BS Public Relations)
 - **Strength claims:** 1 (anitalmid-strength-1: Learning Agility, Open-Source, Collaboration)
 - **Framework inference claims:** 7 (anitalmid-mbti-1, anitalmid-enneagram-1 [SUPERSEDED], anitalmid-enneagram-2 [CORRECTED], anitalmid-disc-1, anitalmid-ocean-1, anitalmid-holland-1, anitalmid-triangulation-1)
+- **Parachute claims:** 3 (anitalmid-parachute-1, anitalmid-parachute-2, anitalmid-parachute-3)
 - **Edges added:** Yes (all claims include intra-domain edges)
-- **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain)
-- **Frameworks integrated:** 6 (Birkman + MBTI + Enneagram + DISC + Big Five + Holland Codes)
-- **Last session:** 2026-07-26 — Enneagram Type 4 correction (assessment-verified, supersedes 5w6 inference)
+- **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain; Parachute → Role-fit chain)
+- **Frameworks integrated:** 7 (Birkman + MBTI + Enneagram + DISC + Big Five + Holland Codes + Parachute)
+- **Last session:** 2026-07-27 — What Color Is Your Parachute? integration (3 claims, 2 reference notes, frameworks #7)
 
 ## Remaining Work
 
@@ -58,6 +59,29 @@ updated: 2026-07-26
 - Written to `Capstone - Career Aptitude Synthesis.md` (18KB, 7 sections)
 
 ## Session Log
+
+### 2026-07-27 — Session 7 (Parachute Integration — What Color Is Your Parachute?)
+- Sourced Richard Nelson Bolles' *What Color Is Your Parachute?* (1970, revised annually through 2022, 10M+ copies)
+- Scraped Wikipedia summary, Four Minute Books summary, author site (JobHuntersBible.com), and incorporated LLM knowledge of the book's frameworks
+- Created 2 reference notes in new `Parachute/` directory:
+  - `What Color Is Your Parachute Framework.md` — Full framework reference: Flower Exercise (7 petals), Skills Grid (People/Data/Things), networking methodology, informational interviewing, Holland Code connection
+  - `Parachute Flower Exercise - Dan Bechtel Profile.md` — Dan's Birkman data mapped onto all seven petals with skills grid analysis and Party Exercise synthesis
+- Created 3 new OSKG claims:
+  - `anitalmid-parachute-1`: D-T-P Skills Grid profile (Data > Things > People hierarchy) — HIGH confidence
+  - `anitalmid-parachute-2`: Seven-petal flower independently converges with all 3 Capstone recommendations — HIGH confidence
+  - `anitalmid-parachute-3`: Bolles' networking methodology is structurally aligned with Dan's INTJ/Blue-Yellow/Type 4w5 profile — HIGH confidence
+- Updated documents:
+  - Frameworks Overview: Parachute added as framework #7, Parachute Integration section added
+  - Birkman-to-Framework Crosswalk: Crosswalk 6 (Parachute Flower Exercise) added with full seven-petal mapping
+  - Dan Bechtel Birkman Profile: Updated claims_count, frameworks_integrated, added Parachute references
+  - Capstone synthesis: Part 8 (Parachute Integration) added
+  - Triangulation claim: Updated to reflect 7 frameworks
+- **KEY INSIGHTS:**
+  1. Dan's skills architecture is D-T-P (Data > Things > People). This simple formula evaluates job fit: Data/Things primary with People limited to written/one-on-one = fit.
+  2. Networking/informational interviewing is Dan's IDEAL job-search method. One-on-one, structured, prepared conversations map to INTJ/Blue-Yellow strengths. Traditional methods (career fairs, cold calling, mass applications) are contraindicated.
+  3. The Parachute profile reveals that some "preferences" are actually NEEDS — quiet, autonomy, and systematic environments aren't nice-to-haves; their violation triggers the Yellow stress pattern.
+  4. The seven-petal flower INDEPENDENTLY CONVERGES with the Capstone's 3 settled recommendations, cross-validating both the OSKG analysis and the Parachute method.
+- Total claims: 43 → 46. Frameworks: 6 → 7. Evidence layers: 5 → 6 (added Parachute Self-Inventory).
 
 ### 2026-07-26 — Session 6 (Enneagram Type 4 Correction)
 - Direct Enneagram assessment reviewed: `test_result_type_4.pdf` (15 pages) identifies Dan as Type 4 (Individualist)

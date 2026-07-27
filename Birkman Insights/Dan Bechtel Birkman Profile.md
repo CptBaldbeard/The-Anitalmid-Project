@@ -13,11 +13,13 @@ tags:
   - assessment-results
 claims_status: "extracted"
 claims_extracted_date: 2026-07-26
-claims_count: 43
+claims_count: 46
 claims_index: "[[claims/claims-progress]]"
 claims_architecture: "[[claims/claims-architecture]]"
 capstone: "[[Capstone - Career Aptitude Synthesis]]"
 enneagram_type: "Type 4w5 (Individualist/Investigator) — corrected 2026-07-26 from Birkman-inferred Type 5w6"
+frameworks_integrated: 7
+parachute_profile: "[[Parachute/Parachute Flower Exercise - Dan Bechtel Profile]]"
 synthesis:
   - "[[synthesis/phase1-hinge-inventory]]"
   - "[[synthesis/phase2-cascade-trees]]"
@@ -295,6 +297,11 @@ The strongest Birkman alignment is with:
 - [[Claims/claim-framework-triangulation]]
 - [[Frameworks/Frameworks Overview]]
 - [[Frameworks/Birkman-to-Framework Crosswalk]]
+- [[Parachute/What Color Is Your Parachute Framework]]
+- [[Parachute/Parachute Flower Exercise - Dan Bechtel Profile]]
+- [[Claims/claim-parachute-skills-grid]]
+- [[Claims/claim-parachute-flower-convergence]]
+- [[Claims/claim-parachute-networking-fit]]
 
 ## Source
 

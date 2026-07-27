@@ -7,13 +7,13 @@ tags:
   - source/framework-crosswalk
   - anitalmid
 claim_id: "anitalmid-triangulation-1"
-statement: "All five Apt AI frameworks (MBTI, Enneagram, DISC, Big Five, Holland Codes) independently converge on the same personality architecture as Birkman: creative system-builder (Blue/Yellow bridge = INTJ = 4w5 = CS = O-high/C-high/E-low = IAR). CORRECTION 2026-07-26: Enneagram corrected from Type 5w6 to Type 4w5 based on direct assessment."
+statement: "All five Apt AI frameworks (MBTI, Enneagram, DISC, Big Five, Holland Codes) independently converge on the same personality architecture as Birkman: creative system-builder (Blue/Yellow bridge = INTJ = 4w5 = CS = O-high/C-high/E-low = IAR). Bolles' Parachute methodology (framework #7) independently converges with the Capstone career recommendations through a different method (seven-petal self-inventory vs. OSKG edge analysis). CORRECTION 2026-07-26: Enneagram corrected from Type 5w6 to Type 4w5 based on direct assessment."
 confidence: "high"
 confidence_rationale: "Five independent frameworks converge on the same pattern; the Enneagram correction from 5w6 to 4w5 STRENGTHENS the convergence by aligning with the artistic/creative dimension present in all other frameworks."
 claim_type: "framework-inference"
 source_note: "[[Frameworks/Birkman-to-Framework Crosswalk]]"
 created: 2026-07-26
-updated: 2026-07-26
+updated: 2026-07-27
 ---
 
 # anitalmid-triangulation-1: Five-framework convergence validates Birkman career recommendations

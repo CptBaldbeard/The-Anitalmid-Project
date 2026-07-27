@@ -270,8 +270,76 @@ a Blue/Yellow bridge but the other frameworks showed contradictory patterns,
 confidence in the Birkman inference would be lower. Instead, 5/5 frameworks
 converge on the same personality architecture, which should increase
 confidence in the Birkman-driven career recommendations.
+## Crosswalk 6: Parachute Flower Exercise — Inferred Seven-Petal Profile ✦ NEW (2026-07-27)
 
-## Use in the OSKG
+> **Note:** The Parachute framework is NOT a psychometric instrument. It is a
+> structured self-inventory methodology. This crosswalk maps Dan's Birkman +
+> framework data onto Bolles' seven-petal framework, producing a Parachute-
+> compatible self-portrait that can be used for practical job searching.
+
+### Inference Method
+
+Unlike the other crosswalks (which infer one framework from Birkman data),
+this crosswalk uses ALL SIX psychometric frameworks + career history to
+populate each of Bolles' seven petals. Each petal maps to specific Birkman
+dimensions and supporting framework data.
+
+| Petal | Primary Birkman Source | Supporting Frameworks | Dan's Result |
+|---|---|---|---|
+| **1. People** | Blue Usual Behavior (selective sociability); Low Social Service 21%; Low Persuasive 32% | Holland IAR (I+A colleagues); MBTI Introversion; DISC Low I | Small teams (1-4), analytical/creative types, written communication preferred |
+| **2. Conditions** | Yellow Needs (organized, don't interrupt, time alone); Yellow Stress (over-scheduling triggers rigidity) | Big Five Low E (quiet preference); DISC High C (structured); MBTI J (planned) | Quiet, autonomous, systematic, flexible hours, remote-capable |
+| **3. Skills** | 11 Strengths; Interest profile (Scientific 92%, Technical 82%, Literary 92%) | Career history (7 roles); DISC High C (analytical); Big Five Very High O (creative) | D-T-P: Data (analyzing, organizing, synthesizing) > Things (operating, integrating) > People (written, one-on-one only) |
+| **4. Purpose** | Blue Interests (innovation, future, abstraction, creating) | Enneagram Type 4 (authenticity, creative self-expression); Big Five Very High O | Authenticity through creative-analytical work. Quality as moral value. |
+| **5. Knowledge** | Interest profile (Musical 97%, Artistic 94%, Literary 92%, Scientific 92%, Technical 82%) | Career history (IT systems, security, documentation, audio/video); BS Public Relations | IT systems, cybersecurity, technical documentation, audio/video production, career psychology |
+| **6. Salary/Level** | Career area rankings; Low Persuasive + Low Social Service (contraindicate management) | DISC CS (specialist, not leader); INTJ (individual contributor preference); 11 yrs experience | Senior individual contributor. Management track contraindicated. |
+| **7. Geography** | Outdoor interest 40% (moderate) | Career history (Moscow, ID); Blue introvert (small city preference) | Pacific Northwest / Mountain West; small/mid city; remote-capable |
+
+### How the Parachute Profile Differs from Other Crosswalks
+
+The MBTI, Enneagram, DISC, Big Five, and Holland crosswalks produce
+INFERENCES — "Dan is probably INTJ based on his Birkman data." The Parachute
+profile produces a SELF-PORTRAIT — "Here is who Dan is, organized in a format
+designed for job-search action."
+
+The difference is practical: the other crosswalks deepen self-knowledge; the
+Parachute crosswalk operationalizes it.
+
+### Parachute → Career Recommendation Chain
+
+```
+Birkman Profile (primary psychometric)
+  → Frameworks Triangulation (6 frameworks converge)
+    → Parachute Seven-Petal Profile (self-portrait for job search)
+      → D-T-P Skills Grid (transferable skills articulation)
+        → Informational Interviewing Strategy (profile-aligned methodology)
+          → Targeted Networking → Job Offer
+```
+
+This chain is now ANCHORED in the OSKG through three new claims:
+- **anitalmid-parachute-1**: D-T-P Skills Grid profile (claim-parachute-skills-grid)
+- **anitalmid-parachute-2**: Seven-petal flower convergence with Capstone (claim-parachute-flower-convergence)
+- **anitalmid-parachute-3**: Networking methodology fit with Dan's profile (claim-parachute-networking-fit)
+
+### What the Parachute Crosswalk Reveals
+
+1. **The seven petals independently converge** with the Capstone's three settled
+   recommendations (SysAdmin, Cloud Admin, Security Analyst). This cross-validates
+   both the OSKG structural analysis AND the Parachute self-inventory method.
+
+2. **Dan's skills architecture is D-T-P** (Data > Things > People). This simple
+   formula can evaluate ANY job: if it's primarily Data/Things work with People
+   limited to written/one-on-one modes, it fits. If it requires verbal persuasion,
+   group facilitation, or people management, it doesn't.
+
+3. **Networking, not resume-blasting, is Dan's ideal job-search method.**
+   Informational interviewing (structured, one-on-one, prepared) maps directly to
+   INTJ/Blue-Yellow/Type 4w5 preferences. Traditional methods (career fairs, cold
+   calling, mass applications) are contraindicated.
+
+4. **The Parachute profile exposes CONDITIONS that are actually NEEDS.**
+   Quiet, autonomy, systematic environment, clear rules — these are not just
+   preferences. They are documented Birkman Needs whose violation triggers
+   the Yellow stress pattern (rigidity, withdrawal, rule-obsession).
 
 This crosswalk document provides the inference basis for the framework-specific
 claims (see `Claims/claim-mbti-intj-inference.md`, etc.). Each framework
