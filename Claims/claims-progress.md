@@ -10,7 +10,7 @@ updated: 2026-07-26
 
 ## Status Summary
 
-- **Total claims extracted:** 50
+- **Total claims extracted:** 53
 - **Birkman claims:** 17 (anitalmid-birkman-1 through anitalmid-birkman-17)
 - **Career history claims:** 10 (anitalmid-career-1 through anitalmid-career-10)
 - **Role-fit synthesis claims:** 6 (anitalmid-fit-1 through anitalmid-fit-6)
@@ -19,10 +19,11 @@ updated: 2026-07-26
 - **Strength claims:** 1 (anitalmid-strength-1: Learning Agility, Open-Source, Collaboration)
 - **Framework inference claims:** 7 (anitalmid-mbti-1, anitalmid-enneagram-1 [SUPERSEDED], anitalmid-enneagram-2 [CORRECTED], anitalmid-disc-1, anitalmid-ocean-1, anitalmid-holland-1, anitalmid-triangulation-1)
 - **Parachute claims:** 7 (anitalmid-parachute-1 through anitalmid-parachute-7)
-- **Edges added:** Yes (all claims include intra-domain edges; Parachute session 2 added cross-domain edges to Birkman, Enneagram, and existing Parachute claims)
-- **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain; Parachute → Role-fit chain)
+- **Cultural/Anthropological expansion claims:** 3 (anitalmid-cultural-1 through anitalmid-cultural-3) [THOUGHT EXPERIMENT]
+- **Edges added:** Yes (all claims include intra-domain edges; Parachute session 2 added cross-domain edges; Cultural expansion adds cross-domain edges to Birkman, Enneagram, and Holland claims)
+- **Cross-domain edges:** Complete (Birkman → Framework → Role-fit chain; Parachute → Role-fit chain; Cultural → Framework chain)
 - **Frameworks integrated:** 7 (Birkman + MBTI + Enneagram + DISC + Big Five + Holland Codes + Parachute)
-- **Last session:** 2026-07-27 — What Color Is Your Parachute? full-text verification (4 new claims from Chapters 3, 5, 12; Parachute claims: 3 → 7)
+- **Last session:** 2026-07-28 — Cultural/Anthropological Career Expansion (thought experiment): 5 role profiles, 3 claims, 1 synthesis document
 
 ## Remaining Work
 
@@ -59,6 +60,28 @@ updated: 2026-07-26
 - Written to `Capstone - Career Aptitude Synthesis.md` (18KB, 7 sections)
 
 ## Session Log
+
+### 2026-07-28 — Session 9 (Cultural/Anthropological Career Expansion — Thought Experiment)
+- Dan expressed deep interest in history, anthropology, mythology, legends, and cultural belief systems
+- **Research question**: "Understanding why people of a specific culture believed what they did, at the time they believed it, and how their environment and culture shaped those beliefs"
+- **5 role profiles created** in `Role Profiles/`:
+  - Cultural Anthropologist (IRA Holland, Very High pivot cost)
+  - Folklorist / Mythologist (AIE Holland, Very High pivot cost)
+  - Comparative Belief Systems Scholar (IAS Holland, Very High pivot cost)
+  - Museum Curator — Anthropology (ARI Holland, High pivot cost)
+  - Independent Cultural Researcher / Writer (AI Holland, Low pivot cost — actionable TODAY)
+- **3 new claims created**:
+  - `anitalmid-cultural-1`: IAR Holland Code maps to anthropology/folklore careers (MEDIUM confidence)
+  - `anitalmid-cultural-2`: Birkman triad (Sci 92% + Lit 92% + Art 94%) converges on cultural belief systems research (MEDIUM confidence)
+  - `anitalmid-cultural-3`: Type 4w5 Enneagram motivation aligns with anthropological meaning-making research (MEDIUM confidence)
+- **1 synthesis document**: `synthesis/phase6-cultural-anthropology-expansion.md`
+- **STATUS**: THOUGHT EXPERIMENT — all profiles aptitude-validated, not experience-validated; NOT primary recommendations
+- **KEY INSIGHTS**:
+  1. The three-strongest-Birkman-interests convergence (Scientific 92% + Literary 92% + Artistic 94%) points MORE STRONGLY toward cultural/anthropological research than toward IT systems administration — but IT is experience-validated, anthropology is aptitude-validated
+  2. The Enneagram Type 4w5 motivation aligns with cultural meaning-making research more deeply than with IT work — creating a motivational tension between what Dan DOES (IT, Type 5 wing) and what would express his core (anthropology, Type 4)
+  3. The Independent Cultural Researcher path is the only one actionable TODAY — requires no credentials, leverages existing writing/videographer skills, feeds the intellectual hunger as a side project
+  4. This expansion reveals TWO simultaneous truths: Dan has an excellent IT career (experience-validated) AND an unexpressed cultural/anthropological aptitude (framework-validated). The tension is a map, not a problem.
+- Total claims: 50 → 53. Role profiles: 14 → 19. Evidence layers unchanged (6).
 
 ### 2026-07-27 — Session 8 (Parachute Full-Text Verification)
 - Downloaded and extracted the complete 2012 edition of *What Color Is Your Parachute?* (epub, 14 MB, ~350 pages)
