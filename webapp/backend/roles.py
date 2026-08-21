@@ -1489,4 +1489,1305 @@ ROLE_PROFILES = [
         description="Designs effective learning experiences and training programs.",
         pivot_cost="Medium",
     ),
+
+    # ─── Aviation ──────────────────────────────────────────────────────────
+    RoleProfile(
+        title="Commercial Pilot",
+        category="Aviation",
+        holland_code="RIE",
+        o_net_code="53-2012.00",
+        mbti_type="ISTP",
+        salary_range="$80K-$130K (mid), $130K-$250K+ (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "pilot", "aviation", "flight", "aircraft", "cockpit",
+            "instrument", "navigation", "airline", "atp", "commercial pilot"
+        ],
+        keywords_moderate=[
+            "faa", "flight plan", "radio", "takeoff", "landing",
+            "altitude", "weather", "safety", "checklist", "crew"
+        ],
+        keywords_weak=[
+            "avionics", "communication", "procedure", "coordination"
+        ],
+        contra_keywords=["software development", "accounting"],
+        description="Operates aircraft to transport passengers and cargo safely.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Air Traffic Controller",
+        category="Aviation",
+        holland_code="RCE",
+        o_net_code="53-2021.00",
+        mbti_type="ISTJ",
+        salary_range="$70K-$110K (mid), $110K-$150K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "air traffic", "air traffic control", "atc", "radar",
+            "airspace", "clearance", "flight separation"
+        ],
+        keywords_moderate=[
+            "aviation", "aircraft", "communication", "coordination",
+            "emergency", "navigation", "safety"
+        ],
+        keywords_weak=[
+            "monitoring", "procedure", "radio", "decision"
+        ],
+        contra_keywords=["nursing", "creative"],
+        description="Directs aircraft movement to maintain safe, orderly air traffic flow.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Aircraft Mechanic",
+        category="Aviation",
+        holland_code="RIE",
+        o_net_code="49-3011.00",
+        mbti_type="ISTP",
+        salary_range="$55K-$85K (mid), $85K-$120K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "aircraft mechanic", "airframe", "powerplant", "a&p",
+            "aviation maintenance", "aircraft maintenance", "avionics"
+        ],
+        keywords_moderate=[
+            "inspection", "repair", "turbine", "hydraulic", "faa",
+            "engine", "troubleshooting", "safety"
+        ],
+        keywords_weak=[
+            "mechanical", "tools", "documentation", "maintenance"
+        ],
+        contra_keywords=["software", "marketing"],
+        description="Inspects, maintains, and repairs aircraft to ensure airworthiness.",
+        pivot_cost="High",
+    ),
+
+    # ─── Veterinary ────────────────────────────────────────────────────────
+    RoleProfile(
+        title="Veterinarian",
+        category="Veterinary",
+        holland_code="IRS",
+        o_net_code="29-1131.00",
+        mbti_type="ISTJ",
+        salary_range="$80K-$120K (mid), $120K-$180K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "veterinarian", "veterinary", "animal medicine", "dvm",
+            "animal care", "surgery", "diagnosis", "companion animal"
+        ],
+        keywords_moderate=[
+            "animal", "clinical", "vaccination", "treatment",
+            "patient", "preventive care", "radiograph"
+        ],
+        keywords_weak=[
+            "healthcare", "compassion", "record keeping", "client"
+        ],
+        contra_keywords=["software development", "finance"],
+        description="Diagnoses and treats diseases and injuries in animals.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Veterinary Technician",
+        category="Veterinary",
+        holland_code="RIS",
+        o_net_code="29-2056.00",
+        mbti_type="ISFJ",
+        salary_range="$35K-$50K (mid), $50K-$70K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "veterinary technician", "vet tech", "animal nursing",
+            "animal care", "patient monitoring", "anesthesia"
+        ],
+        keywords_moderate=[
+            "animal", "laboratory", "radiography", "surgery",
+            "medication", "client education", "restraint"
+        ],
+        keywords_weak=[
+            "compassion", "record keeping", "sanitation", "assist"
+        ],
+        contra_keywords=["programming", "accounting"],
+        description="Assists veterinarians with animal care, diagnostics, and procedures.",
+        pivot_cost="High",
+    ),
+
+    # ─── Agriculture & Environment ─────────────────────────────────────────
+    RoleProfile(
+        title="Agronomist / Crop Scientist",
+        category="Agriculture & Environment",
+        holland_code="IRA",
+        o_net_code="19-1013.00",
+        mbti_type="ISTJ",
+        salary_range="$55K-$80K (mid), $80K-$115K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "agronom", "crop science", "agronomy", "soil", "agriculture",
+            "crop", "plant science", "irrigation", "fertilizer"
+        ],
+        keywords_moderate=[
+            "research", "field", "yield", "pest", "sustainability",
+            "genetic", "harvest", "cultivation"
+        ],
+        keywords_weak=[
+            "data", "analysis", "environment", "farming"
+        ],
+        contra_keywords=["software development", "retail"],
+        description="Studies crops and soil to improve agricultural productivity.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Forester",
+        category="Agriculture & Environment",
+        holland_code="IRE",
+        o_net_code="19-1032.00",
+        mbti_type="ISTP",
+        salary_range="$50K-$75K (mid), $75K-$105K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "forester", "forestry", "forest", "timber", "silviculture",
+            "conservation", "wildlife", "ecosystem"
+        ],
+        keywords_moderate=[
+            "field", "land management", "surveying", "reforestation",
+            "habitat", "resource", "environmental"
+        ],
+        keywords_weak=[
+            "outdoor", "data", "mapping", "planning"
+        ],
+        contra_keywords=["software", "accounting"],
+        description="Manages forests and woodlands for conservation and sustainable use.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Conservation Scientist",
+        category="Agriculture & Environment",
+        holland_code="IAR",
+        o_net_code="19-1031.00",
+        mbti_type="INFP",
+        salary_range="$55K-$80K (mid), $80K-$115K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "conservation", "ecology", "environmental science",
+            "natural resource", "wildlife", "habitat", "biodiversity"
+        ],
+        keywords_moderate=[
+            "field", "research", "ecosystem", "restoration",
+            "sustainability", "land management", "monitoring"
+        ],
+        keywords_weak=[
+            "data", "policy", "outdoor", "reporting"
+        ],
+        contra_keywords=["software development", "sales"],
+        description="Protects and restores natural resources and ecosystems.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Landscape Architect",
+        category="Agriculture & Environment",
+        holland_code="AIR",
+        o_net_code="17-1012.00",
+        mbti_type="INFP",
+        salary_range="$60K-$90K (mid), $90K-$130K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "landscape architect", "landscape design", "site planning",
+            "outdoor space", "planting design", "sustainable design"
+        ],
+        keywords_moderate=[
+            "autocad", "sketchup", "horticulture", "environmental",
+            "grading", "drainage", "parks", "urban design"
+        ],
+        keywords_weak=[
+            "design", "creative", "client", "presentation"
+        ],
+        contra_keywords=["software development", "finance"],
+        description="Designs outdoor spaces, parks, and sustainable landscapes.",
+        pivot_cost="High",
+    ),
+
+    # ─── Architecture & Construction ───────────────────────────────────────
+    RoleProfile(
+        title="Architect",
+        category="Architecture & Construction",
+        holland_code="AIR",
+        o_net_code="17-1011.00",
+        mbti_type="INTJ",
+        salary_range="$70K-$105K (mid), $105K-$150K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "architect", "architecture", "building design", "blueprint",
+            "revit", "autocad", "construction documents"
+        ],
+        keywords_moderate=[
+            "structural", "building code", "schematic", "design",
+            "client", "site", "sustainability", "zoning"
+        ],
+        keywords_weak=[
+            "creative", "project", "coordination", "rendering"
+        ],
+        contra_keywords=["nursing", "accounting"],
+        description="Designs buildings and oversees their construction.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Construction Manager",
+        category="Architecture & Construction",
+        holland_code="ECR",
+        o_net_code="11-9021.00",
+        mbti_type="ESTJ",
+        salary_range="$75K-$115K (mid), $115K-$170K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "construction manager", "construction", "site management",
+            "project management", "subcontractor", "scheduling", "budget"
+        ],
+        keywords_moderate=[
+            "blueprint", "safety", "building code", "estimating",
+            "procurement", "coordination", "quality control"
+        ],
+        keywords_weak=[
+            "leadership", "planning", "compliance", "inspection"
+        ],
+        contra_keywords=["software development", "clinical"],
+        description="Plans and oversees construction projects from start to finish.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Land Surveyor",
+        category="Architecture & Construction",
+        holland_code="RIC",
+        o_net_code="17-1022.00",
+        mbti_type="ISTJ",
+        salary_range="$50K-$75K (mid), $75K-$105K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "surveyor", "surveying", "boundary", "topographic",
+            "gis", "gps", "mapping", "property line"
+        ],
+        keywords_moderate=[
+            "measurement", "elevation", "autocad", "construction",
+            "legal description", "field", "data collection"
+        ],
+        keywords_weak=[
+            "precision", "documentation", "outdoor", "analysis"
+        ],
+        contra_keywords=["software development", "marketing"],
+        description="Measures and maps land boundaries and topography.",
+        pivot_cost="High",
+    ),
+
+    # ─── Real Estate ───────────────────────────────────────────────────────
+    RoleProfile(
+        title="Real Estate Agent",
+        category="Real Estate",
+        holland_code="ECS",
+        o_net_code="41-9022.00",
+        mbti_type="ENFP",
+        salary_range="$45K-$80K (commission), $80K-$150K+ (top)",
+        experience_required="Low",
+        keywords_strong=[
+            "real estate", "realtor", "property", "listing",
+            "home buyer", "seller", "closing", "mansion"
+        ],
+        keywords_moderate=[
+            "sales", "negotiation", "client", "marketing",
+            "open house", "mls", "contract", "referral"
+        ],
+        keywords_weak=[
+            "communication", "networking", "customer", "market"
+        ],
+        contra_keywords=["nursing", "laboratory"],
+        description="Helps clients buy, sell, and rent properties.",
+        pivot_cost="Low",
+    ),
+    RoleProfile(
+        title="Property Manager",
+        category="Real Estate",
+        holland_code="ECS",
+        o_net_code="11-9141.00",
+        mbti_type="ESTJ",
+        salary_range="$50K-$75K (mid), $75K-$110K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "property manager", "property management", "tenant",
+            "leasing", "landlord", "maintenance", "rental"
+        ],
+        keywords_moderate=[
+            "lease", "occupancy", "vendor", "budget",
+            "inspection", "resident", "collection", "hud"
+        ],
+        keywords_weak=[
+            "customer service", "coordination", "reporting", "compliance"
+        ],
+        contra_keywords=["software development", "surgery"],
+        description="Oversees the operation and maintenance of rental properties.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Sports & Fitness ──────────────────────────────────────────────────
+    RoleProfile(
+        title="Athletic Trainer",
+        category="Sports & Fitness",
+        holland_code="SIR",
+        o_net_code="29-9091.00",
+        mbti_type="ESFJ",
+        salary_range="$45K-$65K (mid), $65K-$90K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "athletic trainer", "athletic training", "sports medicine",
+            "injury prevention", "rehabilitation", "taping"
+        ],
+        keywords_moderate=[
+            "athlete", "first aid", "exercise", "strength",
+            "conditioning", "emergency", "patient"
+        ],
+        keywords_weak=[
+            "sports", "fitness", "wellness", "education"
+        ],
+        contra_keywords=["accounting", "programming"],
+        description="Prevents and treats athletic injuries and supports athlete performance.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Personal Trainer",
+        category="Sports & Fitness",
+        holland_code="SRE",
+        o_net_code="39-9031.00",
+        mbti_type="ESTP",
+        salary_range="$35K-$55K (mid), $55K-$90K (top)",
+        experience_required="Low",
+        keywords_strong=[
+            "personal trainer", "fitness", "strength training",
+            "exercise", "workout", "personal training", "conditioning"
+        ],
+        keywords_moderate=[
+            "client", "nutrition", "motivation", "program",
+            "cardio", "weight training", "flexibility", "goal"
+        ],
+        keywords_weak=[
+            "wellness", "health", "coaching", "instruction"
+        ],
+        contra_keywords=["software development", "finance"],
+        description="Coaches clients to reach their fitness and health goals.",
+        pivot_cost="Low",
+    ),
+    RoleProfile(
+        title="Sports Coach",
+        category="Sports & Fitness",
+        holland_code="SRE",
+        o_net_code="27-2022.00",
+        mbti_type="ESTJ",
+        salary_range="$40K-$70K (mid), $70K-$120K (collegiate/pro)",
+        experience_required="Medium",
+        keywords_strong=[
+            "coach", "coaching", "athletics", "team", "practice",
+            "game strategy", "player development"
+        ],
+        keywords_moderate=[
+            "training", "drill", "conditioning", "recruiting",
+            "competition", "sports", "motivation"
+        ],
+        keywords_weak=[
+            "leadership", "mentoring", "instruction", "discipline"
+        ],
+        contra_keywords=["accounting", "nursing"],
+        description="Trains and develops athletes and teams to compete effectively.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Hospitality & Tourism ─────────────────────────────────────────────
+    RoleProfile(
+        title="Chef / Head Cook",
+        category="Hospitality & Tourism",
+        holland_code="AER",
+        o_net_code="35-1011.00",
+        mbti_type="ISTP",
+        salary_range="$45K-$70K (mid), $70K-$120K (executive)",
+        experience_required="Medium",
+        keywords_strong=[
+            "chef", "cook", "culinary", "kitchen", "menu",
+            "food preparation", "cuisine", "restaurant"
+        ],
+        keywords_moderate=[
+            "recipe", "food safety", "line cook", "sous chef",
+            "inventory", "plating", "ingredient"
+        ],
+        keywords_weak=[
+            "creative", "team", "sanitation", "quality"
+        ],
+        contra_keywords=["software development", "accounting"],
+        description="Plans menus and prepares food in a commercial kitchen.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Hotel Manager",
+        category="Hospitality & Tourism",
+        holland_code="ECS",
+        o_net_code="11-9081.00",
+        mbti_type="ESTJ",
+        salary_range="$55K-$85K (mid), $85K-$130K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "hotel", "hospitality", "guest services", "front desk",
+            "lodging", "resort", "housekeeping", "operations"
+        ],
+        keywords_moderate=[
+            "customer service", "staff", "budget", "revenue",
+            "reservation", "guest", "quality", "scheduling"
+        ],
+        keywords_weak=[
+            "management", "coordination", "communication", "problem solving"
+        ],
+        contra_keywords=["laboratory", "programming"],
+        description="Oversees the daily operations and guest experience of a hotel.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Event Planner",
+        category="Hospitality & Tourism",
+        holland_code="EAS",
+        o_net_code="13-1121.00",
+        mbti_type="ENFP",
+        salary_range="$45K-$70K (mid), $70K-$110K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "event planner", "event planning", "event coordinator",
+            "conference", "wedding", "coordination", "logistics"
+        ],
+        keywords_moderate=[
+            "vendor", "budget", "venue", "catering",
+            "registration", "scheduling", "client", "marketing"
+        ],
+        keywords_weak=[
+            "organization", "communication", "creative", "networking"
+        ],
+        contra_keywords=["surgery", "engineering"],
+        description="Plans and coordinates events, conferences, and celebrations.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Manufacturing & Production ────────────────────────────────────────
+    RoleProfile(
+        title="Machinist",
+        category="Manufacturing & Production",
+        holland_code="RIC",
+        o_net_code="51-4041.00",
+        mbti_type="ISTP",
+        salary_range="$45K-$65K (mid), $65K-$90K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "machinist", "cnc", "milling", "lathe", "machining",
+            "blueprint", "metalworking", "precision"
+        ],
+        keywords_moderate=[
+            "tooling", "tolerance", "setup", "fabrication",
+            "measurement", "calibration", "manufacturing"
+        ],
+        keywords_weak=[
+            "inspection", "quality", "safety", "mechanical"
+        ],
+        contra_keywords=["software development", "marketing"],
+        description="Operates and sets up machine tools to produce precision parts.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Production Supervisor",
+        category="Manufacturing & Production",
+        holland_code="ECR",
+        o_net_code="51-1011.00",
+        mbti_type="ESTJ",
+        salary_range="$55K-$80K (mid), $80K-$115K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "production supervisor", "production", "manufacturing",
+            "assembly line", "shop floor", "throughput", "safety"
+        ],
+        keywords_moderate=[
+            "staff", "scheduling", "quality", "lean",
+            "continuous improvement", "inventory", "kpi"
+        ],
+        keywords_weak=[
+            "leadership", "coordination", "training", "reporting"
+        ],
+        contra_keywords=["nursing", "creative writing"],
+        description="Supervises manufacturing operations and production teams.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Quality Control Inspector",
+        category="Manufacturing & Production",
+        holland_code="CIR",
+        o_net_code="51-9061.00",
+        mbti_type="ISTJ",
+        salary_range="$40K-$60K (mid), $60K-$85K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "quality control", "qc", "quality assurance", "inspection",
+            "quality inspector", "defect", "measurement"
+        ],
+        keywords_moderate=[
+            "specification", "calibration", "sampling", "tolerance",
+            "compliance", "documentation", "audit", "testing"
+        ],
+        keywords_weak=[
+            "precision", "reporting", "standard", "safety"
+        ],
+        contra_keywords=["sales", "creative"],
+        description="Inspects products and processes to ensure quality standards.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Transportation ────────────────────────────────────────────────────
+    RoleProfile(
+        title="Truck Driver",
+        category="Transportation",
+        holland_code="REC",
+        o_net_code="53-3032.00",
+        mbti_type="ISTP",
+        salary_range="$45K-$65K (mid), $65K-$90K (senior)",
+        experience_required="Low",
+        keywords_strong=[
+            "truck driver", "cdl", "trucking", "freight", "hauling",
+            "tractor-trailer", "semi", "logistics"
+        ],
+        keywords_moderate=[
+            "route", "delivery", "vehicle", "safety", "dispatch",
+            "inspection", "loading", "transportation"
+        ],
+        keywords_weak=[
+            "driving", "customer service", "schedule", "compliance"
+        ],
+        contra_keywords=["software development", "accounting"],
+        description="Transports goods over long and regional routes.",
+        pivot_cost="Low",
+    ),
+    RoleProfile(
+        title="Urban Planner",
+        category="Government & Nonprofit",
+        holland_code="IAE",
+        o_net_code="19-3051.00",
+        mbti_type="INTJ",
+        salary_range="$60K-$90K (mid), $90K-$130K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "urban planner", "urban planning", "city planning",
+            "zoning", "land use", "community development", "gis"
+        ],
+        keywords_moderate=[
+            "policy", "zoning code", "transportation", "public",
+            "environmental", "stakeholder", "master plan", "ordinance"
+        ],
+        keywords_weak=[
+            "analysis", "research", "reporting", "presentation"
+        ],
+        contra_keywords=["nursing", "construction"],
+        description="Plans land use and development for cities and regions.",
+        pivot_cost="High",
+    ),
+
+    # ─── Government & Nonprofit ─────────────────────────────────────────────
+    RoleProfile(
+        title="Policy Analyst",
+        category="Government & Nonprofit",
+        holland_code="IEA",
+        o_net_code="19-3099.00",
+        mbti_type="INTJ",
+        salary_range="$55K-$85K (mid), $85K-$125K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "policy analyst", "policy analysis", "public policy",
+            "legislative", "regulatory", "research", "advocacy"
+        ],
+        keywords_moderate=[
+            "data", "report", "stakeholder", "government",
+            "analysis", "briefing", "evaluation", "proposal"
+        ],
+        keywords_weak=[
+            "writing", "research", "communication", "statistics"
+        ],
+        contra_keywords=["nursing", "construction"],
+        description="Analyzes and develops public policy and regulations.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Grant Writer",
+        category="Government & Nonprofit",
+        holland_code="AIS",
+        o_net_code="13-1131.00",
+        mbti_type="INFP",
+        salary_range="$45K-$70K (mid), $70K-$100K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "grant writer", "grant writing", "proposal", "fundraising",
+            "grant", "foundation", "rfa", "philanthropy"
+        ],
+        keywords_moderate=[
+            "writing", "budget", "nonprofit", "donor",
+            "research", "narrative", "application", "reporting"
+        ],
+        keywords_weak=[
+            "communication", "editing", "deadline", "persuasion"
+        ],
+        contra_keywords=["surgery", "engineering"],
+        description="Writes proposals to secure grant funding for organizations.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Nonprofit Program Manager",
+        category="Government & Nonprofit",
+        holland_code="ESA",
+        o_net_code="11-9199.00",
+        mbti_type="ENFJ",
+        salary_range="$50K-$75K (mid), $75K-$110K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "program manager", "nonprofit", "community", "outreach",
+            "program", "volunteer", "mission", "advocacy"
+        ],
+        keywords_moderate=[
+            "budget", "grant", "stakeholder", "partnership",
+            "impact", "fundraising", "evaluation", "reporting"
+        ],
+        keywords_weak=[
+            "leadership", "coordination", "communication", "planning"
+        ],
+        contra_keywords=["software development", "manufacturing"],
+        description="Manages programs that advance a nonprofit's mission.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Energy & Utilities ────────────────────────────────────────────────
+    RoleProfile(
+        title="Power Plant Operator",
+        category="Energy & Utilities",
+        holland_code="RIC",
+        o_net_code="51-8013.00",
+        mbti_type="ISTJ",
+        salary_range="$60K-$90K (mid), $90K-$120K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "power plant", "power generation", "turbine", "boiler",
+            "electrical generation", "generator", "control room"
+        ],
+        keywords_moderate=[
+            "equipment", "monitoring", "safety", "maintenance",
+            "grid", "emergency", "compliance", "operation"
+        ],
+        keywords_weak=[
+            "mechanical", "electrical", "procedure", "inspection"
+        ],
+        contra_keywords=["software development", "retail"],
+        description="Operates and monitors power generation equipment.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Wind Turbine Technician",
+        category="Energy & Utilities",
+        holland_code="RIE",
+        o_net_code="49-9081.00",
+        mbti_type="ISTP",
+        salary_range="$50K-$75K (mid), $75K-$100K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "wind turbine", "wind energy", "turbine", "renewable energy",
+            "wind farm", "blade", "gearbox", "nacelle"
+        ],
+        keywords_moderate=[
+            "maintenance", "inspection", "hydraulic", "electrical",
+            "repair", "safety", "troubleshooting", "climbing"
+        ],
+        keywords_weak=[
+            "mechanical", "tools", "documentation", "equipment"
+        ],
+        contra_keywords=["office", "finance"],
+        description="Installs and maintains wind turbines and renewable energy systems.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Solar Installer",
+        category="Energy & Utilities",
+        holland_code="RIC",
+        o_net_code="47-2231.00",
+        mbti_type="ISTP",
+        salary_range="$40K-$60K (mid), $60K-$85K (senior)",
+        experience_required="Low",
+        keywords_strong=[
+            "solar", "solar panel", "solar installation", "photovoltaic",
+            "pv", "renewable energy", "solar installer"
+        ],
+        keywords_moderate=[
+            "installation", "electrical", "roofing", "wiring",
+            "inverter", "safety", "inspection", "mounting"
+        ],
+        keywords_weak=[
+            "construction", "troubleshooting", "tools", "customer"
+        ],
+        contra_keywords=["software development", "accounting"],
+        description="Installs and maintains solar panel systems.",
+        pivot_cost="Low",
+    ),
+
+    # ─── Arts & Entertainment ──────────────────────────────────────────────
+    RoleProfile(
+        title="Actor",
+        category="Arts & Entertainment",
+        holland_code="AES",
+        o_net_code="27-2011.00",
+        mbti_type="ENFP",
+        salary_range="$40K-$80K (variable), $80K+ (established)",
+        experience_required="Medium",
+        keywords_strong=[
+            "actor", "acting", "performance", "theatre", "theater",
+            "stage", "film", "screen", "audition"
+        ],
+        keywords_moderate=[
+            "character", "rehearsal", "voice", "improv", "drama",
+            "cast", "director", "script"
+        ],
+        keywords_weak=[
+            "creative", "communication", "expression", "interpretation"
+        ],
+        contra_keywords=["accounting", "engineering"],
+        description="Performs roles in theater, film, television, and other media.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Musician / Singer",
+        category="Arts & Entertainment",
+        holland_code="AES",
+        o_net_code="27-2042.00",
+        mbti_type="INFP",
+        salary_range="$35K-$70K (variable), $70K+ (established)",
+        experience_required="Medium",
+        keywords_strong=[
+            "musician", "singer", "music", "vocal", "instrument",
+            "performance", "composer", "recording", "band"
+        ],
+        keywords_moderate=[
+            "composition", "songwriting", "rehearsal", "gig",
+            "concert", "studio", "arrangement", "melody"
+        ],
+        keywords_weak=[
+            "creative", "artistic", "expression", "audition"
+        ],
+        contra_keywords=["accounting", "nursing"],
+        description="Performs, composes, and records music.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Photographer",
+        category="Arts & Entertainment",
+        holland_code="ARE",
+        o_net_code="27-4021.00",
+        mbti_type="ISFP",
+        salary_range="$35K-$65K (mid), $65K-$110K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "photographer", "photography", "photo", "camera",
+            "portrait", "lighting", "photoshop", "lightroom"
+        ],
+        keywords_moderate=[
+            "editing", "studio", "shoot", "composition",
+            "digital", "client", "visual", "portfolio"
+        ],
+        keywords_weak=[
+            "creative", "artistic", "technical", "detail"
+        ],
+        contra_keywords=["accounting", "surgery"],
+        description="Captures and edits photographic images for clients and media.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Art Director",
+        category="Arts & Entertainment",
+        holland_code="AER",
+        o_net_code="27-1011.00",
+        mbti_type="ENFP",
+        salary_range="$70K-$105K (mid), $105K-$150K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "art director", "creative director", "art direction",
+            "visual", "brand", "campaign", "design team"
+        ],
+        keywords_moderate=[
+            "design", "creative", "typography", "layout",
+            "concept", "client", "photography", "advertising"
+        ],
+        keywords_weak=[
+            "leadership", "presentation", "aesthetic", "coordination"
+        ],
+        contra_keywords=["accounting", "nursing"],
+        description="Directs the visual style and creative output of projects.",
+        pivot_cost="Medium",
+    ),
+
+    # ─── Healthcare specialties ────────────────────────────────────────────
+    RoleProfile(
+        title="Nurse Practitioner",
+        category="Healthcare",
+        holland_code="SIC",
+        o_net_code="29-1171.00",
+        mbti_type="INTJ",
+        salary_range="$95K-$125K (mid), $125K-$160K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "nurse practitioner", "np", "advanced practice", "diagnose",
+            "prescribe", "primary care", "patient management"
+        ],
+        keywords_moderate=[
+            "nursing", "clinical", "treatment plan", "healthcare",
+            "assessment", "chronic care", "patient education"
+        ],
+        keywords_weak=[
+            "patient", "care", "coordination", "wellness"
+        ],
+        contra_keywords=["software development", "sales"],
+        description="Provides advanced nursing care, diagnosing and treating patients.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Dentist",
+        category="Healthcare",
+        holland_code="IRS",
+        o_net_code="29-1021.00",
+        mbti_type="ISTJ",
+        salary_range="$120K-$180K (mid), $180K-$250K+ (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "dentist", "dentistry", "dental", "oral health",
+            "dental care", "cavity", "orthodontic", "prosthodontic"
+        ],
+        keywords_moderate=[
+            "patient", "clinical", "diagnosis", "restoration",
+            "extraction", "hygiene", "radiography", "treatment"
+        ],
+        keywords_weak=[
+            "healthcare", "precision", "compassion", "record"
+        ],
+        contra_keywords=["software", "finance"],
+        description="Diagnoses and treats conditions of the teeth and mouth.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Dental Hygienist",
+        category="Healthcare",
+        holland_code="SRI",
+        o_net_code="29-1292.00",
+        mbti_type="ISFJ",
+        salary_range="$60K-$85K (mid), $85K-$110K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "dental hygienist", "dental hygiene", "oral hygiene",
+            "cleaning", "scaling", "periodontal", "prophylaxis"
+        ],
+        keywords_moderate=[
+            "patient", "radiography", "preventive care",
+            "education", "dental", "healthcare", "charting"
+        ],
+        keywords_weak=[
+            "compassion", "assist", "record keeping", "sanitation"
+        ],
+        contra_keywords=["software development", "accounting"],
+        description="Cleans teeth and educates patients on oral hygiene.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Speech-Language Pathologist",
+        category="Healthcare",
+        holland_code="SIA",
+        o_net_code="29-1127.00",
+        mbti_type="INFJ",
+        salary_range="$65K-$95K (mid), $95K-$130K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "speech-language pathologist", "speech therapy",
+            "speech pathologist", "communication disorder", "swallowing"
+        ],
+        keywords_moderate=[
+            "patient", "therapy", "language", "articulation",
+            "assessment", "treatment", "pediatric", "rehabilitation"
+        ],
+        keywords_weak=[
+            "communication", "healthcare", "education", "compassion"
+        ],
+        contra_keywords=["accounting", "manufacturing"],
+        description="Assesses and treats speech, language, and swallowing disorders.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Dietitian / Nutritionist",
+        category="Healthcare",
+        holland_code="SIA",
+        o_net_code="29-1031.00",
+        mbti_type="INFJ",
+        salary_range="$55K-$80K (mid), $80K-$110K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "dietitian", "nutritionist", "nutrition", "dietary",
+            "meal planning", "clinical nutrition", "food science"
+        ],
+        keywords_moderate=[
+            "patient", "counseling", "wellness", "healthcare",
+            "assessment", "education", "diabetes", "weight management"
+        ],
+        keywords_weak=[
+            "health", "care", "planning", "communication"
+        ],
+        contra_keywords=["software development", "construction"],
+        description="Assesses nutritional needs and plans diets for health and wellness.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Mental Health Counselor",
+        category="Healthcare",
+        holland_code="SIA",
+        o_net_code="21-1014.00",
+        mbti_type="INFJ",
+        salary_range="$45K-$70K (mid), $70K-$100K (clinical)",
+        experience_required="High",
+        keywords_strong=[
+            "mental health counselor", "counseling", "therapy",
+            "mental health", "psychotherapy", "behavioral health", "client"
+        ],
+        keywords_moderate=[
+            "patient", "treatment plan", "crisis", "addiction",
+            "anxiety", "depression", "trauma", "assessment"
+        ],
+        keywords_weak=[
+            "empathy", "listening", "wellness", "support"
+        ],
+        contra_keywords=["software development", "manufacturing"],
+        description="Provides counseling and therapy for mental and emotional health.",
+        pivot_cost="High",
+    ),
+
+    # ─── Engineering specialties ───────────────────────────────────────────
+    RoleProfile(
+        title="Aerospace Engineer",
+        category="Engineering",
+        holland_code="RIE",
+        o_net_code="17-2011.00",
+        mbti_type="INTJ",
+        salary_range="$85K-$125K (mid), $125K-$175K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "aerospace engineer", "aerospace", "aircraft", "spacecraft",
+            "aerodynamics", "propulsion", "avionics", "structural"
+        ],
+        keywords_moderate=[
+            "cad", "simulation", "materials", "design",
+            "testing", "flight", "engineering", "analysis"
+        ],
+        keywords_weak=[
+            "problem solving", "technical", "documentation", "prototype"
+        ],
+        contra_keywords=["nursing", "retail"],
+        description="Designs aircraft, spacecraft, and related systems.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Biomedical Engineer",
+        category="Engineering",
+        holland_code="IRE",
+        o_net_code="17-2031.00",
+        mbti_type="INTJ",
+        salary_range="$70K-$105K (mid), $105K-$150K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "biomedical engineer", "biomedical", "medical device",
+            "biomechanic", "implant", "tissue engineering", "biosensor"
+        ],
+        keywords_moderate=[
+            "engineering", "design", "clinical", "materials",
+            "testing", "regulatory", "prototype", "healthcare"
+        ],
+        keywords_weak=[
+            "research", "technical", "analysis", "documentation"
+        ],
+        contra_keywords=["retail", "hospitality"],
+        description="Designs medical devices and systems for healthcare.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Environmental Engineer",
+        category="Engineering",
+        holland_code="IRE",
+        o_net_code="17-2081.00",
+        mbti_type="INTJ",
+        salary_range="$70K-$105K (mid), $105K-$145K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "environmental engineer", "environmental engineering",
+            "wastewater", "water treatment", "pollution", "remediation"
+        ],
+        keywords_moderate=[
+            "compliance", "environmental", "engineering", "design",
+            "air quality", "sustainability", "permitting", "treatment"
+        ],
+        keywords_weak=[
+            "analysis", "technical", "project", "reporting"
+        ],
+        contra_keywords=["retail", "finance"],
+        description="Designs solutions for environmental protection and pollution control.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Industrial Engineer",
+        category="Engineering",
+        holland_code="EIR",
+        o_net_code="17-2112.00",
+        mbti_type="ENTJ",
+        salary_range="$70K-$100K (mid), $100K-$140K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "industrial engineer", "industrial engineering", "lean",
+            "process improvement", "operations research", "efficiency"
+        ],
+        keywords_moderate=[
+            "manufacturing", "optimization", "quality", "supply chain",
+            "workflow", "ergonomic", "data", "simulation"
+        ],
+        keywords_weak=[
+            "analysis", "design", "planning", "coordination"
+        ],
+        contra_keywords=["nursing", "creative writing"],
+        description="Optimizes production processes, systems, and workflows.",
+        pivot_cost="High",
+    ),
+
+    # ─── Business specialties ──────────────────────────────────────────────
+    RoleProfile(
+        title="Management Consultant",
+        category="Business & Finance",
+        holland_code="EIC",
+        o_net_code="13-1111.00",
+        mbti_type="ENTJ",
+        salary_range="$85K-$130K (mid), $130K-$220K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "consultant", "consulting", "management consulting",
+            "strategy", "advisory", "client engagement", "transformation"
+        ],
+        keywords_moderate=[
+            "analysis", "recommendation", "stakeholder", "process",
+            "data", "presentation", "roadmap", "optimization"
+        ],
+        keywords_weak=[
+            "leadership", "communication", "problem solving", "project"
+        ],
+        contra_keywords=["nursing", "construction"],
+        description="Advises organizations on strategy, operations, and performance.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Financial Advisor",
+        category="Business & Finance",
+        holland_code="ECS",
+        o_net_code="13-2052.00",
+        mbti_type="ENTJ",
+        salary_range="$65K-$100K (mid), $100K-$180K (senior)",
+        experience_required="Medium",
+        keywords_strong=[
+            "financial advisor", "financial planning", "wealth management",
+            "investment", "portfolio", "retirement planning", "client"
+        ],
+        keywords_moderate=[
+            "finance", "insurance", "asset", "risk",
+            "estate planning", "securities", "advice", "sales"
+        ],
+        keywords_weak=[
+            "communication", "relationship", "analysis", "service"
+        ],
+        contra_keywords=["surgery", "construction"],
+        description="Advises clients on investments, retirement, and financial goals.",
+        pivot_cost="Medium",
+    ),
+    RoleProfile(
+        title="Actuary",
+        category="Business & Finance",
+        holland_code="ICE",
+        o_net_code="15-2011.00",
+        mbti_type="INTJ",
+        salary_range="$80K-$120K (mid), $120K-$200K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "actuary", "actuarial", "risk assessment", "statistics",
+            "probability", "insurance", "pricing", "reserve"
+        ],
+        keywords_moderate=[
+            "mathematics", "modeling", "data", "financial",
+            "forecast", "analysis", "exam", "valuation"
+        ],
+        keywords_weak=[
+            "quantitative", "technical", "reporting", "problem solving"
+        ],
+        contra_keywords=["nursing", "creative"],
+        description="Analyzes financial risk using statistics and mathematics.",
+        pivot_cost="High",
+    ),
+
+    # ─── Science specialties ───────────────────────────────────────────────
+    RoleProfile(
+        title="Physicist",
+        category="Science",
+        holland_code="IAR",
+        o_net_code="19-2012.00",
+        mbti_type="INTP",
+        salary_range="$80K-$125K (mid), $125K-$180K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "physicist", "physics", "quantum", "theoretical",
+            "experiment", "optics", "particle", "mathematical"
+        ],
+        keywords_moderate=[
+            "research", "laboratory", "modeling", "simulation",
+            "data", "analysis", "theory", "publication"
+        ],
+        keywords_weak=[
+            "scientific", "computation", "documentation", "problem solving"
+        ],
+        contra_keywords=["retail", "marketing"],
+        description="Studies the fundamental properties of matter and energy.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Geologist",
+        category="Science",
+        holland_code="IRA",
+        o_net_code="19-2042.00",
+        mbti_type="ISTP",
+        salary_range="$60K-$90K (mid), $90K-$135K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "geologist", "geology", "rock", "mineral", "geological",
+            "soil", "earth", "survey", "hydrogeology"
+        ],
+        keywords_moderate=[
+            "field", "mapping", "sampling", "gis",
+            "analysis", "exploration", "data", "environmental"
+        ],
+        keywords_weak=[
+            "research", "outdoor", "reporting", "laboratory"
+        ],
+        contra_keywords=["retail", "accounting"],
+        description="Studies the Earth's structure, materials, and processes.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Statistician",
+        category="Science",
+        holland_code="ICR",
+        o_net_code="15-2041.00",
+        mbti_type="INTJ",
+        salary_range="$75K-$110K (mid), $110K-$160K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "statistician", "statistics", "statistical", "regression",
+            "probability", "data analysis", "survey", "modeling"
+        ],
+        keywords_moderate=[
+            "r", "python", "sas", "sampling",
+            "hypothesis", "inference", "data", "experimental"
+        ],
+        keywords_weak=[
+            "quantitative", "research", "reporting", "visualization"
+        ],
+        contra_keywords=["nursing", "hospitality"],
+        description="Analyzes data and designs experiments to draw valid conclusions.",
+        pivot_cost="High",
+    ),
+
+    # ─── Education specialties ─────────────────────────────────────────────
+    RoleProfile(
+        title="Special Education Teacher",
+        category="Education",
+        holland_code="SAI",
+        o_net_code="25-2051.00",
+        mbti_type="ENFJ",
+        salary_range="$50K-$75K (mid), $75K-$100K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "special education", "special ed", "iep", "individualized education",
+            "learning disability", "inclusive", "accommodation", "student"
+        ],
+        keywords_moderate=[
+            "teaching", "classroom", "curriculum", "assessment",
+            "behavior", "intervention", "parent", "support"
+        ],
+        keywords_weak=[
+            "patience", "communication", "adaptation", "advocacy"
+        ],
+        contra_keywords=["software development", "finance"],
+        description="Teaches students with diverse learning and developmental needs.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="School Principal",
+        category="Education",
+        holland_code="EAS",
+        o_net_code="11-9032.00",
+        mbti_type="ENTJ",
+        salary_range="$85K-$120K (mid), $120K-$160K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "principal", "school administration", "school leadership",
+            "education administration", "superintendent", "curriculum leadership"
+        ],
+        keywords_moderate=[
+            "staff", "budget", "policy", "student",
+            "compliance", "community", "evaluation", "instruction"
+        ],
+        keywords_weak=[
+            "leadership", "communication", "planning", "mentoring"
+        ],
+        contra_keywords=["nursing", "manufacturing"],
+        description="Leads and manages a school's operations, staff, and student success.",
+        pivot_cost="High",
+    ),
+
+    # ─── Technology specialties ────────────────────────────────────────────
+    RoleProfile(
+        title="Machine Learning Engineer",
+        category="Technology",
+        holland_code="ICR",
+        o_net_code="15-2051.00",
+        mbti_type="INTJ",
+        salary_range="$110K-$155K (mid), $155K-$220K+ (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "machine learning", "ml", "deep learning", "neural network",
+            "ai", "artificial intelligence", "tensorflow", "pytorch"
+        ],
+        keywords_moderate=[
+            "python", "data", "model", "training", "inference",
+            "nlp", "computer vision", "feature", "deployment"
+        ],
+        keywords_weak=[
+            "algorithm", "statistics", "coding", "optimization"
+        ],
+        contra_keywords=[],
+        description="Builds and deploys machine learning models and AI systems.",
+        pivot_cost="High",
+    ),
+    RoleProfile(
+        title="Cybersecurity Engineer",
+        category="Technology",
+        holland_code="ICR",
+        o_net_code="15-1212.00",
+        mbti_type="INTJ",
+        salary_range="$100K-$140K (mid), $140K-$200K (senior)",
+        experience_required="High",
+        keywords_strong=[
+            "cybersecurity", "security engineer", "penetration testing",
+            "security architecture", "threat", "vulnerability", "cryptography"
+        ],
+        keywords_moderate=[
+            "firewall", "siem", "incident response", "identity",
+            "cloud security", "network security", "compliance", "zero trust"
+        ],
+        keywords_weak=[
+            "security", "engineering", "risk", "automation"
+        ],
+        contra_keywords=["sales", "retail"],
+        description="Designs and implements systems to protect against cyber threats.",
+        pivot_cost="Medium",
+    ),
 ]
