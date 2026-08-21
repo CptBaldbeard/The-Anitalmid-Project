@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <header>
@@ -113,6 +114,12 @@
           </div>
         </div>
 
+        <div class="card">
+          <h2>Match distribution <span class="muted small">— hover a slice to explore</span></h2>
+          <div class="pie-wrap"><canvas id="matchesPie"></canvas></div>
+          <div id="pieLegend" class="pie-legend"></div>
+        </div>
+
       </section>
 
       <!-- Frameworks -->
@@ -134,6 +141,6 @@
     </div>
   </main>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

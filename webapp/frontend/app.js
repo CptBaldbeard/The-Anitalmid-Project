@@ -207,6 +207,7 @@ function render(data) {
   renderSignals(data.signals);
   renderMatches(data.top_matches);
   renderMap(data.career_map);
+  renderPie(data.top_matches);
 }
 
 function renderSignals(s) {
@@ -240,6 +241,57 @@ function renderMatches(matches) {
       <div class="desc">${r.description}</div>
     </div>`
     )
+    .join("");
+}
+
+let matchesPie = null;
+function renderPie(matches) {
+  const canvas = $("matchesPie");
+  if (!canvas || !window.Chart) return;
+  if (matchesPie) { matchesPie.destroy(); matchesPie = null; }
+
+  const COLORS = ["#2dd4bf", "#38bdf8", "#4ade80", "#a78bfa", "#fbbf24", "#f87171"];
+  const items = (matches || []).slice(0, 6);
+  const pct = (m) => Math.min(100, Math.round(m.composite_score));
+
+  matchesPie = new Chart(canvas.getContext("2d"), {
+    type: "pie",
+    data: {
+      labels: items.map((m) => m.title),
+      datasets: [{
+        data: items.map((m) => Math.max(0, m.composite_score)),
+        backgroundColor: COLORS.slice(0, items.length),
+        borderColor: "#0b0f1a",
+        borderWidth: 2,
+        hoverOffset: 30,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: 14 },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: "#131a29",
+          titleColor: "#e9eef7",
+          bodyColor: "#93a0b8",
+          borderColor: "#2a3450",
+          borderWidth: 1,
+          padding: 12,
+          callbacks: {
+            label: (c) => {
+              const m = items[c.dataIndex];
+              return ` ${pct(m)}% aligned · ${(m.validation || "").replace("-", " ")}`;
+            },
+          },
+        },
+      },
+    },
+  });
+
+  $("pieLegend").innerHTML = items
+    .map((m, i) => `<span class="pie-item"><i style="background:${COLORS[i]}"></i>${m.title} <b>${pct(m)}%</b></span>`)
     .join("");
 }
 

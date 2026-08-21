@@ -223,3 +223,10 @@ textarea, input[type="text"], input[type="email"], input[type="password"] {
 #frameworks details:first-of-type { border-top: none; }
 #frameworks summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 16px; }
 #frameworks details p { margin: 10px 0 0; color: var(--muted); line-height: 1.7; }
+
+/* Match distribution pie chart */
+.pie-wrap { position: relative; height: 340px; max-width: 520px; margin: 0 auto; }
+.pie-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin-top: 14px; }
+.pie-legend .pie-item { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+.pie-legend .pie-item i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+.pie-legend .pie-item b { color: var(--text); }
