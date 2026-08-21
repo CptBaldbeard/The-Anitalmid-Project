@@ -30,20 +30,24 @@ Render dashboard → `anitalmid` → **Environment**:
 4. Add SMTP vars so verification emails actually send (see below).
 5. Click **"Save Changes"** → Render restarts the service automatically.
 
-### Email verification (SMTP)
+### Email verification (Resend — recommended)
 
 Accounts must verify their email before they can analyze. Verification emails are
-sent via SMTP — add these env vars:
+sent via **Resend's HTTP API** (HTTPS/443 — never blocked, unlike SMTP/587):
 
 | Variable | Value |
 |---|---|
-| `SMTP_HOST` | e.g. `smtp.resend.com` / `smtp.sendgrid.net` / `smtp.gmail.com` |
-| `SMTP_PORT` | `587` |
-| `SMTP_USER` | your SMTP username |
-| `SMTP_PASSWORD` | your SMTP password / app password |
+| `RESEND_API_KEY` | your Resend API key (`re_…`) |
 | `SMTP_FROM` | the "from" address, e.g. `no-reply@theanitalmidproject.com` |
 
-If SMTP isn't configured, the app still works but verification links are only
+Verify `theanitalmidproject.com` in Resend (Domains → Add Domain → add the DNS
+records in Cloudflare) so you can send from your own address.
+
+*(An SMTP fallback — `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`,
+`SMTP_FROM` — is still supported for other providers, but SMTP/587 can be dropped
+by some cloud egress. The Resend HTTP API is preferred.)*
+
+If no transport is configured, the app still works but verification links are only
 logged server-side (dev mode) — users can't actually verify via email.
 
 Without `ANITALMID_DATABASE_URL` the app falls back to SQLite, but Render's free
