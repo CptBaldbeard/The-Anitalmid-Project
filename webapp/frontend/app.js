@@ -278,31 +278,58 @@ function renderMatches(matches) {
 }
 
 function renderMap(map) {
+  const TYPE_STYLE = {
+    profile: { color: "#2dd4bf", glow: "rgba(45,212,191,0.45)", size: 17 },
+    signal: { color: "#38bdf8", glow: "rgba(56,189,248,0.45)", size: 12 },
+    role: { color: "#4ade80", glow: "rgba(74,222,128,0.45)", size: 10 },
+    expanded: { color: "#fbbf24", glow: "rgba(251,191,36,0.45)", size: 8 },
+  };
+
   const nodes = map.nodes.map((n) => {
-    const color = n.type === "profile" ? "#2dd4bf" : n.type === "signal" ? "#38bdf8" : n.type === "role" ? "#4ade80" : n.type === "expanded" ? "#fbbf24" : "#a78bfa";
-    const shape = n.type === "profile" ? "star" : (n.type === "role" || n.type === "expanded") ? "box" : "ellipse";
+    const s = TYPE_STYLE[n.type] || { color: "#a78bfa", glow: "rgba(167,139,250,0.45)", size: 9 };
     return {
       id: n.id,
       label: n.label,
       title: n.label,
-      color: { background: color, border: "#0b0f1a", highlight: { background: color, border: "#fff" } },
-      font: { color: "#e9eef7", size: n.type === "role" ? 13 : 15 },
-      shape,
-      margin: 8,
+      shape: "dot",
+      size: s.size,
+      borderWidth: 2,
+      color: {
+        background: s.color,
+        border: s.color,
+        highlight: { background: s.color, border: "#ffffff" },
+        hover: { background: s.color, border: "#ffffff" },
+      },
+      shadow: { enabled: true, color: s.glow, size: 10, x: 0, y: 0 },
+      font: { color: "#9aa4b8", size: 11, face: "system-ui, -apple-system, sans-serif" },
     };
   });
+
   const edges = map.edges.map((e) => ({
     from: e.source,
     to: e.target,
-    label: e.label,
     value: e.weight,
-    color: { color: "#2a3450", highlight: "#2dd4bf" },
-    font: { color: "#93a0b8", size: 10 },
+    width: 1,
+    color: { color: "rgba(147,160,184,0.30)", highlight: "#2dd4bf", hover: "#2dd4bf" },
+    smooth: { enabled: true, type: "continuous", roundness: 0.25 },
   }));
+
   const container = $("map");
-  const network = new vis.Network(container, { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) }, {
-    physics: { stabilization: true, barnesHut: { gravitationalConstant: -8000, springLength: 120 } },
-    interaction: { hover: true, tooltipDelay: 150 },
+  const nodesData = new vis.DataSet(nodes);
+  const edgesData = new vis.DataSet(edges);
+  const network = new vis.Network(container, { nodes: nodesData, edges: edgesData }, {
+    physics: {
+      stabilization: { iterations: 250, updateInterval: 25 },
+      forceAtlas2Based: {
+        gravitationalConstant: -60,
+        centralGravity: 0.005,
+        springLength: 110,
+        springConstant: 0.06,
+        damping: 0.4,
+        avoidOverlap: 0.6,
+      },
+    },
+    interaction: { hover: true, tooltipDelay: 120 },
   });
 
   network.on("click", (params) => {
