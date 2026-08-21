@@ -69,11 +69,6 @@ def _user_response(user: db.User) -> dict:
     }
 
 
-def _require_verified(user: db.User) -> None:
-    if not user.email_verified:
-        raise HTTPException(status_code=403, detail="Please verify your email before analyzing.")
-
-
 # ---- Auth endpoints ----
 
 @app.post("/auth/register", response_model=TokenResponse)
@@ -194,7 +189,6 @@ async def analyze(
     resume: UploadFile = File(...),
     user: db.User = Depends(get_current_user),
 ):
-    _require_verified(user)
     raw = await resume.read()
     text = parser.extract_text_from_upload(resume.filename or "resume.txt", raw)
     return await _run_pipeline(text, user.id)
@@ -202,7 +196,6 @@ async def analyze(
 
 @app.post("/analyze-text")
 async def analyze_text(payload: TextPayload, user: db.User = Depends(get_current_user)):
-    _require_verified(user)
     return await _run_pipeline(payload.text, user.id)
 
 
