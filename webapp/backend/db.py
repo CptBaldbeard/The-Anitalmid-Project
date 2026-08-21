@@ -89,7 +89,7 @@ def get_user_by_email(email: str) -> User | None:
 def get_user(user_id: int) -> User | None:
     s = get_session()
     try:
-        return s.query(User).get(user_id)
+        return s.get(User, user_id)
     finally:
         s.close()
 
@@ -97,7 +97,7 @@ def get_user(user_id: int) -> User | None:
 def set_email_verified(user_id: int) -> None:
     s = get_session()
     try:
-        u = s.query(User).get(user_id)
+        u = s.get(User, user_id)
         if u:
             u.email_verified = True
             s.commit()
