@@ -9,3 +9,5 @@ services:
     envVars:
       - key: ANITALMID_SECRET
         generateValue: true
+      - key: ANITALMID_BASE_URL
+        value: https://theanitalmidproject.com

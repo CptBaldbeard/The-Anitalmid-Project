@@ -30,7 +30,7 @@ class RoleMatch(BaseModel):
 class MapNode(BaseModel):
     id: str
     label: str
-    type: str  # profile | signal | role | path
+    type: str  # profile | signal | role | path | expanded
     data: Dict[str, Any] = Field(default_factory=dict)
 
 
@@ -76,9 +76,11 @@ class UserResponse(BaseModel):
     id: int
     email: str
     username: str
+    email_verified: bool = False
 
 
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user: UserResponse
+    dev_verify_link: Optional[str] = None

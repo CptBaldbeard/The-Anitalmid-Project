@@ -24,11 +24,27 @@ Render's free Postgres **expires after 30 days**, so use Neon's free tier instea
 
 Render dashboard → `anitalmid` → **Environment**:
 
-1. `ANITALMID_SECRET` is already there (auto-generated) — leave it.
-2. Click **"Add Environment Variable"** and add:
-   - **Key:** `ANITALMID_DATABASE_URL`
-   - **Value:** your Neon connection string (`postgresql+psycopg2://…`)
-3. Click **"Save Changes"** → Render restarts the service automatically.
+1. `ANITALMID_SECRET` — auto-generated, leave it.
+2. `ANITALMID_BASE_URL` — `https://theanitalmidproject.com` (already in `render.yaml`).
+3. Add `ANITALMID_DATABASE_URL` → your Neon connection string (`postgresql+psycopg2://…`).
+4. Add SMTP vars so verification emails actually send (see below).
+5. Click **"Save Changes"** → Render restarts the service automatically.
+
+### Email verification (SMTP)
+
+Accounts must verify their email before they can analyze. Verification emails are
+sent via SMTP — add these env vars:
+
+| Variable | Value |
+|---|---|
+| `SMTP_HOST` | e.g. `smtp.resend.com` / `smtp.sendgrid.net` / `smtp.gmail.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_USER` | your SMTP username |
+| `SMTP_PASSWORD` | your SMTP password / app password |
+| `SMTP_FROM` | the "from" address, e.g. `no-reply@theanitalmidproject.com` |
+
+If SMTP isn't configured, the app still works but verification links are only
+logged server-side (dev mode) — users can't actually verify via email.
 
 Without `ANITALMID_DATABASE_URL` the app falls back to SQLite, but Render's free
 disk is ephemeral — data would be lost on redeploy. Set the Neon URL.

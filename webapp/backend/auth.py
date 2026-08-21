@@ -1,4 +1,4 @@
-"""JWT auth — bcrypt password hashing + PyJWT tokens."""
+"""JWT auth — bcrypt password hashing + PyJWT tokens (login + email verification)."""
 from datetime import datetime, timedelta
 
 import bcrypt
@@ -8,6 +8,7 @@ from .config import SECRET
 
 ALGORITHM = "HS256"
 TOKEN_TTL_HOURS = 24 * 7
+VERIFY_TTL_HOURS = 24
 
 
 def hash_password(password: str) -> str:
@@ -33,5 +34,24 @@ def decode_token(token: str) -> int | None:
     try:
         payload = jwt.decode(token, SECRET, algorithms=[ALGORITHM])
         return int(payload["sub"])
+    except Exception:
+        return None
+
+
+def create_verify_token(email: str) -> str:
+    payload = {
+        "sub": email,
+        "type": "verify",
+        "exp": datetime.utcnow() + timedelta(hours=VERIFY_TTL_HOURS),
+    }
+    return jwt.encode(payload, SECRET, algorithm=ALGORITHM)
+
+
+def decode_verify_token(token: str) -> str | None:
+    try:
+        payload = jwt.decode(token, SECRET, algorithms=[ALGORITHM])
+        if payload.get("type") != "verify":
+            return None
+        return payload.get("sub")
     except Exception:
         return None

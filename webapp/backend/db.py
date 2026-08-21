@@ -4,7 +4,7 @@ import time
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, Float, Integer, String, Text, create_engine
+from sqlalchemy import Boolean, Column, Float, Integer, String, Text, create_engine, text
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 from .config import DATABASE_URL
@@ -18,6 +18,7 @@ class User(Base):
     email = Column(String(255), unique=True, index=True, nullable=False)
     username = Column(String(80), nullable=False)
     password_hash = Column(String(255), nullable=False)
+    email_verified = Column(Boolean, default=False, nullable=False)
     created_at = Column(Float, default=lambda: datetime.now().timestamp())
 
 
@@ -38,6 +39,25 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 def init_db() -> None:
     Base.metadata.create_all(engine)
+    _migrate()
+
+
+def _migrate() -> None:
+    """Lightweight auto-migration for columns added after the initial deploy."""
+    with engine.connect() as conn:
+        if engine.dialect.name == "postgresql":
+            rows = conn.execute(text(
+                "SELECT column_name FROM information_schema.columns WHERE table_name = 'users'"
+            ))
+            cols = {r[0] for r in rows}
+        else:
+            rows = conn.execute(text("PRAGMA table_info(users)"))
+            cols = {r[1] for r in rows}
+    if "email_verified" not in cols:
+        with engine.begin() as conn:
+            conn.execute(text(
+                "ALTER TABLE users ADD COLUMN email_verified BOOLEAN NOT NULL DEFAULT FALSE"
+            ))
 
 
 def get_session():
@@ -70,6 +90,17 @@ def get_user(user_id: int) -> User | None:
     s = get_session()
     try:
         return s.query(User).get(user_id)
+    finally:
+        s.close()
+
+
+def set_email_verified(user_id: int) -> None:
+    s = get_session()
+    try:
+        u = s.query(User).get(user_id)
+        if u:
+            u.email_verified = True
+            s.commit()
     finally:
         s.close()
 

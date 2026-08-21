@@ -122,6 +122,9 @@ textarea, input[type="text"], input[type="email"], input[type="password"] {
 }
 #registerBtn:hover, #logoutBtn:hover { border-color: var(--gold); }
 
+/* Email verification banner */
+#verifyBanner { margin-top: 10px; padding: 8px 12px; background: #2a2217; border: 1px solid var(--gold); border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
 /* Expanded matches */
 .expanded-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
 .expanded-item:last-child { border-bottom: none; }

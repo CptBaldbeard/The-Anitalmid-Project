@@ -62,9 +62,12 @@ function renderAuth() {
     $("authLoggedOut").classList.add("hidden");
     $("authLoggedIn").classList.remove("hidden");
     $("authUser").textContent = currentUser.email;
+    const unverified = currentUser.email_verified === false;
+    $("verifyBanner").classList.toggle("hidden", !unverified);
   } else {
     $("authLoggedOut").classList.remove("hidden");
     $("authLoggedIn").classList.add("hidden");
+    $("verifyBanner").classList.add("hidden");
   }
 }
 
@@ -81,6 +84,16 @@ $("registerBtn").addEventListener("click", async () => {
   } catch (e) { $("authStatus").textContent = e.message; }
 });
 $("logoutBtn").addEventListener("click", logout);
+$("resendBtn").addEventListener("click", async () => {
+  const s = $("verifyStatus");
+  s.textContent = "";
+  try {
+    await apiFetch("/auth/resend-verification", { method: "POST" });
+    s.textContent = "Sent! Check your inbox.";
+  } catch (e) {
+    s.textContent = e.message;
+  }
+});
 
 /* Restore session on load */
 (async () => {

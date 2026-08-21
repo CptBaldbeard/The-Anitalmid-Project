@@ -25,3 +25,6 @@ def _secret() -> str:
 
 
 SECRET = _secret()
+
+# Public base URL for building verification links (set in production).
+BASE_URL = os.environ.get("ANITALMID_BASE_URL", "http://localhost:8300").rstrip("/")
