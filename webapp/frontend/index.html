@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="brand">
+    <div class="brand" id="brandHome">
       <span class="logo">◈</span>
       <h1>Anitalmid</h1>
       <span class="tagline">Career-Mapping Engine</span>
@@ -17,118 +17,129 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <h2>Your career, mapped.</h2>
-      <p class="lede">Anitalmid turns your resume and work history into a clear picture of the roles that actually fit — then draws the map showing <em>why</em>.</p>
-      <div class="hero-grid">
-        <div class="hero-point">
+    <!-- ===== Landing ===== -->
+    <section id="landing">
+      <div class="landing-hero">
+        <span class="kicker">Find the career that actually fits</span>
+        <h2>Your career, <em>mapped.</em></h2>
+        <p class="sub">Tell us about your experience, and Anitalmid triangulates six psychometric frameworks to reveal the roles that genuinely fit you — then draws the map showing exactly why.</p>
+        <div class="landing-cta">
+          <button id="startQuizBtn" class="primary">Start Quiz</button>
+          <button id="signInBtn" class="ghost">Sign In</button>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-point">
           <b>What it is</b>
           <span>A career-mapping engine that scores your background against proven psychometric frameworks.</span>
         </div>
-        <div class="hero-point">
+        <div class="feature-point">
           <b>What it does</b>
           <span>Upload your resume or paste your experience, certs, and skills — get ranked role matches, an interactive career map, and web-expanded fields beyond IT.</span>
         </div>
-        <div class="hero-point">
+        <div class="feature-point">
           <b>How it does it</b>
           <span>It extracts your signals (MBTI, Holland, Big Five), scores you against role profiles, validates the convergence, and maps the whole logic flow — node by node.</span>
         </div>
       </div>
     </section>
 
-    <!-- Auth -->
-    <section id="auth" class="card">
-      <div id="authLoggedOut">
-        <h2>Sign in</h2>
-        <div class="auth-row">
-          <input type="text" id="authEmail" placeholder="email" />
-          <input type="text" id="authUsername" placeholder="username (register)" />
-          <input type="password" id="authPassword" placeholder="password (8+ chars)" />
-          <button id="loginBtn" class="primary">Log in</button>
-          <button id="registerBtn">Register</button>
+    <!-- ===== App ===== -->
+    <div id="appView" class="hidden">
+      <!-- Auth -->
+      <section id="auth" class="card">
+        <div id="authLoggedOut">
+          <h2>Sign in</h2>
+          <div class="auth-row">
+            <input type="text" id="authEmail" placeholder="email" />
+            <input type="text" id="authUsername" placeholder="username (register)" />
+            <input type="password" id="authPassword" placeholder="password (8+ chars)" />
+            <button id="loginBtn" class="primary">Log in</button>
+            <button id="registerBtn">Register</button>
+          </div>
+          <span id="authStatus" class="muted small"></span>
         </div>
-        <span id="authStatus" class="muted small"></span>
-      </div>
-      <div id="authLoggedIn" class="hidden auth-row">
-        <span>Logged in as <b id="authUser"></b></span>
-        <button id="logoutBtn">Log out</button>
-      </div>
-      <div id="verifyBanner" class="hidden">
-        <span>⚠️ Your email isn't verified — check your inbox to start analyzing.</span>
-        <button id="resendBtn" class="link">Resend link</button>
-        <span id="verifyStatus" class="muted small"></span>
-      </div>
-    </section>
+        <div id="authLoggedIn" class="hidden auth-row">
+          <span>Logged in as <b id="authUser"></b></span>
+          <button id="logoutBtn">Log out</button>
+        </div>
+        <div id="verifyBanner" class="hidden">
+          <span>⚠️ Your email isn't verified — check your inbox to start analyzing.</span>
+          <button id="resendBtn" class="link">Resend link</button>
+          <span id="verifyStatus" class="muted small"></span>
+        </div>
+      </section>
 
-    <!-- Wizard -->
-    <section id="wizard" class="card">
-      <h2>Map your career</h2>
-      <p class="muted">Drop your resume plus your experience, certifications, and skills — the engine triangulates six frameworks and maps your best-fit paths.</p>
+      <!-- Wizard -->
+      <section id="wizard" class="card">
+        <h2>Map your career</h2>
+        <p class="muted">Drop your resume plus your experience, certifications, and skills — the engine triangulates six frameworks and maps your best-fit paths.</p>
 
-      <div id="dropzone" class="dropzone">
-        <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
-        <span class="dz-icon">⤒</span>
-        <p><strong>Drop a resume here</strong> or <button type="button" id="browseBtn" class="link">browse</button></p>
-        <p class="muted small">.txt · .md · .rtf · .pdf</p>
-      </div>
+        <div id="dropzone" class="dropzone">
+          <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
+          <span class="dz-icon">⤒</span>
+          <p><strong>Drop a resume here</strong> or <button type="button" id="browseBtn" class="link">browse</button></p>
+          <p class="muted small">.txt · .md · .rtf · .pdf</p>
+        </div>
 
-      <div class="fields">
-        <label>Work experience
-          <textarea id="experience" rows="3" placeholder="e.g. Systems Administrator, 5 yrs — Linux, Active Directory, Veeam, IAM…"></textarea>
-        </label>
-        <label>Certifications
-          <textarea id="certifications" rows="2" placeholder="e.g. Security+, AZ-104, CompTIA…"></textarea>
-        </label>
-        <label>Skills
-          <textarea id="skills" rows="2" placeholder="e.g. Python, networking, documentation…"></textarea>
-        </label>
-      </div>
+        <div class="fields">
+          <label>Work experience
+            <textarea id="experience" rows="3" placeholder="e.g. Systems Administrator, 5 yrs — Linux, Active Directory, Veeam, IAM…"></textarea>
+          </label>
+          <label>Certifications
+            <textarea id="certifications" rows="2" placeholder="e.g. Security+, AZ-104, CompTIA…"></textarea>
+          </label>
+          <label>Skills
+            <textarea id="skills" rows="2" placeholder="e.g. Python, networking, documentation…"></textarea>
+          </label>
+        </div>
 
-      <div class="actions">
-        <button id="analyzeBtn" class="primary">Analyze →</button>
-        <span id="status" class="muted"></span>
-      </div>
-    </section>
+        <div class="actions">
+          <button id="analyzeBtn" class="primary">Analyze →</button>
+          <span id="status" class="muted"></span>
+        </div>
+      </section>
 
-    <!-- Results -->
-    <section id="results" class="hidden">
-      <div class="signals card" id="signalsBox"></div>
+      <!-- Results -->
+      <section id="results" class="hidden">
+        <div class="signals card" id="signalsBox"></div>
 
-      <div class="two-col">
+        <div class="two-col">
+          <div class="card">
+            <h2>Top career matches</h2>
+            <div id="matches"></div>
+          </div>
+          <div class="card">
+            <h2>Career map <span class="muted small">— click a node to inspect it</span></h2>
+            <div id="map"></div>
+            <div id="nodeDetails" class="node-details hidden"></div>
+          </div>
+        </div>
+
         <div class="card">
-          <h2>Top career matches</h2>
-          <div id="matches"></div>
+          <h2>Beyond the core roles <span class="muted small">— live Camoufox web search</span></h2>
+          <div id="expanded"></div>
         </div>
-        <div class="card">
-          <h2>Career map <span class="muted small">— click a node to inspect it</span></h2>
-          <div id="map"></div>
-          <div id="nodeDetails" class="node-details hidden"></div>
-        </div>
-      </div>
+      </section>
 
-      <div class="card">
-        <h2>Beyond the core roles <span class="muted small">— live Camoufox web search</span></h2>
-        <div id="expanded"></div>
-      </div>
-    </section>
-
-    <!-- Frameworks -->
-    <section class="card" id="frameworks">
-      <h2>What the frameworks mean</h2>
-      <details>
-        <summary>MBTI — Myers-Briggs Type Indicator</summary>
-        <p>A four-letter type describing how you prefer to focus energy, take in information, make decisions, and organize your life. Four axes: <b>I</b>ntrovert / <b>E</b>xtravert, i<b>N</b>tuitive / <b>S</b>ensing, <b>T</b>hinking / <b>F</b>eeling, <b>J</b>udging / <b>P</b>erceiving. 16 combinations, e.g. <b>INTJ</b>.</p>
-      </details>
-      <details>
-        <summary>Holland Codes — RIASEC</summary>
-        <p>Six interest types: <b>R</b>ealistic (builders/doers), <b>I</b>nvestigative (thinkers/analysts), <b>A</b>rtistic (creators), <b>S</b>ocial (helpers/teachers), <b>E</b>nterprising (persuaders/leaders), <b>C</b>onventional (organizers). Your top three form a code like <b>RIE</b>, which maps to occupations on O*NET.</p>
-      </details>
-      <details>
-        <summary>Big Five — OCEAN</summary>
-        <p>Five personality traits, each on a spectrum (Low → High): <b>O</b>penness to experience, <b>C</b>onscientiousness, <b>E</b>xtraversion, <b>A</b>greeableness, <b>N</b>euroticism (emotional stability). Remember it as <b>OCEAN</b>.</p>
-      </details>
-    </section>
+      <!-- Frameworks -->
+      <section class="card" id="frameworks">
+        <h2>What the frameworks mean</h2>
+        <details>
+          <summary>MBTI — Myers-Briggs Type Indicator</summary>
+          <p>A four-letter type describing how you prefer to focus energy, take in information, make decisions, and organize your life. Four axes: <b>I</b>ntrovert / <b>E</b>xtravert, i<b>N</b>tuitive / <b>S</b>ensing, <b>T</b>hinking / <b>F</b>eeling, <b>J</b>udging / <b>P</b>erceiving. 16 combinations, e.g. <b>INTJ</b>.</p>
+        </details>
+        <details>
+          <summary>Holland Codes — RIASEC</summary>
+          <p>Six interest types: <b>R</b>ealistic (builders/doers), <b>I</b>nvestigative (thinkers/analysts), <b>A</b>rtistic (creators), <b>S</b>ocial (helpers/teachers), <b>E</b>nterprising (persuaders/leaders), <b>C</b>onventional (organizers). Your top three form a code like <b>RIE</b>, which maps to occupations on O*NET.</p>
+        </details>
+        <details>
+          <summary>Big Five — OCEAN</summary>
+          <p>Five personality traits, each on a spectrum (Low → High): <b>O</b>penness to experience, <b>C</b>onscientiousness, <b>E</b>xtraversion, <b>A</b>greeableness, <b>N</b>euroticism (emotional stability). Remember it as <b>OCEAN</b>.</p>
+        </details>
+      </section>
+    </div>
   </main>
 
   <script src="app.js"></script>

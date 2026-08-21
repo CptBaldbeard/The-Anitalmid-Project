@@ -97,6 +97,6 @@ def _html_body(username: str, link: str) -> str:
     return f"""<html><body style="font-family:sans-serif;color:#222">
     <p>Hi {username},</p>
     <p>Verify your email to finish setting up your <b>Anitalmid</b> account:</p>
-    <p><a href="{link}" style="background:#d4a24e;color:#111;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold">Verify email</a></p>
+    <p><a href="{link}" style="background:#2dd4bf;color:#061018;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold">Verify email</a></p>
     <p style="color:#888">This link expires in 24 hours. If you didn't create an account, ignore this email.</p>
     </body></html>"""

@@ -127,7 +127,7 @@ def resend_verification(user: db.User = Depends(get_current_user)):
 
 
 def _verify_page(success: bool, message: str) -> str:
-    color = "#57b87e" if success else "#c75b41"
+    color = "#4ade80" if success else "#f87171"
     glyph = "&#10003;" if success else "&#10007;"
     sub = (
         "Head back to the app and sign in to get your career map."
@@ -135,12 +135,12 @@ def _verify_page(success: bool, message: str) -> str:
         else "Try registering again or request a new verification link."
     )
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><title>Anitalmid — Email Verification</title></head>
-<body style="background:#0a0806;color:#e8e6df;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
-<div style="text-align:center;max-width:420px;padding:40px;border:1px solid #2a2c34;border-radius:12px">
+<body style="background:#0b0f1a;color:#e9eef7;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+<div style="text-align:center;max-width:420px;padding:40px;border:1px solid #2a3450;border-radius:12px">
 <div style="font-size:48px;color:{color}">{glyph}</div>
 <h2 style="color:{color};margin:12px 0 8px">{message}</h2>
-<p style="color:#8a8f9c">{sub}</p>
-<a href="/" style="display:inline-block;margin-top:16px;background:#d4a24e;color:#111;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold">Go to Anitalmid</a>
+<p style="color:#93a0b8">{sub}</p>
+<a href="/" style="display:inline-block;margin-top:16px;background:#2dd4bf;color:#061018;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold">Go to Anitalmid</a>
 </div></body></html>"""
 
 

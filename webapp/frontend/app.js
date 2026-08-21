@@ -95,6 +95,32 @@ $("resendBtn").addEventListener("click", async () => {
   }
 });
 
+/* ---------- Landing / app view toggle ---------- */
+$("startQuizBtn").addEventListener("click", startQuiz);
+$("signInBtn").addEventListener("click", showSignIn);
+$("brandHome").addEventListener("click", showLanding);
+
+function startQuiz() {
+  showApp();
+  setTimeout(() => $("wizard").scrollIntoView({ behavior: "smooth" }), 60);
+}
+
+function showSignIn() {
+  showApp();
+  setTimeout(() => $("auth").scrollIntoView({ behavior: "smooth" }), 60);
+}
+
+function showApp() {
+  $("landing").classList.add("hidden");
+  $("appView").classList.remove("hidden");
+}
+
+function showLanding() {
+  $("appView").classList.add("hidden");
+  $("landing").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 /* Restore session on load */
 (async () => {
   if (token) {
@@ -245,14 +271,14 @@ function renderMatches(matches) {
 
 function renderMap(map) {
   const nodes = map.nodes.map((n) => {
-    const color = n.type === "profile" ? "#d4a24e" : n.type === "signal" ? "#5b8def" : n.type === "role" ? "#57b87e" : n.type === "expanded" ? "#e0884a" : "#9b6cf0";
+    const color = n.type === "profile" ? "#2dd4bf" : n.type === "signal" ? "#38bdf8" : n.type === "role" ? "#4ade80" : n.type === "expanded" ? "#fbbf24" : "#a78bfa";
     const shape = n.type === "profile" ? "star" : (n.type === "role" || n.type === "expanded") ? "box" : "ellipse";
     return {
       id: n.id,
       label: n.label,
       title: n.label,
-      color: { background: color, border: "#0e0f13", highlight: { background: color, border: "#fff" } },
-      font: { color: "#e8e6df", size: n.type === "role" ? 13 : 15 },
+      color: { background: color, border: "#0b0f1a", highlight: { background: color, border: "#fff" } },
+      font: { color: "#e9eef7", size: n.type === "role" ? 13 : 15 },
       shape,
       margin: 8,
     };
@@ -262,8 +288,8 @@ function renderMap(map) {
     to: e.target,
     label: e.label,
     value: e.weight,
-    color: { color: "#3a3d4a", highlight: "#d4a24e" },
-    font: { color: "#8a8f9c", size: 10 },
+    color: { color: "#2a3450", highlight: "#2dd4bf" },
+    font: { color: "#93a0b8", size: 10 },
   }));
   const container = $("map");
   const network = new vis.Network(container, { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) }, {
