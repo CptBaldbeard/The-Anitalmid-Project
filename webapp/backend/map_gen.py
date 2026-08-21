@@ -4,6 +4,8 @@ Graph shape:
     profile -> signal (MBTI / Holland / Big Five)
     signal  -> role   (weighted by that role's framework contribution)
     role    -> role   (progression edges, e.g. Systems Admin -> Cloud Admin)
+    signal  -> expanded (web-discovered roles)
+Each node carries a `data` dict the frontend uses for click-to-inspect.
 """
 from typing import Dict, List
 
@@ -26,25 +28,36 @@ def build_career_map(ranking: list, signals: dict, expanded: list | None = None)
     edges: List[Dict] = []
 
     # Profile node
-    nodes.append({"id": "profile", "label": "You", "type": "profile", "data": {}})
+    nodes.append(
+        {
+            "id": "profile",
+            "label": "You",
+            "type": "profile",
+            "data": {
+                "note": "Your resume, experience, certifications, and skills — the root of the map.",
+            },
+        }
+    )
 
-    # Signal nodes
-    mbti_type = signals["mbti"].get("inferred_type", "N/A")
-    holland_code = signals["holland"].get("inferred_code", "N/A")
-    big5 = signals["big_five"].get("inferred_profile", {})
+    # Signal nodes (carry the full detected signal for click-to-inspect)
+    mbti = dict(signals.get("mbti") or {})
+    holland = dict(signals.get("holland") or {})
+    big5 = dict(signals.get("big_five") or {})
+    mbti_type = mbti.get("inferred_type", "N/A")
+    holland_code = holland.get("inferred_code", "N/A")
 
     signal_nodes = [
-        ("sig-mbti", f"MBTI: {mbti_type}", "signal"),
-        ("sig-holland", f"Holland: {holland_code}", "signal"),
-        ("sig-big5", "Big Five", "signal"),
+        ("sig-mbti", f"MBTI: {mbti_type}", "signal", mbti),
+        ("sig-holland", f"Holland: {holland_code}", "signal", holland),
+        ("sig-big5", "Big Five", "signal", big5),
     ]
-    for sid, label, stype in signal_nodes:
-        nodes.append({"id": sid, "label": label, "type": stype, "data": {}})
+    for sid, label, stype, data in signal_nodes:
+        nodes.append({"id": sid, "label": label, "type": stype, "data": data})
 
-    for sid, _, _ in signal_nodes:
+    for sid, _, _, _ in signal_nodes:
         edges.append({"source": "profile", "target": sid, "label": "infers", "weight": 1.0})
 
-    # Role nodes (top 6)
+    # Role nodes (top 6, full details)
     top = ranking[:6]
     role_ids = {}
     for role in top:
@@ -61,6 +74,13 @@ def build_career_map(ranking: list, signals: dict, expanded: list | None = None)
                     "category": role["category"],
                     "pivot_cost": role["pivot_cost"],
                     "salary_range": role["salary_range"],
+                    "holland_code": role["holland_code"],
+                    "o_net_code": role["o_net_code"],
+                    "experience_required": role["experience_required"],
+                    "description": role["description"],
+                    "keyword_score": role["keyword_score"],
+                    "framework_score": role["framework_score"],
+                    "experience_boost": role["experience_boost"],
                 },
             }
         )
@@ -70,7 +90,6 @@ def build_career_map(ranking: list, signals: dict, expanded: list | None = None)
     for role in top:
         rid = role_ids[role["title"]]
         w = round(role["composite_score"] / max_score, 2)
-        # Attach to the most relevant signal (Holland is the primary matching key)
         edges.append({"source": "sig-holland", "target": rid, "label": "", "weight": w})
         edges.append({"source": "sig-mbti", "target": rid, "label": "", "weight": round(w * 0.6, 2)})
 
@@ -93,6 +112,7 @@ def build_career_map(ranking: list, signals: dict, expanded: list | None = None)
                         "salary_range": e.get("salary_range") or "",
                         "source_url": e.get("source_url", ""),
                         "holland_code": e.get("holland_code", ""),
+                        "snippet": e.get("snippet", ""),
                     },
                 }
             )

@@ -131,3 +131,31 @@ textarea, input[type="text"], input[type="email"], input[type="password"] {
 .expanded-item a { color: var(--blue); text-decoration: none; font-weight: 600; }
 .expanded-item a:hover { text-decoration: underline; }
 .expanded-item .meta { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+/* Hero */
+.hero { padding: 26px 24px; }
+.hero h2 { font-size: 26px; margin: 0 0 8px; color: var(--gold); }
+.hero .lede { font-size: 15px; line-height: 1.5; color: var(--text); max-width: 720px; margin: 0 0 18px; }
+.hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.hero-point { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.hero-point b { display: block; color: var(--gold); margin-bottom: 6px; font-size: 14px; }
+.hero-point span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+/* Node details panel */
+.node-details { margin-top: 14px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: 13px; }
+.nd-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.nd-type { font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--gold); background: #2a2217; padding: 3px 7px; border-radius: 4px; }
+.nd-kv { list-style: none; margin: 0 0 8px; padding: 0; }
+.nd-kv li { display: flex; gap: 12px; padding: 3px 0; border-bottom: 1px solid var(--border); }
+.nd-kv li:last-child { border-bottom: none; }
+.nd-kv .k { color: var(--muted); min-width: 92px; }
+.nd-conns { margin-top: 8px; }
+.nd-conns ul { list-style: none; padding: 0; margin: 4px 0 0; }
+.nd-conns li { color: var(--muted); padding: 2px 0; }
+.node-details a { color: var(--blue); }
+.node-details p { margin: 4px 0; }
+
+/* Frameworks explainers */
+#frameworks details { border-top: 1px solid var(--border); padding: 10px 0; }
+#frameworks summary { cursor: pointer; font-weight: 600; color: var(--gold); }
+#frameworks details p { margin: 8px 0 0; color: var(--muted); line-height: 1.5; }

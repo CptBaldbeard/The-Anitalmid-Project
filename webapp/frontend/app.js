@@ -250,6 +250,7 @@ function renderMap(map) {
     return {
       id: n.id,
       label: n.label,
+      title: n.label,
       color: { background: color, border: "#0e0f13", highlight: { background: color, border: "#fff" } },
       font: { color: "#e8e6df", size: n.type === "role" ? 13 : 15 },
       shape,
@@ -265,8 +266,104 @@ function renderMap(map) {
     font: { color: "#8a8f9c", size: 10 },
   }));
   const container = $("map");
-  new vis.Network(container, { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) }, {
+  const network = new vis.Network(container, { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) }, {
     physics: { stabilization: true, barnesHut: { gravitationalConstant: -8000, springLength: 120 } },
-    interaction: { hover: true },
+    interaction: { hover: true, tooltipDelay: 150 },
   });
+
+  network.on("click", (params) => {
+    const nodeId = params.nodes[0];
+    if (nodeId) {
+      const node = map.nodes.find((n) => n.id === nodeId);
+      renderNodeDetails(node, map.nodes, map.edges);
+    }
+  });
+}
+
+function renderNodeDetails(node, nodes, edges) {
+  const box = $("nodeDetails");
+  if (!node) {
+    box.classList.add("hidden");
+    return;
+  }
+  box.classList.remove("hidden");
+
+  const conns = edges
+    .filter((e) => e.source === node.id || e.target === node.id)
+    .map((e) => {
+      const otherId = e.source === node.id ? e.target : e.source;
+      const other = nodes.find((n) => n.id === otherId);
+      const dir = e.source === node.id ? "→" : "←";
+      const lbl = e.label ? ` (${e.label})` : "";
+      return `<li>${dir} ${other ? other.label : otherId}${lbl}</li>`;
+    });
+
+  const typeLabel = { profile: "Your profile", signal: "Detected signal", role: "Career role", expanded: "Web-expanded role" }[node.type] || node.type;
+
+  let dataHtml = "";
+  if (node.type === "profile") dataHtml = `<p class="muted">${node.data?.note || ""}</p>`;
+  else if (node.type === "signal") dataHtml = signalDetailsHtml(node);
+  else if (node.type === "role") dataHtml = roleDetailsHtml(node);
+  else if (node.type === "expanded") dataHtml = expandedDetailsHtml(node);
+
+  box.innerHTML = `
+    <div class="nd-head"><span class="nd-type">${typeLabel}</span><b>${node.label}</b></div>
+    ${dataHtml}
+    <div class="nd-conns"><b>Connections</b><ul>${conns.join("")}</ul></div>`;
+}
+
+function signalDetailsHtml(node) {
+  const d = node.data || {};
+  if (node.id === "sig-mbti") {
+    const t = d.inferred_type || "N/A";
+    return `<p>Type <b>${t}</b> — ${mbtiDecode(t)}.</p>`;
+  }
+  if (node.id === "sig-holland") {
+    const code = d.inferred_code || "N/A";
+    const parts = [d.primary, d.secondary, d.tertiary].filter(Boolean).map((c) => `${hollandName(c)} (${c})`);
+    return `<p>Code <b>${code}</b></p><p class="muted">${parts.join(" · ") || "—"}</p>`;
+  }
+  if (node.id === "sig-big5") {
+    const prof = d.inferred_profile || {};
+    const entries = Object.entries(prof).map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join("");
+    return `<p class="muted">Trait profile (Low → High):</p><ul class="nd-kv">${entries || "<li>—</li>"}</ul>`;
+  }
+  return "";
+}
+
+function roleDetailsHtml(node) {
+  const d = node.data || {};
+  const rows = [
+    ["Score", d.score != null ? Math.round(d.score) : "—"],
+    ["Validation", d.validation],
+    ["Category", d.category],
+    ["Holland", d.holland_code],
+    ["O*NET", d.o_net_code],
+    ["Salary", d.salary_range],
+    ["Pivot cost", d.pivot_cost],
+    ["Experience", d.experience_required],
+  ].filter(([, v]) => v).map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join("");
+
+  const breakdown = d.keyword_score != null
+    ? `<p class="muted">How it's scored: keyword ${d.keyword_score} · framework ${d.framework_score} · experience boost +${d.experience_boost}.</p>`
+    : "";
+  return `<ul class="nd-kv">${rows}</ul>${breakdown}${d.description ? `<p class="muted">${d.description}</p>` : ""}`;
+}
+
+function expandedDetailsHtml(node) {
+  const d = node.data || {};
+  const rows = [["Category", d.category], ["Holland", d.holland_code], ["Salary", d.salary_range]]
+    .filter(([, v]) => v)
+    .map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join("");
+  const link = d.source_url ? `<p><a href="${d.source_url}" target="_blank" rel="noopener">Source ↗</a></p>` : "";
+  return `<ul class="nd-kv">${rows}</ul>${link}`;
+}
+
+function mbtiDecode(t) {
+  const map = { I: "Introverted", E: "Extraverted", N: "Intuitive", S: "Sensing", T: "Thinking", F: "Feeling", J: "Judging", P: "Perceiving" };
+  return (t || "").split("").map((c) => map[c] || c).join(", ");
+}
+
+function hollandName(c) {
+  return { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" }[c] || c;
 }
