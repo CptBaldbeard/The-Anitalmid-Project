@@ -121,16 +121,23 @@ function showLanding() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+/* Refresh the user session (e.g. after email verification completes in another tab) */
+async function refreshUser() {
+  if (!token) return;
+  try {
+    currentUser = await apiFetch("/auth/me");
+    renderAuth();
+  } catch { /* apiFetch logs out on 401 */ }
+}
+
+/* Re-check whenever the user returns to this tab — they may have just verified */
+window.addEventListener("focus", refreshUser);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") refreshUser();
+});
+
 /* Restore session on load */
-(async () => {
-  if (token) {
-    try {
-      const me = await apiFetch("/auth/me");
-      currentUser = me;
-      renderAuth();
-    } catch { logout(); }
-  }
-})();
+refreshUser();
 
 /* ---------- Dropzone ---------- */
 const dz = $("dropzone");
@@ -186,6 +193,7 @@ $("analyzeBtn").addEventListener("click", async () => {
     }
     render(data);
     status.textContent = "Done.";
+    refreshUser();
   } catch (err) {
     status.textContent = "Error: " + err.message;
   } finally {
