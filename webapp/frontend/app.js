@@ -309,9 +309,8 @@ function renderMap(map) {
     from: e.source,
     to: e.target,
     value: e.weight,
-    width: 1,
-    color: { color: "rgba(147,160,184,0.30)", highlight: "#2dd4bf", hover: "#2dd4bf" },
-    smooth: { enabled: true, type: "continuous", roundness: 0.25 },
+    width: 0.5,
+    color: { color: "rgba(147,160,184,0.15)", highlight: "#2dd4bf", hover: "#2dd4bf" },
   }));
 
   const container = $("map");
