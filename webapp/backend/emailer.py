@@ -10,6 +10,7 @@ import json
 import os
 import smtplib
 import ssl
+import urllib.error
 import urllib.request
 from email.message import EmailMessage
 
@@ -41,10 +42,11 @@ def _send_via_resend(to_email: str, username: str, link: str) -> bool:
     )
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
-            ok = 200 <= resp.status < 300
-            if not ok:
-                print(f"[emailer] Resend API returned {resp.status}: {resp.read()[:300]}")
-        return ok
+            return 200 <= resp.status < 300
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"[emailer] Resend API {e.code} {e.reason}: {body[:400]}")
+        return False
     except Exception as e:
         print(f"[emailer] Resend API failed for {to_email}: {e}")
         return False
