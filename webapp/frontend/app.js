@@ -206,28 +206,6 @@ function render(data) {
   renderSignals(data.signals);
   renderMatches(data.top_matches);
   renderMap(data.career_map);
-  renderExpanded(data.expanded_matches || []);
-}
-
-function renderExpanded(items) {
-  const box = $("expanded");
-  if (!items || !items.length) {
-    box.innerHTML = '<p class="muted">No expanded results (web search unavailable or no matches).</p>';
-    return;
-  }
-  box.innerHTML = items
-    .map((r) => {
-      const meta = [r.category, r.holland_code, r.salary_range, r.pivot_cost ? "pivot: " + r.pivot_cost : ""]
-        .filter(Boolean)
-        .join(" · ");
-      return `
-    <div class="expanded-item">
-      <div class="top"><a href="${r.source_url}" target="_blank" rel="noopener">${r.title}</a></div>
-      <div class="meta">${meta}</div>
-      <div class="muted small">${r.snippet}</div>
-    </div>`;
-    })
-    .join("");
 }
 
 function renderSignals(s) {
@@ -269,7 +247,6 @@ function renderMap(map) {
     profile: { color: "#2dd4bf", glow: "rgba(45,212,191,0.45)", size: 17 },
     signal: { color: "#38bdf8", glow: "rgba(56,189,248,0.45)", size: 12 },
     role: { color: "#4ade80", glow: "rgba(74,222,128,0.45)", size: 10 },
-    expanded: { color: "#fbbf24", glow: "rgba(251,191,36,0.45)", size: 8 },
   };
 
   const nodes = map.nodes.map((n) => {
@@ -345,13 +322,12 @@ function renderNodeDetails(node, nodes, edges) {
       return `<li>${dir} ${other ? other.label : otherId}${lbl}</li>`;
     });
 
-  const typeLabel = { profile: "Your profile", signal: "Detected signal", role: "Career role", expanded: "Web-expanded role" }[node.type] || node.type;
+  const typeLabel = { profile: "Your profile", signal: "Detected signal", role: "Career role" }[node.type] || node.type;
 
   let dataHtml = "";
   if (node.type === "profile") dataHtml = `<p class="muted">${node.data?.note || ""}</p>`;
   else if (node.type === "signal") dataHtml = signalDetailsHtml(node);
   else if (node.type === "role") dataHtml = roleDetailsHtml(node);
-  else if (node.type === "expanded") dataHtml = expandedDetailsHtml(node);
 
   box.innerHTML = `
     <div class="nd-head"><span class="nd-type">${typeLabel}</span><b>${node.label}</b></div>
@@ -395,15 +371,6 @@ function roleDetailsHtml(node) {
     ? `<p class="muted">How it's scored: keyword ${d.keyword_score} · framework ${d.framework_score} · experience boost +${d.experience_boost}.</p>`
     : "";
   return `<ul class="nd-kv">${rows}</ul>${breakdown}${d.description ? `<p class="muted">${d.description}</p>` : ""}`;
-}
-
-function expandedDetailsHtml(node) {
-  const d = node.data || {};
-  const rows = [["Category", d.category], ["Holland", d.holland_code], ["Salary", d.salary_range]]
-    .filter(([, v]) => v)
-    .map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join("");
-  const link = d.source_url ? `<p><a href="${d.source_url}" target="_blank" rel="noopener">Source ↗</a></p>` : "";
-  return `<ul class="nd-kv">${rows}</ul>${link}`;
 }
 
 function mbtiDecode(t) {

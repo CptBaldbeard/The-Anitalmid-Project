@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, db, emailer, expansion, map_gen, oskg, parser, scoring
+from . import auth, db, emailer, map_gen, oskg, parser, scoring
 from .config import BASE_URL
 from .models import (
     AnalysisResult,
@@ -165,11 +165,7 @@ async def _run_pipeline(text: str, user_id: int | None) -> dict:
     ranking, signals = scoring.score_roles(text)
     ranking = oskg.validate_roles(ranking)
 
-    # Camoufox web expansion — additional career fields beyond the core roles.
-    holland_code = (signals.get("holland") or {}).get("inferred_code")
-    expanded = await expansion.search_expanded_roles(holland_code, signals)
-
-    career_map = map_gen.build_career_map(ranking, signals, expanded)
+    career_map = map_gen.build_career_map(ranking, signals)
 
     results_meta = [{k: v for k, v in r.items() if k != "rank"} for r in ranking]
     aid = db.save_analysis(user_id, text, signals, results_meta, career_map)
@@ -180,7 +176,6 @@ async def _run_pipeline(text: str, user_id: int | None) -> dict:
         "top_matches": ranking[:6],
         "full_ranking": ranking,
         "career_map": career_map,
-        "expanded_matches": expanded,
     }
 
 

@@ -4,7 +4,6 @@ Graph shape:
     profile -> signal (MBTI / Holland / Big Five)
     signal  -> role   (weighted by that role's framework contribution)
     role    -> role   (progression edges, e.g. Systems Admin -> Cloud Admin)
-    signal  -> expanded (web-discovered roles)
 Each node carries a `data` dict the frontend uses for click-to-inspect.
 """
 from typing import Dict, List
@@ -43,7 +42,7 @@ def _slug(s: str) -> str:
     return "".join(c for c in s if c.isalnum()).lower()
 
 
-def build_career_map(ranking: list, signals: dict, expanded: list | None = None) -> Dict:
+def build_career_map(ranking: list, signals: dict) -> Dict:
     nodes: List[Dict] = []
     edges: List[Dict] = []
 
@@ -117,25 +116,5 @@ def build_career_map(ranking: list, signals: dict, expanded: list | None = None)
     for src, dst in PROGRESSION_EDGES:
         if src in role_ids and dst in role_ids:
             edges.append({"source": role_ids[src], "target": role_ids[dst], "label": "→", "weight": 0.8})
-
-    # Expanded (web-discovered) roles — attach to the Holland signal node
-    if expanded:
-        for e in expanded[:5]:
-            eid = "exp-" + _slug(e["title"])
-            nodes.append(
-                {
-                    "id": eid,
-                    "label": e["title"],
-                    "type": "expanded",
-                    "data": {
-                        "category": e.get("category", ""),
-                        "salary_range": e.get("salary_range") or "",
-                        "source_url": e.get("source_url", ""),
-                        "holland_code": e.get("holland_code", ""),
-                        "snippet": e.get("snippet", ""),
-                    },
-                }
-            )
-            edges.append({"source": "sig-holland", "target": eid, "label": "expands", "weight": 0.6})
 
     return {"nodes": nodes, "edges": edges}
