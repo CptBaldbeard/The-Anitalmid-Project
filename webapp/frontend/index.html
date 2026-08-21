@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -141,6 +141,20 @@
     </div>
   </main>
 
-  <script src="app.js?v=8"></script>
+  <div id="resultsPage" class="overlay hidden">
+    <div class="overlay-panel">
+      <div class="overlay-head">
+        <div>
+          <span class="overlay-kicker">Your personalized breakdown</span>
+          <h2>Your Results</h2>
+        </div>
+        <button id="closeResultsBtn" class="ghost">✕ Close</button>
+      </div>
+      <div id="resultsPageBody" class="overlay-body"></div>
+    </div>
+  </div>
+
+  <script src="results.js?v=9"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

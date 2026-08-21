@@ -220,7 +220,9 @@ function renderSignals(s) {
   box.innerHTML = `
     <div class="chip"><b>MBTI</b>${mbti}</div>
     <div class="chip"><b>Holland</b>${holland}</div>
-    <div class="chip"><b>Big Five</b>${big5Txt}</div>`;
+    <div class="chip"><b>Big Five</b>${big5Txt}</div>
+    <button id="resultsBtn" class="results-btn">Results →</button>`;
+  $("resultsBtn").addEventListener("click", () => renderResultsPage(s));
 }
 
 function renderMatches(matches) {
