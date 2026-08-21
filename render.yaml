@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: anitalmid
+    runtime: docker
+    rootDir: webapp
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ANITALMID_SECRET
+        generateValue: true
+      - key: ANITALMID_DATABASE_URL
+        sync: false
+        value: postgresql+psycopg2://USER:PASSWORD@HOST:5432/anitalmid
