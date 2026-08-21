@@ -84,6 +84,7 @@ $("logoutBtn").addEventListener("click", logout);
 /* ---------- Landing / app view toggle ---------- */
 $("startQuizBtn").addEventListener("click", startQuiz);
 $("signInBtn").addEventListener("click", showSignIn);
+$("methodologyBtn").addEventListener("click", () => { window.location.href = "/methodology.html"; });
 $("brandHome").addEventListener("click", showLanding);
 
 function startQuiz() {

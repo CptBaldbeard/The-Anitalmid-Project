@@ -1,0 +1,2892 @@
+{
+  "nodes": [
+    {
+      "id": "note3",
+      "label": "note3",
+      "folder": "root",
+      "created": 1784962747.4573693,
+      "color": "#8b98b0",
+      "seq": 0
+    },
+    {
+      "id": "note2",
+      "label": "note2",
+      "folder": "root",
+      "created": 1784964069.3942099,
+      "color": "#8b98b0",
+      "seq": 1
+    },
+    {
+      "id": "note1",
+      "label": "note1",
+      "folder": "root",
+      "created": 1784964070.3923924,
+      "color": "#8b98b0",
+      "seq": 2
+    },
+    {
+      "id": "dependent_claim_1.md",
+      "label": "dependent_claim_1.md",
+      "folder": "Claims",
+      "created": 1784966665.4601798,
+      "color": "#38bdf8",
+      "seq": 3
+    },
+    {
+      "id": "contradicting_claim_1.md",
+      "label": "contradicting_claim_1.md",
+      "folder": "Claims",
+      "created": 1784966738.6271777,
+      "color": "#38bdf8",
+      "seq": 4
+    },
+    {
+      "id": "claims_example.md",
+      "label": "claims_example.md",
+      "folder": "Claims",
+      "created": 1784967068.704678,
+      "color": "#38bdf8",
+      "seq": 5
+    },
+    {
+      "id": "supported_claim_1.md",
+      "label": "supported_claim_1.md",
+      "folder": "Claims",
+      "created": 1784967085.3384306,
+      "color": "#38bdf8",
+      "seq": 6
+    },
+    {
+      "id": "related_claims_1.md",
+      "label": "related_claims_1.md",
+      "folder": "Claims",
+      "created": 1784967197.1909697,
+      "color": "#38bdf8",
+      "seq": 7
+    },
+    {
+      "id": "define the relationship.md",
+      "label": "define the relationship.md",
+      "folder": "Claims",
+      "created": 1784967217.4138832,
+      "color": "#38bdf8",
+      "seq": 8
+    },
+    {
+      "id": "interests - asterisk.md",
+      "label": "interests - asterisk.md",
+      "folder": "Birkman Symbols",
+      "created": 1785030638.4575007,
+      "color": "#a78bfa",
+      "seq": 9
+    },
+    {
+      "id": "needs - circle.md",
+      "label": "needs - circle.md",
+      "folder": "Birkman Symbols",
+      "created": 1785030907.317515,
+      "color": "#a78bfa",
+      "seq": 10
+    },
+    {
+      "id": "analyzer - yellow.md",
+      "label": "analyzer - yellow.md",
+      "folder": "Birkman Colors",
+      "created": 1785031171.1090991,
+      "color": "#a78bfa",
+      "seq": 11
+    },
+    {
+      "id": "communicator - green.md",
+      "label": "communicator - green.md",
+      "folder": "Birkman Colors",
+      "created": 1785031260.5118544,
+      "color": "#a78bfa",
+      "seq": 12
+    },
+    {
+      "id": "doer - red.md",
+      "label": "doer - red.md",
+      "folder": "Birkman Colors",
+      "created": 1785031311.7940364,
+      "color": "#a78bfa",
+      "seq": 13
+    },
+    {
+      "id": "thinker - blue.md",
+      "label": "thinker - blue.md",
+      "folder": "Birkman Colors",
+      "created": 1785031372.1820095,
+      "color": "#a78bfa",
+      "seq": 14
+    },
+    {
+      "id": "stress_behavior - square.md",
+      "label": "stress_behavior - square.md",
+      "folder": "Birkman Symbols",
+      "created": 1785031536.92388,
+      "color": "#a78bfa",
+      "seq": 15
+    },
+    {
+      "id": "usual_behavior - diamond.md",
+      "label": "usual_behavior - diamond.md",
+      "folder": "Birkman Symbols",
+      "created": 1785031538.0508566,
+      "color": "#a78bfa",
+      "seq": 16
+    },
+    {
+      "id": "Information_Systems_Specialist.md",
+      "label": "Information_Systems_Specialist.md",
+      "folder": "Career History",
+      "created": 1785033615.4857633,
+      "color": "#fb923c",
+      "seq": 17
+    },
+    {
+      "id": "Technology_Solutions_Partner.md",
+      "label": "Technology_Solutions_Partner.md",
+      "folder": "Career History",
+      "created": 1785033625.721296,
+      "color": "#fb923c",
+      "seq": 18
+    },
+    {
+      "id": "Videographer.md",
+      "label": "Videographer.md",
+      "folder": "Career History",
+      "created": 1785033698.971142,
+      "color": "#fb923c",
+      "seq": 19
+    },
+    {
+      "id": "Vandal_Card_Specialist_and_IT_Help_Desk_Technician.md",
+      "label": "Vandal_Card_Specialist_and_IT_Help_Desk_Technician.md",
+      "folder": "Career History",
+      "created": 1785033741.712318,
+      "color": "#fb923c",
+      "seq": 20
+    },
+    {
+      "id": "AppleCare_iOS_Chat_Advisor.md",
+      "label": "AppleCare_iOS_Chat_Advisor.md",
+      "folder": "Career History",
+      "created": 1785033770.1156332,
+      "color": "#fb923c",
+      "seq": 21
+    },
+    {
+      "id": "Telecommunications_Coordinator.md",
+      "label": "Telecommunications_Coordinator.md",
+      "folder": "Career History",
+      "created": 1785033917.8489525,
+      "color": "#fb923c",
+      "seq": 22
+    },
+    {
+      "id": "Technical_Writer.md",
+      "label": "Technical_Writer.md",
+      "folder": "Career History",
+      "created": 1785034004.342002,
+      "color": "#fb923c",
+      "seq": 23
+    },
+    {
+      "id": "Top_Career_Areas_to_Explore",
+      "label": "Top_Career_Areas_to_Explore",
+      "folder": "Birkman Career Exploration Overview",
+      "created": 1785117853.0102856,
+      "color": "#a78bfa",
+      "seq": 24
+    },
+    {
+      "id": "Birkman_Color_Key_Master.md",
+      "label": "Birkman_Color_Key_Master.md",
+      "folder": "Birkman Colors",
+      "created": 1785117864.6665397,
+      "color": "#a78bfa",
+      "seq": 25
+    },
+    {
+      "id": "Strengths.md",
+      "label": "Strengths.md",
+      "folder": "Birkman Insights",
+      "created": 1785117864.6776323,
+      "color": "#a78bfa",
+      "seq": 26
+    },
+    {
+      "id": "Birkman_Map_Master.md",
+      "label": "Birkman_Map_Master.md",
+      "folder": "Birkman Symbols",
+      "created": 1785117864.6776323,
+      "color": "#a78bfa",
+      "seq": 27
+    },
+    {
+      "id": "Birkman_Interests_Master.md",
+      "label": "Birkman_Interests_Master.md",
+      "folder": "Birkman Interests",
+      "created": 1785117872.8319643,
+      "color": "#a78bfa",
+      "seq": 28
+    },
+    {
+      "id": "claims-architecture",
+      "label": "claims-architecture",
+      "folder": "Claims",
+      "created": 1785118629.4195962,
+      "color": "#38bdf8",
+      "seq": 29
+    },
+    {
+      "id": "claim-blue-yellow-bridge-archetype",
+      "label": "claim-blue-yellow-bridge-archetype",
+      "folder": "Claims",
+      "created": 1785118750.5570714,
+      "color": "#38bdf8",
+      "seq": 30
+    },
+    {
+      "id": "claim-technical-interest-82-percent",
+      "label": "claim-technical-interest-82-percent",
+      "folder": "Claims",
+      "created": 1785118750.7489262,
+      "color": "#38bdf8",
+      "seq": 31
+    },
+    {
+      "id": "claim-scientific-interest-92-percent",
+      "label": "claim-scientific-interest-92-percent",
+      "folder": "Claims",
+      "created": 1785118750.9605188,
+      "color": "#38bdf8",
+      "seq": 32
+    },
+    {
+      "id": "claim-literary-interest-92-technical-writing",
+      "label": "claim-literary-interest-92-technical-writing",
+      "folder": "Claims",
+      "created": 1785118751.1660562,
+      "color": "#38bdf8",
+      "seq": 33
+    },
+    {
+      "id": "claim-administrative-interest-low",
+      "label": "claim-administrative-interest-low",
+      "folder": "Claims",
+      "created": 1785118751.3583207,
+      "color": "#38bdf8",
+      "seq": 34
+    },
+    {
+      "id": "claim-numerical-interest-low",
+      "label": "claim-numerical-interest-low",
+      "folder": "Claims",
+      "created": 1785118751.5475953,
+      "color": "#38bdf8",
+      "seq": 35
+    },
+    {
+      "id": "claim-persuasive-interest-low",
+      "label": "claim-persuasive-interest-low",
+      "folder": "Claims",
+      "created": 1785118751.740795,
+      "color": "#38bdf8",
+      "seq": 36
+    },
+    {
+      "id": "claim-structured-thinking-strength",
+      "label": "claim-structured-thinking-strength",
+      "folder": "Claims",
+      "created": 1785118852.4418375,
+      "color": "#38bdf8",
+      "seq": 37
+    },
+    {
+      "id": "claim-investigating-troubleshooting-strength",
+      "label": "claim-investigating-troubleshooting-strength",
+      "folder": "Claims",
+      "created": 1785118852.6491551,
+      "color": "#38bdf8",
+      "seq": 38
+    },
+    {
+      "id": "claim-ambiguity-handling-strength",
+      "label": "claim-ambiguity-handling-strength",
+      "folder": "Claims",
+      "created": 1785118852.8424046,
+      "color": "#38bdf8",
+      "seq": 39
+    },
+    {
+      "id": "claim-one-on-one-sensitivity-strength",
+      "label": "claim-one-on-one-sensitivity-strength",
+      "folder": "Claims",
+      "created": 1785118853.032454,
+      "color": "#38bdf8",
+      "seq": 40
+    },
+    {
+      "id": "claim-needs-systematic-environment",
+      "label": "claim-needs-systematic-environment",
+      "folder": "Claims",
+      "created": 1785118853.2245018,
+      "color": "#38bdf8",
+      "seq": 41
+    },
+    {
+      "id": "claim-stress-rigidity-risk",
+      "label": "claim-stress-rigidity-risk",
+      "folder": "Claims",
+      "created": 1785118853.4129677,
+      "color": "#38bdf8",
+      "seq": 42
+    },
+    {
+      "id": "claim-interests-blue-innovation-planning",
+      "label": "claim-interests-blue-innovation-planning",
+      "folder": "Claims",
+      "created": 1785118893.4215508,
+      "color": "#38bdf8",
+      "seq": 43
+    },
+    {
+      "id": "claim-reflective-efficiency-strength",
+      "label": "claim-reflective-efficiency-strength",
+      "folder": "Claims",
+      "created": 1785118893.6134539,
+      "color": "#38bdf8",
+      "seq": 44
+    },
+    {
+      "id": "claim-security-operations-experience",
+      "label": "claim-security-operations-experience",
+      "folder": "Claims",
+      "created": 1785118951.0457413,
+      "color": "#38bdf8",
+      "seq": 45
+    },
+    {
+      "id": "claim-backup-dr-experience",
+      "label": "claim-backup-dr-experience",
+      "folder": "Claims",
+      "created": 1785118951.2385778,
+      "color": "#38bdf8",
+      "seq": 46
+    },
+    {
+      "id": "claim-compliance-documentation-experience",
+      "label": "claim-compliance-documentation-experience",
+      "folder": "Claims",
+      "created": 1785118951.4367647,
+      "color": "#38bdf8",
+      "seq": 47
+    },
+    {
+      "id": "claim-endpoint-management-experience",
+      "label": "claim-endpoint-management-experience",
+      "folder": "Claims",
+      "created": 1785118951.6316552,
+      "color": "#38bdf8",
+      "seq": 48
+    },
+    {
+      "id": "claim-access-management-experience",
+      "label": "claim-access-management-experience",
+      "folder": "Claims",
+      "created": 1785119014.5099914,
+      "color": "#38bdf8",
+      "seq": 49
+    },
+    {
+      "id": "claim-technical-documentation-kb-experience",
+      "label": "claim-technical-documentation-kb-experience",
+      "folder": "Claims",
+      "created": 1785119014.7075,
+      "color": "#38bdf8",
+      "seq": 50
+    },
+    {
+      "id": "claim-voip-migration-experience",
+      "label": "claim-voip-migration-experience",
+      "folder": "Claims",
+      "created": 1785119014.9025507,
+      "color": "#38bdf8",
+      "seq": 51
+    },
+    {
+      "id": "claim-software-implementation-experience",
+      "label": "claim-software-implementation-experience",
+      "folder": "Claims",
+      "created": 1785119015.0966856,
+      "color": "#38bdf8",
+      "seq": 52
+    },
+    {
+      "id": "claim-remote-support-experience",
+      "label": "claim-remote-support-experience",
+      "folder": "Claims",
+      "created": 1785119015.293577,
+      "color": "#38bdf8",
+      "seq": 53
+    },
+    {
+      "id": "claim-cloud-administrator-secondary-fit",
+      "label": "claim-cloud-administrator-secondary-fit",
+      "folder": "Claims",
+      "created": 1785119071.1675208,
+      "color": "#38bdf8",
+      "seq": 54
+    },
+    {
+      "id": "claim-security-analyst-fit",
+      "label": "claim-security-analyst-fit",
+      "folder": "Claims",
+      "created": 1785119071.364166,
+      "color": "#38bdf8",
+      "seq": 55
+    },
+    {
+      "id": "claim-grc-compliance-analyst-fit",
+      "label": "claim-grc-compliance-analyst-fit",
+      "folder": "Claims",
+      "created": 1785119115.347339,
+      "color": "#38bdf8",
+      "seq": 56
+    },
+    {
+      "id": "claim-documentation-engineering-fit",
+      "label": "claim-documentation-engineering-fit",
+      "folder": "Claims",
+      "created": 1785119115.5440204,
+      "color": "#38bdf8",
+      "seq": 57
+    },
+    {
+      "id": "claim-pure-helpdesk-contraindicated",
+      "label": "claim-pure-helpdesk-contraindicated",
+      "folder": "Claims",
+      "created": 1785119115.7429416,
+      "color": "#38bdf8",
+      "seq": 58
+    },
+    {
+      "id": "claim-social-service-low",
+      "label": "claim-social-service-low",
+      "folder": "Claims",
+      "created": 1785119159.6596212,
+      "color": "#38bdf8",
+      "seq": 59
+    },
+    {
+      "id": "claim-written-word-strength",
+      "label": "claim-written-word-strength",
+      "folder": "Claims",
+      "created": 1785119159.8552973,
+      "color": "#38bdf8",
+      "seq": 60
+    },
+    {
+      "id": "phase1-hinge-inventory",
+      "label": "phase1-hinge-inventory",
+      "folder": "synthesis",
+      "created": 1785120449.7824233,
+      "color": "#fbbf24",
+      "seq": 61
+    },
+    {
+      "id": "phase2-cascade-trees",
+      "label": "phase2-cascade-trees",
+      "folder": "synthesis",
+      "created": 1785120476.4378662,
+      "color": "#fbbf24",
+      "seq": 62
+    },
+    {
+      "id": "phase3-counter-position-stress-tests",
+      "label": "phase3-counter-position-stress-tests",
+      "folder": "synthesis",
+      "created": 1785120500.2598822,
+      "color": "#fbbf24",
+      "seq": 63
+    },
+    {
+      "id": "phase4-convergence-analysis",
+      "label": "phase4-convergence-analysis",
+      "folder": "synthesis",
+      "created": 1785120529.134437,
+      "color": "#fbbf24",
+      "seq": 64
+    },
+    {
+      "id": "2026-07-26 - GitHub Repo Setup",
+      "label": "2026-07-26 - GitHub Repo Setup",
+      "folder": "Memories",
+      "created": 1785122303.6699142,
+      "color": "#94a3b8",
+      "seq": 65
+    },
+    {
+      "id": "Dan Bechtel Resume",
+      "label": "Dan Bechtel Resume",
+      "folder": "Resume",
+      "created": 1785122616.2063732,
+      "color": "#94a3b8",
+      "seq": 66
+    },
+    {
+      "id": "claim-comptia-security-plus-certification",
+      "label": "claim-comptia-security-plus-certification",
+      "folder": "Claims",
+      "created": 1785122690.9867046,
+      "color": "#38bdf8",
+      "seq": 67
+    },
+    {
+      "id": "claim-grc-saas-platform-documentation",
+      "label": "claim-grc-saas-platform-documentation",
+      "folder": "Claims",
+      "created": 1785122690.987703,
+      "color": "#38bdf8",
+      "seq": 68
+    },
+    {
+      "id": "claim-learning-agility-open-source-strengths",
+      "label": "claim-learning-agility-open-source-strengths",
+      "folder": "Claims",
+      "created": 1785122690.987703,
+      "color": "#38bdf8",
+      "seq": 69
+    },
+    {
+      "id": "claim-bs-public-relations-education",
+      "label": "claim-bs-public-relations-education",
+      "folder": "Claims",
+      "created": 1785122690.9887035,
+      "color": "#38bdf8",
+      "seq": 70
+    },
+    {
+      "id": "Enneagram Types",
+      "label": "Enneagram Types",
+      "folder": "Frameworks",
+      "created": 1785129388.816622,
+      "color": "#2dd4bf",
+      "seq": 71
+    },
+    {
+      "id": "Big Five OCEAN",
+      "label": "Big Five OCEAN",
+      "folder": "Frameworks",
+      "created": 1785129388.8176227,
+      "color": "#2dd4bf",
+      "seq": 72
+    },
+    {
+      "id": "DISC Behavioral Styles",
+      "label": "DISC Behavioral Styles",
+      "folder": "Frameworks",
+      "created": 1785129388.8186238,
+      "color": "#2dd4bf",
+      "seq": 73
+    },
+    {
+      "id": "Myers-Briggs MBTI",
+      "label": "Myers-Briggs MBTI",
+      "folder": "Frameworks",
+      "created": 1785129388.8186238,
+      "color": "#2dd4bf",
+      "seq": 74
+    },
+    {
+      "id": "Holland Codes RIASEC",
+      "label": "Holland Codes RIASEC",
+      "folder": "Frameworks",
+      "created": 1785129388.820624,
+      "color": "#2dd4bf",
+      "seq": 75
+    },
+    {
+      "id": "claim-enneagram-5w6-inference",
+      "label": "claim-enneagram-5w6-inference",
+      "folder": "Claims",
+      "created": 1785129583.0611231,
+      "color": "#38bdf8",
+      "seq": 76
+    },
+    {
+      "id": "claim-big-five-ocean-inference",
+      "label": "claim-big-five-ocean-inference",
+      "folder": "Claims",
+      "created": 1785129583.0621245,
+      "color": "#38bdf8",
+      "seq": 77
+    },
+    {
+      "id": "claim-disc-cs-specialist-inference",
+      "label": "claim-disc-cs-specialist-inference",
+      "folder": "Claims",
+      "created": 1785129583.0631235,
+      "color": "#38bdf8",
+      "seq": 78
+    },
+    {
+      "id": "claim-holland-code-iar-inference",
+      "label": "claim-holland-code-iar-inference",
+      "folder": "Claims",
+      "created": 1785129583.0631235,
+      "color": "#38bdf8",
+      "seq": 79
+    },
+    {
+      "id": "claim-mbti-intj-inference",
+      "label": "claim-mbti-intj-inference",
+      "folder": "Claims",
+      "created": 1785129583.0823956,
+      "color": "#38bdf8",
+      "seq": 80
+    },
+    {
+      "id": "Science Communicator",
+      "label": "Science Communicator",
+      "folder": "Role Profiles",
+      "created": 1785129821.1609986,
+      "color": "#4ade80",
+      "seq": 81
+    },
+    {
+      "id": "Technical Writer (Non-IT)",
+      "label": "Technical Writer (Non-IT)",
+      "folder": "Role Profiles",
+      "created": 1785129821.163,
+      "color": "#4ade80",
+      "seq": 82
+    },
+    {
+      "id": "Data Analyst",
+      "label": "Data Analyst",
+      "folder": "Role Profiles",
+      "created": 1785129821.1749966,
+      "color": "#4ade80",
+      "seq": 83
+    },
+    {
+      "id": "Instructional Designer",
+      "label": "Instructional Designer",
+      "folder": "Role Profiles",
+      "created": 1785129821.175997,
+      "color": "#4ade80",
+      "seq": 84
+    },
+    {
+      "id": "UX Designer",
+      "label": "UX Designer",
+      "folder": "Role Profiles",
+      "created": 1785129821.1789992,
+      "color": "#4ade80",
+      "seq": 85
+    },
+    {
+      "id": "phase5-non-it-expansion",
+      "label": "phase5-non-it-expansion",
+      "folder": "synthesis",
+      "created": 1785129861.5469587,
+      "color": "#fbbf24",
+      "seq": 86
+    },
+    {
+      "id": "Dan Bechtel Type 4 Report",
+      "label": "Dan Bechtel Type 4 Report",
+      "folder": "Enneagram Report",
+      "created": 1785131864.3642087,
+      "color": "#f472b6",
+      "seq": 87
+    },
+    {
+      "id": "claim-enneagram-type-4-corrected",
+      "label": "claim-enneagram-type-4-corrected",
+      "folder": "Claims",
+      "created": 1785131864.3793461,
+      "color": "#38bdf8",
+      "seq": 88
+    },
+    {
+      "id": "Birkman Method Overview",
+      "label": "Birkman Method Overview",
+      "folder": "Birkman Insights",
+      "created": 1785132988.443552,
+      "color": "#a78bfa",
+      "seq": 89
+    },
+    {
+      "id": "claim-systems-administrator-primary-fit",
+      "label": "claim-systems-administrator-primary-fit",
+      "folder": "Claims",
+      "created": 1785132988.579695,
+      "color": "#38bdf8",
+      "seq": 90
+    },
+    {
+      "id": "2026-07-26 - OSKG Pipeline Full Session",
+      "label": "2026-07-26 - OSKG Pipeline Full Session",
+      "folder": "Memories",
+      "created": 1785132988.6449642,
+      "color": "#94a3b8",
+      "seq": 91
+    },
+    {
+      "id": "Cloud Administrator (Azure)",
+      "label": "Cloud Administrator (Azure)",
+      "folder": "Role Profiles",
+      "created": 1785132988.6620793,
+      "color": "#4ade80",
+      "seq": 92
+    },
+    {
+      "id": "Database Administrator",
+      "label": "Database Administrator",
+      "folder": "Role Profiles",
+      "created": 1785132988.6742847,
+      "color": "#4ade80",
+      "seq": 93
+    },
+    {
+      "id": "DevOps Engineer",
+      "label": "DevOps Engineer",
+      "folder": "Role Profiles",
+      "created": 1785132988.6882837,
+      "color": "#4ade80",
+      "seq": 94
+    },
+    {
+      "id": "GRC Analyst",
+      "label": "GRC Analyst",
+      "folder": "Role Profiles",
+      "created": 1785132988.7012897,
+      "color": "#4ade80",
+      "seq": 95
+    },
+    {
+      "id": "IT Project Manager",
+      "label": "IT Project Manager",
+      "folder": "Role Profiles",
+      "created": 1785132988.7148893,
+      "color": "#4ade80",
+      "seq": 96
+    },
+    {
+      "id": "Network Administrator",
+      "label": "Network Administrator",
+      "folder": "Role Profiles",
+      "created": 1785132988.72898,
+      "color": "#4ade80",
+      "seq": 97
+    },
+    {
+      "id": "Security Analyst (SOC)",
+      "label": "Security Analyst (SOC)",
+      "folder": "Role Profiles",
+      "created": 1785132988.7420826,
+      "color": "#4ade80",
+      "seq": 98
+    },
+    {
+      "id": "Systems Architect",
+      "label": "Systems Architect",
+      "folder": "Role Profiles",
+      "created": 1785132988.7562783,
+      "color": "#4ade80",
+      "seq": 99
+    },
+    {
+      "id": "Windows Systems Administrator",
+      "label": "Windows Systems Administrator",
+      "folder": "Role Profiles",
+      "created": 1785132988.7693696,
+      "color": "#4ade80",
+      "seq": 100
+    },
+    {
+      "id": "2026-07-26 - Camufox to Camoufox Full Rename",
+      "label": "2026-07-26 - Camufox to Camoufox Full Rename",
+      "folder": "Memories",
+      "created": 1785133681.658485,
+      "color": "#94a3b8",
+      "seq": 101
+    },
+    {
+      "id": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "label": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "folder": "Parachute",
+      "created": 1785178528.2832139,
+      "color": "#34d399",
+      "seq": 102
+    },
+    {
+      "id": "claim-parachute-networking-fit",
+      "label": "claim-parachute-networking-fit",
+      "folder": "Claims",
+      "created": 1785178607.7388206,
+      "color": "#38bdf8",
+      "seq": 103
+    },
+    {
+      "id": "claim-parachute-flower-convergence",
+      "label": "claim-parachute-flower-convergence",
+      "folder": "Claims",
+      "created": 1785178607.7458172,
+      "color": "#38bdf8",
+      "seq": 104
+    },
+    {
+      "id": "claim-parachute-skills-grid",
+      "label": "claim-parachute-skills-grid",
+      "folder": "Claims",
+      "created": 1785178607.7518942,
+      "color": "#38bdf8",
+      "seq": 105
+    },
+    {
+      "id": "Frameworks Overview",
+      "label": "Frameworks Overview",
+      "folder": "Frameworks",
+      "created": 1785178633.2046247,
+      "color": "#2dd4bf",
+      "seq": 106
+    },
+    {
+      "id": "Birkman-to-Framework Crosswalk",
+      "label": "Birkman-to-Framework Crosswalk",
+      "folder": "Frameworks",
+      "created": 1785178660.6272109,
+      "color": "#2dd4bf",
+      "seq": 107
+    },
+    {
+      "id": "claim-framework-triangulation",
+      "label": "claim-framework-triangulation",
+      "folder": "Claims",
+      "created": 1785178725.8296926,
+      "color": "#38bdf8",
+      "seq": 108
+    },
+    {
+      "id": "claim-parachute-employer-preference-inversion",
+      "label": "claim-parachute-employer-preference-inversion",
+      "folder": "Claims",
+      "created": 1785179204.9069376,
+      "color": "#38bdf8",
+      "seq": 109
+    },
+    {
+      "id": "claim-parachute-five-part-survival-framework",
+      "label": "claim-parachute-five-part-survival-framework",
+      "folder": "Claims",
+      "created": 1785179204.9069376,
+      "color": "#38bdf8",
+      "seq": 110
+    },
+    {
+      "id": "claim-parachute-testing-warnings",
+      "label": "claim-parachute-testing-warnings",
+      "folder": "Claims",
+      "created": 1785179204.9069376,
+      "color": "#38bdf8",
+      "seq": 111
+    },
+    {
+      "id": "claim-parachute-three-survival-attitudes",
+      "label": "claim-parachute-three-survival-attitudes",
+      "folder": "Claims",
+      "created": 1785179204.9069376,
+      "color": "#38bdf8",
+      "seq": 112
+    },
+    {
+      "id": "What Color Is Your Parachute Framework",
+      "label": "What Color Is Your Parachute Framework",
+      "folder": "Parachute",
+      "created": 1785179246.9864085,
+      "color": "#34d399",
+      "seq": 113
+    },
+    {
+      "id": "Capstone - Career Aptitude Synthesis",
+      "label": "Capstone - Career Aptitude Synthesis",
+      "folder": "root",
+      "created": 1785179281.4359343,
+      "color": "#fbbf24",
+      "seq": 114
+    },
+    {
+      "id": "Dan Bechtel Birkman Profile",
+      "label": "Dan Bechtel Birkman Profile",
+      "folder": "Birkman Insights",
+      "created": 1785179313.0436344,
+      "color": "#a78bfa",
+      "seq": 115
+    },
+    {
+      "id": "Comparative Belief Systems Scholar",
+      "label": "Comparative Belief Systems Scholar",
+      "folder": "Role Profiles",
+      "created": 1785300708.6257524,
+      "color": "#4ade80",
+      "seq": 116
+    },
+    {
+      "id": "Cultural Anthropologist",
+      "label": "Cultural Anthropologist",
+      "folder": "Role Profiles",
+      "created": 1785300708.6257524,
+      "color": "#4ade80",
+      "seq": 117
+    },
+    {
+      "id": "Folklorist",
+      "label": "Folklorist",
+      "folder": "Role Profiles",
+      "created": 1785300708.6257524,
+      "color": "#4ade80",
+      "seq": 118
+    },
+    {
+      "id": "Independent Cultural Researcher",
+      "label": "Independent Cultural Researcher",
+      "folder": "Role Profiles",
+      "created": 1785300708.6257524,
+      "color": "#4ade80",
+      "seq": 119
+    },
+    {
+      "id": "Museum Curator (Anthropology)",
+      "label": "Museum Curator (Anthropology)",
+      "folder": "Role Profiles",
+      "created": 1785300708.6257524,
+      "color": "#4ade80",
+      "seq": 120
+    },
+    {
+      "id": "phase6-cultural-anthropology-expansion",
+      "label": "phase6-cultural-anthropology-expansion",
+      "folder": "synthesis",
+      "created": 1785300743.9695463,
+      "color": "#fbbf24",
+      "seq": 121
+    },
+    {
+      "id": "claim-cultural-birkman-triad-convergence",
+      "label": "claim-cultural-birkman-triad-convergence",
+      "folder": "Claims",
+      "created": 1785300776.3912482,
+      "color": "#38bdf8",
+      "seq": 122
+    },
+    {
+      "id": "claim-cultural-enneagram-4w5-alignment",
+      "label": "claim-cultural-enneagram-4w5-alignment",
+      "folder": "Claims",
+      "created": 1785300776.4070578,
+      "color": "#38bdf8",
+      "seq": 123
+    },
+    {
+      "id": "claim-cultural-holland-iar-mapping",
+      "label": "claim-cultural-holland-iar-mapping",
+      "folder": "Claims",
+      "created": 1785300776.4070578,
+      "color": "#38bdf8",
+      "seq": 124
+    },
+    {
+      "id": "claims-progress",
+      "label": "claims-progress",
+      "folder": "Claims",
+      "created": 1785300798.8605802,
+      "color": "#38bdf8",
+      "seq": 125
+    }
+  ],
+  "edges": [
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "phase1-hinge-inventory"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "phase2-cascade-trees"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "phase3-counter-position-stress-tests"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "phase4-convergence-analysis"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "claims-architecture"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Capstone - Career Aptitude Synthesis",
+      "target": "phase5-non-it-expansion"
+    },
+    {
+      "source": "Top_Career_Areas_to_Explore",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Top_Career_Areas_to_Explore",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "doer - red.md"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "communicator - green.md"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "analyzer - yellow.md"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "thinker - blue.md"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Birkman_Color_Key_Master.md",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Birkman Method Overview",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claims-progress"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claims-architecture"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "phase1-hinge-inventory"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "phase2-cascade-trees"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "phase3-counter-position-stress-tests"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "phase4-convergence-analysis"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-mbti-intj-inference"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-enneagram-type-4-corrected"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-disc-cs-specialist-inference"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-big-five-ocean-inference"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-holland-code-iar-inference"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-framework-triangulation"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Dan Bechtel Resume"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-bs-public-relations-education"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-comptia-security-plus-certification"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-grc-saas-platform-documentation"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-learning-agility-open-source-strengths"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Dan Bechtel Type 4 Report"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "Frameworks Overview"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-parachute-skills-grid"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "Dan Bechtel Birkman Profile",
+      "target": "claim-parachute-networking-fit"
+    },
+    {
+      "source": "Strengths.md",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Birkman_Interests_Master.md",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "interests - asterisk.md"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "usual_behavior - diamond.md"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "needs - circle.md"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "stress_behavior - square.md"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Birkman_Map_Master.md",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "claim-access-management-experience",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-access-management-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-access-management-experience",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-administrative-interest-low",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-administrative-interest-low",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-administrative-interest-low",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-administrative-interest-low",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-administrative-interest-low",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-ambiguity-handling-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-ambiguity-handling-strength",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-ambiguity-handling-strength",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-ambiguity-handling-strength",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-ambiguity-handling-strength",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-backup-dr-experience",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-backup-dr-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-backup-dr-experience",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-social-service-low"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-big-five-ocean-inference",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-technical-interest-82-percent"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-ambiguity-handling-strength"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-blue-yellow-bridge-archetype",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "Dan Bechtel Resume"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "claim-written-word-strength"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-bs-public-relations-education",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-cloud-administrator-secondary-fit",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "claim-cloud-administrator-secondary-fit",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-cloud-administrator-secondary-fit",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-cloud-administrator-secondary-fit",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-cloud-administrator-secondary-fit",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-compliance-documentation-experience",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-compliance-documentation-experience",
+      "target": "claim-written-word-strength"
+    },
+    {
+      "source": "claim-compliance-documentation-experience",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-compliance-documentation-experience",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-comptia-security-plus-certification",
+      "target": "Dan Bechtel Resume"
+    },
+    {
+      "source": "claim-comptia-security-plus-certification",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-comptia-security-plus-certification",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-comptia-security-plus-certification",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-comptia-security-plus-certification",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-one-on-one-sensitivity-strength"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-grc-compliance-analyst-fit"
+    },
+    {
+      "source": "claim-disc-cs-specialist-inference",
+      "target": "claim-pure-helpdesk-contraindicated"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "claim-technical-interest-82-percent"
+    },
+    {
+      "source": "claim-documentation-engineering-fit",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-endpoint-management-experience",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-endpoint-management-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-endpoint-management-experience",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-enneagram-5w6-inference",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "Dan Bechtel Type 4 Report"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-enneagram-5w6-inference"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-enneagram-type-4-corrected",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-enneagram-type-4-corrected"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-mbti-intj-inference"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-enneagram-5w6-inference"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-disc-cs-specialist-inference"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-big-five-ocean-inference"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-holland-code-iar-inference"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-framework-triangulation",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-grc-compliance-analyst-fit",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-grc-compliance-analyst-fit",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-grc-compliance-analyst-fit",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-grc-compliance-analyst-fit",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-grc-compliance-analyst-fit",
+      "target": "claim-administrative-interest-low"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "Dan Bechtel Resume"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "claim-grc-compliance-analyst-fit"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-grc-saas-platform-documentation",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-administrative-interest-low"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-social-service-low"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-documentation-engineering-fit"
+    },
+    {
+      "source": "claim-holland-code-iar-inference",
+      "target": "claim-pure-helpdesk-contraindicated"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "claim-ambiguity-handling-strength"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-interests-blue-innovation-planning",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-ambiguity-handling-strength"
+    },
+    {
+      "source": "claim-investigating-troubleshooting-strength",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "Dan Bechtel Resume"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "claim-reflective-efficiency-strength"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-learning-agility-open-source-strengths",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-written-word-strength"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-literary-interest-92-technical-writing",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-ambiguity-handling-strength"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-mbti-intj-inference",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-needs-systematic-environment",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-needs-systematic-environment",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-needs-systematic-environment",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-needs-systematic-environment",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-numerical-interest-low",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-numerical-interest-low",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-numerical-interest-low",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-one-on-one-sensitivity-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-one-on-one-sensitivity-strength",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-one-on-one-sensitivity-strength",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-one-on-one-sensitivity-strength",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-one-on-one-sensitivity-strength",
+      "target": "claim-social-service-low"
+    },
+    {
+      "source": "claim-parachute-employer-preference-inversion",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "claim-parachute-employer-preference-inversion",
+      "target": "claim-parachute-five-part-survival-framework"
+    },
+    {
+      "source": "claim-parachute-five-part-survival-framework",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "claim-parachute-five-part-survival-framework",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-parachute-skills-grid"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-framework-triangulation"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "claim-parachute-networking-fit"
+    },
+    {
+      "source": "claim-parachute-flower-convergence",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "claim-mbti-intj-inference"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "claim-enneagram-type-4-corrected"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "claim-parachute-networking-fit",
+      "target": "claim-parachute-skills-grid"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-written-word-strength"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-parachute-skills-grid",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "claim-parachute-testing-warnings",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "claim-parachute-testing-warnings",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "claim-parachute-three-survival-attitudes",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "claim-parachute-three-survival-attitudes",
+      "target": "claim-parachute-five-part-survival-framework"
+    },
+    {
+      "source": "claim-persuasive-interest-low",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-persuasive-interest-low",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-persuasive-interest-low",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-persuasive-interest-low",
+      "target": "claim-one-on-one-sensitivity-strength"
+    },
+    {
+      "source": "claim-pure-helpdesk-contraindicated",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-pure-helpdesk-contraindicated",
+      "target": "claim-social-service-low"
+    },
+    {
+      "source": "claim-pure-helpdesk-contraindicated",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-pure-helpdesk-contraindicated",
+      "target": "claim-administrative-interest-low"
+    },
+    {
+      "source": "claim-pure-helpdesk-contraindicated",
+      "target": "claim-remote-support-experience"
+    },
+    {
+      "source": "claim-reflective-efficiency-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-reflective-efficiency-strength",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-reflective-efficiency-strength",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-reflective-efficiency-strength",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-reflective-efficiency-strength",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-remote-support-experience",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-remote-support-experience",
+      "target": "claim-social-service-low"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "claim-technical-interest-82-percent"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-scientific-interest-92-percent",
+      "target": "claim-numerical-interest-low"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-security-analyst-fit",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-security-operations-experience",
+      "target": "claim-investigating-troubleshooting-strength"
+    },
+    {
+      "source": "claim-security-operations-experience",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-security-operations-experience",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-security-operations-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-security-operations-experience",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-social-service-low",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-social-service-low",
+      "target": "claim-pure-helpdesk-contraindicated"
+    },
+    {
+      "source": "claim-social-service-low",
+      "target": "claim-persuasive-interest-low"
+    },
+    {
+      "source": "claim-software-implementation-experience",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-software-implementation-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-software-implementation-experience",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-stress-rigidity-risk",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-stress-rigidity-risk",
+      "target": "claim-needs-systematic-environment"
+    },
+    {
+      "source": "claim-stress-rigidity-risk",
+      "target": "claim-ambiguity-handling-strength"
+    },
+    {
+      "source": "claim-structured-thinking-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-structured-thinking-strength",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-structured-thinking-strength",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-structured-thinking-strength",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-structured-thinking-strength",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-technical-interest-82-percent"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-security-operations-experience"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-endpoint-management-experience"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-backup-dr-experience"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-access-management-experience"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-security-analyst-fit"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-stress-rigidity-risk"
+    },
+    {
+      "source": "claim-systems-administrator-primary-fit",
+      "target": "claim-interests-blue-innovation-planning"
+    },
+    {
+      "source": "claim-technical-documentation-kb-experience",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-technical-documentation-kb-experience",
+      "target": "claim-written-word-strength"
+    },
+    {
+      "source": "claim-technical-documentation-kb-experience",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-scientific-interest-92-percent"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-cloud-administrator-secondary-fit"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-administrative-interest-low"
+    },
+    {
+      "source": "claim-technical-interest-82-percent",
+      "target": "claim-numerical-interest-low"
+    },
+    {
+      "source": "claim-voip-migration-experience",
+      "target": "claim-structured-thinking-strength"
+    },
+    {
+      "source": "claim-voip-migration-experience",
+      "target": "claim-systems-administrator-primary-fit"
+    },
+    {
+      "source": "claim-written-word-strength",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claim-written-word-strength",
+      "target": "claim-literary-interest-92-technical-writing"
+    },
+    {
+      "source": "claim-written-word-strength",
+      "target": "claim-technical-documentation-kb-experience"
+    },
+    {
+      "source": "claim-written-word-strength",
+      "target": "claim-compliance-documentation-experience"
+    },
+    {
+      "source": "claims-architecture",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "claims-architecture",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "claims-architecture",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "define the relationship.md",
+      "target": "supported_claim_1.md"
+    },
+    {
+      "source": "define the relationship.md",
+      "target": "contradicting_claim_1.md"
+    },
+    {
+      "source": "define the relationship.md",
+      "target": "dependent_claim_1.md"
+    },
+    {
+      "source": "define the relationship.md",
+      "target": "related_claims_1.md"
+    },
+    {
+      "source": "Dan Bechtel Type 4 Report",
+      "target": "claim-enneagram-type-4-corrected"
+    },
+    {
+      "source": "Dan Bechtel Type 4 Report",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Dan Bechtel Type 4 Report",
+      "target": "Enneagram Types"
+    },
+    {
+      "source": "Dan Bechtel Type 4 Report",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Big Five OCEAN",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Big Five OCEAN",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Big Five OCEAN",
+      "target": "DISC Behavioral Styles"
+    },
+    {
+      "source": "Big Five OCEAN",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "Enneagram Types"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "DISC Behavioral Styles"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Birkman-to-Framework Crosswalk",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "DISC Behavioral Styles",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "DISC Behavioral Styles",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "DISC Behavioral Styles",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Enneagram Types",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Enneagram Types",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Enneagram Types",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Enneagram Types",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Enneagram Types"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "DISC Behavioral Styles"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-blue-yellow-bridge-archetype"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-mbti-intj-inference"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-enneagram-type-4-corrected"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-disc-cs-specialist-inference"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-big-five-ocean-inference"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-holland-code-iar-inference"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claim-framework-triangulation"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "Frameworks Overview",
+      "target": "claims-progress"
+    },
+    {
+      "source": "Holland Codes RIASEC",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Holland Codes RIASEC",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Holland Codes RIASEC",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Myers-Briggs MBTI",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Myers-Briggs MBTI",
+      "target": "DISC Behavioral Styles"
+    },
+    {
+      "source": "Myers-Briggs MBTI",
+      "target": "Enneagram Types"
+    },
+    {
+      "source": "Myers-Briggs MBTI",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Myers-Briggs MBTI",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Enneagram Types"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Myers-Briggs MBTI"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "DISC Behavioral Styles"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Big Five OCEAN"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "claim-parachute-skills-grid"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "claim-parachute-flower-convergence"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "claim-parachute-networking-fit"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "What Color Is Your Parachute Framework"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "Parachute Flower Exercise - Dan Bechtel Profile",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Frameworks Overview"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Parachute Flower Exercise - Dan Bechtel Profile"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "What Color Is Your Parachute Framework",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "Cloud Administrator (Azure)",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "Cloud Administrator (Azure)",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Cloud Administrator (Azure)",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Cloud Administrator (Azure)",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Database Administrator",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "Database Administrator",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "Database Administrator",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Database Administrator",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "DevOps Engineer",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "DevOps Engineer",
+      "target": "Database Administrator"
+    },
+    {
+      "source": "DevOps Engineer",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "DevOps Engineer",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "GRC Analyst",
+      "target": "Security Analyst (SOC)"
+    },
+    {
+      "source": "GRC Analyst",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "GRC Analyst",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "GRC Analyst",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "Systems Architect"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "GRC Analyst"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "IT Project Manager",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "Network Administrator",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "Network Administrator",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "Network Administrator",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Network Administrator",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Security Analyst (SOC)",
+      "target": "GRC Analyst"
+    },
+    {
+      "source": "Security Analyst (SOC)",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Security Analyst (SOC)",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Security Analyst (SOC)",
+      "target": "Cloud Administrator (Azure)"
+    },
+    {
+      "source": "Security Analyst (SOC)",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "Windows Systems Administrator"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "IT Project Manager"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "Dan Bechtel Birkman Profile"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "Birkman Method Overview"
+    },
+    {
+      "source": "Systems Architect",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "Windows Systems Administrator",
+      "target": "DevOps Engineer"
+    },
+    {
+      "source": "Windows Systems Administrator",
+      "target": "Systems Architect"
+    },
+    {
+      "source": "Windows Systems Administrator",
+      "target": "Network Administrator"
+    },
+    {
+      "source": "Windows Systems Administrator",
+      "target": "Top_Career_Areas_to_Explore"
+    },
+    {
+      "source": "phase1-hinge-inventory",
+      "target": "phase2-cascade-trees"
+    },
+    {
+      "source": "phase1-hinge-inventory",
+      "target": "phase3-counter-position-stress-tests"
+    },
+    {
+      "source": "phase1-hinge-inventory",
+      "target": "phase4-convergence-analysis"
+    },
+    {
+      "source": "phase2-cascade-trees",
+      "target": "phase1-hinge-inventory"
+    },
+    {
+      "source": "phase2-cascade-trees",
+      "target": "phase3-counter-position-stress-tests"
+    },
+    {
+      "source": "phase2-cascade-trees",
+      "target": "phase4-convergence-analysis"
+    },
+    {
+      "source": "phase3-counter-position-stress-tests",
+      "target": "phase1-hinge-inventory"
+    },
+    {
+      "source": "phase3-counter-position-stress-tests",
+      "target": "phase2-cascade-trees"
+    },
+    {
+      "source": "phase3-counter-position-stress-tests",
+      "target": "phase4-convergence-analysis"
+    },
+    {
+      "source": "phase4-convergence-analysis",
+      "target": "phase1-hinge-inventory"
+    },
+    {
+      "source": "phase4-convergence-analysis",
+      "target": "phase2-cascade-trees"
+    },
+    {
+      "source": "phase4-convergence-analysis",
+      "target": "phase3-counter-position-stress-tests"
+    },
+    {
+      "source": "phase5-non-it-expansion",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "phase5-non-it-expansion",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "phase5-non-it-expansion",
+      "target": "Capstone - Career Aptitude Synthesis"
+    },
+    {
+      "source": "phase6-cultural-anthropology-expansion",
+      "target": "phase5-non-it-expansion"
+    },
+    {
+      "source": "phase6-cultural-anthropology-expansion",
+      "target": "Holland Codes RIASEC"
+    },
+    {
+      "source": "phase6-cultural-anthropology-expansion",
+      "target": "Birkman-to-Framework Crosswalk"
+    },
+    {
+      "source": "phase6-cultural-anthropology-expansion",
+      "target": "Capstone - Career Aptitude Synthesis"
+    }
+  ],
+  "meta": {
+    "note_count": 126,
+    "edge_count": 464,
+    "folders": {
+      "Claims": 61,
+      "Role Profiles": 19,
+      "Career History": 7,
+      "Frameworks": 7,
+      "synthesis": 6,
+      "Birkman Symbols": 5,
+      "Birkman Colors": 5,
+      "root": 4,
+      "Birkman Insights": 3,
+      "Memories": 3,
+      "Parachute": 2,
+      "Birkman Career Exploration Overview": 1,
+      "Birkman Interests": 1,
+      "Resume": 1,
+      "Enneagram Report": 1
+    },
+    "generated": "2026-08-21 16:27:21"
+  }
+}
