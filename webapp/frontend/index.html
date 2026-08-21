@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anitalmid — Career-Mapping Engine</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">◈</span>
+      <h1>Anitalmid</h1>
+      <span class="tagline">Career-Mapping Engine</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Auth -->
+    <section id="auth" class="card">
+      <div id="authLoggedOut">
+        <h2>Sign in</h2>
+        <div class="auth-row">
+          <input type="text" id="authEmail" placeholder="email" />
+          <input type="text" id="authUsername" placeholder="username (register)" />
+          <input type="password" id="authPassword" placeholder="password (8+ chars)" />
+          <button id="loginBtn" class="primary">Log in</button>
+          <button id="registerBtn">Register</button>
+        </div>
+        <span id="authStatus" class="muted small"></span>
+      </div>
+      <div id="authLoggedIn" class="hidden auth-row">
+        <span>Logged in as <b id="authUser"></b></span>
+        <button id="logoutBtn">Log out</button>
+      </div>
+    </section>
+
+    <!-- Wizard -->
+    <section id="wizard" class="card">
+      <h2>Map your career</h2>
+      <p class="muted">Drop your resume plus your experience, certifications, and skills — the engine triangulates six frameworks and maps your best-fit paths.</p>
+
+      <div id="dropzone" class="dropzone">
+        <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
+        <span class="dz-icon">⤒</span>
+        <p><strong>Drop a resume here</strong> or <button type="button" id="browseBtn" class="link">browse</button></p>
+        <p class="muted small">.txt · .md · .rtf · .pdf</p>
+      </div>
+
+      <div class="fields">
+        <label>Work experience
+          <textarea id="experience" rows="3" placeholder="e.g. Systems Administrator, 5 yrs — Linux, Active Directory, Veeam, IAM…"></textarea>
+        </label>
+        <label>Certifications
+          <textarea id="certifications" rows="2" placeholder="e.g. Security+, AZ-104, CompTIA…"></textarea>
+        </label>
+        <label>Skills
+          <textarea id="skills" rows="2" placeholder="e.g. Python, networking, documentation…"></textarea>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="analyzeBtn" class="primary">Analyze →</button>
+        <span id="status" class="muted"></span>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="hidden">
+      <div class="signals card" id="signalsBox"></div>
+
+      <div class="two-col">
+        <div class="card">
+          <h2>Top career matches</h2>
+          <div id="matches"></div>
+        </div>
+        <div class="card">
+          <h2>Career map</h2>
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Beyond the core roles <span class="muted small">— live Camoufox web search</span></h2>
+        <div id="expanded"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
