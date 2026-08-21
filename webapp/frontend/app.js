@@ -246,7 +246,8 @@ function renderExpanded(items) {
 
 function renderSignals(s) {
   const box = $("signalsBox");
-  const mbti = s.mbti?.inferred_type || "N/A";
+  const mbtiRaw = (s.mbti?.inferred_type || "").replace(/X/g, "·");
+  const mbti = mbtiRaw && mbtiRaw !== "····" ? mbtiRaw : "—";
   const holland = s.holland?.inferred_code || "N/A";
   const big5 = s.big_five?.inferred_profile || {};
   const big5Txt = Object.entries(big5).map(([k, v]) => `${k}: ${v}`).join(" · ") || "N/A";
@@ -421,7 +422,8 @@ function expandedDetailsHtml(node) {
 
 function mbtiDecode(t) {
   const map = { I: "Introverted", E: "Extraverted", N: "Intuitive", S: "Sensing", T: "Thinking", F: "Feeling", J: "Judging", P: "Perceiving" };
-  return (t || "").split("").map((c) => map[c] || c).join(", ");
+  const parts = (t || "").split("").map((c) => map[c]).filter(Boolean);
+  return parts.length ? parts.join(", ") : "Not enough signal to infer a type";
 }
 
 function hollandName(c) {

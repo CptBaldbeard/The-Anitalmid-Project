@@ -29,359 +29,10 @@ except ImportError:
     HAS_PYMUPDF = False
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-# SIX-FRAMEWORK TARGET PROFILE
-# ═══════════════════════════════════════════════════════════════════════════
-
-TARGET_PROFILE = {
-    "birkman": {
-        "archetype": "Blue/Yellow bridge",
-        "interests_high": ["Scientific", "Literary", "Artistic", "Technical", "Musical"],
-        "interests_low": ["Administrative", "Numerical", "Persuasive", "Social Service"],
-        "strengths": [
-            "investigating", "troubleshooting", "hands-on problem solving",
-            "written word", "structured thinking", "one-on-one sensitivity",
-            "ambiguity handling", "reflective efficiency", "visual appeal",
-            "emotional intelligence"
-        ]
-    },
-    "mbti": {
-        "type": "INTJ",
-        "alternative": "INTP",
-        "dichotomies": {"I": True, "N": True, "T": True, "J": True}
-    },
-    "enneagram": {
-        "type": "4w5",
-        "core": "Type 4 (Individualist)",
-        "wing": "Type 5 (Investigator)",
-        "core_motivation": "Authenticity, creative self-expression, meaning",
-        "core_fear": "Being ordinary, insignificant, or misunderstood"
-    },
-    "disc": {
-        "primary": "C",
-        "secondary": "S",
-        "blend": "CS Specialist"
-    },
-    "big_five": {
-        "Openness": "Very High",
-        "Conscientiousness": "Very High",
-        "Extraversion": "Low",
-        "Agreeableness": "Medium-Low",
-        "Neuroticism": "Medium-Low"
-    },
-    "holland": {
-        "code": "IAR",
-        "primary": "Investigative",
-        "secondary": "Artistic",
-        "tertiary": "Realistic",
-        "low": ["Conventional", "Enterprising", "Social"]
-    }
-}
-
-
-# ═══════════════════════════════════════════════════════════════════════════
-# CAREER ROLE PROFILES (IT + Non-IT)
-# ═══════════════════════════════════════════════════════════════════════════
-
-@dataclass
-class RoleProfile:
-    """A career role with framework matching signals and keyword detectors."""
-    title: str
-    category: str  # "IT" or "Non-IT"
-    holland_code: str
-    o_net_code: str
-    salary_range: str
-    experience_required: str  # "Low", "Medium", "High", "Direct Match"
-    
-    # Framework alignment (0-100)
-    birkman_fit: int
-    mbti_fit: int
-    enneagram_fit: int
-    disc_fit: int
-    big_five_fit: int
-    holland_fit: int
-    
-    # Resume keyword detectors (weighted)
-    keywords_strong: list = field(default_factory=list)  # Direct match (weight 3)
-    keywords_moderate: list = field(default_factory=list)  # Adjacent (weight 2)
-    keywords_weak: list = field(default_factory=list)  # Context (weight 1)
-    
-    # Contraindications (penalty signals)
-    contra_keywords: list = field(default_factory=list)
-    
-    # Description
-    description: str = ""
-    pivot_cost: str = ""  # "None", "Low", "Medium", "High"
-
-
-ROLE_PROFILES = [
-    # ─── IT Roles ────────────────────────────────────────────────────────
-    RoleProfile(
-        title="Systems Administrator",
-        category="IT",
-        holland_code="RIC",
-        o_net_code="15-1244.00",
-        salary_range="$65K-$90K (mid), $90K-$120K (senior)",
-        experience_required="Direct Match",
-        birkman_fit=95, mbti_fit=90, enneagram_fit=85, disc_fit=95, big_five_fit=95, holland_fit=85,
-        keywords_strong=[
-            "systems administrator", "sysadmin", "system admin",
-            "active directory", "group policy", "windows server",
-            "linux administration", "server management", "infrastructure",
-            "backup", "disaster recovery", "endpoint management"
-        ],
-        keywords_moderate=[
-            "powershell", "bash", "scripting", "virtualization",
-            "vmware", "hyper-v", "dns", "dhcp", "tcp/ip",
-            "patch management", "monitoring", "sccm", "intune"
-        ],
-        keywords_weak=[
-            "it support", "help desk", "troubleshooting", "ticketing",
-            "documentation", "onboarding", "asset management"
-        ],
-        contra_keywords=["sales", "marketing", "teaching", "counseling"],
-        description="Mid-level IT operations: server/infrastructure management, user administration, backup/DR, monitoring. Dan's current role aligns directly.",
-        pivot_cost="None"
-    ),
-    RoleProfile(
-        title="Cloud Administrator (Azure)",
-        category="IT",
-        holland_code="IAR",
-        o_net_code="15-1299.08",
-        salary_range="$80K-$110K (mid), $110K-$150K (senior)",
-        experience_required="Medium",
-        birkman_fit=90, mbti_fit=90, enneagram_fit=80, disc_fit=85, big_five_fit=90, holland_fit=95,
-        keywords_strong=[
-            "azure", "aws", "cloud", "cloud administrator",
-            "cloud engineer", "entra id", "azure ad", "intune",
-            "cloud migration", "iaas", "paas", "saas"
-        ],
-        keywords_moderate=[
-            "terraform", "bicep", "arm template", "infrastructure as code",
-            "azure devops", "kubernetes", "docker", "container",
-            "cloud security", "azure site recovery"
-        ],
-        keywords_weak=[
-            "powershell", "scripting", "automation", "virtualization",
-            "microsoft 365", "office 365"
-        ],
-        contra_keywords=[],
-        description="Cloud-native infrastructure design and management. Natural progression from sysadmin. Requires Azure certification (AZ-104).",
-        pivot_cost="Low"
-    ),
-    RoleProfile(
-        title="Security Analyst / SOC Analyst",
-        category="IT",
-        holland_code="ICR",
-        o_net_code="15-1212.00",
-        salary_range="$70K-$100K (Tier 1/2), $100K-$140K (senior)",
-        experience_required="Direct Match",
-        birkman_fit=85, mbti_fit=85, enneagram_fit=90, disc_fit=85, big_five_fit=85, holland_fit=80,
-        keywords_strong=[
-            "security analyst", "soc", "security operations",
-            "incident response", "siem", "threat hunting",
-            "vulnerability management", "security+", "cissp",
-            "endpoint protection", "mfa", "identity management"
-        ],
-        keywords_moderate=[
-            "compliance", "iso 27001", "soc2", "cjis", "hipaa",
-            "risk assessment", "penetration testing", "forensics",
-            "security monitoring", "alert triage"
-        ],
-        keywords_weak=[
-            "firewall", "vpn", "network security", "access control",
-            "audit", "logging", "incident management"
-        ],
-        contra_keywords=["sales engineer", "account manager"],
-        description="Cybersecurity operations: threat detection, incident response, vulnerability management. Dan already does Tier 1/2 SOC work + holds Security+.",
-        pivot_cost="None"
-    ),
-    RoleProfile(
-        title="GRC Analyst / Compliance Engineer",
-        category="IT",
-        holland_code="CEI",
-        o_net_code="13-1041.00",
-        salary_range="$70K-$95K (mid), $95K-$130K (senior)",
-        experience_required="Direct Match",
-        birkman_fit=65, mbti_fit=75, enneagram_fit=60, disc_fit=85, big_five_fit=70, holland_fit=55,
-        keywords_strong=[
-            "compliance", "grc", "governance", "risk management",
-            "iso 27001", "soc 2", "hipaa", "pci dss", "fedramp",
-            "audit", "regulatory", "policy"
-        ],
-        keywords_moderate=[
-            "control framework", "nist", "cobit", "risk assessment",
-            "gap analysis", "remediation"
-        ],
-        keywords_weak=[
-            "documentation", "procedure", "standard operating",
-            "security policy"
-        ],
-        contra_keywords=["sales", "business development"],
-        description="Governance, risk, and compliance. Dan has direct ISO 27001/SOC2/CJIS documentation experience. Niche but differentiated path.",
-        pivot_cost="Low"
-    ),
-    RoleProfile(
-        title="Systems Architect",
-        category="IT",
-        holland_code="IAR",
-        o_net_code="15-1299.08",
-        salary_range="$110K-$150K (mid), $150K-$200K+ (senior)",
-        experience_required="High",
-        birkman_fit=90, mbti_fit=95, enneagram_fit=85, disc_fit=85, big_five_fit=90, holland_fit=95,
-        keywords_strong=[
-            "architect", "architecture", "systems design",
-            "solution design", "enterprise architecture",
-            "technical strategy", "roadmap"
-        ],
-        keywords_moderate=[
-            "cloud architecture", "microservices", "system integration",
-            "scalability", "high availability", "technical leadership"
-        ],
-        keywords_weak=[
-            "design patterns", "to-be", "future state",
-            "requirements analysis", "stakeholder"
-        ],
-        contra_keywords=[],
-        description="Long-term career ceiling. Enterprise-scale systems design combining Blue creativity + Yellow systematic execution. 5-10 year horizon.",
-        pivot_cost="High"
-    ),
-    
-    # ─── Non-IT Roles ────────────────────────────────────────────────────
-    RoleProfile(
-        title="Technical Writer",
-        category="Non-IT",
-        holland_code="AIC",
-        o_net_code="27-3042.00",
-        salary_range="$65K-$95K (mid), $90K-$130K (senior)",
-        experience_required="Direct Match",
-        birkman_fit=95, mbti_fit=85, enneagram_fit=85, disc_fit=90, big_five_fit=95, holland_fit=90,
-        keywords_strong=[
-            "technical writer", "technical writing", "documentation",
-            "knowledge base", "kb articles", "user guide",
-            "api documentation", "technical documentation",
-            "style guide", "madcap", "confluence", "sphinx"
-        ],
-        keywords_moderate=[
-            "writing", "editing", "proofreading", "content creation",
-            "information architecture", "content strategy",
-            "help system", "online help"
-        ],
-        keywords_weak=[
-            "communication", "public relations", "tutorial",
-            "how-to", "runbook", "procedure", "sop"
-        ],
-        contra_keywords=[],
-        description="Bridge between technical expertise and clear communication. Dan has direct experience (Technical Writer role 2018-2019) + Literary 92%.",
-        pivot_cost="None"
-    ),
-    RoleProfile(
-        title="Science Communicator / Medical Writer",
-        category="Non-IT",
-        holland_code="AIS",
-        o_net_code="27-3042.00",
-        salary_range="$55K-$85K (entry-mid), $85K-$120K (senior/medical)",
-        experience_required="Medium",
-        birkman_fit=100, mbti_fit=85, enneagram_fit=90, disc_fit=80, big_five_fit=95, holland_fit=85,
-        keywords_strong=[
-            "science communicat", "medical writer", "medical writing",
-            "scientific writing", "research communicat",
-            "clinical research", "pharma", "regulatory writing",
-            "public health", "science journalism"
-        ],
-        keywords_moderate=[
-            "research", "scientific", "laboratory", "biology",
-            "chemistry", "healthcare", "medical", "clinical",
-            "peer review", "publication", "journal"
-        ],
-        keywords_weak=[
-            "writing", "communication", "public relations",
-            "grant writing", "proposal", "patient education"
-        ],
-        contra_keywords=[],
-        description="Highest non-IT aptitude: Scientific 92% + Literary 92% + Artistic 94% converge. Healthcare #1 Birkman career area. Requires domain knowledge pivot.",
-        pivot_cost="High"
-    ),
-    RoleProfile(
-        title="Instructional Designer",
-        category="Non-IT",
-        holland_code="SAI",
-        o_net_code="25-9031.00",
-        salary_range="$60K-$90K (corporate), $85K-$120K (senior)",
-        experience_required="Medium",
-        birkman_fit=85, mbti_fit=80, enneagram_fit=75, disc_fit=80, big_five_fit=85, holland_fit=70,
-        keywords_strong=[
-            "instructional design", "curriculum", "e-learning",
-            "learning management", "lms", "training development",
-            "articulate", "captivate", "camtasia", "addie"
-        ],
-        keywords_moderate=[
-            "training", "onboarding", "education", "teaching",
-            "learning objectives", "assessment", "course design",
-            "adult learning", "pedagogy"
-        ],
-        keywords_weak=[
-            "documentation", "knowledge base", "procedure",
-            "user adoption", "workshop", "presentation"
-        ],
-        contra_keywords=[],
-        description="Design systematic learning experiences. Education #4 Birkman career area + KB development experience. Design-first, not teaching-first.",
-        pivot_cost="Medium"
-    ),
-    RoleProfile(
-        title="UX Designer / Creative Technologist",
-        category="Non-IT",
-        holland_code="ARI",
-        o_net_code="15-1255.00",
-        salary_range="$65K-$100K (mid), $100K-$150K (senior)",
-        experience_required="High",
-        birkman_fit=85, mbti_fit=80, enneagram_fit=70, disc_fit=70, big_five_fit=85, holland_fit=95,
-        keywords_strong=[
-            "ux design", "user experience", "ui design",
-            "figma", "sketch", "adobe xd", "wireframe",
-            "prototype", "usability", "user research"
-        ],
-        keywords_moderate=[
-            "design thinking", "information architecture",
-            "interaction design", "design system", "accessibility",
-            "user testing", "a/b testing"
-        ],
-        keywords_weak=[
-            "visual design", "graphic design", "creative",
-            "adobe creative", "photoshop", "illustrator",
-            "front-end", "html", "css"
-        ],
-        contra_keywords=[],
-        description="Creative + technical design convergence. ARI Holland Code matches IAR (different order). Artistic 94% + Visual appeal. High portfolio barrier.",
-        pivot_cost="High"
-    ),
-    RoleProfile(
-        title="Data Analyst / Security Analytics",
-        category="Non-IT",
-        holland_code="ICR",
-        o_net_code="15-2051.00",
-        salary_range="$60K-$90K (mid), $90K-$130K (senior)",
-        experience_required="Medium",
-        birkman_fit=65, mbti_fit=85, enneagram_fit=85, disc_fit=85, big_five_fit=80, holland_fit=80,
-        keywords_strong=[
-            "data analyst", "data analysis", "analytics",
-            "sql", "python", "tableau", "power bi",
-            "statistical", "data visualization", "business intelligence"
-        ],
-        keywords_moderate=[
-            "excel", "reporting", "dashboard", "metrics",
-            "kpi", "data modeling", "etl", "data pipeline",
-            "machine learning", "predictive"
-        ],
-        keywords_weak=[
-            "analysis", "investigation", "pattern",
-            "trend", "insight", "data-driven"
-        ],
-        contra_keywords=[],
-        description="Data-driven investigation. Scientific 92% + Investigating strength. But Numerical 17% is genuine tension. Best through Security Analytics bridge.",
-        pivot_cost="Medium"
-    ),
-]
+try:
+    from .roles import RoleProfile, ROLE_PROFILES
+except ImportError:
+    from roles import RoleProfile, ROLE_PROFILES
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -509,12 +160,19 @@ def detect_mbti_signals(text: str) -> dict:
         if kw in text_lower:
             signals["P"] += 1
     
-    # Determine dominant dichotomies
+    # Determine dominant dichotomies ("X" when there's no clear signal)
+    def _pick(a_key, b_key):
+        if signals[a_key] > signals[b_key]:
+            return a_key
+        if signals[b_key] > signals[a_key]:
+            return b_key
+        return "X"
+
     result = {}
-    result["I_vs_E"] = "I" if signals["I"] >= signals["E"] else "E"
-    result["N_vs_S"] = "N" if signals["N"] >= signals["S"] else "S"
-    result["T_vs_F"] = "T" if signals["T"] >= signals["F"] else "F"
-    result["J_vs_P"] = "J" if signals["J"] >= signals["P"] else "P"
+    result["I_vs_E"] = _pick("I", "E")
+    result["N_vs_S"] = _pick("N", "S")
+    result["T_vs_F"] = _pick("T", "F")
+    result["J_vs_P"] = _pick("J", "P")
     result["inferred_type"] = (
         result["I_vs_E"] + result["N_vs_S"] +
         result["T_vs_F"] + result["J_vs_P"]
@@ -722,22 +380,26 @@ def compute_framework_compatibility(
     role: RoleProfile
 ) -> float:
     """Compute how well the resume's detected framework signals match the role.
-    
+
     Returns a compatibility score 0-100.
     """
-    # Average the role's framework fit scores as baseline
-    baseline = (role.birkman_fit + role.mbti_fit + role.enneagram_fit +
-                role.disc_fit + role.big_five_fit + role.holland_fit) / 6.0
-    
-    # MTBI compatibility — check if inferred type matches INTJ pattern
-    mbti_match = 0
+    # MBTI compatibility — % of known dichotomies matching the role's typical type
+    mbti_match = 50  # neutral when the resume carries no MBTI signal
     inferred = mbti_signals.get("inferred_type", "")
-    if inferred:
-        # INTJ compatibility scoring
-        for i, (inferred_char, target_char) in enumerate(zip(inferred, "INTJ")):
+    target = role.mbti_type
+    if inferred and target:
+        matched = 0
+        known = 0
+        for inferred_char, target_char in zip(inferred, target):
+            if inferred_char == "X":
+                continue  # unknown dichotomy — skip
+            known += 1
             if inferred_char == target_char:
-                mbti_match += 25  # 25 per matching dichotomy
-    
+                matched += 1
+        if known:
+            mbti_match = (matched / known) * 100
+    mbti_match = min(mbti_match, 100)
+
     # Holland compatibility — overlap between inferred and target code
     holland_match = 0
     inferred_code = holland_signals.get("inferred_code", "")
@@ -747,10 +409,10 @@ def compute_framework_compatibility(
             if char in target_code:
                 holland_match += 33  # ~33 per matching type
     holland_match = min(holland_match, 100)
-    
-    # Blend: 50% framework baseline + 25% inferred MBTI + 25% inferred Holland
-    compatibility = (baseline * 0.5) + (mbti_match * 0.25) + (holland_match * 0.25)
-    
+
+    # Blend: 50% MBTI + 50% Holland (both field-agnostic)
+    compatibility = (mbti_match * 0.5) + (holland_match * 0.5)
+
     return min(100, compatibility)
 
 

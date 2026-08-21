@@ -9,13 +9,33 @@ Each node carries a `data` dict the frontend uses for click-to-inspect.
 """
 from typing import Dict, List
 
-# Known progression edges between role titles (Systems Admin -> Cloud Admin, etc.)
+# Known progression edges between role titles (career ladders across fields)
 PROGRESSION_EDGES = [
-    ("Systems Administrator", "Cloud Administrator"),
+    # Technology
+    ("IT Support Specialist", "Systems Administrator"),
+    ("Systems Administrator", "Cloud Administrator / Engineer"),
     ("Systems Administrator", "Security Analyst / SOC Analyst"),
-    ("Cloud Administrator", "Systems Architect"),
-    ("Security Analyst / SOC Analyst", "GRC Analyst / Compliance Engineer"),
-    ("Data Analyst / Security Analytics", "Security Analyst / SOC Analyst"),
+    ("Systems Administrator", "DevOps Engineer"),
+    ("Systems Administrator", "Systems Architect"),
+    ("Network Engineer", "Cloud Administrator / Engineer"),
+    ("Software Developer", "DevOps Engineer"),
+    # Business & Finance
+    ("Accountant", "Financial Analyst"),
+    ("Financial Analyst", "Operations Manager"),
+    ("Sales Representative", "Marketing Manager"),
+    ("Business Analyst", "Project Manager"),
+    # Healthcare
+    ("EMT / Paramedic", "Registered Nurse"),
+    ("Medical Laboratory Technician", "Pharmacist"),
+    ("Registered Nurse", "Physician Assistant"),
+    # Engineering & Science
+    ("Chemist", "Chemical Engineer"),
+    # Legal
+    ("Paralegal", "Lawyer"),
+    # Education
+    ("Teacher (K-12)", "College Professor"),
+    # Social services
+    ("Social Worker", "Clinical Psychologist"),
 ]
 
 
