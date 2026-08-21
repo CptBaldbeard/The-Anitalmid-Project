@@ -35,6 +35,16 @@ app.add_middleware(
 )
 
 
+@app.middleware("http")
+async def no_cache_static(request, call_next):
+    """Don't long-cache static assets so redeploys are visible immediately."""
+    response = await call_next(request)
+    path = request.url.path
+    if path.endswith((".html", ".css", ".js")) or path in ("/", "/index.html"):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
+
+
 # ---- Auth dependency ----
 
 def get_current_user(authorization: str = Header(None)) -> db.User:
