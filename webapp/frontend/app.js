@@ -64,11 +64,36 @@ function renderAuth() {
     $("authUser").textContent = currentUser.email;
     const unverified = currentUser.email_verified === false;
     $("verifyBanner").classList.toggle("hidden", !unverified);
+    if (unverified) startVerifyPoll(); else stopVerifyPoll();
   } else {
     $("authLoggedOut").classList.remove("hidden");
     $("authLoggedIn").classList.add("hidden");
     $("verifyBanner").classList.add("hidden");
+    stopVerifyPoll();
   }
+}
+
+/* Poll /auth/me while unverified so the banner clears the moment the user
+   verifies (in any tab or device) — no reliance on tab focus or page reload. */
+let verifyPollTimer = null;
+let verifyPollTicks = 0;
+function startVerifyPoll() {
+  if (verifyPollTimer) return;
+  verifyPollTicks = 0;
+  verifyPollTimer = setInterval(async () => {
+    verifyPollTicks += 1;
+    if (!token || verifyPollTicks > 150) { stopVerifyPoll(); return; }
+    try {
+      const u = await apiFetch("/auth/me");
+      if (u && u.email_verified !== false) {
+        currentUser = u;
+        renderAuth();
+      }
+    } catch { /* transient error — keep polling */ }
+  }, 4000);
+}
+function stopVerifyPoll() {
+  if (verifyPollTimer) { clearInterval(verifyPollTimer); verifyPollTimer = null; }
 }
 
 $("loginBtn").addEventListener("click", async () => {
@@ -93,6 +118,14 @@ $("resendBtn").addEventListener("click", async () => {
   } catch (e) {
     s.textContent = e.message;
   }
+});
+$("recheckBtn").addEventListener("click", async () => {
+  const s = $("verifyStatus");
+  s.textContent = "Checking…";
+  await refreshUser();
+  s.textContent = (currentUser && currentUser.email_verified !== false)
+    ? "Verified! 🎉"
+    : "Not verified yet — check your inbox.";
 });
 
 /* ---------- Landing / app view toggle ---------- */
