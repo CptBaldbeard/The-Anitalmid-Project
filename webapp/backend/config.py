@@ -3,9 +3,8 @@ import os
 import secrets
 from pathlib import Path
 
-# Backend dir = .../webapp/backend ; vault lives one level up under "The Anitalmid Project".
+# Backend dir = .../webapp/backend.
 BACKEND_DIR = Path(__file__).resolve().parent
-VAULT = BACKEND_DIR.parents[1] / "The Anitalmid Project"
 DB_PATH = BACKEND_DIR / "anitalmid.db"
 
 # Database: Postgres via env var, else local SQLite (dev fallback).

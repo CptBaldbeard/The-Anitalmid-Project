@@ -1,15 +1,9 @@
-"""Resume parsing — reuses the existing resume_matcher.load_resume()."""
+"""Resume parsing — reuses the bundled resume_matcher.load_resume()."""
 import os
-import sys
 import tempfile
 from pathlib import Path
 
-from .config import VAULT
-
-if str(VAULT) not in sys.path:
-    sys.path.insert(0, str(VAULT))
-
-import resume_matcher as rm  # noqa: E402
+from . import resume_matcher as rm
 
 
 def extract_text_from_upload(filename: str, raw: bytes) -> str:

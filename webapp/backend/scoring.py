@@ -1,13 +1,7 @@
-"""Role scoring — reuses resume_matcher's match_resume_to_roles()."""
-import sys
+"""Role scoring — reuses the bundled resume_matcher.match_resume_to_roles()."""
 from dataclasses import asdict
 
-from .config import VAULT
-
-if str(VAULT) not in sys.path:
-    sys.path.insert(0, str(VAULT))
-
-import resume_matcher as rm  # noqa: E402
+from . import resume_matcher as rm
 
 
 def score_roles(text: str) -> tuple[list, dict]:

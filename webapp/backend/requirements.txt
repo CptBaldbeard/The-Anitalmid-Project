@@ -1,4 +1,8 @@
 fastapi>=0.110
 uvicorn[standard]>=0.29
 python-multipart>=0.0.9
-pymupdf>=1.24  # optional — enables PDF resume parsing
+pymupdf>=1.24
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+PyJWT>=2.8
+bcrypt>=4.0

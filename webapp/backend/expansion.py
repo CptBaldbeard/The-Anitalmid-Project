@@ -39,7 +39,7 @@ def _search(query: str, max_results: int = 6) -> list:
     url = f"{CAMOUFOX_URL}?q={q}&max={max_results}"
     req = urllib.request.Request(url, headers={"User-Agent": "anitalmid/1.0"})
     try:
-        with urllib.request.urlopen(req, timeout=12) as resp:
+        with urllib.request.urlopen(req, timeout=5) as resp:
             data = json.loads(resp.read())
         return data.get("results", [])
     except Exception as e:

@@ -1,12 +1,5 @@
-"""Framework signal detection — reuses resume_matcher's detectors."""
-import sys
-
-from .config import VAULT
-
-if str(VAULT) not in sys.path:
-    sys.path.insert(0, str(VAULT))
-
-import resume_matcher as rm  # noqa: E402
+"""Framework signal detection — reuses the bundled resume_matcher detectors."""
+from . import resume_matcher as rm
 
 
 def detect_signals(text: str) -> dict:
