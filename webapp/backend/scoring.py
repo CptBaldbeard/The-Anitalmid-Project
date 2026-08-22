@@ -25,10 +25,12 @@ def score_roles(text: str) -> tuple[list, dict]:
                 "experience_boost": r["experience_boost"],
                 "holland_code": role["holland_code"],
                 "o_net_code": role["o_net_code"],
+                "mbti_type": role["mbti_type"],
                 "salary_range": role["salary_range"],
                 "pivot_cost": role["pivot_cost"],
                 "experience_required": role["experience_required"],
                 "description": role["description"],
+                "keywords_strong": role["keywords_strong"],
             }
         )
 

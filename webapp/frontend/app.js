@@ -225,12 +225,14 @@ function renderSignals(s) {
   $("resultsBtn").addEventListener("click", () => renderResultsPage(s));
 }
 
+let currentMatches = [];
 function renderMatches(matches) {
+  currentMatches = matches || [];
   const box = $("matches");
-  box.innerHTML = matches
+  box.innerHTML = currentMatches
     .map(
-      (r) => `
-    <div class="match">
+      (r, i) => `
+    <div class="match clickable" data-idx="${i}">
       <div class="top">
         <span><span class="rank">#${r.rank}</span><span class="title">${r.title}</span></span>
         <span class="score">${r.composite_score}</span>
@@ -241,9 +243,13 @@ function renderMatches(matches) {
       </div>
       <div class="meta">${r.salary_range}</div>
       <div class="desc">${r.description}</div>
+      <div class="match-cta">View full description &amp; search jobs →</div>
     </div>`
     )
     .join("");
+  box.querySelectorAll(".match").forEach((el) => {
+    el.addEventListener("click", () => openRoleModal(parseInt(el.dataset.idx, 10)));
+  });
 }
 
 let matchesPie = null;
@@ -293,8 +299,56 @@ function renderPie(matches) {
   });
 
   $("pieLegend").innerHTML = items
-    .map((m, i) => `<span class="pie-item"><i style="background:${COLORS[i]}"></i>${m.title} <b>${pct(m)}%</b></span>`)
+    .map((m, i) => `<span class="pie-item clickable" data-idx="${i}"><i style="background:${COLORS[i]}"></i>${m.title} <b>${pct(m)}%</b></span>`)
     .join("");
+  $("pieLegend").querySelectorAll(".pie-item").forEach((el) => {
+    el.addEventListener("click", () => openRoleModal(parseInt(el.dataset.idx, 10)));
+  });
+}
+
+/* ---------- Role detail modal ---------- */
+function indeedUrl(title) {
+  return "https://www.indeed.com/jobs?q=" + encodeURIComponent(title);
+}
+
+function openRoleModal(idx) {
+  const role = currentMatches[idx];
+  if (!role) return;
+  $("roleModalTitle").textContent = role.title;
+  $("roleModalBody").innerHTML = roleModalHtml(role);
+  $("roleModal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeRoleModal() {
+  $("roleModal").classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+function roleModalHtml(role) {
+  const rows = [
+    ["Category", role.category],
+    ["Holland code", role.holland_code],
+    ["Typical MBTI", role.mbti_type],
+    ["O*NET", role.o_net_code],
+    ["Salary", role.salary_range],
+    ["Experience", role.experience_required],
+    ["Pivot cost", role.pivot_cost],
+  ].filter(([, v]) => v).map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join("");
+
+  const skills = (role.keywords_strong || []).slice(0, 8).map((k) => `<span class="skill-tag">${k}</span>`).join("");
+
+  return `
+    <div class="role-badges">
+      <span class="badge ${role.validation}">${(role.validation || "").replace("-", " ")}</span>
+      <span class="badge score-badge">${Math.round(role.composite_score)}% aligned</span>
+    </div>
+    <p class="role-desc">${role.description || ""}</p>
+    <ul class="nd-kv">${rows}</ul>
+    ${skills ? `<div class="role-skills"><b>Key skills &amp; responsibilities</b><div>${skills}</div></div>` : ""}
+    <div class="role-scoring muted">How it's scored: keyword ${role.keyword_score} · framework ${role.framework_score} · boost +${role.experience_boost}.</div>
+    <a class="indeed-btn" href="${indeedUrl(role.title)}" target="_blank" rel="noopener">Search "${role.title}" on Indeed ↗</a>
+  `;
 }
 
 function renderMap(map) {
@@ -425,7 +479,7 @@ function roleDetailsHtml(node) {
   const breakdown = d.keyword_score != null
     ? `<p class="muted">How it's scored: keyword ${d.keyword_score} · framework ${d.framework_score} · experience boost +${d.experience_boost}.</p>`
     : "";
-  return `<ul class="nd-kv">${rows}</ul>${breakdown}${d.description ? `<p class="muted">${d.description}</p>` : ""}`;
+  return `<ul class="nd-kv">${rows}</ul>${breakdown}${d.description ? `<p class="muted">${d.description}</p>` : ""}<a class="indeed-btn" href="${indeedUrl(node.label)}" target="_blank" rel="noopener">Search on Indeed ↗</a>`;
 }
 
 function mbtiDecode(t) {
@@ -437,3 +491,12 @@ function mbtiDecode(t) {
 function hollandName(c) {
   return { R: "Realistic", I: "Investigative", A: "Artistic", S: "Social", E: "Enterprising", C: "Conventional" }[c] || c;
 }
+
+/* ---------- Role modal close ---------- */
+$("closeRoleModalBtn").addEventListener("click", closeRoleModal);
+$("roleModal").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeRoleModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeRoleModal();
+});

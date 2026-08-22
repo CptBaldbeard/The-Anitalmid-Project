@@ -261,3 +261,30 @@ textarea, input[type="text"], input[type="email"], input[type="password"] {
 .rs-level.high { background: rgba(74, 222, 128, 0.15); color: var(--green); }
 .rs-level.medium { background: rgba(251, 191, 36, 0.15); color: var(--amber); }
 .rs-level.low { background: rgba(56, 189, 248, 0.15); color: var(--blue); }
+
+/* ---------- Clickable matches & role detail modal ---------- */
+.clickable { cursor: pointer; }
+.match.clickable { transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+.match.clickable:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25); }
+.match-cta { margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--primary); }
+.pie-item.clickable { cursor: pointer; transition: color .15s ease; }
+.pie-item.clickable:hover { color: var(--primary); }
+
+.role-panel { max-width: 640px; }
+.role-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.badge.score-badge { background: var(--panel); border: 1px solid var(--border); color: var(--text); }
+.role-desc { font-size: 16px; color: var(--text); line-height: 1.7; margin: 4px 0 16px; }
+.role-skills { margin: 16px 0; }
+.role-skills b { display: block; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px; }
+.role-skills > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag { background: var(--panel); border: 1px solid var(--border); color: #cdd4e0; border-radius: 999px; padding: 5px 13px; font-size: 13px; }
+.role-scoring { font-size: 13px; margin: 14px 0 18px; }
+.indeed-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary); color: #061018; font-weight: 700;
+  padding: 12px 20px; border-radius: 9px; text-decoration: none;
+  font-size: 15px; transition: filter .15s ease, transform .15s ease;
+}
+.indeed-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.indeed-btn:active { transform: translateY(0); }
+.node-details .indeed-btn { padding: 8px 14px; font-size: 13px; margin-top: 10px; }
