@@ -10,10 +10,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, db, map_gen, oskg, parser, scoring
+from . import auth, db, emailer, map_gen, oskg, parser, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
+    EmailResultsRequest,
     LoginRequest,
     RegisterRequest,
     TextPayload,
@@ -168,6 +169,21 @@ def get_analysis(aid: str, user: db.User = Depends(get_current_user)):
     if not record or record.get("user_id") != user.id:
         raise HTTPException(status_code=404, detail="Analysis not found")
     return record
+
+
+# ---- Email results ----
+
+@app.post("/analyze/email")
+def email_results(payload: EmailResultsRequest, user: db.User = Depends(get_current_user)):
+    if not user.email:
+        raise HTTPException(status_code=400, detail="No email address is associated with this account")
+    if not user_limiter.allow(f"email:{user.id}", limit=10, window=86400):
+        raise HTTPException(status_code=429, detail="You've hit the daily email limit, try again tomorrow")
+    html = emailer.build_results_email(user.username, payload.signals, payload.top_matches)
+    sent = emailer.send_email(user.email, "Your Anitalmid career map", html)
+    if not sent:
+        raise HTTPException(status_code=502, detail="We couldn't send the email right now, please try again")
+    return {"sent": True, "to": user.email}
 
 
 # ---- Frontend static SPA ----

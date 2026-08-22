@@ -202,6 +202,7 @@ function buildAnalysisText() {
 
 /* ---------- Render ---------- */
 function render(data) {
+  currentAnalysis = data;
   $("wizard").classList.add("hidden");
   $("results").classList.remove("hidden");
   renderSignals(data.signals);
@@ -221,11 +222,34 @@ function renderSignals(s) {
     <div class="chip"><b>MBTI</b>${mbti}</div>
     <div class="chip"><b>Holland</b>${holland}</div>
     <div class="chip"><b>Big Five</b>${big5Txt}</div>
-    <button id="resultsBtn" class="results-btn">Results →</button>`;
+    <button id="resultsBtn" class="results-btn">Results →</button>
+    <button id="emailResultsBtn" class="results-btn email-btn">Email my results</button>`;
   $("resultsBtn").addEventListener("click", () => renderResultsPage(s));
+  $("emailResultsBtn").addEventListener("click", emailResults);
+}
+
+async function emailResults() {
+  const btn = $("emailResultsBtn");
+  if (!currentAnalysis) return;
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+  try {
+    const d = await apiFetch("/analyze/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ signals: currentAnalysis.signals, top_matches: currentAnalysis.top_matches }),
+    });
+    btn.textContent = "✓ Sent to " + (d.to || "your email");
+  } catch (err) {
+    btn.textContent = "Failed, try again";
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 3000);
+  }
 }
 
 let currentMatches = [];
+let currentAnalysis = null;
 function renderMatches(matches) {
   currentMatches = matches || [];
   const box = $("matches");
@@ -318,10 +342,12 @@ function openRoleModal(idx) {
   if (!role) return;
   $("roleModalTitle").textContent = role.title;
   $("roleModalBody").innerHTML = roleModalHtml(role);
+  $("roleModalLocation").value = localStorage.getItem("anitalmid_location") || "";
   $("roleModal").classList.remove("hidden");
   document.body.style.overflow = "hidden";
   $("roleModalIndeedBtn").addEventListener("click", () => {
     const loc = $("roleModalLocation").value.trim();
+    localStorage.setItem("anitalmid_location", loc);
     window.open(indeedUrl(role.title, loc), "_blank", "noopener");
   });
 }

@@ -59,6 +59,11 @@ class TextPayload(BaseModel):
     text: str
 
 
+class EmailResultsRequest(BaseModel):
+    signals: Dict[str, Any] = Field(default_factory=dict)
+    top_matches: List[Dict[str, Any]] = Field(default_factory=list)
+
+
 # ---- Auth ----
 
 class RegisterRequest(BaseModel):
