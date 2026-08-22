@@ -307,8 +307,10 @@ function renderPie(matches) {
 }
 
 /* ---------- Role detail modal ---------- */
-function indeedUrl(title) {
-  return "https://www.indeed.com/jobs?q=" + encodeURIComponent(title);
+function indeedUrl(title, location) {
+  let url = "https://www.indeed.com/jobs?q=" + encodeURIComponent(title);
+  if (location) url += "&l=" + encodeURIComponent(location);
+  return url;
 }
 
 function openRoleModal(idx) {
@@ -318,6 +320,10 @@ function openRoleModal(idx) {
   $("roleModalBody").innerHTML = roleModalHtml(role);
   $("roleModal").classList.remove("hidden");
   document.body.style.overflow = "hidden";
+  $("roleModalIndeedBtn").addEventListener("click", () => {
+    const loc = $("roleModalLocation").value.trim();
+    window.open(indeedUrl(role.title, loc), "_blank", "noopener");
+  });
 }
 
 function closeRoleModal() {
@@ -347,7 +353,11 @@ function roleModalHtml(role) {
     <ul class="nd-kv">${rows}</ul>
     ${skills ? `<div class="role-skills"><b>Key skills &amp; responsibilities</b><div>${skills}</div></div>` : ""}
     <div class="role-scoring muted">How it's scored: keyword ${role.keyword_score} · framework ${role.framework_score} · boost +${role.experience_boost}.</div>
-    <a class="indeed-btn" href="${indeedUrl(role.title)}" target="_blank" rel="noopener">Search "${role.title}" on Indeed ↗</a>
+    <div class="role-location">
+      <label for="roleModalLocation">Location <span class="muted">(optional)</span></label>
+      <input type="text" id="roleModalLocation" placeholder="City, State or Remote" />
+    </div>
+    <button id="roleModalIndeedBtn" class="indeed-btn" type="button">Search "${role.title}" on Indeed ↗</button>
   `;
 }
 
