@@ -146,7 +146,7 @@ def _card(inner):
 def _section(title, body):
     return (
         f'<div style="margin:0 0 28px">'
-        f'<div style="font-size:18px;font-weight:700;color:#2dd4bf;margin:0 0 12px">{_esc(title)}</div>'
+        f'<div style="font-size:18px;font-weight:700;color:#2dd4bf;margin:0 0 12px">{title}</div>'
         f'{body}'
         f'</div>'
     )
