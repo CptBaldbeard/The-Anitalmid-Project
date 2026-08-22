@@ -7,11 +7,11 @@ from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, db, emailer, map_gen, oskg, parser, scoring
-from .config import BASE_URL
+from . import auth, db, map_gen, oskg, parser, scoring
+from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
     LoginRequest,
@@ -43,6 +43,19 @@ async def no_cache_static(request, call_next):
     if path.endswith((".html", ".css", ".js")) or path in ("/", "/index.html"):
         response.headers["Cache-Control"] = "no-cache"
     return response
+
+
+@app.middleware("http")
+async def rate_limit(request, call_next):
+    """Per-IP throttle on the analysis endpoints (blocks scripted abuse)."""
+    if request.url.path in ("/analyze", "/analyze-text"):
+        ip = request.client.host if request.client else "unknown"
+        if not ip_limiter.allow(f"ip:{ip}", limit=10, window=3600):
+            return JSONResponse(
+                status_code=429,
+                content={"detail": "Too many analyses — please wait a while and try again."},
+            )
+    return await call_next(request)
 
 
 # ---- Auth dependency ----
@@ -79,15 +92,7 @@ def register(payload: RegisterRequest):
         raise HTTPException(status_code=400, detail="Password must be at least 8 characters")
     user = db.create_user(payload.email, payload.username, auth.hash_password(payload.password))
     token = auth.create_token(user.id)
-
-    verify_token = auth.create_verify_token(user.email)
-    link = f"{BASE_URL}/auth/verify?token={verify_token}"
-    sent = emailer.send_verification_email(user.email, user.username, link)
-
-    resp = {"access_token": token, "user": _user_response(user)}
-    if not sent:
-        resp["dev_verify_link"] = link
-    return resp
+    return {"access_token": token, "user": _user_response(user)}
 
 
 @app.post("/auth/login", response_model=TokenResponse)
@@ -104,51 +109,6 @@ def me(user: db.User = Depends(get_current_user)):
     return _user_response(user)
 
 
-@app.get("/auth/verify", response_class=HTMLResponse)
-def verify_email(token: str = ""):
-    email = auth.decode_verify_token(token)
-    if not email:
-        return _verify_page(False, "Invalid or expired verification link.")
-    user = db.get_user_by_email(email)
-    if not user:
-        return _verify_page(False, "Account not found.")
-    if user.email_verified:
-        return _verify_page(True, "Email already verified.")
-    db.set_email_verified(user.id)
-    return _verify_page(True, "Email verified! You can now sign in.")
-
-
-@app.post("/auth/resend-verification")
-def resend_verification(user: db.User = Depends(get_current_user)):
-    if user.email_verified:
-        raise HTTPException(status_code=400, detail="Email already verified")
-    verify_token = auth.create_verify_token(user.email)
-    link = f"{BASE_URL}/auth/verify?token={verify_token}"
-    sent = emailer.send_verification_email(user.email, user.username, link)
-    resp = {"sent": sent}
-    if not sent:
-        resp["dev_verify_link"] = link
-    return resp
-
-
-def _verify_page(success: bool, message: str) -> str:
-    color = "#4ade80" if success else "#f87171"
-    glyph = "&#10003;" if success else "&#10007;"
-    sub = (
-        "Head back to the app and sign in to get your career map."
-        if success
-        else "Try registering again or request a new verification link."
-    )
-    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><title>Anitalmid — Email Verification</title></head>
-<body style="background:#0b0f1a;color:#e9eef7;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
-<div style="text-align:center;max-width:420px;padding:40px;border:1px solid #2a3450;border-radius:12px">
-<div style="font-size:48px;color:{color}">{glyph}</div>
-<h2 style="color:{color};margin:12px 0 8px">{message}</h2>
-<p style="color:#93a0b8">{sub}</p>
-<a href="/" style="display:inline-block;margin-top:16px;background:#2dd4bf;color:#061018;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold">Go to Anitalmid</a>
-</div></body></html>"""
-
-
 # ---- Health ----
 
 @app.get("/health")
@@ -161,6 +121,9 @@ def health():
 async def _run_pipeline(text: str, user_id: int | None) -> dict:
     if not text or not text.strip():
         raise HTTPException(status_code=400, detail="No text to analyze")
+
+    if user_id is not None and not user_limiter.allow(f"user:{user_id}", limit=25, window=86400):
+        raise HTTPException(status_code=429, detail="Daily analysis limit reached — try again tomorrow.")
 
     ranking, signals = scoring.score_roles(text)
     ranking = oskg.validate_roles(ranking)

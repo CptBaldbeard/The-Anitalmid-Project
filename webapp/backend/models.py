@@ -1,5 +1,5 @@
 """Pydantic schemas for the Anitalmid career-matching API."""
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from pydantic import BaseModel, Field
 
@@ -83,4 +83,3 @@ class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user: UserResponse
-    dev_verify_link: Optional[str] = None
