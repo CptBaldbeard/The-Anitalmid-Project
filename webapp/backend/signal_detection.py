@@ -253,18 +253,49 @@ def detect_big_five_signals(text: str) -> dict:
     ]
     signals["N"] += _scan(text_lower, n_keywords)
 
-    def _level(count, high, mid):
-        return "High" if count > high else "Medium" if count > mid else "Low"
+    # Normalize each trait by its lexicon size so the five are directly comparable
+    # (raw counts are unfair — Openness has ~30 keywords, Stability has ~16).
+    sizes = {
+        "O": len(o_keywords),
+        "C": len(c_keywords),
+        "E": len(e_keywords),
+        "A": len(a_keywords),
+        "N": len(n_keywords),
+    }
+    coverage = {t: signals[t] / sizes[t] for t in signals}
+
+    def _level(cov):
+        if cov >= 0.25:
+            return "High"
+        if cov >= 0.10:
+            return "Medium"
+        return "Low"
+
+    profile = {t: _level(cov) for t, cov in coverage.items()}
+    # Neuroticism is measured as its inverse — label it "Stable" so "High" reads
+    # as high emotional stability (low neuroticism), not the reverse.
+    profile["N"] = "High (Stable)" if profile["N"] == "High" else profile["N"]
+
+    # Relative spread fallback: if every trait collapsed onto the same level
+    # (e.g. a terse resume), force a High/Medium/Low spread by rank so the result
+    # still conveys a real lean instead of reading as "all Low".
+    level_only = {t: ("High" if profile[t].startswith("High") else profile[t]) for t in profile}
+    if len(set(level_only.values())) == 1:
+        ordered = sorted(coverage, key=coverage.get, reverse=True)
+        profile = {}
+        for i, t in enumerate(ordered):
+            if i == 0:
+                profile[t] = "High"
+            elif i == len(ordered) - 1:
+                profile[t] = "Low"
+            else:
+                profile[t] = "Medium"
+        if profile.get("N") == "High":
+            profile["N"] = "High (Stable)"
 
     return {
         "raw_signals": signals,
         "signal_strength": sum(signals.values()),
-        "inferred_profile": {
-            "O": _level(signals["O"], 8, 3),
-            "C": _level(signals["C"], 8, 3),
-            "E": _level(signals["E"], 8, 3),
-            "A": _level(signals["A"], 8, 3),
-            "N": "High (Stable)" if signals["N"] > 4 else
-                 "Medium" if signals["N"] > 1 else "Low",
-        },
+        "coverage": {t: round(cov, 3) for t, cov in coverage.items()},
+        "inferred_profile": profile,
     }

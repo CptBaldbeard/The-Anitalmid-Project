@@ -110,7 +110,13 @@ function resultsPageBody(s) {
   hollandHtml += `</div>`;
 
   /* ---- Big Five ---- */
+  const big5Summary = Object.entries(big5).map(([k, v]) => {
+    const t = BIG5_TRAITS[k] || { name: k };
+    const lvl = v.includes("High") ? "High" : v === "Medium" ? "Medium" : "Low";
+    return `${lvl} ${t.name}`;
+  }).join(" · ");
   const big5Html = `<h3 class="rs-h">Big Five <span class="rs-tag">OCEAN</span></h3>
+    <p class="rs-desc"><b>Your lean:</b> ${big5Summary}.</p>
     <div class="rs-grid">` +
     Object.entries(big5).map(([k, v]) => {
       const t = BIG5_TRAITS[k] || { name: k, High: "", Medium: "", Low: "" };
