@@ -166,6 +166,9 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 
 .actions { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
 
+/* Results "start again" bar */
+.results-bar { display: flex; justify-content: flex-end; margin-bottom: 14px; }
+
 /* Input mode toggle */
 .mode-toggle { display: flex; gap: 8px; margin: 18px 0 22px; }
 .mode-btn {

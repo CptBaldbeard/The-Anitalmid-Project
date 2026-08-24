@@ -278,6 +278,35 @@ function render(data) {
   renderPie(data.top_matches);
 }
 
+function restart() {
+  // Reset resume form
+  resumeFile = null;
+  resumeText = "";
+  $("resumeFile").value = "";
+  dz.querySelector("strong").textContent = "Drop a resume here";
+  $("experience").value = "";
+  $("certifications").value = "";
+  $("skills").value = "";
+
+  // Reset signals form
+  $("mbtiSelect").value = "";
+  $("holland1").value = "";
+  $("holland2").value = "";
+  $("holland3").value = "";
+  $("majorSelect").value = "";
+
+  $("status").textContent = "";
+  currentAnalysis = null;
+  currentMatches = [];
+  $("nodeDetails").classList.add("hidden");
+
+  $("results").classList.add("hidden");
+  $("wizard").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  $("wizard").scrollIntoView({ behavior: "smooth" });
+}
+$("restartBtn").addEventListener("click", restart);
+
 function renderSignals(s) {
   const box = $("signalsBox");
   const mbtiRaw = (s.mbti?.inferred_type || "").replace(/X/g, "·");
@@ -495,6 +524,7 @@ function roleModalHtml(role) {
   `;
 }
 
+let careerNetwork = null;
 function renderMap(map) {
   const TYPE_STYLE = {
     profile: { color: "#2dd4bf", glow: "rgba(45,212,191,0.45)", size: 17 },
@@ -531,6 +561,7 @@ function renderMap(map) {
   }));
 
   const container = $("map");
+  if (careerNetwork) { careerNetwork.destroy(); careerNetwork = null; }
   const nodesData = new vis.DataSet(nodes);
   const edgesData = new vis.DataSet(edges);
   const network = new vis.Network(container, { nodes: nodesData, edges: edgesData }, {
@@ -547,6 +578,8 @@ function renderMap(map) {
     },
     interaction: { hover: true, tooltipDelay: 120 },
   });
+
+  careerNetwork = network;
 
   network.on("click", (params) => {
     const nodeId = params.nodes[0];
