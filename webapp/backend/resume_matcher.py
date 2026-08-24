@@ -217,6 +217,52 @@ def match_resume_to_roles(text: str) -> list:
     return results, mbti_signals, holland_signals, big_five_signals
 
 
+def match_signals_to_roles(mbti: str, holland: str, major: str = "") -> tuple:
+    """Match explicit user signals (MBTI / Holland / major) against all roles.
+
+    Same return shape as match_resume_to_roles() so the webapp renders the
+    ranking identically — but the signals come straight from user input rather
+    than resume inference. No resume text, so the keyword component is replaced
+    by a "field alignment" score derived from the chosen major's category.
+    """
+    from . import majors as majors_mod
+
+    mbti_signals = {"inferred_type": (mbti or "").strip().upper()}
+    holland_signals = {"inferred_code": (holland or "").strip().upper()}
+    big_five_signals = {"inferred_profile": {}}
+
+    category = majors_mod.resolve_major(major) if major else None
+
+    results = []
+    for role in ROLE_PROFILES:
+        framework_score = compute_framework_compatibility(
+            mbti_signals, holland_signals, big_five_signals, role
+        )
+        # A matching major boosts every role in its category (coarse field signal).
+        major_score = 100.0 if (category and role.category == category) else 0.0
+
+        # Framework (personality + interests) is the primary signal; the major
+        # steers the field. 70/30 blend keeps the 0-100 scale comparable to the
+        # resume path.
+        composite = (framework_score * 0.7) + (major_score * 0.3)
+
+        results.append(
+            {
+                "role": role,
+                "composite_score": round(composite, 1),
+                "keyword_score": round(major_score, 1),  # repurposed: field alignment
+                "framework_score": round(framework_score, 1),
+                "experience_boost": 0,
+                "category": role.category,
+                "pivot_cost": role.pivot_cost,
+            }
+        )
+
+    results.sort(key=lambda x: x["composite_score"], reverse=True)
+
+    return results, mbti_signals, holland_signals, big_five_signals
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 # OUTPUT FORMATTING
 # ═══════════════════════════════════════════════════════════════════════════

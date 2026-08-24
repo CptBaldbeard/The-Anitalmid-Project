@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=14" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -71,25 +71,94 @@
       <!-- Wizard -->
       <section id="wizard" class="card">
         <h2>Map your career</h2>
-        <p class="muted">Drop your resume plus your experience, certifications, and skills — the engine triangulates six frameworks and maps your best-fit paths.</p>
+        <p class="muted">Drop your resume, or enter your interests and major — the engine triangulates six frameworks and maps your best-fit paths.</p>
 
-        <div id="dropzone" class="dropzone">
-          <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
-          <span class="dz-icon">⤒</span>
-          <p><strong>Drop a resume here</strong> or <button type="button" id="browseBtn" class="link">browse</button></p>
-          <p class="muted small">.txt · .md · .rtf · .pdf</p>
+        <div class="mode-toggle" role="tablist">
+          <button id="modeResume" class="mode-btn active" type="button">Upload resume</button>
+          <button id="modeSignals" class="mode-btn" type="button">Interests &amp; major</button>
         </div>
 
-        <div class="fields">
-          <label>Work experience
-            <textarea id="experience" rows="3" placeholder="e.g. Systems Administrator, 5 yrs — Linux, Active Directory, Veeam, IAM…"></textarea>
-          </label>
-          <label>Certifications
-            <textarea id="certifications" rows="2" placeholder="e.g. Security+, AZ-104, CompTIA…"></textarea>
-          </label>
-          <label>Skills
-            <textarea id="skills" rows="2" placeholder="e.g. Python, networking, documentation…"></textarea>
-          </label>
+        <div id="resumeMode">
+          <div id="dropzone" class="dropzone">
+            <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
+            <span class="dz-icon">⤒</span>
+            <p><strong>Drop a resume here</strong> or <button type="button" id="browseBtn" class="link">browse</button></p>
+            <p class="muted small">.txt · .md · .rtf · .pdf</p>
+          </div>
+
+          <div class="fields">
+            <label>Work experience
+              <textarea id="experience" rows="3" placeholder="e.g. Systems Administrator, 5 yrs — Linux, Active Directory, Veeam, IAM…"></textarea>
+            </label>
+            <label>Certifications
+              <textarea id="certifications" rows="2" placeholder="e.g. Security+, AZ-104, CompTIA…"></textarea>
+            </label>
+            <label>Skills
+              <textarea id="skills" rows="2" placeholder="e.g. Python, networking, documentation…"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <div id="signalsMode" class="hidden">
+          <div class="fields">
+            <label>MBTI type <span class="muted small">(optional)</span>
+              <select id="mbtiSelect">
+                <option value="">I don't know / skip</option>
+                <option value="INTJ">INTJ — Architect</option>
+                <option value="INTP">INTP — Logician</option>
+                <option value="ENTJ">ENTJ — Commander</option>
+                <option value="ENTP">ENTP — Debater</option>
+                <option value="INFJ">INFJ — Advocate</option>
+                <option value="INFP">INFP — Mediator</option>
+                <option value="ENFJ">ENFJ — Protagonist</option>
+                <option value="ENFP">ENFP — Campaigner</option>
+                <option value="ISTJ">ISTJ — Logistician</option>
+                <option value="ISFJ">ISFJ — Defender</option>
+                <option value="ESTJ">ESTJ — Executive</option>
+                <option value="ESFJ">ESFJ — Consul</option>
+                <option value="ISTP">ISTP — Virtuoso</option>
+                <option value="ISFP">ISFP — Adventurer</option>
+                <option value="ESTP">ESTP — Entrepreneur</option>
+                <option value="ESFP">ESFP — Entertainer</option>
+              </select>
+            </label>
+            <label>Interests — pick your top three in order <span class="muted small">(Holland code)</span>
+              <div class="holland-row">
+                <select id="holland1">
+                  <option value="">1st interest…</option>
+                  <option value="R">Realistic — building &amp; doing</option>
+                  <option value="I">Investigative — thinking &amp; analyzing</option>
+                  <option value="A">Artistic — creating</option>
+                  <option value="S">Social — helping &amp; teaching</option>
+                  <option value="E">Enterprising — persuading &amp; leading</option>
+                  <option value="C">Conventional — organizing</option>
+                </select>
+                <select id="holland2">
+                  <option value="">2nd interest…</option>
+                  <option value="R">Realistic</option>
+                  <option value="I">Investigative</option>
+                  <option value="A">Artistic</option>
+                  <option value="S">Social</option>
+                  <option value="E">Enterprising</option>
+                  <option value="C">Conventional</option>
+                </select>
+                <select id="holland3">
+                  <option value="">3rd interest…</option>
+                  <option value="R">Realistic</option>
+                  <option value="I">Investigative</option>
+                  <option value="A">Artistic</option>
+                  <option value="S">Social</option>
+                  <option value="E">Enterprising</option>
+                  <option value="C">Conventional</option>
+                </select>
+              </div>
+            </label>
+            <label>College major <span class="muted small">(optional)</span>
+              <select id="majorSelect">
+                <option value="">Select your major…</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         <div class="actions">
@@ -167,7 +236,7 @@
     </div>
   </div>
 
-  <script src="results.js?v=11"></script>
-  <script src="app.js?v=13"></script>
+  <script src="results.js?v=12"></script>
+  <script src="app.js?v=14"></script>
 </body>
 </html>

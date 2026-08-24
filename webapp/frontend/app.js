@@ -153,13 +153,80 @@ function setFile(f) {
   }
 }
 
+/* ---------- Input mode toggle ---------- */
+let inputMode = "resume"; // "resume" | "signals"
+
+function setInputMode(mode) {
+  inputMode = mode;
+  $("resumeMode").classList.toggle("hidden", mode !== "resume");
+  $("signalsMode").classList.toggle("hidden", mode !== "signals");
+  $("modeResume").classList.toggle("active", mode === "resume");
+  $("modeSignals").classList.toggle("active", mode === "signals");
+}
+
+$("modeResume").addEventListener("click", () => setInputMode("resume"));
+$("modeSignals").addEventListener("click", () => setInputMode("signals"));
+
+function buildHollandCode() {
+  const seen = new Set();
+  const code = [];
+  ["holland1", "holland2", "holland3"].forEach((id) => {
+    const v = $(id).value;
+    if (v && !seen.has(v)) { seen.add(v); code.push(v); }
+  });
+  return code.join("");
+}
+
+async function loadMajors() {
+  try {
+    const d = await fetch("/majors").then((r) => r.json());
+    const sel = $("majorSelect");
+    (d.majors || []).forEach((m) => {
+      const o = document.createElement("option");
+      o.value = m;
+      o.textContent = m;
+      sel.appendChild(o);
+    });
+  } catch { /* majors dropdown left with the placeholder only */ }
+}
+loadMajors();
+
 /* ---------- Analyze ---------- */
 $("analyzeBtn").addEventListener("click", async () => {
   const status = $("status");
   const btn = $("analyzeBtn");
-  const text = buildAnalysisText();
 
   if (!currentUser) { status.textContent = "Sign in first."; return; }
+
+  // Signals mode: no resume — send MBTI / Holland / major directly.
+  if (inputMode === "signals") {
+    const holland = buildHollandCode();
+    if (!holland) { status.textContent = "Pick your top three interests."; return; }
+    btn.disabled = true;
+    status.textContent = "Analyzing…";
+    try {
+      const data = await apiFetch("/analyze-signals", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mbti: $("mbtiSelect").value.trim(),
+          holland,
+          major: $("majorSelect").value.trim(),
+        }),
+      });
+      render(data);
+      status.textContent = "Done.";
+      refreshUser();
+    } catch (err) {
+      status.textContent = "Error: " + err.message;
+    } finally {
+      btn.disabled = false;
+    }
+    return;
+  }
+
+  // Resume mode
+  const text = buildAnalysisText();
   if (!resumeFile && !text.trim()) { status.textContent = "Add a resume or some experience text first."; return; }
 
   btn.disabled = true;

@@ -12,6 +12,20 @@ def score_roles(text: str) -> tuple[list, dict]:
     """
     results, mbti, holland, big_five = rm.match_resume_to_roles(text)
 
+    return _build_ranking(results, mbti, holland, big_five)
+
+
+def score_signals(mbti: str, holland: str, major: str = "") -> tuple[list, dict]:
+    """Score explicit user signals (MBTI / Holland / major) against all roles.
+
+    Same return shape as score_roles() — no resume text involved.
+    """
+    results, mbti_sig, holland_sig, big_five = rm.match_signals_to_roles(mbti, holland, major)
+    return _build_ranking(results, mbti_sig, holland_sig, big_five)
+
+
+def _build_ranking(results: list, mbti: dict, holland: dict, big_five: dict) -> tuple[list, dict]:
+    """Convert raw match results into the JSON-safe ranking + signals shape."""
     ranking = []
     for r in results:
         role = asdict(r["role"])

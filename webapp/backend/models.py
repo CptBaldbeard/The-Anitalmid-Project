@@ -59,6 +59,12 @@ class TextPayload(BaseModel):
     text: str
 
 
+class SignalsPayload(BaseModel):
+    mbti: str = ""       # optional, e.g. "INFP"
+    holland: str = ""    # 3-letter RIASEC code, e.g. "RIS"
+    major: str = ""      # college major name, optional
+
+
 class EmailResultsRequest(BaseModel):
     signals: Dict[str, Any] = Field(default_factory=dict)
     top_matches: List[Dict[str, Any]] = Field(default_factory=list)

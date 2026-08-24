@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, config, db, emailer, export, map_gen, oskg, parser, scoring
+from . import auth, config, db, emailer, export, majors, map_gen, oskg, parser, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
@@ -18,6 +18,7 @@ from .models import (
     EmailResultsRequest,
     LoginRequest,
     RegisterRequest,
+    SignalsPayload,
     TextPayload,
     TokenResponse,
     UserResponse,
@@ -50,7 +51,7 @@ async def no_cache_static(request, call_next):
 @app.middleware("http")
 async def rate_limit(request, call_next):
     """Per-IP throttle on the analysis endpoints (blocks scripted abuse)."""
-    if request.url.path in ("/analyze", "/analyze-text"):
+    if request.url.path in ("/analyze", "/analyze-text", "/analyze-signals"):
         ip = request.client.host if request.client else "unknown"
         if not ip_limiter.allow(f"ip:{ip}", limit=10, window=3600):
             return JSONResponse(
@@ -118,6 +119,11 @@ def health():
     return {"status": "ok", "service": "anitalmid-analyze", "pdf_supported": parser.pdf_supported()}
 
 
+@app.get("/majors")
+def list_majors():
+    return {"majors": majors.major_names()}
+
+
 # ---- Analysis pipeline ----
 
 async def _run_pipeline(text: str, user_id: int | None) -> dict:
@@ -157,6 +163,37 @@ async def analyze(
 @app.post("/analyze-text")
 async def analyze_text(payload: TextPayload, user: db.User = Depends(get_current_user)):
     return await _run_pipeline(payload.text, user.id)
+
+
+async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: int | None) -> dict:
+    holland = (holland or "").strip().upper()
+    if not holland:
+        raise HTTPException(status_code=400, detail="Pick at least one interest (Holland code).")
+
+    if user_id is not None and not user_limiter.allow(f"user:{user_id}", limit=25, window=86400):
+        raise HTTPException(status_code=429, detail="Daily analysis limit reached — try again tomorrow.")
+
+    ranking, signals = scoring.score_signals(mbti, holland, major)
+    ranking = oskg.validate_roles(ranking)
+
+    career_map = map_gen.build_career_map(ranking, signals)
+
+    results_meta = [{k: v for k, v in r.items() if k != "rank"} for r in ranking]
+    summary = f"signals: MBTI={mbti or '-'} Holland={holland} Major={major or '-'}"
+    aid = db.save_analysis(user_id, summary, signals, results_meta, career_map)
+
+    return {
+        "id": aid,
+        "signals": signals,
+        "top_matches": ranking[:6],
+        "full_ranking": ranking,
+        "career_map": career_map,
+    }
+
+
+@app.post("/analyze-signals")
+async def analyze_signals(payload: SignalsPayload, user: db.User = Depends(get_current_user)):
+    return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id)
 
 
 @app.get("/analyses")

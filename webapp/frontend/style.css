@@ -153,7 +153,7 @@ p { margin: 0 0 14px; }
 
 .fields { display: grid; gap: 20px; }
 .fields label { display: grid; gap: 7px; font-size: 14px; color: var(--muted); }
-textarea, input[type="text"], input[type="email"], input[type="password"] {
+textarea, input[type="text"], input[type="email"], input[type="password"], select {
   background: var(--panel-2);
   border: 1px solid var(--border);
   border-radius: 9px;
@@ -165,6 +165,24 @@ textarea, input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .actions { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
+
+/* Input mode toggle */
+.mode-toggle { display: flex; gap: 8px; margin: 18px 0 22px; }
+.mode-btn {
+  flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--panel-2); color: var(--muted); cursor: pointer;
+  font-size: 14px; font-weight: 600; letter-spacing: .2px; transition: all .15s ease;
+}
+.mode-btn:hover { border-color: var(--primary); color: var(--text); }
+.mode-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #06211d; border-color: transparent;
+}
+
+/* Holland interest dropdowns */
+.holland-row { display: flex; gap: 8px; }
+.holland-row select { flex: 1; }
+.holland-row select:first-child { flex: 1.4; }
 
 /* Results */
 .hidden { display: none; }
