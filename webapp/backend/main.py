@@ -7,13 +7,14 @@ from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, db, emailer, map_gen, oskg, parser, scoring
+from . import auth, db, emailer, export, map_gen, oskg, parser, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
+    ApplyPilotExportRequest,
     EmailResultsRequest,
     LoginRequest,
     RegisterRequest,
@@ -184,6 +185,21 @@ def email_results(payload: EmailResultsRequest, user: db.User = Depends(get_curr
     if not sent:
         raise HTTPException(status_code=502, detail="We couldn't send the email right now, please try again")
     return {"sent": True, "to": user.email}
+
+
+# ---- ApplyPilot export ----
+
+
+@app.post("/export/applypilot")
+def export_applypilot(payload: ApplyPilotExportRequest, user: db.User = Depends(get_current_user)):
+    if not payload.top_matches:
+        raise HTTPException(status_code=400, detail="No matches to export — run an analysis first.")
+    zip_bytes = export.build_applypilot_zip(payload.top_matches, payload.location)
+    return Response(
+        content=zip_bytes,
+        media_type="application/zip",
+        headers={"Content-Disposition": 'attachment; filename="applypilot_config.zip"'},
+    )
 
 
 # ---- Frontend static SPA ----

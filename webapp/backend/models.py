@@ -64,6 +64,11 @@ class EmailResultsRequest(BaseModel):
     top_matches: List[Dict[str, Any]] = Field(default_factory=list)
 
 
+class ApplyPilotExportRequest(BaseModel):
+    top_matches: List[Dict[str, Any]] = Field(default_factory=list)
+    location: str = ""
+
+
 # ---- Auth ----
 
 class RegisterRequest(BaseModel):

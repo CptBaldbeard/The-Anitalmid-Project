@@ -223,9 +223,11 @@ function renderSignals(s) {
     <div class="chip"><b>Holland</b>${holland}</div>
     <div class="chip"><b>Big Five</b>${big5Txt}</div>
     <button id="resultsBtn" class="results-btn">Results →</button>
-    <button id="emailResultsBtn" class="results-btn email-btn">Email my results</button>`;
+    <button id="emailResultsBtn" class="results-btn email-btn">Email my results</button>
+    <button id="exportApplyPilotBtn" class="results-btn export-btn">Export for ApplyPilot</button>`;
   $("resultsBtn").addEventListener("click", () => renderResultsPage(s));
   $("emailResultsBtn").addEventListener("click", emailResults);
+  $("exportApplyPilotBtn").addEventListener("click", exportApplyPilot);
 }
 
 async function emailResults() {
@@ -241,6 +243,45 @@ async function emailResults() {
       body: JSON.stringify({ signals: currentAnalysis.signals, top_matches: currentAnalysis.top_matches }),
     });
     btn.textContent = "✓ Sent to " + (d.to || "your email");
+  } catch (err) {
+    btn.textContent = "Failed, try again";
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 3000);
+  }
+}
+
+async function exportApplyPilot() {
+  const btn = $("exportApplyPilotBtn");
+  if (!currentAnalysis) return;
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Exporting…";
+  try {
+    const resp = await fetch("/export/applypilot", {
+      method: "POST",
+      headers: { ...authHeaders(), "Content-Type": "application/json" },
+      body: JSON.stringify({
+        top_matches: currentAnalysis.full_ranking || currentAnalysis.top_matches,
+        location: localStorage.getItem("anitalmid_location") || "",
+      }),
+    });
+    if (resp.status === 401) { logout(); throw new Error("Please sign in first."); }
+    if (!resp.ok) {
+      let msg = resp.status;
+      try { const d = await resp.json(); msg = d.detail || msg; } catch {}
+      throw new Error(msg);
+    }
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "applypilot_config.zip";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = "✓ Downloaded";
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 3000);
   } catch (err) {
     btn.textContent = "Failed, try again";
     btn.disabled = false;
