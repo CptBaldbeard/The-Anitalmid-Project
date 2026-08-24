@@ -223,6 +223,72 @@ def _big5_section(signals):
     return _section("Big Five &nbsp;<span style=\"color:#93a0b8;font-size:14px;font-weight:400\">OCEAN</span>", body)
 
 
+def build_metrics_email(metrics: dict) -> str:
+    """Build the HTML for the admin metrics digest."""
+    total_users = metrics.get("total_users", 0)
+    total_analyses = metrics.get("total_analyses", 0)
+    analyses_24h = metrics.get("analyses_24h", 0)
+    new_users = metrics.get("new_users_24h", [])
+
+    if new_users:
+        user_rows = "".join(
+            '<tr><td style="padding:10px 14px;border-bottom:1px solid #2a3450">'
+            f'<div style="font-size:14px;font-weight:700;color:#e9eef7">{_esc(u["username"])}</div>'
+            f'<div style="font-size:12px;color:#93a0b8">{_esc(u["email"])}</div>'
+            "</td></tr>"
+            for u in new_users
+        )
+    else:
+        user_rows = (
+            '<tr><td style="padding:10px 14px;color:#93a0b8;font-size:14px">'
+            "No new registrations in the last 24 hours.</td></tr>"
+        )
+
+    per_day = metrics.get("analyses_per_day", [])
+    day_rows = "".join(
+        '<tr><td style="padding:8px 14px;border-bottom:1px solid #1a2234;font-size:13px;color:#cdd4e0">'
+        f'<b style="color:#e9eef7">{_esc(d["date"])}</b></td>'
+        f'<td style="padding:8px 14px;border-bottom:1px solid #1a2234;font-size:13px;color:#2dd4bf;text-align:right">{d["count"]}</td>'
+        "</tr>"
+        for d in reversed(per_day)
+    )
+
+    stat = (
+        '<div style="display:flex;gap:12px;margin:0 0 24px">'
+        f'<div style="flex:1;background:#131a29;border:1px solid #2a3450;border-radius:10px;padding:16px;text-align:center">'
+        f'<div style="font-size:28px;font-weight:800;color:#2dd4bf">{total_users}</div>'
+        f'<div style="font-size:12px;color:#93a0b8;margin-top:2px">Total users</div></div>'
+        f'<div style="flex:1;background:#131a29;border:1px solid #2a3450;border-radius:10px;padding:16px;text-align:center">'
+        f'<div style="font-size:28px;font-weight:800;color:#38bdf8">{total_analyses}</div>'
+        f'<div style="font-size:12px;color:#93a0b8;margin-top:2px">Total analyses</div></div>'
+        f'<div style="flex:1;background:#131a29;border:1px solid #2a3450;border-radius:10px;padding:16px;text-align:center">'
+        f'<div style="font-size:28px;font-weight:800;color:#4ade80">{analyses_24h}</div>'
+        f'<div style="font-size:12px;color:#93a0b8;margin-top:2px">Analyses (24h)</div></div>'
+        "</div>"
+    )
+
+    return f"""<!DOCTYPE html><html><body style="margin:0;padding:0;background:#0b0f1a;font-family:Arial,Helvetica,sans-serif">
+<div style="max-width:600px;margin:0 auto;padding:32px 20px">
+  <h1 style="color:#e9eef7;font-size:24px;margin:0 0 4px">Anitalmid — daily metrics</h1>
+  <p style="color:#93a0b8;font-size:14px;margin:0 0 24px">Automated digest from theanitalmidproject.com</p>
+
+  {stat}
+
+  <div style="font-size:18px;font-weight:700;color:#2dd4bf;margin:0 0 12px">New registrations (24h)</div>
+  <table style="width:100%;border-collapse:collapse;background:#131a29;border:1px solid #2a3450;border-radius:12px;overflow:hidden;margin:0 0 28px">
+    {user_rows}
+  </table>
+
+  <div style="font-size:18px;font-weight:700;color:#2dd4bf;margin:0 0 12px">Analyses — last 7 days</div>
+  <table style="width:100%;border-collapse:collapse;background:#131a29;border:1px solid #2a3450;border-radius:12px;overflow:hidden">
+    {day_rows}
+  </table>
+
+  <p style="color:#93a0b8;font-size:13px;margin:24px 0 0">Sent by the Anitalmid admin digest.</p>
+</div>
+</body></html>"""
+
+
 def build_results_email(username: str, signals: dict, top_matches: list) -> str:
     """Build the HTML for the individualized-results email."""
     rows = ""

@@ -28,3 +28,8 @@ SECRET = _secret()
 
 # Public base URL for building verification links (set in production).
 BASE_URL = os.environ.get("ANITALMID_BASE_URL", "http://localhost:8300").rstrip("/")
+
+# Admin metrics digest (secret-key-protected /admin/metrics/email endpoint).
+# Both must be set in production for the admin digest to work.
+ADMIN_KEY = os.environ.get("ANITALMID_ADMIN_KEY", "")
+ADMIN_EMAIL = os.environ.get("ANITALMID_ADMIN_EMAIL", "")

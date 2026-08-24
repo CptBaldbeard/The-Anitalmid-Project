@@ -156,3 +156,53 @@ def list_analyses(user_id: int | None = None, limit: int = 50) -> list:
         return [{"id": r.id, "created_at": r.created_at} for r in rows]
     finally:
         s.close()
+
+
+# ---- Admin metrics ----
+
+
+def get_admin_metrics() -> dict:
+    """Aggregate admin metrics: totals + last-24h activity + 7-day analyses trend."""
+    from datetime import datetime
+
+    s = get_session()
+    try:
+        now = time.time()
+        day = 86400.0
+
+        total_users = s.query(User).count()
+        total_analyses = s.query(Analysis).count()
+
+        new_users = (
+            s.query(User)
+            .filter(User.created_at >= now - day)
+            .order_by(User.created_at.desc())
+            .all()
+        )
+        analyses_24h = s.query(Analysis).filter(Analysis.created_at >= now - day).count()
+
+        per_day = []
+        for i in range(7):
+            end = now - i * day
+            start = end - day
+            cnt = (
+                s.query(Analysis)
+                .filter(Analysis.created_at >= start, Analysis.created_at < end)
+                .count()
+            )
+            per_day.append(
+                {"date": datetime.fromtimestamp(end).strftime("%Y-%m-%d"), "count": cnt}
+            )
+
+        return {
+            "total_users": total_users,
+            "total_analyses": total_analyses,
+            "new_users_24h": [
+                {"email": u.email, "username": u.username, "created_at": u.created_at}
+                for u in new_users
+            ],
+            "analyses_24h": analyses_24h,
+            "analyses_per_day": per_day,
+        }
+    finally:
+        s.close()

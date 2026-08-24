@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, db, emailer, export, map_gen, oskg, parser, scoring
+from . import auth, config, db, emailer, export, map_gen, oskg, parser, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
@@ -185,6 +185,25 @@ def email_results(payload: EmailResultsRequest, user: db.User = Depends(get_curr
     if not sent:
         raise HTTPException(status_code=502, detail="We couldn't send the email right now, please try again")
     return {"sent": True, "to": user.email}
+
+
+# ---- Admin metrics digest ----
+
+
+@app.post("/admin/metrics/email")
+def admin_metrics_email(x_admin_key: str | None = Header(None)):
+    if not config.ADMIN_KEY:
+        raise HTTPException(status_code=503, detail="Admin metrics not configured (ANITALMID_ADMIN_KEY)")
+    if not x_admin_key or x_admin_key != config.ADMIN_KEY:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    if not config.ADMIN_EMAIL:
+        raise HTTPException(status_code=503, detail="Admin email not configured (ANITALMID_ADMIN_EMAIL)")
+    metrics = db.get_admin_metrics()
+    html = emailer.build_metrics_email(metrics)
+    sent = emailer.send_email(config.ADMIN_EMAIL, "Anitalmid — daily metrics", html)
+    if not sent:
+        raise HTTPException(status_code=502, detail="Couldn't send the metrics email")
+    return {"sent": True, "to": config.ADMIN_EMAIL}
 
 
 # ---- ApplyPilot export ----
