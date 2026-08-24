@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -161,6 +161,16 @@
           </div>
         </div>
 
+        <div class="job-section">
+          <label>Match against a job posting <span class="muted small">(optional)</span>
+            <div class="job-row">
+              <input type="text" id="jobUrl" placeholder="Paste a job posting URL — e.g. https://jobs.ashbyhq.com/…" />
+              <button id="analyzeJobBtn" type="button" class="ghost">Analyze job match →</button>
+            </div>
+          </label>
+          <span id="jobStatus" class="muted small"></span>
+        </div>
+
         <div class="actions">
           <button id="analyzeBtn" class="primary">Analyze →</button>
           <span id="status" class="muted"></span>
@@ -240,7 +250,20 @@
     </div>
   </div>
 
+  <div id="jobModal" class="overlay hidden">
+    <div class="overlay-panel">
+      <div class="overlay-head">
+        <div>
+          <span class="overlay-kicker">Job alignment</span>
+          <h2 id="jobModalTitle">Job</h2>
+        </div>
+        <button id="closeJobModalBtn" class="ghost">✕ Close</button>
+      </div>
+      <div id="jobModalBody" class="overlay-body"></div>
+    </div>
+  </div>
+
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>

@@ -187,6 +187,25 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 .holland-row select { flex: 1; }
 .holland-row select:first-child { flex: 1.4; }
 
+/* Job posting alignment */
+.job-section { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--border); }
+.job-section label { display: grid; gap: 7px; font-size: 14px; color: var(--muted); }
+.job-row { display: flex; gap: 10px; }
+.job-row input { flex: 1; }
+.job-row button { white-space: nowrap; }
+.job-score {
+  text-align: center; padding: 20px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--panel-2); margin-bottom: 22px;
+}
+.job-score-num { font-size: 40px; font-weight: 800; line-height: 1; }
+.job-score-label { font-size: 12px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; margin-top: 6px; }
+.job-score.good .job-score-num { color: var(--green); }
+.job-score.mid .job-score-num { color: var(--amber); }
+.job-score.bad .job-score-num { color: var(--red); }
+.good { color: var(--green); }
+.bad { color: var(--red); }
+.extra { color: var(--purple); }
+
 /* Results */
 .hidden { display: none; }
 .signals { display: flex; flex-wrap: wrap; gap: 14px; }

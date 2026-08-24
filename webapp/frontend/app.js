@@ -307,6 +307,122 @@ function restart() {
 }
 $("restartBtn").addEventListener("click", restart);
 
+/* ---------- Job alignment ---------- */
+$("analyzeJobBtn").addEventListener("click", async () => {
+  const url = $("jobUrl").value.trim();
+  const status = $("jobStatus");
+  const btn = $("analyzeJobBtn");
+
+  if (!currentUser) { status.textContent = "Sign in first."; return; }
+  if (!url) { status.textContent = "Paste a job URL first."; return; }
+
+  btn.disabled = true;
+  status.textContent = "Fetching & analyzing…";
+  try {
+    let payload;
+    if (inputMode === "signals") {
+      payload = { url, mbti: $("mbtiSelect").value.trim(), holland: buildHollandCode() };
+    } else {
+      payload = { url, text: buildAnalysisText() };
+    }
+    const data = await apiFetch("/analyze/job", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    renderJobResults(data);
+    status.textContent = "";
+  } catch (err) {
+    status.textContent = "Error: " + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+function jobLevelLabel(v) {
+  if (!v) return "—";
+  if (v.includes("High")) return "High";
+  if (v.includes("Medium")) return "Medium";
+  return "Low";
+}
+
+function renderJobResults(d) {
+  const job = d.job || {};
+  const kw = d.keyword_alignment || {};
+  const psych = d.psychometric_alignment || {};
+  const userS = d.user_signals || {};
+  const jobS = d.job_signals || {};
+
+  const userMbti = (userS.mbti?.inferred_type || "").replace(/X/g, "·") || "—";
+  const jobMbti = (jobS.mbti?.inferred_type || "").replace(/X/g, "·") || "—";
+  const userHolland = userS.holland?.inferred_code || "—";
+  const jobHolland = jobS.holland?.inferred_code || "—";
+
+  const overall = psych.overall;
+  const overallCls = overall == null ? "" : overall >= 66 ? "good" : overall >= 40 ? "mid" : "bad";
+
+  let kwHtml = "";
+  if (kw.score != null) {
+    kwHtml += `<p><b>Keyword coverage:</b> ${kw.score}% of the posting's signal terms appear in your background.</p>`;
+  }
+  if (kw.aligned && kw.aligned.length) {
+    kwHtml += `<p><b class="good">✓ Aligns (${kw.aligned_count})</b> — ${kw.aligned.join(", ")}</p>`;
+  }
+  if (kw.gaps && kw.gaps.length) {
+    kwHtml += `<p><b class="bad">✗ Missing (${kw.gap_count})</b> — ${kw.gaps.join(", ")}</p>`;
+  }
+  if (kw.extra && kw.extra.length) {
+    kwHtml += `<p><b class="extra">+ Beyond the posting (${kw.extra_count})</b> — ${kw.extra.join(", ")}</p>`;
+  }
+
+  const bfTraits = psych.big_five?.traits || {};
+  const bfNames = { O: "Openness", C: "Conscientiousness", E: "Extraversion", A: "Agreeableness", N: "Emotional Stability" };
+  const bfRows = Object.entries(bfTraits).map(([k, v]) => {
+    const name = bfNames[k] || k;
+    const mark = v.match ? '<span class="good">✓</span>' : '<span class="muted">·</span>';
+    return `<div class="rs-item"><b class="rs-letter">${k}</b><div><span class="rs-name">${name}</span>
+      <p>You <b>${jobLevelLabel(v.user)}</b> · Job <b>${jobLevelLabel(v.job)}</b> ${mark}</p></div></div>`;
+  }).join("");
+
+  $("jobModalTitle").textContent = `${job.title || "Job posting"}${job.company ? " @ " + job.company : ""}`;
+
+  $("jobModalBody").innerHTML = `
+    <div class="job-score ${overallCls}">
+      <div class="job-score-num">${overall != null ? overall + "%" : "—"}</div>
+      <div class="job-score-label">overall psychometric alignment</div>
+    </div>
+
+    <h3 class="rs-h">Keyword &amp; experience alignment</h3>
+    <p class="muted">${d.explanation || ""}</p>
+    ${kwHtml}
+
+    <h3 class="rs-h">Psychometric mapping</h3>
+    <div class="rs-grid">
+      <div class="rs-item"><b class="rs-letter">M</b><div>
+        <span class="rs-name">Myers-Briggs</span>
+        <p>You <b>${userMbti}</b> · Job <b>${jobMbti}</b> · <b>${psych.mbti?.match_pct != null ? psych.mbti.match_pct + "%" : "—"}</b></p>
+      </div></div>
+      <div class="rs-item"><b class="rs-letter">H</b><div>
+        <span class="rs-name">Holland code</span>
+        <p>You <b>${userHolland}</b> · Job <b>${jobHolland}</b> · Overlap <b>${(psych.holland?.overlap || []).join("") || "—"}</b></p>
+      </div></div>
+      ${bfRows}
+    </div>
+
+    <p class="muted small" style="margin-top:16px">Alignment is inferred from the language of the posting versus your resume/signals — a heuristic, not a guarantee.</p>
+  `;
+
+  $("jobModal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeJobModal() {
+  $("jobModal").classList.add("hidden");
+  document.body.style.overflow = "";
+}
+$("closeJobModalBtn").addEventListener("click", closeJobModal);
+$("jobModal").addEventListener("click", (e) => { if (e.target === e.currentTarget) closeJobModal(); });
+
 function renderSignals(s) {
   const box = $("signalsBox");
   const mbtiRaw = (s.mbti?.inferred_type || "").replace(/X/g, "·");

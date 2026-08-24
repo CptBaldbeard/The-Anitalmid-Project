@@ -10,12 +10,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, config, db, emailer, export, majors, map_gen, oskg, parser, scoring
+from . import auth, config, db, emailer, export, job_analysis, majors, map_gen, oskg, parser, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
     ApplyPilotExportRequest,
     EmailResultsRequest,
+    JobAnalysisRequest,
     LoginRequest,
     RegisterRequest,
     SignalsPayload,
@@ -51,7 +52,7 @@ async def no_cache_static(request, call_next):
 @app.middleware("http")
 async def rate_limit(request, call_next):
     """Per-IP throttle on the analysis endpoints (blocks scripted abuse)."""
-    if request.url.path in ("/analyze", "/analyze-text", "/analyze-signals"):
+    if request.url.path in ("/analyze", "/analyze-text", "/analyze-signals", "/analyze/job"):
         ip = request.client.host if request.client else "unknown"
         if not ip_limiter.allow(f"ip:{ip}", limit=10, window=3600):
             return JSONResponse(
@@ -194,6 +195,19 @@ async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: in
 @app.post("/analyze-signals")
 async def analyze_signals(payload: SignalsPayload, user: db.User = Depends(get_current_user)):
     return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id)
+
+
+@app.post("/analyze/job")
+def analyze_job(payload: JobAnalysisRequest, user: db.User = Depends(get_current_user)):
+    url = (payload.url or "").strip()
+    if not url:
+        raise HTTPException(status_code=400, detail="Paste a job posting URL.")
+    if not user_limiter.allow(f"job:{user.id}", limit=25, window=86400):
+        raise HTTPException(status_code=429, detail="Daily job-analysis limit reached — try again tomorrow.")
+    try:
+        return job_analysis.analyze_job(url, payload.text, payload.mbti, payload.holland)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Couldn't fetch that job posting: {e}")
 
 
 @app.get("/analyses")

@@ -65,6 +65,13 @@ class SignalsPayload(BaseModel):
     major: str = ""      # college major name, optional
 
 
+class JobAnalysisRequest(BaseModel):
+    url: str
+    text: str = ""       # resume text (optional — drives keyword + signal inference)
+    mbti: str = ""       # user MBTI (optional — used when no resume text, signals mode)
+    holland: str = ""    # user Holland code (optional — same)
+
+
 class EmailResultsRequest(BaseModel):
     signals: Dict[str, Any] = Field(default_factory=dict)
     top_matches: List[Dict[str, Any]] = Field(default_factory=list)
