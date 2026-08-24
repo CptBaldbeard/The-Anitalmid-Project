@@ -57,12 +57,14 @@ class AnalysisResult(BaseModel):
 
 class TextPayload(BaseModel):
     text: str
+    job_url: str = ""   # optional — if set, the analysis also matches this job posting
 
 
 class SignalsPayload(BaseModel):
     mbti: str = ""       # optional, e.g. "INFP"
     holland: str = ""    # 3-letter RIASEC code, e.g. "RIS"
     major: str = ""      # college major name, optional
+    job_url: str = ""    # optional — if set, also match this job posting
 
 
 class JobAnalysisRequest(BaseModel):

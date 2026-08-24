@@ -195,6 +195,7 @@ loadMajors();
 $("analyzeBtn").addEventListener("click", async () => {
   const status = $("status");
   const btn = $("analyzeBtn");
+  const jobUrl = $("jobUrl").value.trim();
 
   if (!currentUser) { status.textContent = "Sign in first."; return; }
 
@@ -212,6 +213,7 @@ $("analyzeBtn").addEventListener("click", async () => {
           mbti: $("mbtiSelect").value.trim(),
           holland,
           major: $("majorSelect").value.trim(),
+          job_url: jobUrl,
         }),
       });
       render(data);
@@ -237,12 +239,13 @@ $("analyzeBtn").addEventListener("click", async () => {
     if (resumeFile && /\.pdf$/i.test(resumeFile.name)) {
       const fd = new FormData();
       fd.append("resume", resumeFile);
+      if (jobUrl) fd.append("job_url", jobUrl);
       data = await apiFetch("/analyze", { method: "POST", body: fd });
     } else {
       data = await apiFetch("/analyze-text", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text, job_url: jobUrl }),
       });
     }
     render(data);
@@ -270,6 +273,7 @@ function buildAnalysisText() {
 /* ---------- Render ---------- */
 function render(data) {
   currentAnalysis = data;
+  currentJobAlignment = data.job_alignment || null;
   $("wizard").classList.add("hidden");
   $("results").classList.remove("hidden");
   renderSignals(data.signals);
@@ -298,6 +302,7 @@ function restart() {
   $("status").textContent = "";
   currentAnalysis = null;
   currentMatches = [];
+  currentJobAlignment = null;
   $("nodeDetails").classList.add("hidden");
 
   $("results").classList.add("hidden");
@@ -307,38 +312,7 @@ function restart() {
 }
 $("restartBtn").addEventListener("click", restart);
 
-/* ---------- Job alignment ---------- */
-$("analyzeJobBtn").addEventListener("click", async () => {
-  const url = $("jobUrl").value.trim();
-  const status = $("jobStatus");
-  const btn = $("analyzeJobBtn");
-
-  if (!currentUser) { status.textContent = "Sign in first."; return; }
-  if (!url) { status.textContent = "Paste a job URL first."; return; }
-
-  btn.disabled = true;
-  status.textContent = "Fetching & analyzing…";
-  try {
-    let payload;
-    if (inputMode === "signals") {
-      payload = { url, mbti: $("mbtiSelect").value.trim(), holland: buildHollandCode() };
-    } else {
-      payload = { url, text: buildAnalysisText() };
-    }
-    const data = await apiFetch("/analyze/job", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    renderJobResults(data);
-    status.textContent = "";
-  } catch (err) {
-    status.textContent = "Error: " + err.message;
-  } finally {
-    btn.disabled = false;
-  }
-});
-
+/* ---------- Job alignment (rendered from the main analyze result) ---------- */
 function jobLevelLabel(v) {
   if (!v) return "—";
   if (v.includes("High")) return "High";
@@ -430,16 +404,23 @@ function renderSignals(s) {
   const holland = s.holland?.inferred_code || "N/A";
   const big5 = s.big_five?.inferred_profile || {};
   const big5Txt = Object.entries(big5).map(([k, v]) => `${k}: ${v}`).join(" · ") || "N/A";
+  const jobBtnHtml = currentJobAlignment && !currentJobAlignment.error
+    ? `<button id="jobMatchBtn" class="results-btn job-btn">Job match: ${currentJobAlignment.job?.title || "view"} →</button>`
+    : "";
   box.innerHTML = `
     <div class="chip"><b>MBTI</b>${mbti}</div>
     <div class="chip"><b>Holland</b>${holland}</div>
     <div class="chip"><b>Big Five</b>${big5Txt}</div>
     <button id="resultsBtn" class="results-btn">Results →</button>
     <button id="emailResultsBtn" class="results-btn email-btn">Email my results</button>
-    <button id="exportApplyPilotBtn" class="results-btn export-btn">Export for ApplyPilot</button>`;
+    <button id="exportApplyPilotBtn" class="results-btn export-btn">Export for ApplyPilot</button>
+    ${jobBtnHtml}`;
   $("resultsBtn").addEventListener("click", () => renderResultsPage(s));
   $("emailResultsBtn").addEventListener("click", emailResults);
   $("exportApplyPilotBtn").addEventListener("click", exportApplyPilot);
+  if (currentJobAlignment && !currentJobAlignment.error) {
+    $("jobMatchBtn").addEventListener("click", () => renderJobResults(currentJobAlignment));
+  }
 }
 
 async function emailResults() {
@@ -503,6 +484,7 @@ async function exportApplyPilot() {
 
 let currentMatches = [];
 let currentAnalysis = null;
+let currentJobAlignment = null;
 function renderMatches(matches) {
   currentMatches = matches || [];
   const box = $("matches");

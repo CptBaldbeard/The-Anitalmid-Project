@@ -276,6 +276,7 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 .results-btn:hover { filter: brightness(1.08); }
 .email-btn { background: var(--blue); color: #061018; }
 .export-btn { background: var(--green); color: #06211d; }
+.job-btn { background: var(--purple); color: #171030; }
 
 .overlay { position: fixed; inset: 0; background: rgba(4, 7, 14, 0.78); backdrop-filter: blur(5px); z-index: 100; display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 32px 20px; }
 .overlay.hidden { display: none; }

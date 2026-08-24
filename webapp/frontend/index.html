@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=17" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -162,13 +162,11 @@
         </div>
 
         <div class="job-section">
-          <label>Match against a job posting <span class="muted small">(optional)</span>
+          <label>Match against a job posting <span class="muted small">(optional — paste a URL and your analysis will also be matched against it)</span>
             <div class="job-row">
               <input type="text" id="jobUrl" placeholder="Paste a job posting URL — e.g. https://jobs.ashbyhq.com/…" />
-              <button id="analyzeJobBtn" type="button" class="ghost">Analyze job match →</button>
             </div>
           </label>
-          <span id="jobStatus" class="muted small"></span>
         </div>
 
         <div class="actions">
@@ -264,6 +262,6 @@
   </div>
 
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=16"></script>
+  <script src="app.js?v=17"></script>
 </body>
 </html>

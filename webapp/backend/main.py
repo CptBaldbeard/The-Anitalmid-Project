@@ -5,7 +5,7 @@ Run:
 """
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -127,7 +127,7 @@ def list_majors():
 
 # ---- Analysis pipeline ----
 
-async def _run_pipeline(text: str, user_id: int | None) -> dict:
+async def _run_pipeline(text: str, user_id: int | None, job_url: str = "") -> dict:
     if not text or not text.strip():
         raise HTTPException(status_code=400, detail="No text to analyze")
 
@@ -142,31 +142,38 @@ async def _run_pipeline(text: str, user_id: int | None) -> dict:
     results_meta = [{k: v for k, v in r.items() if k != "rank"} for r in ranking]
     aid = db.save_analysis(user_id, text, signals, results_meta, career_map)
 
-    return {
+    result = {
         "id": aid,
         "signals": signals,
         "top_matches": ranking[:6],
         "full_ranking": ranking,
         "career_map": career_map,
     }
+    if job_url:
+        try:
+            result["job_alignment"] = job_analysis.analyze_job(job_url.strip(), text)
+        except Exception:
+            result["job_alignment"] = {"error": "Couldn't fetch that job posting."}
+    return result
 
 
 @app.post("/analyze")
 async def analyze(
     resume: UploadFile = File(...),
+    job_url: str = Form(""),
     user: db.User = Depends(get_current_user),
 ):
     raw = await resume.read()
     text = parser.extract_text_from_upload(resume.filename or "resume.txt", raw)
-    return await _run_pipeline(text, user.id)
+    return await _run_pipeline(text, user.id, job_url)
 
 
 @app.post("/analyze-text")
 async def analyze_text(payload: TextPayload, user: db.User = Depends(get_current_user)):
-    return await _run_pipeline(payload.text, user.id)
+    return await _run_pipeline(payload.text, user.id, payload.job_url)
 
 
-async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: int | None) -> dict:
+async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: int | None, job_url: str = "") -> dict:
     holland = (holland or "").strip().upper()
     if not holland:
         raise HTTPException(status_code=400, detail="Pick at least one interest (Holland code).")
@@ -183,18 +190,24 @@ async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: in
     summary = f"signals: MBTI={mbti or '-'} Holland={holland} Major={major or '-'}"
     aid = db.save_analysis(user_id, summary, signals, results_meta, career_map)
 
-    return {
+    result = {
         "id": aid,
         "signals": signals,
         "top_matches": ranking[:6],
         "full_ranking": ranking,
         "career_map": career_map,
     }
+    if job_url:
+        try:
+            result["job_alignment"] = job_analysis.analyze_job(job_url.strip(), "", mbti, holland)
+        except Exception:
+            result["job_alignment"] = {"error": "Couldn't fetch that job posting."}
+    return result
 
 
 @app.post("/analyze-signals")
 async def analyze_signals(payload: SignalsPayload, user: db.User = Depends(get_current_user)):
-    return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id)
+    return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id, payload.job_url)
 
 
 @app.post("/analyze/job")
