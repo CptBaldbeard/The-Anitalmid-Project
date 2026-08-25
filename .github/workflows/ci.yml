@@ -29,6 +29,11 @@ jobs:
           cd webapp
           python -c "import backend.main"
 
+      - name: Backend unit tests
+        run: |
+          cd webapp
+          python -m unittest discover -s backend/tests -t .
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:

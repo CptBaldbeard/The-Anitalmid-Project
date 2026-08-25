@@ -262,6 +262,7 @@ function buildAnalysisText() {
 function render(data) {
   currentAnalysis = data;
   currentJobAlignment = data.job_alignment || null;
+  resetPivot();
   $("wizard").classList.add("hidden");
   $("results").classList.remove("hidden");
   renderSignals(data.signals);
@@ -292,6 +293,7 @@ function restart() {
   currentMatches = [];
   currentJobAlignment = null;
   $("nodeDetails").classList.add("hidden");
+  resetPivot();
 
   $("results").classList.add("hidden");
   $("wizard").classList.remove("hidden");
@@ -560,8 +562,7 @@ function indeedUrl(title, location) {
   return url;
 }
 
-function openRoleModal(idx) {
-  const role = currentMatches[idx];
+function openRoleModalForRole(role) {
   if (!role) return;
   $("roleModalTitle").textContent = role.title;
   $("roleModalBody").innerHTML = roleModalHtml(role);
@@ -573,6 +574,10 @@ function openRoleModal(idx) {
     localStorage.setItem("anitalmid_location", loc);
     window.open(indeedUrl(role.title, loc), "_blank", "noopener");
   });
+}
+
+function openRoleModal(idx) {
+  openRoleModalForRole(currentMatches[idx]);
 }
 
 function closeRoleModal() {
@@ -798,3 +803,169 @@ $("infoModal").addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeInfoModal();
 });
+
+/* ---------- Career Pivot ---------- */
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+let pivotPool = [];
+let pivotShown = 0;
+
+function makeTagInput(inputId, tagsId) {
+  const input = $(inputId);
+  const box = $(tagsId);
+  const tags = [];
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === ",") {
+      e.preventDefault();
+      const v = input.value.trim();
+      if (v) { tags.push(v); input.value = ""; renderTags(); }
+    }
+  });
+  function renderTags() {
+    box.innerHTML = tags
+      .map((t, i) => `<span class="tag">${escapeHtml(t)}<button type="button" class="tag-x" data-i="${i}" aria-label="remove">×</button></span>`)
+      .join("");
+    box.querySelectorAll(".tag-x").forEach((b) => b.addEventListener("click", () => {
+      tags.splice(parseInt(b.dataset.i, 10), 1);
+      renderTags();
+    }));
+  }
+  return {
+    get: () => tags.slice(),
+    clear: () => { tags.length = 0; renderTags(); },
+  };
+}
+
+const pivotExp = makeTagInput("pivotExp", "pivotExpTags");
+const pivotInt = makeTagInput("pivotInt", "pivotIntTags");
+
+function loadDegrees() {
+  const dl = $("degreesDatalist");
+  if (dl.options.length) return;
+  fetch("/degrees").then((r) => r.json()).then((d) => {
+    (d.degrees || []).forEach((name) => {
+      const o = document.createElement("option");
+      o.value = name;
+      dl.appendChild(o);
+    });
+  }).catch(() => {});
+}
+
+$("pivotBtn").addEventListener("click", () => {
+  const body = $("pivotBody");
+  const wasHidden = body.classList.contains("hidden");
+  body.classList.toggle("hidden");
+  if (wasHidden) {
+    loadDegrees();
+    body.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+});
+
+$("pivotGenerateBtn").addEventListener("click", async () => {
+  const status = $("pivotStatus");
+  const btn = $("pivotGenerateBtn");
+  if (!currentAnalysis || !currentAnalysis.full_ranking || !currentAnalysis.full_ranking.length) {
+    status.textContent = "Run an analysis first, then pivot.";
+    return;
+  }
+  btn.disabled = true;
+  status.textContent = "Generating…";
+  try {
+    const d = await apiFetch("/analyze/pivot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        full_ranking: currentAnalysis.full_ranking,
+        education_experience: pivotExp.get(),
+        education_interests: pivotInt.get(),
+        hobbies: ($("pivotHobbies").value || "").split(",").map((s) => s.trim()).filter(Boolean),
+      }),
+    });
+    pivotPool = d.pivot_matches || [];
+    pivotShown = 0;
+    if (!pivotPool.length) {
+      status.textContent = "Not enough matches to pivot.";
+      $("pivotResults").innerHTML = "";
+      $("pivotRegenerateBtn").classList.add("hidden");
+      return;
+    }
+    renderPivotGroup();
+    $("pivotRegenerateBtn").classList.remove("hidden");
+    const meta = [];
+    if (d.education_categories && d.education_categories.length) {
+      meta.push("Boosting fields: " + d.education_categories.join(", "));
+    }
+    if (d.hobbies && d.hobbies.length && d.hobbies_note) {
+      meta.push(d.hobbies_note);
+    }
+    $("pivotNote").textContent = meta.join(" · ");
+    status.textContent = "";
+  } catch (err) {
+    status.textContent = "Error: " + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+$("pivotRegenerateBtn").addEventListener("click", () => {
+  pivotShown += 5;
+  renderPivotGroup();
+});
+
+function renderPivotGroup() {
+  const box = $("pivotResults");
+  const start = pivotShown;
+  const end = Math.min(start + 5, pivotPool.length);
+  const group = [];
+  for (let i = start; i < end; i++) group.push({ idx: i, role: pivotPool[i] });
+  box.innerHTML = group.map(({ idx, role }) => pivotCardHtml(role, idx)).join("");
+  box.querySelectorAll(".pivot-match").forEach((el) => {
+    el.addEventListener("click", () => openRoleModalForRole(pivotPool[parseInt(el.dataset.i, 10)]));
+  });
+  $("pivotCounter").textContent = `Showing ${start + 1}–${end} of ${pivotPool.length}`;
+  const btn = $("pivotRegenerateBtn");
+  if (end >= pivotPool.length) {
+    btn.disabled = true;
+    btn.textContent = "All " + pivotPool.length + " viewed";
+  } else {
+    btn.disabled = false;
+    btn.textContent = "Regenerate →";
+  }
+}
+
+function pivotCardHtml(r, idx) {
+  const edu = r.education_boost ? `<span class="badge edu">aligns with your education</span>` : "";
+  return `
+    <div class="match clickable pivot-match" data-i="${idx}">
+      <div class="top">
+        <span><span class="title">${escapeHtml(r.title)}</span></span>
+        <span class="score">${Math.round(r.pivot_score)}</span>
+      </div>
+      <div>
+        <span class="badge ${escapeHtml(r.validation || "weak")}">${escapeHtml((r.validation || "weak").replace("-", " "))}</span>${edu}
+        <span class="meta">${escapeHtml(r.category)} · ${escapeHtml(r.holland_code)} · pivot: ${escapeHtml(r.pivot_cost)}</span>
+      </div>
+      <div class="meta">${escapeHtml(r.salary_range)}</div>
+      <div class="desc">${escapeHtml(r.description)}</div>
+      <div class="match-cta">View full description &amp; search jobs →</div>
+    </div>`;
+}
+
+function resetPivot() {
+  pivotPool = [];
+  pivotShown = 0;
+  pivotExp.clear();
+  pivotInt.clear();
+  $("pivotHobbies").value = "";
+  $("pivotStatus").textContent = "";
+  $("pivotNote").textContent = "";
+  $("pivotCounter").textContent = "";
+  $("pivotResults").innerHTML = "";
+  $("pivotRegenerateBtn").classList.add("hidden");
+  $("pivotRegenerateBtn").disabled = false;
+  $("pivotBody").classList.add("hidden");
+}
