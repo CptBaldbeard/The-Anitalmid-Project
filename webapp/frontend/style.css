@@ -196,18 +196,11 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 /* Results "start again" bar */
 .results-bar { display: flex; justify-content: flex-end; margin-bottom: 14px; }
 
-/* Input mode toggle */
-.mode-toggle { display: flex; gap: 8px; margin: 18px 0 22px; }
-.mode-btn {
-  flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px;
-  background: var(--panel-2); color: var(--muted); cursor: pointer;
-  font-size: 14px; font-weight: 600; letter-spacing: .2px; transition: all .15s ease;
-}
-.mode-btn:hover { border-color: var(--primary); color: var(--text); }
-.mode-btn.active {
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
-  color: #06211d; border-color: transparent;
-}
+/* Wizard sections (merged resume + interests) */
+.wizard-section { padding: 4px 0 2px; }
+.wizard-section + .wizard-section { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 24px; }
+.section-h { margin: 0 0 16px; font-size: 15px; font-weight: 700; color: var(--primary); letter-spacing: .3px; }
+.wizard-section .dropzone { margin-top: 2px; }
 
 /* Holland interest dropdowns */
 .holland-row { display: flex; gap: 8px; }
@@ -423,7 +416,6 @@ code {
   .card { padding: 20px 16px; margin-bottom: 20px; border-radius: 12px; }
 
   /* Wizard */
-  .mode-toggle { flex-direction: column; }
   .holland-row { flex-direction: column; }
 
   /* Auth */

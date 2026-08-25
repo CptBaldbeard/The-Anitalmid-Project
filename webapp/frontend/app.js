@@ -153,19 +153,7 @@ function setFile(f) {
   }
 }
 
-/* ---------- Input mode toggle ---------- */
-let inputMode = "resume"; // "resume" | "signals"
-
-function setInputMode(mode) {
-  inputMode = mode;
-  $("resumeMode").classList.toggle("hidden", mode !== "resume");
-  $("signalsMode").classList.toggle("hidden", mode !== "signals");
-  $("modeResume").classList.toggle("active", mode === "resume");
-  $("modeSignals").classList.toggle("active", mode === "signals");
-}
-
-$("modeResume").addEventListener("click", () => setInputMode("resume"));
-$("modeSignals").addEventListener("click", () => setInputMode("signals"));
+/* ---------- Input routing (resume vs interests) ---------- */
 
 function buildHollandCode() {
   const seen = new Set();
@@ -199,10 +187,13 @@ $("analyzeBtn").addEventListener("click", async () => {
 
   if (!currentUser) { status.textContent = "Sign in first."; return; }
 
-  // Signals mode: no resume — send MBTI / Holland / major directly.
-  if (inputMode === "signals") {
+  // Route: a resume (file or text) wins; otherwise fall through to interests & major.
+  const text = buildAnalysisText();
+  const resumePresent = !!resumeFile || text.trim() !== "";
+
+  if (!resumePresent) {
     const holland = buildHollandCode();
-    if (!holland) { status.textContent = "Pick your top three interests."; return; }
+    if (!holland) { status.textContent = "Add a resume, or pick your top three interests."; return; }
     btn.disabled = true;
     status.textContent = "Analyzing…";
     try {
@@ -227,10 +218,7 @@ $("analyzeBtn").addEventListener("click", async () => {
     return;
   }
 
-  // Resume mode
-  const text = buildAnalysisText();
-  if (!resumeFile && !text.trim()) { status.textContent = "Add a resume or some experience text first."; return; }
-
+  // Resume route
   btn.disabled = true;
   status.textContent = "Analyzing…";
 
