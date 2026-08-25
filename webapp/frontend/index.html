@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=21" />
+  <link rel="stylesheet" href="style.css?v=22" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -202,6 +202,39 @@
           </div>
         </div>
 
+        <div class="card" id="pivotPane">
+          <h2>Career Pivot Journey</h2>
+          <p class="muted">Explore 25 different career fields that may take your career journey someplace new.</p>
+          <button id="pivotBtn" class="primary" type="button">Career Pivot</button>
+          <div id="pivotBody" class="hidden">
+            <p class="muted small">Tell us about your education and hobbies, and we'll surface related-but-different careers beyond your top matches.</p>
+            <div class="fields">
+              <label>Education — degrees you hold <span class="muted small">(optional)</span>
+                <input type="text" id="pivotExp" list="degreesDatalist" placeholder="Type a degree and press Enter — e.g. MS in Computer Science" />
+                <div id="pivotExpTags" class="tag-list"></div>
+              </label>
+              <label>Education — degrees you'd like to pursue <span class="muted small">(optional)</span>
+                <input type="text" id="pivotInt" list="degreesDatalist" placeholder="Type a degree and press Enter — e.g. MFA Creative Writing" />
+                <div id="pivotIntTags" class="tag-list"></div>
+              </label>
+              <label>Hobbies <span class="muted small">(optional)</span>
+                <input type="text" id="pivotHobbies" placeholder="e.g. woodworking, miniature painting, hiking…" />
+              </label>
+            </div>
+            <datalist id="degreesDatalist"></datalist>
+            <div class="actions">
+              <button id="pivotGenerateBtn" class="primary">Generate 5 →</button>
+              <span id="pivotStatus" class="muted"></span>
+            </div>
+            <div id="pivotNote" class="muted small"></div>
+            <div id="pivotResults"></div>
+            <div class="pivot-counter-row">
+              <span id="pivotCounter" class="muted small"></span>
+              <button id="pivotRegenerateBtn" class="ghost hidden">Regenerate →</button>
+            </div>
+          </div>
+        </div>
+
         <div class="card">
           <h2>Match distribution <span class="muted small">— hover a slice to explore</span></h2>
           <div class="pie-wrap"><canvas id="matchesPie"></canvas></div>
@@ -339,6 +372,6 @@
   </div>
 
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=21"></script>
+  <script src="app.js?v=22"></script>
 </body>
 </html>

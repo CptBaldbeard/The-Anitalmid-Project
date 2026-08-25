@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, config, db, emailer, export, job_analysis, majors, map_gen, oskg, parser, scoring
+from . import auth, config, db, degrees, emailer, export, job_analysis, majors, map_gen, oskg, parser, pivot, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
@@ -18,6 +18,8 @@ from .models import (
     EmailResultsRequest,
     JobAnalysisRequest,
     LoginRequest,
+    PivotRequest,
+    PivotResponse,
     RegisterRequest,
     SignalsPayload,
     TextPayload,
@@ -52,7 +54,7 @@ async def no_cache_static(request, call_next):
 @app.middleware("http")
 async def rate_limit(request, call_next):
     """Per-IP throttle on the analysis endpoints (blocks scripted abuse)."""
-    if request.url.path in ("/analyze", "/analyze-text", "/analyze-signals", "/analyze/job"):
+    if request.url.path in ("/analyze", "/analyze-text", "/analyze-signals", "/analyze/job", "/analyze/pivot"):
         ip = request.client.host if request.client else "unknown"
         if not ip_limiter.allow(f"ip:{ip}", limit=10, window=3600):
             return JSONResponse(
@@ -123,6 +125,11 @@ def health():
 @app.get("/majors")
 def list_majors():
     return {"majors": majors.major_names()}
+
+
+@app.get("/degrees")
+def list_degrees():
+    return {"degrees": degrees.degree_names()}
 
 
 # ---- Analysis pipeline ----
@@ -221,6 +228,34 @@ def analyze_job(payload: JobAnalysisRequest, user: db.User = Depends(get_current
         return job_analysis.analyze_job(url, payload.text, payload.mbti, payload.holland)
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Couldn't fetch that job posting: {e}")
+
+
+# ---- Career Pivot ----
+
+@app.post("/analyze/pivot", response_model=PivotResponse)
+def analyze_pivot(payload: PivotRequest, user: db.User = Depends(get_current_user)):
+    if not payload.full_ranking or len(payload.full_ranking) <= pivot.TOP_N_EXCLUDE:
+        raise HTTPException(status_code=400, detail="Run an analysis first, then try the Career Pivot.")
+    if not user_limiter.allow(f"pivot:{user.id}", limit=25, window=86400):
+        raise HTTPException(status_code=429, detail="Daily pivot limit reached — try again tomorrow.")
+
+    pool = pivot.compute_pivot(
+        payload.full_ranking,
+        payload.education_experience,
+        payload.education_interests,
+        payload.hobbies,
+    )
+    education_categories = sorted(
+        degrees.map_degrees_to_categories(
+            list(payload.education_experience) + list(payload.education_interests)
+        )
+    )
+    return {
+        "pivot_matches": pool,
+        "education_categories": education_categories,
+        "hobbies": list(payload.hobbies),
+        "hobbies_note": pivot.HOBBIES_NOTE,
+    }
 
 
 @app.get("/analyses")

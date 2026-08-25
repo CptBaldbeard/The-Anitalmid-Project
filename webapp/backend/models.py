@@ -84,6 +84,20 @@ class ApplyPilotExportRequest(BaseModel):
     location: str = ""
 
 
+class PivotRequest(BaseModel):
+    full_ranking: List[Dict[str, Any]] = Field(default_factory=list)
+    education_experience: List[str] = Field(default_factory=list)
+    education_interests: List[str] = Field(default_factory=list)
+    hobbies: List[str] = Field(default_factory=list)
+
+
+class PivotResponse(BaseModel):
+    pivot_matches: List[Dict[str, Any]] = Field(default_factory=list)
+    education_categories: List[str] = Field(default_factory=list)
+    hobbies: List[str] = Field(default_factory=list)
+    hobbies_note: str = ""
+
+
 # ---- Auth ----
 
 class RegisterRequest(BaseModel):
