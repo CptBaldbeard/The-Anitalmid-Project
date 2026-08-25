@@ -35,11 +35,27 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 .brand { display: flex; align-items: baseline; gap: 12px; cursor: pointer; }
 .logo { color: var(--primary); font-size: 24px; }
 h1 { margin: 0; font-size: 22px; letter-spacing: 1px; }
 .tagline { color: var(--muted); font-size: 14px; }
+
+/* GitHub link + live star count (top-right) */
+.gh-link {
+  display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0;
+  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600;
+  border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.gh-link:hover { color: var(--text); border-color: var(--primary); background: var(--panel); }
+.gh-link svg { color: var(--text); }
+.gh-star { color: var(--amber); }
+.gh-count { color: var(--text); font-variant-numeric: tabular-nums; }
 
 main { max-width: 1080px; margin: 0 auto; padding: 0 28px 96px; }
 

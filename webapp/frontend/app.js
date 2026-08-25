@@ -700,6 +700,12 @@ window.addEventListener("resize", () => {
   }, 200);
 });
 
+// Live GitHub star count for the header badge.
+fetch("https://api.github.com/repos/CptBaldbeard/The-Anitalmid-Project")
+  .then((r) => r.json())
+  .then((d) => { if (d && typeof d.stargazers_count === "number") $("starCount").textContent = d.stargazers_count; })
+  .catch(() => {});
+
 function renderNodeDetails(node, nodes, edges) {
   const box = $("nodeDetails");
   if (!node) {
