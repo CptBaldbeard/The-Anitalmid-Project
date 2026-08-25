@@ -10,6 +10,9 @@
 # Trash / deleted files
 .trash/
 
+# Private / local-only notes (brainstorming + monetization strategy — do NOT publish)
+Ideas/
+
 # OS junk
 .DS_Store
 Thumbs.db
