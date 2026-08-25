@@ -47,17 +47,7 @@
 
     .note { font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--amber); padding: 8px 14px; margin: 16px 0; background: rgba(251,191,36,0.05); border-radius: 0 8px 8px 0; }
 
-    .graph-wrap { margin-top: 16px; }
-    .graph-container { height: 560px; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-    .graph-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 14px 0 6px; }
-    .graph-controls button { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 14px; }
-    .graph-controls button:hover { border-color: var(--primary); }
-    .graph-controls button.primary { background: var(--primary); color: #06211d; font-weight: 700; border-color: var(--primary); }
-    .graph-controls input[type="range"] { flex: 1; min-width: 180px; accent-color: var(--primary); }
-    .graph-controls .lbl { color: var(--muted); font-size: 13px; font-family: ui-monospace, monospace; white-space: nowrap; }
-    .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px; font-size: 13px; color: var(--muted); }
-    .legend span { display: inline-flex; align-items: center; gap: 6px; }
-    .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .wf-svg { display: block; width: 100%; height: auto; margin-top: 18px; }
 
     .mth-footer { text-align: center; padding: 48px 0 24px; color: var(--muted); font-size: 13px; }
     .mth-footer a { color: var(--primary); text-decoration: none; }
@@ -214,21 +204,58 @@
       <div class="note">⚠️ The capstone was one person's personal synthesis. The live app keeps the <em>method</em> — signal detection, weighted scoring, and validation — but generalizes it to any resume across all fields, no Birkman assessment required.</div>
     </section>
 
-    <!-- GRAPH -->
-    <section class="mth-section" id="graph">
-      <h2><span class="bar">◆</span> The Knowledge Graph</h2>
-      <p>The Anitalmid Obsidian vault rendered as an interactive graph — <span id="noteCount">126</span> notes joined by
-      <span id="edgeCount">464</span> wikilinks, colored by section. Drag to pan, scroll to zoom, and drag a node to settle it.</p>
-      <div class="graph-wrap">
-        <div class="graph-controls">
-          <button id="playBtn" class="primary">▶ Play timelapse</button>
-          <button id="resetBtn">Reset</button>
-          <input type="range" id="timeline" min="0" max="125" value="125" step="1" />
-          <span class="lbl" id="timelineLabel">All notes</span>
-        </div>
-        <div id="vaultGraph" class="graph-container"></div>
-        <div class="legend" id="legend"></div>
-      </div>
+    <!-- DEVELOPMENT WORKFLOW -->
+    <section class="mth-section" id="workflow">
+      <h2><span class="bar">◆</span> Development workflow</h2>
+      <p>Anitalmid is built with a spec-driven, pull-request workflow. Work never lands on
+      <code>main</code> directly — every change flows through a feature branch and a
+      squash-merged pull request, gated by CI.</p>
+
+      <svg class="wf-svg" viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub workflow tree">
+        <line x1="40" y1="225" x2="745" y2="225" stroke="#2dd4bf" stroke-width="3.5"/>
+        <text x="40" y="182" fill="#93a0b8" font-size="13" font-family="system-ui, sans-serif">
+          <tspan fill="#2dd4bf" font-weight="700">main</tspan> · protected — PR ✓ + CI ✓ + enforce admins · never pushed directly
+        </text>
+
+        <g font-family="system-ui, sans-serif" text-anchor="middle">
+          <circle cx="140" cy="225" r="11" fill="#0b0f1a" stroke="#4ade80" stroke-width="2.5"/>
+          <circle cx="140" cy="225" r="4" fill="#4ade80"/>
+          <text x="140" y="203" fill="#93a0b8" font-size="12">#1</text>
+          <text x="140" y="252" fill="#e9eef7" font-family="ui-monospace, monospace" font-size="11.5">ci: add CI workflow</text>
+
+          <circle cx="360" cy="225" r="11" fill="#0b0f1a" stroke="#4ade80" stroke-width="2.5"/>
+          <circle cx="360" cy="225" r="4" fill="#4ade80"/>
+          <text x="360" y="203" fill="#93a0b8" font-size="12">#2</text>
+          <text x="360" y="252" fill="#e9eef7" font-family="ui-monospace, monospace" font-size="11.5">feat: consolidate resume/interests</text>
+
+          <circle cx="580" cy="225" r="11" fill="#0b0f1a" stroke="#4ade80" stroke-width="2.5"/>
+          <circle cx="580" cy="225" r="4" fill="#4ade80"/>
+          <text x="580" y="203" fill="#93a0b8" font-size="12">#3</text>
+          <text x="580" y="252" fill="#e9eef7" font-family="ui-monospace, monospace" font-size="11.5">docs: contributing guide</text>
+        </g>
+
+        <path d="M 620 225 C 612 140, 630 95, 665 80 L 700 80 C 730 120, 732 180, 725 225"
+              fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+        <circle cx="620" cy="225" r="4" fill="#38bdf8"/>
+        <circle cx="680" cy="80" r="6" fill="#38bdf8"/>
+        <circle cx="698" cy="80" r="6" fill="#38bdf8"/>
+
+        <rect x="648" y="152" width="132" height="28" rx="14" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="714" y="171" fill="#a78bfa" font-size="11.5" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">PR + CI ✓ → squash</text>
+
+        <circle cx="725" cy="225" r="11" fill="#0b0f1a" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="4 3"/>
+        <circle cx="725" cy="225" r="4" fill="#4ade80"/>
+        <text x="725" y="203" fill="#93a0b8" font-family="system-ui, sans-serif" font-size="12">#4</text>
+        <text x="725" y="252" fill="#e9eef7" font-family="ui-monospace, monospace" font-size="11.5">next feature</text>
+      </svg>
+
+      <ol class="steps" style="margin-top:24px;">
+        <li><b>Spec first</b><p>Agree a written spec before any code — if a feature arrives without one, ask for it.</p></li>
+        <li><b>Worktree + branch</b><p><code>git worktree add … -b feat/…</code> off <code>main</code> — never commit to <code>main</code>.</p></li>
+        <li><b>Code + commits</b><p>Implement with tests; Conventional Commits (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>…).</p></li>
+        <li><b>Open a PR</b><p><code>gh pr create</code> into <code>main</code> — CI (compile + import + JS syntax) must pass.</p></li>
+        <li><b>Squash-merge</b><p><code>gh pr merge --squash --delete-branch</code>, then remove the worktree.</p></li>
+      </ol>
     </section>
 
     <div class="mth-footer">
@@ -236,7 +263,6 @@
     </div>
   </main>
 
-  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  <script src="methodology.js"></script>
+
 </body>
 </html>
