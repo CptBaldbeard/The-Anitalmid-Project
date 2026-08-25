@@ -1,10 +1,10 @@
 """Tests for the Career Pivot engine (backend/pivot.py)."""
 
 import unittest
+from collections import Counter
 
 from backend.pivot import compute_pivot
 
-# A few canonical categories for test data.
 CATS = [
     "Technology", "Healthcare", "Science", "Business & Finance", "Engineering",
     "Creative & Media", "Education", "Legal", "Public Safety", "Operations",
@@ -28,10 +28,7 @@ def role(title, category, composite):
 
 def ranking_150():
     """150 fake roles spread across all 24 categories, scores descending."""
-    out = []
-    for i in range(150):
-        out.append(role(f"R{i:03d}", CATS[i % len(CATS)], 100.0 - i * 0.5))
-    return out
+    return [role(f"R{i:03d}", CATS[i % len(CATS)], 100.0 - i * 0.5) for i in range(150)]
 
 
 class PivotEngineTests(unittest.TestCase):
@@ -41,48 +38,52 @@ class PivotEngineTests(unittest.TestCase):
         top6 = {f"R{i:03d}" for i in range(6)}
         self.assertFalse(top6 & {r["title"] for r in pool})
 
-    def test_pool_is_25_with_diverse_catalog(self):
+    def test_pool_is_25(self):
+        self.assertEqual(len(compute_pivot(ranking_150())), 25)
+
+    def test_strictly_balanced_one_per_field(self):
+        # Every field gets ~one role; no field dominates.
         pool = compute_pivot(ranking_150())
-        self.assertEqual(len(pool), 25)
+        counts = Counter(r["category"] for r in pool)
+        self.assertEqual(len(counts), 24)          # all 24 fields represented
+        self.assertLessEqual(max(counts.values()), 2)  # at most 2 in any field
 
-    def test_diversity_cap(self):
-        ranking = [role(f"T{i}", "Technology", 100 - i) for i in range(12)]
-        ranking += [role(f"S{i}", "Science", 60 - i) for i in range(20)]
-        pool = compute_pivot(ranking, top_n_exclude=0, max_per_category=5)
-        self.assertLessEqual(sum(1 for r in pool if r["category"] == "Technology"), 5)
+    def test_no_technology_skew(self):
+        # An INTJ/tech-flavored profile must NOT stack Technology in the pivot.
+        pool = compute_pivot(ranking_150(), education_interests=["MS in Computer Science"])
+        counts = Counter(r["category"] for r in pool)
+        self.assertLessEqual(counts.get("Technology", 0), 2)
 
-    def test_interests_outrank_experience(self):
-        # interests boost (+10) should beat experience boost (+5), both beat no boost.
-        ranking = [
-            role("A", "Science", 90.0),
-            role("B", "Technology", 89.0),
-            role("C", "Arts & Entertainment", 88.0),
-        ]
+    def test_relevant_fields_ordered_first(self):
         pool = compute_pivot(
-            ranking,
-            education_experience=["MS in Computer Science"],   # Technology +5
-            education_interests=["MFA Creative Writing"],       # Arts & Entertainment +10
-            top_n_exclude=0,
+            ranking_150(),
+            education_interests=["MS in Data Science"],
+            hobbies=["woodworking"],
         )
-        self.assertEqual([r["title"] for r in pool], ["C", "B", "A"])
-        self.assertTrue(pool[0]["education_boost"])
-        self.assertEqual(pool[0]["pivot_score"], 98.0)
-        self.assertFalse(pool[2]["education_boost"])
-        self.assertEqual(pool[2]["pivot_score"], 90.0)
+        relevant = {"Technology", "Skilled Trades", "Manufacturing & Production", "Arts & Entertainment"}
+        # The one-per-field portion (everything before the bonus slot) orders relevant first.
+        primary = pool[:24]
+        idx_relevant = [i for i, r in enumerate(primary) if r["category"] in relevant]
+        idx_other = [i for i, r in enumerate(primary) if r["category"] not in relevant]
+        self.assertTrue(idx_relevant and idx_other)
+        self.assertLess(max(idx_relevant), min(idx_other))
 
-    def test_education_boost_flag(self):
-        ranking = ranking_150()
-        pool = compute_pivot(ranking, education_interests=["MS in Data Science"])  # Technology
+    def test_education_match_flag(self):
+        pool = compute_pivot(ranking_150(), education_interests=["MS in Data Science"])
         tech = [r for r in pool if r["category"] == "Technology"]
-        self.assertTrue(tech, "expected some Technology roles in the pool")
-        self.assertTrue(all(r["education_boost"] for r in tech))
-        self.assertTrue(all(r["pivot_score"] > r["composite_score"] for r in tech))
+        self.assertTrue(tech)
+        self.assertTrue(all(r["education_match"] for r in tech))
 
-    def test_hobbies_do_not_change_ranking(self):
-        ranking = ranking_150()
-        p1 = compute_pivot(ranking, [], [], ["woodworking", "gaming"])
-        p2 = compute_pivot(ranking, [], [], [])
-        self.assertEqual([r["title"] for r in p1], [r["title"] for r in p2])
+    def test_hobby_match_flag(self):
+        pool = compute_pivot(ranking_150(), hobbies=["woodworking"])
+        wood = [r for r in pool if r["category"] == "Skilled Trades"]
+        self.assertTrue(wood)
+        self.assertTrue(all(r["hobby_match"] for r in wood))
+
+    def test_hobbies_do_not_break_balance(self):
+        pool = compute_pivot(ranking_150(), hobbies=["drone flying", "gaming"])
+        counts = Counter(r["category"] for r in pool)
+        self.assertLessEqual(max(counts.values()), 2)
 
     def test_short_ranking_returns_empty(self):
         self.assertEqual(compute_pivot([role("A", "Science", 90.0)]), [])

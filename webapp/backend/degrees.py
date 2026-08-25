@@ -287,6 +287,89 @@ MA_CATEGORIES: frozenset[str] = frozenset(
 # Categories whose fields also get an "MFA in {field}" form.
 MFA_CATEGORIES: frozenset[str] = frozenset({"Creative & Media", "Arts & Entertainment"})
 
+# Canonical degree levels, in display order.
+LEVELS: tuple[str, ...] = ("Undergraduate", "Masters", "Doctoral")
+
+# Undergraduate categories: which fields take a "B.S. in {field}" vs "B.A. in {field}".
+BS_CATEGORIES: frozenset[str] = frozenset(
+    {
+        "Technology", "Engineering", "Healthcare", "Science", "Business & Finance",
+        "Agriculture & Environment", "Energy & Utilities", "Manufacturing & Production",
+        "Operations", "Skilled Trades", "Aviation", "Transportation", "Sports & Fitness",
+        "Public Safety", "Real Estate", "Veterinary",
+    }
+)
+BA_CATEGORIES: frozenset[str] = frozenset(
+    {
+        "Creative & Media", "Education", "Architecture & Construction",
+        "Hospitality & Tourism", "Legal", "Government & Nonprofit",
+        "Arts & Entertainment", "Social Services",
+    }
+)
+
+# Named undergraduate degrees that aren't simply "B.S./B.A. in <field>".
+UNDERGRAD_PROFESSIONAL: list[tuple[str, str, tuple[str, ...]]] = [
+    ("BBA", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Business Administration", "Undergraduate", ("Business & Finance",)),
+    ("BSBA", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Accounting", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Finance", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Marketing", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Economics", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of International Business", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Human Resources", "Undergraduate", ("Business & Finance",)),
+    ("Bachelor of Management", "Undergraduate", ("Business & Finance",)),
+    ("BEng", "Undergraduate", ("Engineering",)),
+    ("BSE", "Undergraduate", ("Engineering",)),
+    ("BTech", "Undergraduate", ("Engineering",)),
+    ("Bachelor of Engineering", "Undergraduate", ("Engineering",)),
+    ("Bachelor of Technology", "Undergraduate", ("Engineering",)),
+    ("BSN", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Nursing", "Undergraduate", ("Healthcare",)),
+    ("BPharm", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Pharmacy", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Dental Science", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Medical Laboratory Science", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Radiography", "Undergraduate", ("Healthcare",)),
+    ("Bachelor of Science in Health Science", "Undergraduate", ("Healthcare",)),
+    ("LLB", "Undergraduate", ("Legal",)),
+    ("Bachelor of Laws", "Undergraduate", ("Legal",)),
+    ("BEd", "Undergraduate", ("Education",)),
+    ("Bachelor of Education", "Undergraduate", ("Education",)),
+    ("Bachelor of Early Childhood Education", "Undergraduate", ("Education",)),
+    ("BFA", "Undergraduate", ("Arts & Entertainment",)),
+    ("Bachelor of Fine Arts", "Undergraduate", ("Arts & Entertainment",)),
+    ("Bachelor of Music", "Undergraduate", ("Arts & Entertainment",)),
+    ("BMus", "Undergraduate", ("Arts & Entertainment",)),
+    ("Bachelor of Design", "Undergraduate", ("Arts & Entertainment",)),
+    ("BArch", "Undergraduate", ("Architecture & Construction",)),
+    ("Bachelor of Architecture", "Undergraduate", ("Architecture & Construction",)),
+    ("Bachelor of Landscape Architecture", "Undergraduate", ("Architecture & Construction",)),
+    ("Bachelor of Interior Design", "Undergraduate", ("Architecture & Construction",)),
+    ("Bachelor of Urban Planning", "Undergraduate", ("Architecture & Construction",)),
+    ("BSW", "Undergraduate", ("Social Services",)),
+    ("Bachelor of Social Work", "Undergraduate", ("Social Services",)),
+    ("Bachelor of Counseling", "Undergraduate", ("Social Services",)),
+    ("Bachelor of Journalism", "Undergraduate", ("Creative & Media",)),
+    ("Bachelor of Communications", "Undergraduate", ("Creative & Media",)),
+    ("Bachelor of Graphic Design", "Undergraduate", ("Creative & Media",)),
+    ("Bachelor of Digital Media", "Undergraduate", ("Creative & Media",)),
+    ("Bachelor of Aviation", "Undergraduate", ("Aviation",)),
+    ("Bachelor of Hospitality Management", "Undergraduate", ("Hospitality & Tourism",)),
+    ("Bachelor of Tourism Management", "Undergraduate", ("Hospitality & Tourism",)),
+    ("Bachelor of Agriculture", "Undergraduate", ("Agriculture & Environment",)),
+    ("Bachelor of Veterinary Science", "Undergraduate", ("Veterinary",)),
+    ("Bachelor of Criminal Justice", "Undergraduate", ("Public Safety",)),
+    ("Bachelor of Emergency Management", "Undergraduate", ("Public Safety",)),
+    ("Bachelor of Public Administration", "Undergraduate", ("Government & Nonprofit",)),
+    ("Bachelor of International Relations", "Undergraduate", ("Government & Nonprofit",)),
+    ("Bachelor of Exercise Science", "Undergraduate", ("Sports & Fitness",)),
+    ("Bachelor of Sports Management", "Undergraduate", ("Sports & Fitness",)),
+    ("Bachelor of Real Estate", "Undergraduate", ("Real Estate",)),
+    ("Bachelor of Logistics", "Undergraduate", ("Operations",)),
+    ("Bachelor of Project Management", "Undergraduate", ("Operations",)),
+]
+
 # --- Standalone / professional terminal degrees ------------------------------
 # (name, level, [categories])
 PROFESSIONAL: list[tuple[str, str, tuple[str, ...]]] = [
@@ -367,9 +450,17 @@ def _build() -> list[Degree]:
             add(f"MFA in {field}", "Masters", cats)
         if category == "Engineering":
             add(f"MEng in {field}", "Masters", cats)
+        # Undergraduate forms.
+        if category in BS_CATEGORIES:
+            add(f"B.S. in {field}", "Undergraduate", cats)
+        if category in BA_CATEGORIES:
+            add(f"B.A. in {field}", "Undergraduate", cats)
+
+    for name, level, cats in UNDERGRAD_PROFESSIONAL:
+        add(name, level, cats)
 
     for name, level, cats in PROFESSIONAL:
-        add(name, level, cats)
+        add(name, "Doctoral" if level == "Professional" else level, cats)
 
     return sorted(degrees.values(), key=lambda d: d.name.lower())
 
@@ -382,6 +473,14 @@ _BY_NAME: dict[str, Degree] = {d.name.lower(): d for d in DEGREES}
 def degree_names() -> list[str]:
     """Sorted list of degree names for the frontend typeahead/datalist."""
     return list(_DEGREE_NAMES)
+
+
+def degrees_by_level() -> dict[str, list[str]]:
+    """Degree names grouped by level (Undergraduate / Masters / Doctoral)."""
+    grouped: dict[str, list[str]] = {lvl: [] for lvl in LEVELS}
+    for d in DEGREES:
+        grouped.setdefault(d.level, []).append(d.name)
+    return {lvl: grouped[lvl] for lvl in LEVELS if grouped[lvl]}
 
 
 def _category_for_text(text: str) -> str | None:

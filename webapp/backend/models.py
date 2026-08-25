@@ -94,6 +94,8 @@ class PivotRequest(BaseModel):
 class PivotResponse(BaseModel):
     pivot_matches: List[Dict[str, Any]] = Field(default_factory=list)
     education_categories: List[str] = Field(default_factory=list)
+    hobby_categories: List[str] = Field(default_factory=list)
+    hobby_signals: Dict[str, Any] = Field(default_factory=dict)
     hobbies: List[str] = Field(default_factory=list)
     hobbies_note: str = ""
 

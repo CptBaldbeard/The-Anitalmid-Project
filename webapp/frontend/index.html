@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -207,23 +207,61 @@
           <p class="muted">Explore 25 different career fields that may take your career journey someplace new.</p>
           <button id="pivotBtn" class="primary" type="button">Career Pivot</button>
           <div id="pivotBody" class="hidden">
-            <p class="muted small">Tell us about your education and hobbies, and we'll surface related-but-different careers beyond your top matches.</p>
-            <div class="fields">
-              <label>Education — degrees you hold <span class="muted small">(optional)</span>
-                <input type="text" id="pivotExp" list="degreesDatalist" placeholder="Type a degree and press Enter — e.g. MS in Computer Science" />
-                <div id="pivotExpTags" class="tag-list"></div>
-              </label>
-              <label>Education — degrees you'd like to pursue <span class="muted small">(optional)</span>
-                <input type="text" id="pivotInt" list="degreesDatalist" placeholder="Type a degree and press Enter — e.g. MFA Creative Writing" />
-                <div id="pivotIntTags" class="tag-list"></div>
-              </label>
-              <label>Hobbies <span class="muted small">(optional)</span>
-                <input type="text" id="pivotHobbies" placeholder="e.g. woodworking, miniature painting, hiking…" />
-              </label>
+            <p class="muted small">Tell us about your education and hobbies, and we'll surface one career per field — balanced across every field.</p>
+
+            <div class="wizard-section">
+              <h3 class="section-h">Education — degrees you hold <span class="muted small">(optional)</span></h3>
+              <div class="fields">
+                <label>Undergraduate
+                  <input type="text" id="pivotHeldUnder" list="degreesUndergrad" placeholder="Type a degree and press Enter — e.g. B.S. in Computer Science" />
+                  <div id="pivotHeldUnderTags" class="tag-list"></div>
+                </label>
+                <label>Masters
+                  <input type="text" id="pivotHeldMasters" list="degreesMasters" placeholder="e.g. MS in Computer Science" />
+                  <div id="pivotHeldMastersTags" class="tag-list"></div>
+                </label>
+                <label>Doctoral
+                  <input type="text" id="pivotHeldDoctoral" list="degreesDoctoral" placeholder="e.g. PhD in Computer Science" />
+                  <div id="pivotHeldDoctoralTags" class="tag-list"></div>
+                </label>
+              </div>
             </div>
-            <datalist id="degreesDatalist"></datalist>
+
+            <div class="wizard-section">
+              <h3 class="section-h">Education — degrees you'd like to pursue <span class="muted small">(optional)</span></h3>
+              <div class="fields">
+                <label>Undergraduate
+                  <input type="text" id="pivotWantUnder" list="degreesUndergrad" placeholder="e.g. B.A. in Psychology" />
+                  <div id="pivotWantUnderTags" class="tag-list"></div>
+                </label>
+                <label>Masters
+                  <input type="text" id="pivotWantMasters" list="degreesMasters" placeholder="e.g. MFA Creative Writing" />
+                  <div id="pivotWantMastersTags" class="tag-list"></div>
+                </label>
+                <label>Doctoral
+                  <input type="text" id="pivotWantDoctoral" list="degreesDoctoral" placeholder="e.g. PhD in Physics" />
+                  <div id="pivotWantDoctoralTags" class="tag-list"></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="wizard-section">
+              <h3 class="section-h">Hobbies <span class="muted small">(optional)</span></h3>
+              <div class="fields">
+                <label>What do you do for fun?
+                  <input type="text" id="pivotHobbies" list="hobbiesDatalist" placeholder="Type a hobby and press Enter — e.g. drone flying, woodworking" />
+                  <div id="pivotHobbiesTags" class="tag-list"></div>
+                </label>
+              </div>
+            </div>
+
+            <datalist id="degreesUndergrad"></datalist>
+            <datalist id="degreesMasters"></datalist>
+            <datalist id="degreesDoctoral"></datalist>
+            <datalist id="hobbiesDatalist"></datalist>
+
             <div class="actions">
-              <button id="pivotGenerateBtn" class="primary">Generate 5 →</button>
+              <button id="pivotGenerateBtn" class="primary">Generate →</button>
               <span id="pivotStatus" class="muted"></span>
             </div>
             <div id="pivotNote" class="muted small"></div>
@@ -372,6 +410,6 @@
   </div>
 
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=22"></script>
+  <script src="app.js?v=23"></script>
 </body>
 </html>
