@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=20" />
+  <link rel="stylesheet" href="style.css?v=21" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -81,14 +81,10 @@
       <!-- Wizard -->
       <section id="wizard" class="card">
         <h2>Map your career</h2>
-        <p class="muted">Drop your resume, or enter your interests and major — the engine triangulates six frameworks and maps your best-fit paths.</p>
+        <p class="muted">Drop a resume, or tell us your interests and major — the engine triangulates six frameworks and maps your best-fit paths. Provide both and your resume takes priority.</p>
 
-        <div class="mode-toggle" role="tablist">
-          <button id="modeResume" class="mode-btn active" type="button">Upload resume</button>
-          <button id="modeSignals" class="mode-btn" type="button">Interests &amp; major</button>
-        </div>
-
-        <div id="resumeMode">
+        <div class="wizard-section">
+          <h3 class="section-h">Your resume <span class="muted small">(optional)</span></h3>
           <div id="dropzone" class="dropzone">
             <input type="file" id="resumeFile" accept=".txt,.md,.rtf,.pdf" hidden />
             <span class="dz-icon">⤒</span>
@@ -109,7 +105,8 @@
           </div>
         </div>
 
-        <div id="signalsMode" class="hidden">
+        <div class="wizard-section">
+          <h3 class="section-h">Interests &amp; major <span class="muted small">(optional)</span></h3>
           <div class="fields">
             <label>MBTI type <span class="muted small">(optional)</span>
               <select id="mbtiSelect">
@@ -342,6 +339,6 @@
   </div>
 
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=20"></script>
+  <script src="app.js?v=21"></script>
 </body>
 </html>
