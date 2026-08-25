@@ -4,6 +4,7 @@ let resumeFile = null;
 let resumeText = "";
 let token = localStorage.getItem("anitalmid_token") || "";
 let currentUser = null;
+let salaryFilterOn = false;
 
 /* ---------- Auth ---------- */
 function authHeaders() {
@@ -184,6 +185,7 @@ $("analyzeBtn").addEventListener("click", async () => {
   const status = $("status");
   const btn = $("analyzeBtn");
   const jobUrl = $("jobUrl").value.trim();
+  const salary = salaryRange();
 
   if (!currentUser) { status.textContent = "Sign in first."; return; }
 
@@ -205,6 +207,8 @@ $("analyzeBtn").addEventListener("click", async () => {
           holland,
           major: $("majorSelect").value.trim(),
           job_url: jobUrl,
+          salary_min: salary ? salary.min : null,
+          salary_max: salary ? salary.max : null,
         }),
       });
       render(data);
@@ -228,12 +232,13 @@ $("analyzeBtn").addEventListener("click", async () => {
       const fd = new FormData();
       fd.append("resume", resumeFile);
       if (jobUrl) fd.append("job_url", jobUrl);
+      if (salary) { fd.append("salary_min", salary.min); fd.append("salary_max", salary.max); }
       data = await apiFetch("/analyze", { method: "POST", body: fd });
     } else {
       data = await apiFetch("/analyze-text", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, job_url: jobUrl }),
+        body: JSON.stringify({ text, job_url: jobUrl, salary_min: salary ? salary.min : null, salary_max: salary ? salary.max : null }),
       });
     }
     render(data);
@@ -245,6 +250,13 @@ $("analyzeBtn").addEventListener("click", async () => {
     btn.disabled = false;
   }
 });
+
+function salaryRange() {
+  const min = parseInt($("salaryMin").value, 10);
+  const max = parseInt($("salaryMax").value, 10);
+  if (isNaN(min) || isNaN(max)) return null;
+  return { min, max };
+}
 
 function buildAnalysisText() {
   const parts = [];
@@ -263,6 +275,10 @@ function render(data) {
   currentAnalysis = data;
   currentJobAlignment = data.job_alignment || null;
   resetPivot();
+  const hasSalary = (data.top_matches || []).some((m) => m.salary_fits !== undefined);
+  $("salaryToggleWrap").classList.toggle("hidden", !hasSalary);
+  salaryFilterOn = false;
+  $("salaryToggle").checked = false;
   $("wizard").classList.add("hidden");
   $("results").classList.remove("hidden");
   renderSignals(data.signals);
@@ -287,6 +303,13 @@ function restart() {
   $("holland2").value = "";
   $("holland3").value = "";
   $("majorSelect").value = "";
+
+  // Reset salary filter
+  $("salaryMin").value = "";
+  $("salaryMax").value = "";
+  $("salaryToggle").checked = false;
+  salaryFilterOn = false;
+  $("salaryToggleWrap").classList.add("hidden");
 
   $("status").textContent = "";
   currentAnalysis = null;
@@ -479,27 +502,41 @@ function renderMatches(matches) {
   currentMatches = matches || [];
   const box = $("matches");
   box.innerHTML = currentMatches
-    .map(
-      (r, i) => `
-    <div class="match clickable" data-idx="${i}">
+    .map((r, i) => ({ r, i }))
+    .filter(({ r }) => !salaryFilterOn || r.salary_fits === true)
+    .map(({ r, i }) => {
+      const fitClass = r.salary_fits === true ? " salary-fit" : r.salary_fits === false ? " salary-miss" : "";
+      const badge = r.salary_fits === true
+        ? '<span class="badge salary-fit">✓ within your range</span>'
+        : r.salary_fits === false
+          ? '<span class="badge salary-miss">outside your range</span>'
+          : "";
+      return `
+    <div class="match clickable${fitClass}" data-idx="${i}">
       <div class="top">
         <span><span class="rank">#${r.rank}</span><span class="title">${r.title}</span></span>
         <span class="score">${r.composite_score}</span>
       </div>
       <div>
         <span class="badge ${r.validation}">${r.validation.replace("-", " ")}</span>
+        ${badge}
         <span class="meta">${r.category} · ${r.holland_code} · pivot: ${r.pivot_cost}</span>
       </div>
       <div class="meta">${r.salary_range}</div>
       <div class="desc">${r.description}</div>
       <div class="match-cta">View full description &amp; search jobs →</div>
-    </div>`
-    )
+    </div>`;
+    })
     .join("");
   box.querySelectorAll(".match").forEach((el) => {
     el.addEventListener("click", () => openRoleModal(parseInt(el.dataset.idx, 10)));
   });
 }
+
+$("salaryToggle").addEventListener("change", (e) => {
+  salaryFilterOn = e.target.checked;
+  renderMatches(currentMatches);
+});
 
 let matchesPie = null;
 function renderPie(matches) {
