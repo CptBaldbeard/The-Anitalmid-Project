@@ -1,24 +1,22 @@
-"""Career Pivot engine.
+"""Career Pivot engine — strictly balanced field selection.
 
-Turns the main analysis' full role ranking into a pool of 25 related-but-different
-careers: it excludes the top matches (already shown to the user), boosts fields the
-user's education points at, and enforces per-field diversity so the pool spans
-different career fields rather than re-listing the same field.
+Unlike the main matcher (which ranks by profile fit), the pivot returns ONE career
+per field across the catalog so no single field dominates. Education + hobbies mark
+fields *relevant* (used for ordering and the bonus slots) but every field is weighted
+equally: the pivot never skews toward Technology or the user's home field.
 
-Deterministic, no LLM — consistent with the rest of the pipeline.
+Deterministic, no LLM.
 """
 
 from __future__ import annotations
 
 from .degrees import map_degrees_to_categories
+from .hobbies import map_hobbies_to_categories
 
-BOOST_EXPERIENCE: float = 5.0
-BOOST_INTERESTS: float = 10.0
 TOP_N_EXCLUDE: int = 6
 POOL_SIZE: int = 25
-MAX_PER_CATEGORY: int = 5
 
-HOBBIES_NOTE: str = "Hobbies are noted for future refinement and do not affect this ranking."
+HOBBIES_NOTE: str = "Hobbies are matched against the frameworks and the career fields they point to."
 
 
 def compute_pivot(
@@ -28,50 +26,63 @@ def compute_pivot(
     hobbies: list[str] | None = None,
     top_n_exclude: int = TOP_N_EXCLUDE,
     pool_size: int = POOL_SIZE,
-    max_per_category: int = MAX_PER_CATEGORY,
-    boost_experience: float = BOOST_EXPERIENCE,
-    boost_interests: float = BOOST_INTERESTS,
 ) -> list[dict]:
-    """Return the pivot pool of at most ``pool_size`` roles (usually 25).
+    """Return a strictly balanced pool: ~one role per career field.
 
-    Each returned role dict is annotated with ``pivot_score`` (composite + education
-    boost) and ``education_boost`` (True when its field matched the user's education).
-    Hobbies are intentionally not scored in v1.
+    Each returned role is annotated with ``pivot_score`` (its profile-alignment
+    score, unchanged), ``education_match`` (its field matches the user's education)
+    and ``hobby_match`` (its field matches a hobby). No field is weighted above
+    another.
     """
-    del hobbies  # reserved for a future scoring pass
-
     ranking = list(full_ranking or [])
-    # Stable, deterministic baseline order (matches the main analysis' sort).
     ranking.sort(key=lambda r: r.get("composite_score", 0.0), reverse=True)
 
     # The "basic Top matches" are excluded — the pivot is about what's *beyond* them.
     rest = ranking[top_n_exclude:]
 
-    exp_cats = map_degrees_to_categories(education_experience or [])
-    int_cats = map_degrees_to_categories(education_interests or [])
+    ed_cats = map_degrees_to_categories((education_experience or []) + (education_interests or []))
+    hobby_cats = map_hobbies_to_categories(hobbies or [])  # {category: summed strength}
 
+    # Relevance per field = education flag + hobby strength. Used only for ordering
+    # and bonus slots — NOT for scoring a field above another.
+    relevance: dict[str, float] = {}
+    for cat in set(ed_cats) | set(hobby_cats):
+        relevance[cat] = (1.0 if cat in ed_cats else 0.0) + hobby_cats.get(cat, 0.0)
+
+    # One best role per field (rest is already composite-sorted, so first wins).
+    best_by_cat: dict[str, dict] = {}
     for r in rest:
-        category = r.get("category", "")
-        boost = 0.0
-        if category in exp_cats:
-            boost += boost_experience
-        if category in int_cats:
-            boost += boost_interests
-        r["pivot_score"] = float(r.get("composite_score", 0.0)) + boost
-        r["education_boost"] = boost > 0
+        cat = r.get("category", "Other")
+        best_by_cat.setdefault(cat, r)
 
-    # Re-rank by pivot score, then walk with a per-category diversity cap.
-    rest.sort(key=lambda r: r["pivot_score"], reverse=True)
+    def annotate(r: dict) -> dict:
+        cat = r.get("category", "")
+        r["pivot_score"] = float(r.get("composite_score", 0.0))
+        r["education_match"] = cat in ed_cats
+        r["hobby_match"] = cat in hobby_cats
+        return r
 
-    pool: list[dict] = []
-    seen: dict[str, int] = {}
-    for r in rest:
-        category = r.get("category", "Other")
-        if seen.get(category, 0) >= max_per_category:
-            continue
-        pool.append(r)
-        seen[category] = seen.get(category, 0) + 1
-        if len(pool) >= pool_size:
-            break
+    # Order fields: relevant first (relevance desc, then alignment desc), then the rest.
+    def field_sort_key(cat: str) -> tuple:
+        role = best_by_cat[cat]
+        return (-relevance.get(cat, 0.0), -role.get("composite_score", 0.0))
 
-    return pool
+    ordered_cats = sorted(best_by_cat, key=field_sort_key)
+    pool = [annotate(best_by_cat[cat]) for cat in ordered_cats]
+
+    # Top up to pool_size with extra roles, preferring relevant fields (bonus slots).
+    if len(pool) < pool_size:
+        used = {r["title"] for r in pool}
+        extras = [r for r in rest if r["title"] not in used]
+        extras.sort(
+            key=lambda r: (
+                -relevance.get(r.get("category", ""), 0.0),
+                -r.get("composite_score", 0.0),
+            )
+        )
+        for r in extras:
+            if len(pool) >= pool_size:
+                break
+            pool.append(annotate(r))
+
+    return pool[:pool_size]

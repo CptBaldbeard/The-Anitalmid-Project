@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, config, db, degrees, emailer, export, job_analysis, majors, map_gen, oskg, parser, pivot, scoring
+from . import auth, config, db, degrees, emailer, export, hobbies, job_analysis, majors, map_gen, oskg, parser, pivot, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
@@ -129,7 +129,12 @@ def list_majors():
 
 @app.get("/degrees")
 def list_degrees():
-    return {"degrees": degrees.degree_names()}
+    return {"degrees": degrees.degrees_by_level()}
+
+
+@app.get("/hobbies")
+def list_hobbies():
+    return {"hobbies": hobbies.hobby_names()}
 
 
 # ---- Analysis pipeline ----
@@ -250,9 +255,12 @@ def analyze_pivot(payload: PivotRequest, user: db.User = Depends(get_current_use
             list(payload.education_experience) + list(payload.education_interests)
         )
     )
+    hobby_categories = sorted(hobbies.map_hobbies_to_categories(payload.hobbies))
     return {
         "pivot_matches": pool,
         "education_categories": education_categories,
+        "hobby_categories": hobby_categories,
+        "hobby_signals": hobbies.hobby_signals(payload.hobbies),
         "hobbies": list(payload.hobbies),
         "hobbies_note": pivot.HOBBIES_NOTE,
     }

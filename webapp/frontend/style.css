@@ -405,6 +405,7 @@ code {
 .tag-x { border: none; background: transparent; color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; padding: 2px 8px; border-radius: 999px; }
 .tag-x:hover { color: var(--red); }
 .badge.edu { background: #33280f; color: var(--amber); margin-left: 6px; }
+.badge.hobby { background: #0f2433; color: var(--blue); margin-left: 6px; }
 #pivotNote { margin-top: 10px; min-height: 1em; }
 .pivot-counter-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
 .pivot-counter-row .ghost { flex-shrink: 0; }

@@ -840,18 +840,36 @@ function makeTagInput(inputId, tagsId) {
   };
 }
 
-const pivotExp = makeTagInput("pivotExp", "pivotExpTags");
-const pivotInt = makeTagInput("pivotInt", "pivotIntTags");
+const pivotHeldUnder = makeTagInput("pivotHeldUnder", "pivotHeldUnderTags");
+const pivotHeldMasters = makeTagInput("pivotHeldMasters", "pivotHeldMastersTags");
+const pivotHeldDoctoral = makeTagInput("pivotHeldDoctoral", "pivotHeldDoctoralTags");
+const pivotWantUnder = makeTagInput("pivotWantUnder", "pivotWantUnderTags");
+const pivotWantMasters = makeTagInput("pivotWantMasters", "pivotWantMastersTags");
+const pivotWantDoctoral = makeTagInput("pivotWantDoctoral", "pivotWantDoctoralTags");
+const pivotHobbyTags = makeTagInput("pivotHobbies", "pivotHobbiesTags");
+
+function fillDatalist(id, names) {
+  const dl = $(id);
+  if (dl.options.length) return;
+  (names || []).forEach((name) => {
+    const o = document.createElement("option");
+    o.value = name;
+    dl.appendChild(o);
+  });
+}
 
 function loadDegrees() {
-  const dl = $("degreesDatalist");
-  if (dl.options.length) return;
   fetch("/degrees").then((r) => r.json()).then((d) => {
-    (d.degrees || []).forEach((name) => {
-      const o = document.createElement("option");
-      o.value = name;
-      dl.appendChild(o);
-    });
+    const levels = d.degrees || {};
+    fillDatalist("degreesUndergrad", levels.Undergraduate);
+    fillDatalist("degreesMasters", levels.Masters);
+    fillDatalist("degreesDoctoral", levels.Doctoral);
+  }).catch(() => {});
+}
+
+function loadHobbies() {
+  fetch("/hobbies").then((r) => r.json()).then((d) => {
+    fillDatalist("hobbiesDatalist", d.hobbies);
   }).catch(() => {});
 }
 
@@ -861,6 +879,7 @@ $("pivotBtn").addEventListener("click", () => {
   body.classList.toggle("hidden");
   if (wasHidden) {
     loadDegrees();
+    loadHobbies();
     body.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 });
@@ -880,9 +899,17 @@ $("pivotGenerateBtn").addEventListener("click", async () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         full_ranking: currentAnalysis.full_ranking,
-        education_experience: pivotExp.get(),
-        education_interests: pivotInt.get(),
-        hobbies: ($("pivotHobbies").value || "").split(",").map((s) => s.trim()).filter(Boolean),
+        education_experience: [
+          ...pivotHeldUnder.get(),
+          ...pivotHeldMasters.get(),
+          ...pivotHeldDoctoral.get(),
+        ],
+        education_interests: [
+          ...pivotWantUnder.get(),
+          ...pivotWantMasters.get(),
+          ...pivotWantDoctoral.get(),
+        ],
+        hobbies: pivotHobbyTags.get(),
       }),
     });
     pivotPool = d.pivot_matches || [];
@@ -897,11 +924,20 @@ $("pivotGenerateBtn").addEventListener("click", async () => {
     $("pivotRegenerateBtn").classList.remove("hidden");
     const meta = [];
     if (d.education_categories && d.education_categories.length) {
-      meta.push("Boosting fields: " + d.education_categories.join(", "));
+      meta.push("Education fields: " + d.education_categories.join(", "));
     }
-    if (d.hobbies && d.hobbies.length && d.hobbies_note) {
-      meta.push(d.hobbies_note);
+    if (d.hobby_categories && d.hobby_categories.length) {
+      meta.push("Hobby fields: " + d.hobby_categories.join(", "));
     }
+    const hs = d.hobby_signals || {};
+    const hsParts = [];
+    if (hs.holland) hsParts.push("Holland " + hs.holland);
+    if (hs.mbti) hsParts.push("MBTI " + hs.mbti);
+    const bf = hs.big_five || {};
+    const bfParts = Object.entries(bf).map(([k, v]) => k + " " + v);
+    if (bfParts.length) hsParts.push("Big Five " + bfParts.join(", "));
+    if (hsParts.length) meta.push("Your hobbies suggest: " + hsParts.join(" · "));
+    if (d.hobbies_note) meta.push(d.hobbies_note);
     $("pivotNote").textContent = meta.join(" · ");
     status.textContent = "";
   } catch (err) {
@@ -938,7 +974,8 @@ function renderPivotGroup() {
 }
 
 function pivotCardHtml(r, idx) {
-  const edu = r.education_boost ? `<span class="badge edu">aligns with your education</span>` : "";
+  const edu = r.education_match ? `<span class="badge edu">aligns with your education</span>` : "";
+  const hobby = r.hobby_match ? `<span class="badge hobby">matches your hobbies</span>` : "";
   return `
     <div class="match clickable pivot-match" data-i="${idx}">
       <div class="top">
@@ -946,7 +983,7 @@ function pivotCardHtml(r, idx) {
         <span class="score">${Math.round(r.pivot_score)}</span>
       </div>
       <div>
-        <span class="badge ${escapeHtml(r.validation || "weak")}">${escapeHtml((r.validation || "weak").replace("-", " "))}</span>${edu}
+        <span class="badge ${escapeHtml(r.validation || "weak")}">${escapeHtml((r.validation || "weak").replace("-", " "))}</span>${edu}${hobby}
         <span class="meta">${escapeHtml(r.category)} · ${escapeHtml(r.holland_code)} · pivot: ${escapeHtml(r.pivot_cost)}</span>
       </div>
       <div class="meta">${escapeHtml(r.salary_range)}</div>
@@ -958,9 +995,13 @@ function pivotCardHtml(r, idx) {
 function resetPivot() {
   pivotPool = [];
   pivotShown = 0;
-  pivotExp.clear();
-  pivotInt.clear();
-  $("pivotHobbies").value = "";
+  pivotHeldUnder.clear();
+  pivotHeldMasters.clear();
+  pivotHeldDoctoral.clear();
+  pivotWantUnder.clear();
+  pivotWantMasters.clear();
+  pivotWantDoctoral.clear();
+  pivotHobbyTags.clear();
   $("pivotStatus").textContent = "";
   $("pivotNote").textContent = "";
   $("pivotCounter").textContent = "";
