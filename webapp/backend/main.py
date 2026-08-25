@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import auth, config, db, degrees, emailer, export, hobbies, job_analysis, majors, map_gen, oskg, parser, pivot, scoring
+from . import auth, config, db, degrees, emailer, export, hobbies, job_analysis, majors, map_gen, oskg, parser, pivot, salary, scoring
 from .rate_limit import ip_limiter, user_limiter
 from .models import (
     AnalysisResult,
@@ -139,7 +139,14 @@ def list_hobbies():
 
 # ---- Analysis pipeline ----
 
-async def _run_pipeline(text: str, user_id: int | None, job_url: str = "") -> dict:
+def _apply_salary_filter(ranking: list, salary_min: int | None, salary_max: int | None) -> None:
+    """Tag each ranked role with whether it can pay within the user's range."""
+    if salary_min is not None and salary_max is not None:
+        for r in ranking:
+            r["salary_fits"] = salary.salary_fits(r.get("salary_range", ""), salary_min, salary_max)
+
+
+async def _run_pipeline(text: str, user_id: int | None, job_url: str = "", salary_min: int | None = None, salary_max: int | None = None) -> dict:
     if not text or not text.strip():
         raise HTTPException(status_code=400, detail="No text to analyze")
 
@@ -148,6 +155,7 @@ async def _run_pipeline(text: str, user_id: int | None, job_url: str = "") -> di
 
     ranking, signals = scoring.score_roles(text)
     ranking = oskg.validate_roles(ranking)
+    _apply_salary_filter(ranking, salary_min, salary_max)
 
     career_map = map_gen.build_career_map(ranking, signals)
 
@@ -173,19 +181,21 @@ async def _run_pipeline(text: str, user_id: int | None, job_url: str = "") -> di
 async def analyze(
     resume: UploadFile = File(...),
     job_url: str = Form(""),
+    salary_min: int | None = Form(None),
+    salary_max: int | None = Form(None),
     user: db.User = Depends(get_current_user),
 ):
     raw = await resume.read()
     text = parser.extract_text_from_upload(resume.filename or "resume.txt", raw)
-    return await _run_pipeline(text, user.id, job_url)
+    return await _run_pipeline(text, user.id, job_url, salary_min, salary_max)
 
 
 @app.post("/analyze-text")
 async def analyze_text(payload: TextPayload, user: db.User = Depends(get_current_user)):
-    return await _run_pipeline(payload.text, user.id, payload.job_url)
+    return await _run_pipeline(payload.text, user.id, payload.job_url, payload.salary_min, payload.salary_max)
 
 
-async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: int | None, job_url: str = "") -> dict:
+async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: int | None, job_url: str = "", salary_min: int | None = None, salary_max: int | None = None) -> dict:
     holland = (holland or "").strip().upper()
     if not holland:
         raise HTTPException(status_code=400, detail="Pick at least one interest (Holland code).")
@@ -195,6 +205,7 @@ async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: in
 
     ranking, signals = scoring.score_signals(mbti, holland, major)
     ranking = oskg.validate_roles(ranking)
+    _apply_salary_filter(ranking, salary_min, salary_max)
 
     career_map = map_gen.build_career_map(ranking, signals)
 
@@ -219,7 +230,7 @@ async def _run_signals_pipeline(mbti: str, holland: str, major: str, user_id: in
 
 @app.post("/analyze-signals")
 async def analyze_signals(payload: SignalsPayload, user: db.User = Depends(get_current_user)):
-    return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id, payload.job_url)
+    return await _run_signals_pipeline(payload.mbti, payload.holland, payload.major, user.id, payload.job_url, payload.salary_min, payload.salary_max)
 
 
 @app.post("/analyze/job")

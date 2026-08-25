@@ -244,6 +244,8 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 .badge.experience-validated { background: #0f2f22; color: var(--green); }
 .badge.aptitude-validated { background: #241d3d; color: var(--purple); }
 .badge.weak { background: #33201f; color: var(--red); }
+.badge.salary-fit { background: #0f2f22; color: var(--green); }
+.badge.salary-miss { background: #232833; color: var(--muted); }
 .match .meta { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
 .match .desc { font-size: 14px; margin-top: 10px; color: #cdd4e0; line-height: 1.6; }
 
@@ -330,6 +332,10 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 .match.clickable { transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
 .match.clickable:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25); }
 .match-cta { margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--primary); }
+.match.salary-fit { border-color: var(--green); box-shadow: 0 0 0 1px rgba(74,222,128,0.25); }
+.match.salary-miss { opacity: 0.55; }
+.salary-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin: 2px 0 12px; cursor: pointer; }
+.salary-toggle input { accent-color: var(--green); }
 .pie-item.clickable { cursor: pointer; transition: color .15s ease; }
 .pie-item.clickable:hover { color: var(--primary); }
 

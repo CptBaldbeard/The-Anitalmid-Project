@@ -58,6 +58,8 @@ class AnalysisResult(BaseModel):
 class TextPayload(BaseModel):
     text: str
     job_url: str = ""   # optional — if set, the analysis also matches this job posting
+    salary_min: int | None = None   # optional — preferred salary range (in $K)
+    salary_max: int | None = None
 
 
 class SignalsPayload(BaseModel):
@@ -65,6 +67,8 @@ class SignalsPayload(BaseModel):
     holland: str = ""    # 3-letter RIASEC code, e.g. "RIS"
     major: str = ""      # college major name, optional
     job_url: str = ""    # optional — if set, also match this job posting
+    salary_min: int | None = None   # optional — preferred salary range (in $K)
+    salary_max: int | None = None
 
 
 class JobAnalysisRequest(BaseModel):

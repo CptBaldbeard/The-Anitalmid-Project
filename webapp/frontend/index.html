@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=23" />
+  <link rel="stylesheet" href="style.css?v=24" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -176,6 +176,16 @@
           </label>
         </div>
 
+        <div class="job-section">
+          <label>Preferred salary range <span class="muted small">(optional — highlight roles that can pay in your range)</span>
+            <div class="job-row">
+              <input type="number" id="salaryMin" placeholder="Min $K — e.g. 80" min="0" step="5" />
+              <span class="muted">to</span>
+              <input type="number" id="salaryMax" placeholder="Max $K — e.g. 150" min="0" step="5" />
+            </div>
+          </label>
+        </div>
+
         <div class="actions">
           <button id="analyzeBtn" class="primary">Analyze →</button>
           <span id="status" class="muted"></span>
@@ -193,6 +203,9 @@
         <div class="two-col">
           <div class="card">
             <h2>Top career matches</h2>
+            <label id="salaryToggleWrap" class="salary-toggle hidden">
+              <input type="checkbox" id="salaryToggle" /> Only show roles in my salary range
+            </label>
             <div id="matches"></div>
           </div>
           <div class="card">
@@ -410,6 +423,6 @@
   </div>
 
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=23"></script>
+  <script src="app.js?v=24"></script>
 </body>
 </html>
