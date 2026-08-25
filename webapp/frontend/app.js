@@ -793,3 +793,20 @@ $("roleModal").addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeRoleModal();
 });
+
+/* ---------- How-it-works info modal ---------- */
+$("infoBtn").addEventListener("click", () => {
+  $("infoModal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+});
+function closeInfoModal() {
+  $("infoModal").classList.add("hidden");
+  document.body.style.overflow = "";
+}
+$("closeInfoBtn").addEventListener("click", closeInfoModal);
+$("infoModal").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeInfoModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeInfoModal();
+});

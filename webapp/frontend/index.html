@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anitalmid — Career-Mapping Engine</title>
-  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="style.css?v=20" />
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
@@ -15,11 +15,16 @@
       <h1>Anitalmid</h1>
       <span class="tagline">Career-Mapping Engine</span>
     </div>
-    <a class="gh-link" href="https://github.com/CptBaldbeard/The-Anitalmid-Project" target="_blank" rel="noopener" title="View the repo on GitHub">
-      <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-      <span class="gh-star">★</span>
-      <span id="starCount" class="gh-count">…</span>
-    </a>
+    <div class="header-actions">
+      <a class="gh-link" href="https://github.com/CptBaldbeard/The-Anitalmid-Project" target="_blank" rel="noopener" title="View the repo on GitHub">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span class="gh-star">★</span>
+        <span id="starCount" class="gh-count">…</span>
+      </a>
+      <button id="infoBtn" class="info-btn" type="button" title="How Anitalmid works (no LLM)" aria-label="How Anitalmid works">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -266,7 +271,77 @@
     </div>
   </div>
 
+  <div id="infoModal" class="overlay hidden">
+    <div class="overlay-panel info-panel">
+      <div class="overlay-head">
+        <div>
+          <span class="overlay-kicker">Under the hood</span>
+          <h2>How Anitalmid works</h2>
+        </div>
+        <button id="closeInfoBtn" class="ghost">✕ Close</button>
+      </div>
+      <div class="overlay-body">
+        <p class="info-lead">Anitalmid is a <b>rules engine + keyword scorer</b>, not a language model. It counts words against curated dictionaries and applies fixed formulas. There's no neural network, no token stream, no generation, no API call to a model. The whole thing is deterministic local computation.</p>
+
+        <div class="info-section">
+          <h3 class="info-h">What actually happens under the hood</h3>
+          <div class="info-step">
+            <b>Text in</b>
+            <p>A PDF is parsed by <code>pymupdf</code> into plain text (or you paste text / pick signals directly). That's it for input.</p>
+          </div>
+          <div class="info-step">
+            <b>Signal detection <span class="muted">(signal_detection.py)</span></b>
+            <p>The "magic" is lexicon counting:</p>
+            <ul>
+              <li><b>MBTI</b>: each of the 4 dichotomies (I/E, N/S, T/F, J/P) has a curated list of keyword stems. It regex-counts how many hits each pole gets, and the higher-count pole wins. You typed more "collaborate, team, together" &rarr; E; more "focused, quiet, reflect" &rarr; I.</li>
+              <li><b>Holland (RIASEC)</b>: same idea: six interest buckets, count keyword hits, take the top three as your code.</li>
+              <li><b>Big Five (OCEAN)</b>: five traits, each with its own lexicon. Because "Openness" has ~30 keyword stems and "Stability" ~16, it coverage-normalizes each trait (divides by lexicon size) so a short resume doesn't collapse everything to "Low."</li>
+            </ul>
+          </div>
+          <div class="info-step">
+            <b>Scoring <span class="muted">(resume_matcher.py + scoring.py)</span></b>
+            <p>Your inferred signals are compared against a catalog of <b>150 role profiles</b> (<code>roles.py</code>), each a fixed dataclass with its own mbti_type, holland_code, and keyword lists. The formula is explicit arithmetic:</p>
+            <p class="info-formula">Framework compatibility = MBTI match &times; 50% + Holland match &times; 50%</p>
+            <p>That's blended with resume-keyword overlap (60/40). Every role gets a number, and they're sorted. No model, just math.</p>
+          </div>
+          <div class="info-step">
+            <b>Validation + map</b>
+            <p>The ranking is sanity-checked against the OSKG graph, then the career map is drawn as a fixed graph of nodes (profile &rarr; signals &rarr; roles) and edges. Deterministic all the way down.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3 class="info-h">Even the job-posting matcher is LLM-free</h3>
+          <p>It scrapes the posting's <code>JobPosting</code> metadata, runs the same signal detector over the description to infer the job's MBTI/Holland/Big Five, then compares against yours with keyword overlap + signal comparison.</p>
+        </div>
+
+        <div class="info-section">
+          <h3 class="info-h">Why it doesn't need an LLM</h3>
+          <p>The task is structured mapping, not open-ended generation: <b>text &rarr; known categories &rarr; ranked roles</b>. That's classic deterministic NLP (frequency/keyword matching), the kind of thing that predates LLMs by decades. The "detailed explanations" you see are templates filled with the counted data (e.g. "You're missing 26 keyword(s) the posting emphasizes"), not generated prose.</p>
+        </div>
+
+        <div class="info-section">
+          <h3 class="info-h">The trade-off (honest)</h3>
+          <div class="info-two-col">
+            <div class="info-card">
+              <b class="info-card-h bad">What an LLM would do better</b>
+              <p>Understand synonyms, context, negation ("I'm not a people person"), and nuance. Lexicons are brittle to wording.</p>
+            </div>
+            <div class="info-card">
+              <b class="info-card-h good">What the deterministic approach buys you</b>
+              <p>Zero cost per analysis, runs offline, instant, fully auditable (you can trace exactly why a role scored X, no black box), no hallucination, and your resume never gets shipped to a third-party model. A real privacy win for something as sensitive as a career history.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <p class="info-answer">So the short answer to "how does it not use an LLM?" <b>Because it never generates anything.</b> It only counts and sorts, with formulas you can open up and read. 🏴‍☠️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="results.js?v=12"></script>
-  <script src="app.js?v=19"></script>
+  <script src="app.js?v=20"></script>
 </body>
 </html>
