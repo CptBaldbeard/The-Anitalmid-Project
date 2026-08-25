@@ -688,6 +688,18 @@ function renderMap(map) {
   });
 }
 
+// Re-fit the career map on resize / orientation change (mobile).
+let _mapResizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(_mapResizeTimer);
+  _mapResizeTimer = setTimeout(() => {
+    if (careerNetwork) {
+      const c = $("map");
+      if (c) careerNetwork.setSize(c.clientWidth + "px", c.clientHeight + "px");
+    }
+  }, 200);
+});
+
 function renderNodeDetails(node, nodes, edges) {
   const box = $("nodeDetails");
   if (!node) {

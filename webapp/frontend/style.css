@@ -207,7 +207,7 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
 .extra { color: var(--purple); }
 
 /* Results */
-.hidden { display: none; }
+.hidden { display: none !important; }
 .signals { display: flex; flex-wrap: wrap; gap: 14px; }
 .chip { background: var(--panel-2); border: 1px solid var(--border); border-radius: 9px; padding: 14px 18px; }
 .chip b { display: block; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .5px; margin-bottom: 3px; }
@@ -339,3 +339,66 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
   color: var(--text); border-radius: 9px; padding: 11px 14px; font-size: 15px;
 }
 .role-location input:focus { outline: none; border-color: var(--primary); }
+
+/* ===================== Mobile / responsive ===================== */
+@media (max-width: 640px) {
+  header { padding: 14px 16px; }
+  .brand { gap: 8px; }
+  .logo { font-size: 20px; }
+  h1 { font-size: 19px; }
+  .tagline { display: none; }
+
+  main { padding: 0 14px 72px; }
+
+  /* Landing */
+  .landing-hero { padding: 52px 8px 40px; }
+  .landing-hero h2 { font-size: 31px; }
+  .landing-hero .sub { font-size: 16px; margin-bottom: 28px; }
+  .landing-cta { flex-direction: column; align-items: stretch; }
+  .landing-cta button { width: 100%; }
+  .feature-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+
+  /* Cards */
+  .card { padding: 20px 16px; margin-bottom: 20px; border-radius: 12px; }
+
+  /* Wizard */
+  .mode-toggle { flex-direction: column; }
+  .holland-row { flex-direction: column; }
+
+  /* Auth */
+  .auth-row { flex-direction: column; align-items: stretch; }
+  .auth-row input { min-width: 0; width: 100%; }
+  .auth-row button { width: 100%; }
+
+  /* Actions */
+  .actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .actions .primary { width: 100%; }
+
+  /* Touch-friendly controls */
+  input, select { min-height: 46px; }
+
+  /* Results */
+  .results-bar .ghost { width: 100%; }
+  .signals .results-btn { flex: 1 1 100%; }
+  #map { height: 380px; }
+  .pie-wrap { height: 260px; }
+
+  /* Node details */
+  .nd-kv .k { min-width: 80px; }
+
+  /* Match cards */
+  .match .top { flex-wrap: wrap; }
+
+  /* Overlays -> full-screen sheets */
+  .overlay { padding: 0; }
+  .overlay-panel {
+    max-width: none; width: 100%; min-height: 100vh;
+    border-radius: 0; border: none; padding: 20px 16px 36px;
+  }
+  .overlay-head .ghost { padding: 10px 14px; font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  #map { height: 320px; }
+  .pie-wrap { height: 230px; }
+}
