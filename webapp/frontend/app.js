@@ -443,10 +443,29 @@ async function emailResults() {
   btn.disabled = true;
   btn.textContent = "Sending…";
   try {
+    const payload = {
+      signals: currentAnalysis.signals,
+      top_matches: currentAnalysis.top_matches,
+    };
+    if (pivotPool && pivotPool.length) {
+      const start = pivotShown || 0;
+      const end = Math.min(start + 5, pivotPool.length);
+      payload.pivot = {
+        matches: pivotPool.slice(start, end),
+        education: [
+          ...pivotHeldUnder.get(), ...pivotHeldMasters.get(), ...pivotHeldDoctoral.get(),
+          ...pivotWantUnder.get(), ...pivotWantMasters.get(), ...pivotWantDoctoral.get(),
+        ],
+        hobbies: pivotHobbyTags.get(),
+      };
+    }
+    if (currentJobAlignment && !currentJobAlignment.error) {
+      payload.job_alignment = currentJobAlignment;
+    }
     const d = await apiFetch("/analyze/email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ signals: currentAnalysis.signals, top_matches: currentAnalysis.top_matches }),
+      body: JSON.stringify(payload),
     });
     btn.textContent = "✓ Sent to " + (d.to || "your email");
   } catch (err) {

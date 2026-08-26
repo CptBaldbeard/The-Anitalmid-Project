@@ -81,6 +81,8 @@ class JobAnalysisRequest(BaseModel):
 class EmailResultsRequest(BaseModel):
     signals: Dict[str, Any] = Field(default_factory=dict)
     top_matches: List[Dict[str, Any]] = Field(default_factory=list)
+    pivot: Dict[str, Any] | None = None
+    job_alignment: Dict[str, Any] | None = None
 
 
 class ApplyPilotExportRequest(BaseModel):
