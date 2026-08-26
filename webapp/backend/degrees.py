@@ -383,6 +383,7 @@ PROFESSIONAL: list[tuple[str, str, tuple[str, ...]]] = [
     ("Master of International Business", "Masters", ("Business & Finance",)),
     ("Master of Real Estate", "Masters", ("Real Estate",)),
     ("JD", "Professional", ("Legal",)),
+    ("Juris Doctorate", "Professional", ("Legal",)),
     ("LLM", "Masters", ("Legal",)),
     ("Master of Legal Studies", "Masters", ("Legal",)),
     ("Master of Dispute Resolution", "Masters", ("Legal",)),
