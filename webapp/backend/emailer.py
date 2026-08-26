@@ -289,22 +289,91 @@ def build_metrics_email(metrics: dict) -> str:
 </body></html>"""
 
 
-def build_results_email(username: str, signals: dict, top_matches: list) -> str:
-    """Build the HTML for the individualized-results email."""
+def _pivot_section(pivot: dict) -> str:
+    """Render the Career Pivot Journey section (the matches currently in view)."""
+    matches = pivot.get("matches") or []
+    education = pivot.get("education") or []
+    hobbies = pivot.get("hobbies") or []
+    summary_parts = []
+    if education:
+        summary_parts.append("degrees: " + ", ".join(_esc(e) for e in education))
+    if hobbies:
+        summary_parts.append("hobbies: " + ", ".join(_esc(h) for h in hobbies))
+    summary = "; ".join(summary_parts)
+
+    rows = ""
+    for m in matches:
+        title = _esc(m.get("title") or "")
+        category = _esc(m.get("category") or "")
+        holland = _esc(m.get("holland_code") or "")
+        pivot_cost = _esc(m.get("pivot_cost") or "")
+        meta = " &middot; ".join(x for x in (category, holland, f"pivot: {pivot_cost}") if x)
+        rows += (
+            '<tr><td style="padding:12px 16px;border-bottom:1px solid #2a3450">'
+            f'<div style="font-size:15px;font-weight:700;color:#e9eef7">{title}</div>'
+            + (f'<div style="font-size:12px;color:#93a0b8;margin-top:3px">{meta}</div>' if meta else "")
+            + "</td></tr>"
+        )
+
+    body = ""
+    if summary:
+        body += f'<p style="color:#cdd4e0;font-size:14px;margin:0 0 12px;line-height:1.6">{summary}</p>'
+    if rows:
+        body += (
+            '<table style="width:100%;border-collapse:collapse;background:#131a29;'
+            'border:1px solid #2a3450;border-radius:12px;overflow:hidden">' + rows + "</table>"
+        )
+    else:
+        body += '<p style="color:#93a0b8;font-size:14px">No pivot matches were generated.</p>'
+    return _section("Career Pivot Journey", body)
+
+
+def _job_section(ja: dict) -> str:
+    """Render the job-match section (overall alignment + keyword coverage)."""
+    job = ja.get("job") or {}
+    title = _esc(job.get("title") or "Job posting")
+    company = _esc(job.get("company") or "")
+    heading = title + (f" @ {company}" if company else "")
+    kw = ja.get("keyword_alignment") or {}
+    psych = ja.get("psychometric_alignment") or {}
+    overall = psych.get("overall")
+    kw_score = kw.get("score")
+
+    body = f'<p style="color:#cdd4e0;font-size:15px;font-weight:700;margin:0 0 10px">{heading}</p>'
+    if overall is not None:
+        body += f'<p style="color:#cdd4e0;font-size:14px;margin:0 0 6px"><b>Overall psychometric alignment:</b> {int(round(float(overall)))}%</p>'
+    if kw_score is not None:
+        body += f'<p style="color:#cdd4e0;font-size:14px;margin:0 0 6px"><b>Keyword coverage:</b> {int(round(float(kw_score)))}%</p>'
+    return _section("Job match", body)
+
+
+def build_results_email(username: str, signals: dict, top_matches: list, pivot: dict | None = None, job_alignment: dict | None = None) -> str:
+    """Build the HTML for the individualized-results email, scaling with completed sections."""
     rows = ""
     for m in (top_matches or [])[:6]:
         title = _esc(m.get("title") or "")
         score = int(round(float(m.get("composite_score") or 0)))
         desc = _esc(m.get("description") or "")
         salary = _esc(m.get("salary_range") or "")
+        fits = m.get("salary_fits")
+        if fits is True:
+            fits_html = '<div style="font-size:12px;color:#4ade80;margin-top:4px">&#10003; within your range</div>'
+        elif fits is False:
+            fits_html = '<div style="font-size:12px;color:#93a0b8;margin-top:4px">outside your range</div>'
+        else:
+            fits_html = ""
         rows += (
             '<tr><td style="padding:14px 16px;border-bottom:1px solid #2a3450">'
             f'<div style="font-size:16px;font-weight:700;color:#e9eef7">{title} '
             f'<span style="color:#2dd4bf">({score}%)</span></div>'
             + (f'<div style="font-size:14px;color:#93a0b8;margin-top:3px">{desc}</div>' if desc else "")
             + (f'<div style="font-size:12px;color:#38bdf8;margin-top:4px">{salary}</div>' if salary else "")
+            + fits_html
             + "</td></tr>"
         )
+
+    pivot_html = _pivot_section(pivot) if pivot else ""
+    job_html = _job_section(job_alignment) if (job_alignment and not job_alignment.get("error")) else ""
 
     return f"""<!DOCTYPE html><html><body style="margin:0;padding:0;background:#0b0f1a;font-family:Arial,Helvetica,sans-serif">
 <div style="max-width:600px;margin:0 auto;padding:32px 20px">
@@ -319,6 +388,9 @@ def build_results_email(username: str, signals: dict, top_matches: list) -> str:
   <table style="width:100%;border-collapse:collapse;background:#131a29;border:1px solid #2a3450;border-radius:12px;overflow:hidden">
     {rows}
   </table>
+
+  {pivot_html}
+  {job_html}
 
   <p style="color:#93a0b8;font-size:14px;margin:24px 0 0">
     <a href="{BASE_URL}" style="color:#2dd4bf;text-decoration:none;font-weight:700">Return to The Anitalmid Project &rarr;</a>
