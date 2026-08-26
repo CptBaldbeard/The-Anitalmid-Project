@@ -356,12 +356,7 @@ def build_results_email(username: str, signals: dict, top_matches: list, pivot: 
         desc = _esc(m.get("description") or "")
         salary = _esc(m.get("salary_range") or "")
         fits = m.get("salary_fits")
-        if fits is True:
-            fits_html = '<div style="font-size:12px;color:#4ade80;margin-top:4px">&#10003; within your range</div>'
-        elif fits is False:
-            fits_html = '<div style="font-size:12px;color:#93a0b8;margin-top:4px">outside your range</div>'
-        else:
-            fits_html = ""
+        fits_html = '<div style="font-size:12px;color:#4ade80;margin-top:4px">&#10003; within your range</div>' if fits is True else ""
         rows += (
             '<tr><td style="padding:14px 16px;border-bottom:1px solid #2a3450">'
             f'<div style="font-size:16px;font-weight:700;color:#e9eef7">{title} '
